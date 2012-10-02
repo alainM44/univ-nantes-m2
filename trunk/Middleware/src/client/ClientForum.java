@@ -5,6 +5,7 @@ import ihm.Placement;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.Naming;
+import java.rmi.RemoteException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,17 +21,29 @@ public class ClientForum extends JFrame {
 	class ActionInscription implements ActionListener {
 		private String titre;
 		private boolean inscrit = false;
-		private AffichageClient c; // affichage client associé au bouton
-		private InterfaceSujetDiscussion sujet; // Sujet associé au bouton
+		private AffichageClient ihmSujet; // affichage client associé au bouton
+		private InterfaceSujetDiscussion sujetDiscussionServeur; // Sujet associé au bouton
 
-		public ActionInscription(String titre) {
-			// TODO implement
+		public ActionInscription(String titre, InterfaceSujetDiscussion sujet)
+				throws RemoteException {
+			super();
+			this.sujetDiscussionServeur = sujet;
+			this.titre = titre;
+			this.inscrit = true;
+			
+
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 
-			// TODO Auto-generated method stub
+			try {
+				this.ihmSujet = new AffichageClient(titre, sujetDiscussionServeur);
+				this.sujetDiscussionServeur.inscription(ihmSujet);
+			} catch (RemoteException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("erreur ClientForum.java actionPerformed");
+			}
 
 		}
 
@@ -38,7 +51,7 @@ public class ClientForum extends JFrame {
 
 	InterfaceServeurForum leServeur;
 
-	public ClientForum() {
+	public ClientForum() throws RemoteException {
 		try {
 			leServeur = (InterfaceServeurForum) Naming
 					.lookup("//localhost/ServeurForum");
@@ -49,15 +62,17 @@ public class ClientForum extends JFrame {
 		Placement.p(this, boutonInscriptionSport, 1, 1, 1, 1);
 		Placement.p(this, boutonInscriptionMusique, 2, 1, 1, 1);
 		Placement.p(this, boutonInscriptionCinema, 3, 1, 1, 1);
-		boutonInscriptionSport.addActionListener(null);// TODO argument missing
-		boutonInscriptionMusique.addActionListener(null);// TODO argument
-															// missing
-		boutonInscriptionCinema.addActionListener(null);// TODO argument missing
+		boutonInscriptionSport.addActionListener(new ActionInscription("sport",
+				leServeur.obientSujet("sport")));
+		boutonInscriptionMusique.addActionListener(new ActionInscription(
+				"musique", leServeur.obientSujet("musique")));
+		boutonInscriptionCinema.addActionListener(new ActionInscription(
+				"cinema", leServeur.obientSujet("cinema")));
 		setVisible(true);
 		pack();
 	}
 
-	public static void main(String[] argv) {
+	public static void main(String[] argv) throws RemoteException {
 		System.setProperty("java.security.policy",
 				"file:///home/alain/workspace/SCP_TP2_Mess/no.policy");
 		new ClientForum();
