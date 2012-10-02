@@ -1,3 +1,5 @@
+package tests;
+
 import list.*;
 
 public class TestListe{

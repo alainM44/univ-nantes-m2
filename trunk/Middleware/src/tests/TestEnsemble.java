@@ -1,3 +1,5 @@
+package tests;
+
 import ens.*;
 
 public class TestEnsemble{
@@ -6,10 +8,10 @@ public class TestEnsemble{
     EnsembleDEntiers E1 = EnsembleDEntiers.aPartirDe(T1);
     System.out.println("E1 = "+E1);
     int i=1;
-    while(!E1.estVide()){
-	E1.retireElement(i); i++;
-      System.out.println("E1 = "+E1);
-    }
+//    while(!E1.estVide()){
+//	E1.retireElement(i); i++;
+//      System.out.println("E1 = "+E1);
+//    }
     E1 = EnsembleDEntiers.aPartirDe(T1);
     int[] T2 = {4,2,12,35,56};
     EnsembleDEntiers E2 = EnsembleDEntiers.aPartirDe(T2);
