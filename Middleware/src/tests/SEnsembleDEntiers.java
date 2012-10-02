@@ -1,3 +1,8 @@
+package tests;
+
+import divers.PaireDEntiers;
+import list.ListeDePairesDEntiers;
+
 
 class EnsembleDEntiers {
 
@@ -8,7 +13,7 @@ class EnsembleDEntiers {
   // intervalles [inf,sup], disjoints, par ordre croissants
 
   private EnsembleDEntiers() {
-  //constructeur (privé) : cree la liste d'intervalles vide
+  //constructeur (privï¿½) : cree la liste d'intervalles vide
     intervalles = new ListeDePairesDEntiers();
   }
 
@@ -25,24 +30,24 @@ class EnsembleDEntiers {
   }
 
   private static boolean fusionnables(PaireDEntiers x, PaireDEntiers y){
-  // résultat : indique si les intervalles x et y sont fusionnables
+  // rï¿½sultat : indique si les intervalles x et y sont fusionnables
     return max(x.premier,y.premier)<=min(x.second,y.second)+1;
   }
 
   private static boolean intersectionVide(PaireDEntiers x, PaireDEntiers y){
-  // résultat : indique si l'intersection des intervalles x et y est vide
+  // rï¿½sultat : indique si l'intersection des intervalles x et y est vide
     return max(x.premier,y.premier)>min(x.second,y.second);
   }
 
   private static PaireDEntiers fusion(PaireDEntiers x, PaireDEntiers y){
   // prerequis : x et y sont des intervalles fusionnables
-  // résultat : l'intervalle fusion de x et y
+  // rï¿½sultat : l'intervalle fusion de x et y
     return new PaireDEntiers(min(x.premier,y.premier),max(x.second,y.second));
   }
 
   private static PaireDEntiers intersection(PaireDEntiers x, PaireDEntiers y){
-  // prerequis : x et y représentent des intervalles d'intersection non vide
-  // résultat : l'intervalle intersection de x et y
+  // prerequis : x et y reprï¿½sentent des intervalles d'intersection non vide
+  // rï¿½sultat : l'intervalle intersection de x et y
     return new PaireDEntiers(max(x.premier,y.premier),min(x.second,y.second));
   }
 
@@ -50,7 +55,7 @@ class EnsembleDEntiers {
   public static EnsembleDEntiers aPartirDe(int[] T){
   // prerequis : le tableau T contient alternativement les bornes inf et sup
   // d'intervalles disjoints, par ordre croissant des bornes
-  // resultat : l'ensemble d'entiers constitué de ces intervalles
+  // resultat : l'ensemble d'entiers constituï¿½ de ces intervalles
     EnsembleDEntiers resul=new EnsembleDEntiers();
     for(int i=0; i<T.length-1; i=i+2) {
 	resul.intervalles.ajouteEnQueue(new PaireDEntiers(T[i],T[i+1]));
@@ -87,10 +92,10 @@ class EnsembleDEntiers {
   }
 
   private void cumuleAuBout(PaireDEntiers nouvelIntervalle) {
-  // prérequis : si la liste d'intervalle n'est pas vide, la borne inférieure
-  // de l'intervalle de queue est <= à la borne inférieure de nouvelIntervalle
-  // effet : réalise l'union normalisée de de nouvelIntervalle à this
-  // c'est-à-dire remplace l'intervalle de queue par sa fusion
+  // prï¿½requis : si la liste d'intervalle n'est pas vide, la borne infï¿½rieure
+  // de l'intervalle de queue est <= ï¿½ la borne infï¿½rieure de nouvelIntervalle
+  // effet : rï¿½alise l'union normalisï¿½e de de nouvelIntervalle ï¿½ this
+  // c'est-ï¿½-dire remplace l'intervalle de queue par sa fusion
   // avec nouvelIntervalle s'ils sont fusionnables,
   // ajoute nouvelIntervalle en queue sinon.
     if(intervalles.estVide()){intervalles.ajouteEnQueue(nouvelIntervalle);}
@@ -149,7 +154,7 @@ class EnsembleDEntiers {
   }
 
   public static EnsembleDEntiers complementaire(EnsembleDEntiers x) {
-  // résultat : le complémentaire de x dans [minEntier,maxEntier],
+  // rï¿½sultat : le complï¿½mentaire de x dans [minEntier,maxEntier],
     EnsembleDEntiers resul = new EnsembleDEntiers();
     if(x.intervalles.estVide()){
       resul.intervalles.ajouteEnQueue(new PaireDEntiers(minEntier,maxEntier));
@@ -180,12 +185,12 @@ class EnsembleDEntiers {
   }
 
   private static boolean contient(PaireDEntiers x, int k){
-  // résultat : indique si k appartient à l'intervalle x
+  // rï¿½sultat : indique si k appartient ï¿½ l'intervalle x
     return k>=x.premier && k<=x.second;
   }
 
   public static boolean contient(EnsembleDEntiers x, int k){
-  // résultat : indique si k appartient à x
+  // rï¿½sultat : indique si k appartient ï¿½ x
     boolean resul=false;
     ListeDePairesDEntiers.Parcours p = x.intervalles.nouveauParcours();
     while(!resul && !p.estEnFin()){

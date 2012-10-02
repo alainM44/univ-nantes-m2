@@ -1,11 +1,13 @@
+package tests;
+
 class Rationnel {
 
-  private int p; // numérateur (signé)
-  private int q; // dénominateur (positif)
+  private int p; // numï¿½rateur (signï¿½)
+  private int q; // dï¿½nominateur (positif)
 
   private int pgcd(int a, int b) {
-  // prérequis : a>0 et b>0
-  // résultat : le pgcd de a et b
+  // prï¿½requis : a>0 et b>0
+  // rï¿½sultat : le pgcd de a et b
 	int x=a; int y=b;
 	if (x<y) {int t=x; x=y; y=t;}
         while (y!=0) {int t=x%y; x=y; y=t;}
@@ -13,8 +15,8 @@ class Rationnel {
   }
 
   public Rationnel(int a, int b) {
-  // prérequis : b différent de 0 (a et b de signe quelconque)
-  // constructeur : cree un rationnel égal à a/b
+  // prï¿½requis : b diffï¿½rent de 0 (a et b de signe quelconque)
+  // constructeur : cree un rationnel ï¿½gal ï¿½ a/b
       if(a==0) {p=0; q=1;}
       else {
 	if (b<0) { a=-a; b=-b;}
@@ -24,7 +26,7 @@ class Rationnel {
   }
 
   public Rationnel(int a) {
-  // constructeur : cree un rationnel égal à a
+  // constructeur : cree un rationnel ï¿½gal ï¿½ a
       p = a; q = 1;
   }
 
@@ -46,7 +48,7 @@ class Rationnel {
   }
 
   public static Rationnel quotient(Rationnel x, Rationnel y){
-  // prérequis : y différent de zéro
+  // prï¿½requis : y diffï¿½rent de zï¿½ro
   // resultat : Rationnel quotient de x par y
 	return new Rationnel(x.p*y.q,x.q*y.p);
   }

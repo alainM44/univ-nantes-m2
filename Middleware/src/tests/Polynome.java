@@ -1,3 +1,5 @@
+package tests;
+
 import es.*;
 import list.*;
 import divers.PaireDEntiers;
@@ -8,19 +10,19 @@ class Polynome {
   // monomes non nuls <coefs,degres>, degres faibles en tete
 
   private Polynome() {
-  //constructeur (privé) : cree la liste vide de monomes
+  //constructeur (privï¿½) : cree la liste vide de monomes
     monomes = new ListeDePairesDEntiers();
   }
 
   public void dump() {
-  // affiche la représentation de this
+  // affiche la reprï¿½sentation de this
       System.out.println(monomes);
   }
 
   public static Polynome aPartirDe(int[] T){
   // prerequis : le tableau T contient alternativement les coefficients
-  // et les degrés correspondant d'un polynome, [Cn,Dn,...,C1,D1,C0,D0],
-  // par ordre décroissant des degrés
+  // et les degrï¿½s correspondant d'un polynome, [Cn,Dn,...,C1,D1,C0,D0],
+  // par ordre dï¿½croissant des degrï¿½s
   // resultat : le polynome represente par le tableau T
     Polynome resul=new Polynome();
     for(int i=0; i<T.length-1; i=i+2) {
@@ -33,7 +35,7 @@ class Polynome {
   public static Polynome zero = new Polynome();
 
   private void normaliser() {
-  // effet : enleve les paires correspondant à des coefficients nuls
+  // effet : enleve les paires correspondant ï¿½ des coefficients nuls
     ListeDePairesDEntiers.Parcours p = monomes.nouveauParcours();
     while(!p.estEnFin()){
       if (p.elementCourant().premier==0) {p.retireElement();}
@@ -44,9 +46,9 @@ class Polynome {
   public static Polynome lire(int degre) {
   // prerequis : degre>=0
   // lit un polynome au clavier, sous la forme :
-  // cn dn...c1 d1 c0 d0, par ordre croissant des degrés.
-  // La lecture s'arrête a la fourniture du degre indique en parametre.
-  // résultat : le polynome lu
+  // cn dn...c1 d1 c0 d0, par ordre croissant des degrï¿½s.
+  // La lecture s'arrï¿½te a la fourniture du degre indique en parametre.
+  // rï¿½sultat : le polynome lu
     Polynome resul = new Polynome();
     int coef=Lecture.unEntier(); int deg=Lecture.unEntier();
     resul.monomes.ajouteEnQueue(new PaireDEntiers(coef,deg));
@@ -110,7 +112,7 @@ class Polynome {
 
   public int degre(){
   // resultat: degre du polynome this
-  // le degre du polynome nul est -infini. On le représentera par -1
+  // le degre du polynome nul est -infini. On le reprï¿½sentera par -1
       if (monomes.estVide()) {return -1;}
       else {
         ListeDePairesDEntiers.Parcours p = monomes.nouveauParcours();
@@ -170,7 +172,7 @@ class Polynome {
 
   private Polynome produitParMonome(PaireDEntiers m){
   // prerequis : d>=0
-  // resultat : le polynome this multiplié par le monome m=c*X^d
+  // resultat : le polynome this multipliï¿½ par le monome m=c*X^d
     int c=m.premier; int d=m.second;
     if (c==0 || monomes.estVide()){return zero;}
     if (d==0 && c==1) {return this;}
@@ -198,7 +200,7 @@ class Polynome {
   }
 
   public static Polynome derive(Polynome x){
-  // resultat: le polynome derivé de x
+  // resultat: le polynome derivï¿½ de x
     int degreDeX=x.degre();
     if (degreDeX==-1||degreDeX==0){return zero;}
     Polynome resul = new Polynome();
