@@ -9,6 +9,9 @@ import java.rmi.Naming;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import serveur.InterfaceServeurForum;
+import serveur.InterfaceSujetDiscussion;
+
 
 public class ClientForum extends JFrame
 {
@@ -37,13 +40,13 @@ public class ClientForum extends JFrame
 
 	}
 
-	InterfaceServeurFrom leServeur;
+	InterfaceServeurForum leServeur;
 
-	public ClienForum()
+	public ClientForum()
 	{
 		try
 		{
-			leServeur = (InterfaceServeurFrom) Naming.lookup("remplir");
+			leServeur = (InterfaceServeurForum) Naming.lookup("remplir");
 		}
 		catch (Exception e)
 		{
@@ -51,5 +54,16 @@ public class ClientForum extends JFrame
 			return;
 		}
 		Placement.p(this, boutonInscriptionSport, 1, 1, 1, 1);
+		Placement.p(this, boutonInscriptionMusique, 2, 1, 1, 1);
+		Placement.p(this, boutonInscriptionCinema, 3, 1, 1, 1);
+		boutonInscriptionSport.addActionListener(null);//TODO argument missing
+		boutonInscriptionMusique.addActionListener(null);//TODO argument missing
+		boutonInscriptionCinema.addActionListener(null);//TODO argument missing
+		setVisible(true);
+		pack();
+	}
+	
+	public static void main(String[] argv){
+		new ClientForum();
 	}
 }
