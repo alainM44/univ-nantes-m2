@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.xml.bind.Marshaller.Listener;
 
+import list.Liste;
+
 public class SujetDiscussion extends UnicastRemoteObject implements InterfaceSujetDiscussion {
 
 	private final String titre;
@@ -27,6 +29,6 @@ public class SujetDiscussion extends UnicastRemoteObject implements InterfaceSuj
 	public synchronized void diffuse (String message){
 		//TODO
 	}
-	s
+	
 	
 }
