@@ -2,10 +2,6 @@ package serveur;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.List;
-
-import javax.xml.bind.Marshaller.Listener;
-
 import list.Liste;
 
 public class SujetDiscussion extends UnicastRemoteObject implements InterfaceSujetDiscussion {
@@ -13,10 +9,11 @@ public class SujetDiscussion extends UnicastRemoteObject implements InterfaceSuj
 	private final String titre;
 	//liste des protagonistes de ce sujet de discussion
 	//attention List et pas LISTE
-	private Liste<InterfaceAffichageClient> protagonistes = new Liste<InterfaceAffichageClient>();
+	private Liste<InterfaceAffichageClient> protagonistes;
 	public SujetDiscussion(String titre) throws RemoteException {
 		super();
 		this.titre = titre;
+		this.protagonistes =new Liste<InterfaceAffichageClient>();
 	}
 	
 	public synchronized void inscription (InterfaceAffichageClient c){
@@ -29,6 +26,8 @@ public class SujetDiscussion extends UnicastRemoteObject implements InterfaceSuj
 	public synchronized void diffuse (String message){
 		//TODO
 	}
+	
+	
 	
 	
 }
