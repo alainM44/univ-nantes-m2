@@ -18,7 +18,9 @@ public class ServeurForum extends UnicastRemoteObject implements
 	SujetDiscussion cinema;
 
 	public ServeurForum() throws RemoteException {
-
+		sport = new SujetDiscussion("sport");
+		musique = new SujetDiscussion("musique");
+		cinema = new SujetDiscussion("cinema");
 	}
 
 	@Override
