@@ -10,9 +10,10 @@ import java.rmi.RemoteException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import serveur.InterfaceServeurForum;
-import serveur.InterfaceSujetDiscussion;
+import serveur.IServeurForum;
+import serveur.ISujetDiscussion;
 
+@SuppressWarnings("serial")
 public class ClientForum extends JFrame {
 	JButton boutonInscriptionSport = new JButton("sport");
 	JButton boutonInscriptionMusique = new JButton("musique");
@@ -22,9 +23,9 @@ public class ClientForum extends JFrame {
 		private String titre;
 		private boolean inscrit = false;
 		private AffichageClient ihmSujet; // affichage client associé au bouton
-		private InterfaceSujetDiscussion sujetDiscussionServeur; // Sujet associé au bouton
+		private ISujetDiscussion sujetDiscussionServeur; // Sujet associé au bouton
 
-		public ActionInscription(String titre, InterfaceSujetDiscussion sujet)
+		public ActionInscription(String titre, ISujetDiscussion sujet)
 				throws RemoteException {
 			super();
 			this.sujetDiscussionServeur = sujet;
@@ -49,11 +50,11 @@ public class ClientForum extends JFrame {
 
 	}
 
-	InterfaceServeurForum leServeur;
+	IServeurForum leServeur;
 
 	public ClientForum() throws RemoteException {
 		try {
-			leServeur = (InterfaceServeurForum) Naming
+			leServeur = (IServeurForum) Naming
 					.lookup("//localhost/ServeurForum");
 		} catch (Exception e) {
 			System.out.println("ClientForum.java erreur nommage serveur");
