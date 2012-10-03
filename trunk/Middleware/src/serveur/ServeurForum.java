@@ -1,3 +1,19 @@
+/*   This file is part of ForumRMI.
+
+    ForumRMI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    ForumRMI is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with ForumRMI.  If not, see <http://www.gnu.org/licenses/>
+ */
+
 package serveur;
 
 import java.rmi.Naming;
@@ -6,17 +22,37 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
 
+/**
+ * @author Alain MARGUERITE
+ * @author Romain RINCÉ
+ * 
+ *         Classe décrivant le serveur du forum. Il sert uniquement à orienter
+ *         un client sur un SujetDiscussion.
+ * 
+ * @see IServeurForum
+ * @see UnicastRemoteObject
+ * 
+ */
 public class ServeurForum extends UnicastRemoteObject implements
-		InterfaceServeurForum {
+		IServeurForum {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	// Écris en dur pour l'instant //TODO rendre la création de SujetDiscussion
+	// dynamique
 	SujetDiscussion sport;
 	SujetDiscussion musique;
 	SujetDiscussion cinema;
 
+	/**
+	 * Contructeur par defaut instanciant les différents Sujets de discussion.
+	 * TODO effectuer l'instanciation d'un sujetde discussion lorsque le premier
+	 * client se connecte
+	 * 
+	 * @throws RemoteException
+	 */
 	public ServeurForum() throws RemoteException {
 		sport = new SujetDiscussion("sport");
 		musique = new SujetDiscussion("musique");
@@ -24,10 +60,18 @@ public class ServeurForum extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public InterfaceSujetDiscussion obientSujet(String titre)
+	public ISujetDiscussion obientSujet(String titre)
 			throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		if (titre == "cinema")
+			return cinema;
+		else if (titre == "musique")
+			return musique;
+		else if (titre == "sport")
+			return sport;
+		else
+			return null;// TODO retourne une valeur null. Peu propre prévoire un
+						// lancement d'exception ou rien si changement du
+						// programme.
 	}
 
 	public static void main(String[] args) {
