@@ -81,7 +81,8 @@ public class AffichageClient extends UnicastRemoteObject implements
 	 */
 	@Override
 	public void affiche(String message) {
-		discussion.append(message);
+		
+		discussion.append("\n"+message);
 	}
 
 	public void termine() {

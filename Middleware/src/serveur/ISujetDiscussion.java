@@ -29,7 +29,7 @@ import java.rmi.server.UnicastRemoteObject;
  * @see SujetDiscussion
  * @see UnicastRemoteObject
  */
-public interface ISujetDiscussion extends Remote{
+public interface ISujetDiscussion extends Remote {
 	/**
 	 * Inscrire un client au sujet de Discussion
 	 * 
@@ -38,6 +38,7 @@ public interface ISujetDiscussion extends Remote{
 	 * @throws RemoteException
 	 */
 	public void inscription(IAffichageClient c) throws RemoteException;
+
 	/**
 	 * Désinscrire un client au sujet de Discussion
 	 * 
@@ -47,6 +48,12 @@ public interface ISujetDiscussion extends Remote{
 	 */
 	public void desInscription(IAffichageClient c) throws RemoteException;
 
+	/**
+	 * 
+	 * @param Message
+	 *            Message à diffuser
+	 * @throws RemoteException
+	 */
 	public void diffuse(String Message) throws RemoteException;
 
 }

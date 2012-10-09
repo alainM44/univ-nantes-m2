@@ -75,10 +75,7 @@ public class ServeurForum extends UnicastRemoteObject implements
 	}
 
 	public static void main(String[] args) {
-		// ////////////////////////////////////////////////////////////
 		System.setProperty("java.security.policy","file:./no.policy");
-		// /////////////////////////////////
-
 		// Create and install a security manager
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new RMISecurityManager());
@@ -98,12 +95,5 @@ public class ServeurForum extends UnicastRemoteObject implements
 			e.printStackTrace();
 			return;
 		}
-	}
-
-	@Override
-	public String helloWorld() throws RemoteException
-	{
-		// TODO Auto-generated method stub
-		return "hello motherfucker";
 	}
 }
