@@ -60,13 +60,13 @@ public class ServeurForum extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public ISujetDiscussion obientSujet(String titre)
+	public ISujetDiscussion obtientSujet(String titre)
 			throws RemoteException {
-		if (titre == "cinema")
+		if (titre.equals( "cinema"))
 			return cinema;
-		else if (titre == "musique")
+		else if (titre.equals( "musique"))
 			return musique;
-		else if (titre == "sport")
+		else if (titre.equals( "sport"))
 			return sport;
 		else
 			return null;// TODO retourne une valeur null. Peu propre prévoire un
@@ -95,7 +95,15 @@ public class ServeurForum extends UnicastRemoteObject implements
 			System.out.println("Démarrage du serveur");
 		} catch (Exception e) {
 			System.out.println("erreur enregistrement serveur");
+			e.printStackTrace();
 			return;
 		}
+	}
+
+	@Override
+	public String helloWorld() throws RemoteException
+	{
+		// TODO Auto-generated method stub
+		return "hello motherfucker";
 	}
 }
