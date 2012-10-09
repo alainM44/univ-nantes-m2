@@ -15,6 +15,7 @@
  */
 package serveur;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -28,7 +29,7 @@ import java.rmi.server.UnicastRemoteObject;
  * @see SujetDiscussion
  * @see UnicastRemoteObject
  */
-public interface ISujetDiscussion {
+public interface ISujetDiscussion extends Remote{
 	/**
 	 * Inscrire un client au sujet de Discussion
 	 * 

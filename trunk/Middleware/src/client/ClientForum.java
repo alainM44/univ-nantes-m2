@@ -6,8 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -66,12 +64,17 @@ public class ClientForum extends JFrame {
 		Placement.p(this, boutonInscriptionSport, 1, 1, 1, 1);
 		Placement.p(this, boutonInscriptionMusique, 2, 1, 1, 1);
 		Placement.p(this, boutonInscriptionCinema, 3, 1, 1, 1);
+		System.out.println("blah"+leServeur.helloWorld());
+		
+//		ISujetDiscussion monSujetTemp =(ISujetDiscussion)
+//				leServeur.obtientSujet("sport");
+		
 		boutonInscriptionSport.addActionListener(new ActionInscription("sport",
-				leServeur.obientSujet("sport")));
+				leServeur.obtientSujet("sport")));
 		boutonInscriptionMusique.addActionListener(new ActionInscription(
-				"musique", leServeur.obientSujet("musique")));
+				"musique", leServeur.obtientSujet("musique")));
 		boutonInscriptionCinema.addActionListener(new ActionInscription(
-				"cinema", leServeur.obientSujet("cinema")));
+				"cinema", leServeur.obtientSujet("cinema")));
 		setVisible(true);
 		pack();
 	}

@@ -34,10 +34,14 @@ import java.util.ArrayList;
 public class SujetDiscussion extends UnicastRemoteObject implements
 		ISujetDiscussion {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6540161618078886953L;
 	/*
 	 * Titre et identifiant unique du sujet de discussion
 	 */
-	private final String titre;
+	private  String titre;
 	/*
 	 * liste des protagonistes de ce sujet de discussion
 	 */

@@ -11,7 +11,9 @@ public interface IServeurForum extends Remote {
 	 * @return L'instance du Sujet de discussion
 	 * @throws RemoteException
 	 */
-	public ISujetDiscussion obientSujet(String titre)
+	public ISujetDiscussion obtientSujet(String titre)
 			throws RemoteException;
+	
+	public String helloWorld() throws RemoteException;
 
 }
