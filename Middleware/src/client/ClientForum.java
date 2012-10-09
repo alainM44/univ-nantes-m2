@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -54,6 +55,7 @@ public class ClientForum extends JFrame {
 
 	public ClientForum() throws RemoteException {
 		try {
+			LocateRegistry.createRegistry(1099);
 			leServeur = (IServeurForum) Naming
 					.lookup("//localhost/ServeurForum");
 		} catch (Exception e) {
@@ -74,8 +76,9 @@ public class ClientForum extends JFrame {
 	}
 
 	public static void main(String[] argv) throws RemoteException {
+		LocateRegistry.createRegistry(1099);
 		System.setProperty("java.security.policy",
-				"file:///home/alain/workspace/SCP_TP2_Mess/no.policy");
+				"file:///comptes/E074862X/workspace/SCP_TP2_Mess/no.policy");
 		new ClientForum();
 	}
 }

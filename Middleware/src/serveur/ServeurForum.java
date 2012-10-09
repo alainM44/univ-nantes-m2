@@ -76,8 +76,7 @@ public class ServeurForum extends UnicastRemoteObject implements
 
 	public static void main(String[] args) {
 		// ////////////////////////////////////////////////////////////
-		System.setProperty("java.security.policy",
-				"file:///home/alain/workspace/SCP_TP2_Mess/no.policy");
+		System.setProperty("java.security.policy","file:./no.policy");
 		// /////////////////////////////////
 
 		// Create and install a security manager
