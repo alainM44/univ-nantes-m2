@@ -55,11 +55,12 @@ public class ClientForum extends JFrame {
 
 	public ClientForum() throws RemoteException {
 		try {
-			LocateRegistry.createRegistry(1099);
 			leServeur = (IServeurForum) Naming
 					.lookup("//localhost/ServeurForum");
+			System.out.println("Connecté au serveur");
 		} catch (Exception e) {
 			System.out.println("ClientForum.java erreur nommage serveur");
+			e.printStackTrace();
 			return;
 		}
 		Placement.p(this, boutonInscriptionSport, 1, 1, 1, 1);
@@ -76,9 +77,12 @@ public class ClientForum extends JFrame {
 	}
 
 	public static void main(String[] argv) throws RemoteException {
-		LocateRegistry.createRegistry(1099);
+
+
 		System.setProperty("java.security.policy",
-				"file:///comptes/E074862X/workspace/SCP_TP2_Mess/no.policy");
+				"file:./no.policy");
+
+
 		new ClientForum();
 	}
 }
