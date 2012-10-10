@@ -21,6 +21,7 @@ import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 /**
  * @author Alain MARGUERITE
@@ -33,18 +34,14 @@ import java.rmi.server.UnicastRemoteObject;
  * @see UnicastRemoteObject
  * 
  */
-public class ServeurForum extends UnicastRemoteObject implements
-		IServeurForum {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@SuppressWarnings("serial")
+public class ServeurForum extends UnicastRemoteObject implements IServeurForum {
 	// Écris en dur pour l'instant //TODO rendre la création de SujetDiscussion
 	// dynamique
 	SujetDiscussion sport;
 	SujetDiscussion musique;
 	SujetDiscussion cinema;
+	ArrayList<String> sujetDiscussions;
 
 	/**
 	 * Contructeur par defaut instanciant les différents Sujets de discussion.
@@ -57,16 +54,21 @@ public class ServeurForum extends UnicastRemoteObject implements
 		sport = new SujetDiscussion("sport");
 		musique = new SujetDiscussion("musique");
 		cinema = new SujetDiscussion("cinema");
+		
+		//Erreur ici
+	//	sujetDiscussions.add(this.sport.getTitre());
+//		sujetDiscussions.add(musique);
+//		sujetDiscussions.add(cinema);
+
 	}
 
 	@Override
-	public ISujetDiscussion obtientSujet(String titre)
-			throws RemoteException {
-		if (titre.equals( "cinema"))
+	public ISujetDiscussion obtientSujet(String titre) throws RemoteException {
+		if (titre.equals("cinema"))
 			return cinema;
-		else if (titre.equals( "musique"))
+		else if (titre.equals("musique"))
 			return musique;
-		else if (titre.equals( "sport"))
+		else if (titre.equals("sport"))
 			return sport;
 		else
 			return null;// TODO retourne une valeur null. Peu propre prévoire un
@@ -75,7 +77,7 @@ public class ServeurForum extends UnicastRemoteObject implements
 	}
 
 	public static void main(String[] args) {
-		System.setProperty("java.security.policy","file:./no.policy");
+		System.setProperty("java.security.policy", "file:./no.policy");
 		// Create and install a security manager
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new RMISecurityManager());
@@ -95,5 +97,10 @@ public class ServeurForum extends UnicastRemoteObject implements
 			e.printStackTrace();
 			return;
 		}
+	}
+
+	@Override
+	public ArrayList<String> getSujets() throws RemoteException {
+		return sujetDiscussions;
 	}
 }

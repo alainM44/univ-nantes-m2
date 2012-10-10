@@ -56,4 +56,10 @@ public interface ISujetDiscussion extends Remote {
 	 */
 	public void diffuse(String Message) throws RemoteException;
 
+	/**
+	 * 
+	 * @return String le titre du sujet
+	 * @throws RemoteException
+	 */
+	public String getTitre() throws RemoteException;
 }
