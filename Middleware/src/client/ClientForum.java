@@ -17,9 +17,9 @@
 package client;
 
 import ihm.Placement;
-
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.Naming;
@@ -28,11 +28,17 @@ import java.rmi.server.UnicastRemoteObject;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.plaf.DimensionUIResource;
 import serveur.IServeurForum;
 import serveur.ISujetDiscussion;
 
@@ -45,14 +51,19 @@ import serveur.ISujetDiscussion;
  * 
  */
 @SuppressWarnings("serial")
-public class ClientForum extends JFrame {
+public class ClientForum extends JFrame implements ListSelectionListener {
 	JButton boutonInscriptionSport = new JButton("sport");
 	JButton boutonInscriptionMusique = new JButton("musique");
 	JButton boutonInscriptionCinema = new JButton("cinema");
+	JButton boutonCreateServer = new JButton("CreateServer");
+	JButton boutonJoin = new JButton("JoinServer");
 	JButton boutonQuit = new JButton("Quit");
+	JList mlist;
+	DefaultListModel mlistModel;
 
 	/**
-	 * Classe d'écrivant les actin à effectuer lors d'un enclanchement de bouton
+	 * Classe d'écrivant les actions à effectuer lors d'un enclanchement de
+	 * bouton
 	 * 
 	 * @author Alain MARGUERITE
 	 * @author Romain RINCÉ
@@ -92,7 +103,6 @@ public class ClientForum extends JFrame {
 						sujetDiscussionServeur);
 				this.sujetDiscussionServeur.inscription(ihmSujet);
 			} catch (RemoteException e1) {
-				// TODO Auto-generated catch block
 				System.out.println("erreur ClientForum.java actionPerformed");
 			}
 
@@ -100,6 +110,7 @@ public class ClientForum extends JFrame {
 
 	}
 
+	// Création d'une variable locale permettant d'interoger le server
 	IServeurForum leServeur;
 
 	public ClientForum() throws RemoteException {
@@ -112,26 +123,53 @@ public class ClientForum extends JFrame {
 			e.printStackTrace();
 			return;
 		}
+
+		// frame parameters
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(400, 400));
 		setTitle("ForumRMI");
-		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+		setLayout(new BorderLayout());
+
 		// North area
 		Box boxNorth = Box.createHorizontalBox();
 		boxNorth.add(new JLabel("Bienvenue dans le ForumRMI"));
-		add(boxNorth);
-		// add(Box.createVerticalGlue());
+		add(boxNorth, BorderLayout.NORTH);
+		// add(Box.createRigidArea(new DimensionUIResource(0, 20)));
 
 		// center area
-		Box boxCenter = Box.createHorizontalBox();
-		boxCenter.add(new JLabel("VISU"));
-		boxCenter.add(Box.createHorizontalGlue());
-		boxCenter.add(new JLabel("LIST"));
-		add(boxCenter);
+
+		// add(new JLabel("VISU"),BorderLayout.WEST);
+		// boxCenter.add(Box.createHorizontalGlue());
+		// add(boxCenter, BorderLayout.CENTER);
+		mlistModel = new DefaultListModel();
+		mlistModel.addElement("Jane Doe");
+		mlistModel.addElement("John Smith");
+		mlistModel.addElement("Kathy Green");
+		mlistModel.addElement("toto");
+		mlistModel.addElement("tata");
+		mlistModel.addElement("titi");
+
+		mlist = new JList(mlistModel);
+		mlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		mlist.setSelectedIndex(0);
+		mlist.addListSelectionListener(this);
+		mlist.setVisibleRowCount(5);
+		// mlist.setSize(20,20);
+		JScrollPane listScrollPane = new JScrollPane(mlist);
+		// boxCenter.add(listScrollPane);
+		add(listScrollPane, BorderLayout.CENTER);
+		// add(Box.createVerticalGlue());
 
 		// south area
 		Box boxSouth = Box.createHorizontalBox();
-		boxSouth.add(new JTextField("blah"));
+		JTextField jtf = new JTextField("blahblah");
+		jtf.setSize(new Dimension(10, 10));
+		boxSouth.add(jtf);
+		boxSouth.add(boutonCreateServer);
+		boxSouth.add(boutonJoin);
+		boxSouth.add(Box.createHorizontalGlue());
 		boxSouth.add(boutonQuit);
-		add(boxSouth);
+		add(boxSouth, BorderLayout.SOUTH);
 		boutonInscriptionSport.addActionListener(new ActionInscription("sport",
 				leServeur.obtientSujet("sport")));
 		boutonInscriptionMusique.addActionListener(new ActionInscription(
@@ -146,7 +184,12 @@ public class ClientForum extends JFrame {
 				JFrame f = (JFrame) source.getParent().getParent().getParent()
 						.getParent();
 				f.dispose();
-
+				try {
+					System.out.println(leServeur.getSujets());
+				} catch (RemoteException e) {
+					System.err.println("getsujets");
+					e.printStackTrace();
+				}
 			}
 		});
 		setVisible(true);
@@ -157,5 +200,11 @@ public class ClientForum extends JFrame {
 
 		System.setProperty("java.security.policy", "file:./no.policy");
 		new ClientForum();
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent arg0) {
+		// TODO Auto-generated method stub
+
 	}
 }

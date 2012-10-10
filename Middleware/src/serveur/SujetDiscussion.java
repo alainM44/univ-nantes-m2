@@ -15,6 +15,7 @@
  */
 
 package serveur;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class SujetDiscussion extends UnicastRemoteObject implements
 	/*
 	 * Titre et identifiant unique du sujet de discussion
 	 */
-	private  String titre;
+	private String mtitre;
 	/*
 	 * liste des protagonistes de ce sujet de discussion
 	 */
@@ -56,10 +57,9 @@ public class SujetDiscussion extends UnicastRemoteObject implements
 	 */
 	public SujetDiscussion(String titre) throws RemoteException {
 		super();
-		this.titre = titre;
-		this.protagonistes = new ArrayList<IAffichageClient>();
+		mtitre = titre;
+		protagonistes = new ArrayList<IAffichageClient>();
 	}
-
 
 	public synchronized void inscription(IAffichageClient c) {
 		protagonistes.add(c);
@@ -76,5 +76,10 @@ public class SujetDiscussion extends UnicastRemoteObject implements
 			} catch (RemoteException e) {
 				System.out.println("Erreur SujetDiscussion.java diffuse");
 			}
+	}
+
+	@Override
+	public synchronized String getTitre() throws RemoteException {
+		return mtitre;
 	}
 }
