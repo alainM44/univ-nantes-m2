@@ -1,12 +1,13 @@
-\documentclass[frames,pdf,slideColor,colorBG,accumulates,total]{prosper}
+\documentclass[frames,pdf,slideColor,colorBG,total]{prosper}
+%\documentclass[frames,pdf,slideColor,colorBG,accumulates,total]{prosper}
 \usepackage[francais]{babel}
-\usepackage{amsmath, amsfont, amsbsy, pstricks, pst-node, pst-text, pst-3d}
-\usepackage{slashbox}
+\usepackage{amsmath, amsbsy, pstricks, pst-node, pst-text, pst-3d}
+%\usepackage{amsmath, amsfont, amsbsy, pstricks, pst-node, pst-text, pst-3d}
 \usepackage{moreverb,epsfig,color,subfigure}
 \NoFrenchBabelItemize
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
-\usepackage{graphicx,color,caption2,amssymb,pstricks,lmodern}
+%\usepackage{graphicx,color,caption2,amssymb,pstricks,lmodern}
 
 \newcommand{\items}[1]{\begin{itemize} \item #1 \end{itemize}}
 \newcommand{\itemss}[2]{\begin{itemize} \item #1 \item #2 \end{itemize}}
@@ -26,17 +27,33 @@
 \newlength{\MiniPageRight}
 
 
+\usepackage{relsize}
+\usepackage{lipsum}
+
+%c from texinfo.tex
+\def\ifmonospace{\ifdim\fontdimen3\font=0pt }
+
+%c C plus plus
+\def\C++{%
+\ifmonospace%
+    C++%
+\else%
+    C\kern-.1667em\raise.30ex\hbox{\smaller{++}}%
+\fi%
+\spacefactor1000 }
+
+
 \title{Project Management}
 \subtitle{Réponse à l'appel d'offre \textit{SLIPWAY}}
 %\caption{IR}
 \author{B.\textsc{Bizet} A.\textsc{Buisson} A.\textsc{Marguerite} R.\textsc{Rincé}}
 
 %\Logo{\includegraphics[scale=0.40]{img/logouniv.eps}}
-%\Logo(9,-0.70){\includegraphics[scale=0.5]{img/logouniv.eps}}
+\Logo(9,-0.70){\includegraphics[scale=0.4]{img/logoPSI.eps}}
 
 \institution{
-  Université de Nantes \\
-  2 rue de la Houssinière, \\
+  PSI entreprise \\
+  4 rue de la Houssinière, \\
   BP92208, F-44322 Nantes cedex 03, FRANCE
 }
 
@@ -44,48 +61,51 @@
 \begin{document}
 % make the title slide
 \maketitle
-\overlays{3}{
-  \begin{slide}[Box]{Présentation du \textsc{LINA}}
-    \slidetextsize
-    \setlength{\MiniPageLeft}{0.4\textwidth}
-    \setlength{\MiniPageRight}{\textwidth}\addtolength{\MiniPageRight}{-\MiniPageLeft}
-    \begin{minipage}[t]{\MiniPageLeft}
-      \begin{figure}[t]
-        \begin{center}
-          \onlySlide*{1}{\includegraphics[width=0.8\MiniPageLeft]{img/lina}}
-          \fromSlide{2}{\includegraphics[width=\MiniPageLeft]{img/logolina}}
-        \end{center}
-      \end{figure}
-    \end{minipage}
-    \begin{minipage}[t]{\MiniPageRight}
-      \begin{Itemize}
-      \item Laboratoire d’Informatique de Nantes-Atlantique :
-        \begin{Itemize}
-        \item Effectif global proche de 170 membres 
-          \fromSlide{2}{\item 10 équipes de recherche}
-        \end{Itemize}
-        \fromSlide{3}{\item Équipe Optimisation globale, optimisation multi-objectifs (\textsc{OPTI})}
-      \end{Itemize}
-    \end{minipage}
-  \end{slide}
-}
+%% \overlays{3}{
+%%   \begin{slide}[Box]{Présentation du \textsc{LINA}}
+%%     \slidetextsize
+%%     \setlength{\MiniPageLeft}{0.4\textwidth}
+%%     \setlength{\MiniPageRight}{\textwidth}\addtolength{\MiniPageRight}{-\MiniPageLeft}
+%%     \begin{minipage}[t]{\MiniPageLeft}
+%%       \begin{figure}[t]
+%%         \begin{center}
+%%           \onlySlide*{1}{\includegraphics[width=0.8\MiniPageLeft]{img/lina}}
+%%           \fromSlide{2}{\includegraphics[width=\MiniPageLeft]{img/logolina}}
+%%         \end{center}
+%%       \end{figure}
+%%     \end{minipage}
+%%     \begin{minipage}[t]{\MiniPageRight}
+%%       \begin{Itemize}
+%%       \item Laboratoire d’Informatique de Nantes-Atlantique :
+%%         \begin{Itemize}
+%%         \item Effectif global proche de 170 membres 
+%%           \fromSlide{2}{\item 10 équipes de recherche}
+%%         \end{Itemize}
+%%         \fromSlide{3}{\item Équipe Optimisation globale, optimisation multi-objectifs (\textsc{OPTI})}
+%%       \end{Itemize}
+%%     \end{minipage}
+%%   \end{slide}
+%% }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \overlays{3}{
   \begin{slide}[Box]{Présentation de \textsc{PSI}}
     \textbf{Création d'un outil de visualisation}
-      \fromSlide{1}{\item État d'avancement}
+    \vspace{0,3cm}
       \begin{Itemize}
         \fromSlide{2}{\item PSI est un société basée à Nantes. Fondée en 1996 par JP.\textsc{Bizet}.}
         \fromSlide{3}{\item Fort d’environ 120 000 collaborateurs et présent dans 40 pays}
       \end{Itemize}
   \end{slide}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \overlays{5}{
   \begin{slide}[Box]{Présentation de l'équipe}
     \textbf{L'équipe PSI pour ce projet}
+    \vspace{0,3cm}
     \begin{Itemize}
       \fromSlide{2}{\item Chef de projet JP.\textsc{Bizet} : Ancien de chef de projet chez Accenture (15 ans)}
-      \fromSlide{3}{\item Ingénieur JM.\textsc{Lafrange} : Ancien expert C/C++/python chez Logica (7 ans).}
+      \fromSlide{3}{\item Ingénieur JM.\textsc{Lafrange} : Ancien expert C/\C++/python chez Logica (7 ans).}
       \fromSlide{4}{\item Technicien T.\textsc{Dupont} : Diplomé DUT GEII (Lyon).}
       \fromSlide{5}{\item Technicien D.\textsc{Baudouin} : BTS Informatique (Nantes).}
     \end{Itemize}
@@ -94,29 +114,52 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \overlays{1}{
   \begin{slide}[Box]{Planning}
+
     \slidetextsize
-    toto
+    \begin{figure}
+      \includegraphics[scale=0.21]{img/planningDetail.eps}
+    \end{figure}
+    
   \end{slide}
 }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \overlays{1}{
-  \begin{slide}[Box]{Plan de charge}
+  \begin{slide}[Box]{Plan de charges}
     \slidetextsize
-    toto
+    \begin{figure}
+      \includegraphics[scale=0.4]{img/PlanCharge.eps}
+    \end{figure}
   \end{slide}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \overlays{1}{
-  \begin{slide}[Box]{Plan de Facturation}
+  \begin{slide}[Box]{Journal d'action}
     \slidetextsize
-    toto
+    \begin{figure}
+      \includegraphics[scale=0.3]{img/JournalActions.eps}
+    \end{figure}
   \end{slide}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\overlays{1}{
+  \begin{slide}[Box]{Plan de Facturation (1/2)}
+    \begin{figure}
+      \includegraphics[scale=0.35]{img/CoutSalarialProjet.eps} \hspace{1cm}      \includegraphics[scale=0.30]{img/CoefEntreprise.eps} 
+    \end{figure}
+
+   \end{slide}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \overlays{1}{
-  \begin{slide}[Box]{Plan de Facturation}
-    \slidetextsize
-    toto
+  \begin{slide}[Box]{Plan de Facturation (2/2)}
+    \begin{figure}
+      \includegraphics[scale=0.3]{img/PrixProjet.eps}     \hspace{0,2cm}    \includegraphics[scale=0.25]{img/PlanFacturation.eps}
+    \end{figure}
+    \begin{figure}
+      \includegraphics[scale=0.30]{img/PourcentMarges.eps} 
+    \end{figure}
+
   \end{slide}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
