@@ -14,9 +14,9 @@ public interface IServeurForum extends Remote {
 	 */
 	public ISujetDiscussion obtientSujet(String titre) throws RemoteException;
 
-	
 	/**
-	 *Méthode retournant la liste des noms des sujets de discussions. Utile pour un client
+	 * Méthode retournant la liste des noms des sujets de discussions. Utile
+	 * pour un client
 	 * 
 	 * @return
 	 * @throws RemoteException

@@ -54,11 +54,12 @@ public class ServeurForum extends UnicastRemoteObject implements IServeurForum {
 		sport = new SujetDiscussion("sport");
 		musique = new SujetDiscussion("musique");
 		cinema = new SujetDiscussion("cinema");
-		
+		sujetDiscussions = new ArrayList<String>();
+//		System.out.println(sport.getTitre());
 		//Erreur ici
-	//	sujetDiscussions.add(this.sport.getTitre());
-//		sujetDiscussions.add(musique);
-//		sujetDiscussions.add(cinema);
+		sujetDiscussions.add(sport.getTitre());
+		sujetDiscussions.add(musique.getTitre());
+		sujetDiscussions.add(cinema.getTitre());
 
 	}
 

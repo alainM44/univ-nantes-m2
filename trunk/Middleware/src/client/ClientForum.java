@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -92,15 +93,16 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 			this.sujetDiscussionServeur = sujet;
 			this.titre = titre;
 			this.inscrit = true;
-
+			System.out.println("salut" + titre + sujet);
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-
+			System.out.println("toto");
 			try {
 				this.ihmSujet = new AffichageClient(titre,
 						sujetDiscussionServeur);
+				System.out.println("tata");
 				this.sujetDiscussionServeur.inscription(ihmSujet);
 			} catch (RemoteException e1) {
 				System.out.println("erreur ClientForum.java actionPerformed");
@@ -137,17 +139,12 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		// add(Box.createRigidArea(new DimensionUIResource(0, 20)));
 
 		// center area
-
-		// add(new JLabel("VISU"),BorderLayout.WEST);
-		// boxCenter.add(Box.createHorizontalGlue());
-		// add(boxCenter, BorderLayout.CENTER);
 		mlistModel = new DefaultListModel();
-		mlistModel.addElement("Jane Doe");
-		mlistModel.addElement("John Smith");
-		mlistModel.addElement("Kathy Green");
-		mlistModel.addElement("toto");
-		mlistModel.addElement("tata");
-		mlistModel.addElement("titi");
+		ArrayList<String> sujets = leServeur.getSujets();
+		// on peuple la liste
+		for (String sujet : sujets)
+			mlistModel.addElement(sujet);
+		System.out.println("liste des sujets :" + leServeur.getSujets());
 
 		mlist = new JList(mlistModel);
 		mlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -166,32 +163,31 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		jtf.setSize(new Dimension(10, 10));
 		boxSouth.add(jtf);
 		boxSouth.add(boutonCreateServer);
+		boutonJoin.addActionListener(new ActionInscription((String) mlist
+				.getSelectedValue(), leServeur.obtientSujet((String) mlist
+				.getSelectedValue())));
 		boxSouth.add(boutonJoin);
+
 		boxSouth.add(Box.createHorizontalGlue());
 		boxSouth.add(boutonQuit);
-		add(boxSouth, BorderLayout.SOUTH);
 		boutonInscriptionSport.addActionListener(new ActionInscription("sport",
 				leServeur.obtientSujet("sport")));
-		boutonInscriptionMusique.addActionListener(new ActionInscription(
-				"musique", leServeur.obtientSujet("musique")));
-		boutonInscriptionCinema.addActionListener(new ActionInscription(
-				"cinema", leServeur.obtientSujet("cinema")));
+		// boutonInscriptionMusique.addActionListener(new ActionInscription(
+		// "musique", leServeur.obtientSujet("musique")));
+		// boutonInscriptionCinema.addActionListener(new ActionInscription(
+		// "cinema", leServeur.obtientSujet("cinema")));
 		boutonQuit.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				JButton source = (JButton) arg0.getSource();
 				JFrame f = (JFrame) source.getParent().getParent().getParent()
 						.getParent();
 				f.dispose();
-				try {
-					System.out.println(leServeur.getSujets());
-				} catch (RemoteException e) {
-					System.err.println("getsujets");
-					e.printStackTrace();
-				}
 			}
 		});
+		boxSouth.add(boutonInscriptionSport);
+		add(boxSouth, BorderLayout.SOUTH);
+
 		setVisible(true);
 		pack();
 	}
