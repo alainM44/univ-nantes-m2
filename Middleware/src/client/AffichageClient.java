@@ -17,6 +17,9 @@
 package client;
 
 import ihm.Placement;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -67,11 +70,18 @@ public class AffichageClient extends UnicastRemoteObject implements
 	public AffichageClient(String titre, ISujetDiscussion s)
 			throws RemoteException {
 		sujetDiscussion = s;
-		Placement.p(f, new Label(titre), 1, 1, 1, 1);
-		Placement.p(f, discussion, 1, 2, 1, 1);
-		Placement.p(f, composeMessage, 1, 3, 1, 1);
-		Placement.p(f, boutonEnvoi, 1, 4, 1, 1);
+		// Placement.p(f, new Label(titre), 1, 1, 1, 1);
+		// Placement.p(f, discussion, 1, 2, 1, 1);
+		// Placement.p(f, composeMessage, 1, 3, 1, 1);
+		// Placement.p(f, boutonEnvoi, 1, 4, 1, 1);
 		boutonEnvoi.addActionListener(new ActionEnvoi());
+		f.setTitle(titre);
+		f.setPreferredSize(new Dimension(300, 300));
+		f.setLayout(new BorderLayout());
+		
+		f.add(discussion,BorderLayout.NORTH);
+		f.add(composeMessage,BorderLayout.CENTER);
+		f.add(boutonEnvoi,BorderLayout.SOUTH);
 		f.pack();
 		f.setVisible(true);
 	}
@@ -81,8 +91,8 @@ public class AffichageClient extends UnicastRemoteObject implements
 	 */
 	@Override
 	public void affiche(String message) {
-		
-		discussion.append("\n"+message);
+
+		discussion.append("\n" + message);
 	}
 
 	public void termine() {
