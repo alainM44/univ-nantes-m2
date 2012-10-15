@@ -1,3 +1,4 @@
+
 \documentclass[11pt,a4paper,utf8x]{report}
 \usepackage[T1]{fontenc} 
 \usepackage[utf8]{inputenc} 
@@ -37,6 +38,27 @@
 
 %insertion de pdf
 \usepackage{pdfpages}
+
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage} %numérotation type k/n
+\renewcommand{\footrulewidth}{0.5pt} % trait horizontal
+\renewcommand{\headrulewidth}{0.5pt} % suppresion du trait horizontal dans l'entête
+\lfoot{Projet HADL}
+\cfoot{\thepage \hspace{0.15cm}sur  \pageref{LastPage} } % numérotation des pages
+\rfoot{A.\textsc{Marguerite} \& R.\textsc{Rincé}}
+\fancyhead[L]{\hspace{-1.5cm}\includegraphics[scale=0.15]{img/logouniv.png}} %logo entête !
+
+
+\fancypagestyle{plain}{% 1ères pages des chapitres:
+  % \fancyhead{} % supprime l’entete...
+  % \renewcommand{\headrulewidth}{0pt} % ...et le filet
+}
+
+
+
 
 \hypersetup{
 backref=true,
@@ -94,7 +116,7 @@ pdfsubject={Doc}
  
 \title{ {\huge \textsc{Components and Architectures}} \\Master ALMA 2\up{eme} année \\\vspace{3cm} \emph{TP Composant : Implémentation HADL}\vspace{3cm}}
 
-\titlepic{ \includegraphics[scale=0.80]{img/logouniv}}
+\titlepic{ \includegraphics[scale=0.2]{img/logouniv}}
 
 
 \author{A.\textsc{Marguerite}\\ R.\textsc{Rincé}\vspace{3cm}}
