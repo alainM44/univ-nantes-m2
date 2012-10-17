@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PACKAGE SYSTEM "package.dtd">
+<PACKAGE NAME="uiController" METAMODEL="Ui" NUMBER="4"
+ DOCUMENTATION="">
+	<fileHeader version="5" toolName="Mia-Generation" toolVersion="7.3.0"/>
+	<TEXT_MACRO NAME="ControlerName" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return current.getModel().getName();
+]]></TEXT>
+	</TEXT_MACRO>
+	<SCRIPT NAME="IController" META_OBJECT="View" CATEGORY="default" VISIBILITY="private">
+		<TEXT><![CDATA[
+package com.mia.banque.uigenerated.controler;
+
+public interface I[[ControlerName]]Controler{
+
+public void initView();
+
+[[MethodControler]]
+}
+]]></TEXT>
+		<PROPERTY NAME="Filename"/>
+	</SCRIPT>
+	<SCRIPT NAME="IController$Filename" META_OBJECT="View" CATEGORY="default">
+		<TEXT><![CDATA[
+I[[ControlerName]]Controler.java
+]]></TEXT>
+	</SCRIPT>
+	<TEXT_MACRO NAME="MethodControler" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+for(ui.Action a : current.getActions())
+{
+retour+= "public void "+a.getName()+"();\n";
+}
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
+</PACKAGE>

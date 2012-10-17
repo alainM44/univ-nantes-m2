@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PACKAGE SYSTEM "package.dtd">
+<PACKAGE NAME="uiPackage" METAMODEL="Ui" NUMBER="6"
+ DOCUMENTATION="">
+	<fileHeader version="5" toolName="Mia-Generation" toolVersion="7.3.0"/>
+	<SCRIPT NAME="IView" META_OBJECT="View" CATEGORY="default" VISIBILITY="private">
+		<TEXT><![CDATA[
+package com.mia.banque.uigenerated.view;
+
+public interface I[[name]]{
+[[IViewMethode]]
+}
+]]></TEXT>
+		<PROPERTY NAME="Filename"/>
+	</SCRIPT>
+	<SCRIPT NAME="IView$Filename" META_OBJECT="View" CATEGORY="default">
+		<TEXT><![CDATA[
+I[[name]].java
+]]></TEXT>
+	</SCRIPT>
+	<TEXT_MACRO NAME="IViewMethode" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("") ;
+for (Object a : manager.getList(current, "actions") )
+{
+ui.Action b = (ui.Action)a;
+retour = retour +"public void "+ manager.getName(b)+"();\n";
+}
+
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
+	<SCRIPT NAME="View" META_OBJECT="View" CATEGORY="default" VISIBILITY="private">
+		<TEXT><![CDATA[
+package com.mia.banque.uigenerated.view.impl.swt;
+
+import org.eclipse.swt.*
+
+public class [[name]] extends Shell implements IBanqueView {
+
+private I[[ControlerName]]Controler controler;
+private [[ControlerName]] model;
+
+	/**
+	 * Create the shell.
+	 * @param display
+	 */
+	public [[name]](Display display, [[ControlerName]] model, I[[ControlerName]]Controler controler) {
+		super(display, SWT.SHELL_TRIM);
+		this.model = model;
+		this.controler = controler;
+		
+		this.createContents();
+		
+		//On ne veut quitter la fenetre que par l'action quitter
+		this.addShellListener(new ShellAdapter() {
+			@Override
+			public void shellClosed(ShellEvent e) {
+				[[name]].this.quitter();
+			}
+		});
+	}
+[[generateMethodView]]
+}
+]]></TEXT>
+		<PROPERTY NAME="Filename"/>
+	</SCRIPT>
+	<SCRIPT NAME="View$Filename" META_OBJECT="View" CATEGORY="default">
+		<TEXT><![CDATA[
+[[name]].java
+]]></TEXT>
+	</SCRIPT>
+	<TEXT_MACRO NAME="generateMethodView" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+for(ui.Action a : current.getActions()){
+String attribute ="";
+String param ="";
+
+if(a.getNextPage()!=null)
+{
+attribute += a.getNextPage().getModel().getName() + " arg";
+param+= "arg";
+}
+
+
+retour += "public void "+a.getName()+"("+attribute+"){\n"+
+"this.controler."+a.getName()+"("+param+");\n}\n\n";
+}
+
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
+</PACKAGE>
