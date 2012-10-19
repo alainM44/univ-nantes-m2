@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE PACKAGE SYSTEM "package.dtd">
-<PACKAGE NAME="uiPackage" METAMODEL="Ui" NUMBER="6"
+<PACKAGE NAME="uiPackage" METAMODEL="Ui" NUMBER="8"
  DOCUMENTATION="">
 	<fileHeader version="5" toolName="Mia-Generation" toolVersion="7.3.0"/>
+	<TEXT_MACRO NAME="Button" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+
+for(ui.Action a	: current.getActions())
+{
+retour += "private Button btn"+a.getName()+";\n";
+}
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="ButtonsAndListeners" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+
+for(ui.Action a	: current.getActions())
+{
+retour +="\n		Button btn"+a.getName()+" = new Button(this, SWT.NONE);\n"+
+"		btn"+a.getName()+".setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));\n"+
+"		btn"+a.getName()+".setText(\""+a.getName()+"\");\n"+
+"		btn"+a.getName()+".addSelectionListener(new SelectionAdapter(){\n"+
+"		        public void widgetSelected(SelectionEvent event)\n"+
+"		        {\n"+
+"		          "+a.getName()+";\n"+
+"		        }\n"+
+"		      });\n";
+}
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
 	<SCRIPT NAME="IView" META_OBJECT="View" CATEGORY="default" VISIBILITY="private">
 		<TEXT><![CDATA[
 package com.mia.banque.uigenerated.view;
@@ -21,10 +51,14 @@ I[[name]].java
 	<TEXT_MACRO NAME="IViewMethode" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
 		<TEXT><![CDATA[
 String retour = new String("") ;
-for (Object a : manager.getList(current, "actions") )
+for (ui.Action a : current.getActions() )
 {
-ui.Action b = (ui.Action)a;
-retour = retour +"public void "+ manager.getName(b)+"();\n";
+String attribute = new String("") ;
+if(a.getNextPage()!=null)
+{
+attribute += a.getNextPage().getModel().getName() + " arg";
+}
+retour = retour +"public void "+ a.getName()+"("+ attribute+");\n";
 }
 
 return retour;
@@ -41,6 +75,8 @@ public class [[name]] extends Shell implements IBanqueView {
 private I[[ControlerName]]Controler controler;
 private [[ControlerName]] model;
 
+[[Button]]
+
 	/**
 	 * Create the shell.
 	 * @param display
@@ -51,15 +87,23 @@ private [[ControlerName]] model;
 		this.controler = controler;
 		
 		this.createContents();
-		
-		//On ne veut quitter la fenetre que par l'action quitter
-		this.addShellListener(new ShellAdapter() {
-			@Override
-			public void shellClosed(ShellEvent e) {
-				[[name]].this.quitter();
-			}
-		});
+		}
 	}
+
+	protected void createContents() {
+		setText("SWT Application");
+		setSize(458, 308);
+		setLayout(new GridLayout(1, false));
+
+		Group grpDetails = new Group(this, SWT.NONE);
+		GridData gd_grpDetails = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_grpDetails.widthHint = 423;
+		grpDetails.setLayoutData(gd_grpDetails);
+		grpDetails.setText("Details");
+		grpDetails.setLayout(new GridLayout(2, false));
+
+[[ButtonsAndListeners]]
+}
 [[generateMethodView]]
 }
 ]]></TEXT>
