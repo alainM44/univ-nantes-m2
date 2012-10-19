@@ -1,8 +1,44 @@
 \chapter{Implémentation du M2}
+\section{Détails de la modélisation}
+Construisons un méta-modèle basé sur l'entité \composant :
+\begin{itemize}
+\item 
+  Un \composant{} possède des \proprietes{}. Ces dernières peuvent être fonctionelles (\verb+PropFonc+) ou non fonctionelles (\verb+PropNonFonc+).
+\item 
+  Il possède deux interfaces composants :  une pour les \services{} requis, une pour les \verb+Services+ fournis.
+\item
+  Une interface est aussi constituée de \ports{} (fournis ou requis). 
+\item
+  Chaque port est associé à un et un seul \service, mais un \service{} possède plusieurs \ports.  
+\end{itemize}
 
-Pour aborder cette 1\up{ère} étape du projet, il est nécessaire de s'appuyer sur les définitions
 
+\paragraph{}
+Afin d'effectuer la communication entres composants, il est nécessaire d'introduire la notion de connecteur :
 
+\begin{itemize}
+\item 
+  Un \connecteur{} a deux \verb+InterfaceConnecteur+.
+\item
+  Chaque interface connecteur possède deux rôles : un rôle requis \roler{} et un rôle fournios\rolef{}.
+\item
+  Chaque rôle d'une interface est relié par un lien \attachement{} à son port correspondant (\textit{c.a.d }: un rôle requis à un port requis et un rôle fournis à un port fournis).  
+\item
+  Les deux interfaces d'un connecteur sont reliés par deux \glu{}, chaque \glu{} reliant un rôle requis au rôle fournis opposé.
+\end{itemize}
+
+\paragraph{}
+
+La \configuration{} est un composant composé de \verb+composants+ : 
+
+\begin{itemize}
+\item 
+  Elle possède deux \verb+InterfaceConfig+. Ces dernières hériant d'\verb+InterfaceComposant+.
+\item
+  Il est possible de relier un \portr{} de l'\verb+InterfaceConfig+ à un \portr{} d'un composant de la configuration (et réciproquement pour le \portf) grâce à un lien \verb+binding+.
+\item
+  Un connecteur peut être aussi un composant.
+\end{itemize}
 %% \begin{description}
 %% \item[G] \hfill \\
 %%   Mélanges de classes de dépendances.
@@ -10,11 +46,7 @@ Pour aborder cette 1\up{ère} étape du projet, il est nécessaire de s'appuyer 
 %%   Au bout d'un grand nombre de classe l'évolution et l'extension se voient limitées.
 %% \end{description}
 
-
-blahblahblahblahblahblahblahblahblah
-
-blahblahblahblahblahblahblahblahblah
 \begin{figure}[htb]
-%\centering
-\includegraphics[scale=0.31]{img/M2}
+  %\centering
+  \includegraphics[scale=0.31]{img/M2}
 \end{figure}
