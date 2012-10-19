@@ -1,4 +1,4 @@
-\chapter{Implémentation du M2}
+\chapter{Implémentation du M2}\label{chap:M2}
 \section{Détails de la modélisation}
 Construisons un méta-modèle basé sur l'entité \composant :
 \begin{itemize}
@@ -37,7 +37,7 @@ La \configuration{} est un composant composé de \verb+composants+ :
 \item
   Il est possible de relier un \portr{} de l'\verb+InterfaceConfig+ à un \portr{} d'un composant de la configuration (et réciproquement pour le \portf) grâce à un lien \verb+binding+.
 \item
-  Un connecteur peut être aussi un composant.
+  Un connecteur peut être aussi une \configuration.
 \end{itemize}
 %% \begin{description}
 %% \item[G] \hfill \\
@@ -45,8 +45,11 @@ La \configuration{} est un composant composé de \verb+composants+ :
 %% \item[Passage à l'échelle] \hfill \\
 %%   Au bout d'un grand nombre de classe l'évolution et l'extension se voient limitées.
 %% \end{description}
-
+\ssection{Diagramme M2}
+\pagestyle{empty}
 \begin{figure}[htb]
   %\centering
-  \includegraphics[scale=0.31]{img/M2}
+  \includegraphics[scale=0.36]{img/M2}
+  \caption{Méta-Model (M2)}
+  \label{fig:M2}
 \end{figure}
