@@ -21,4 +21,36 @@ Réalisation du M0 :\hfill \\
 Dernière étape, elle consiste à l'implémentation du M1 et de coder concrétement qui y sont modélisées.
 \end{enumerate}
 
-Dans ce rapport nous détaillerons chaque étape la modélisation proposée puis l'implémentation.
+\section{Rappel du modèle à composants}
+Dans cette partie nous rappelerons les différents éléments du modèle à composants ainsi que leur rôle.
+
+\begin{description}
+\item[Composant] \hfill \\
+  Un composant est une unité de composition qui spécifie  une ou plusieurs fonctionnalités. Les composants fournissent des services et requièrent des besoins. Il peuvent êtres déployés (installés) indépendamment et composés avec d'autres composants.
+  Il sont préfabriqués, pré-testés et s'autocontiennent. Ils sont configurables et sont capables d'user de mécanismes d'introspection qui leurs permettent de connaître et de modifier leurs caractéristiques.
+\item[Interfaces] \hfill \\
+  Ce sont les seules parties visibles d'un composant. Elles sont constituées de ports (ou points de connexions) et de services.
+\item[Ports]\hfill \\
+  Ils permettent la communication entre composants. Un port peut être requis ou fournis  
+\item[Services] \hfill \\ Un service est soit une fonctionnalité offerte soit une fonctionnalité demandée  par le composant. Un service est associé à un certain nombre de ports requis et fournis.
+\item[Propriétés]  Elle peuvent concerner aussi bien la structure que le comportement d'un composant et sont paramétrables. Elles peuvent être :
+  \begin{itemize}
+  \item 
+    Fonctionnelles : C'est à dire relative au fonctionnement du composant
+  \item 
+    Non fonctionnelles : Une propriété indépendante du fonctionnement telle que la sécurité ou la performance.
+  \end{itemize}
+\item[Connecteurs] \hfill \\
+	Ils permettent de connecter deux composants entre eux au niveau de leurs ports, permettant la communication entre un service fourni et un service requis. Le fonctionnement d'un connecteur est implémenté par la glu. Il est cependant possible qu'un connecteur soit implémenté par une configuration.
+	\item[Glu] \hfill \\
+	Elle définit le fonctionnement du connecteur.
+	\item[Rôle] \hfill \\
+	Un rôle est l'élément permettant de relier un connecteur aux ports d'un composant.
+	\item[Attachement]
+	Il permet la liaison entre les ports d'un composant et un rôle d'un connecteur.
+\item[Configuration] \hfill \\
+	La configuration est un composant composé de composant (Design pattern \emph{Composite})
+	\item[Binding] \hfill \\
+	Il s'agit d'un lien permettant de rediriger des ports d'un composant vers ceux de sa configuration.
+
+\end{description}
