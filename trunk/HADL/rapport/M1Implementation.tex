@@ -12,7 +12,7 @@ L'énoncé du projet/TP nous propose un serveur avec les fonctionnalités suivan
 
 Un composant étant par définition la spécification d'une fonctionnalités, chacune des fonctionnalités précedement listées est un \verb+Composant+. Chaque service de chaque composant a son port requis relié au rôle fournis  du connecteur ( et inversement pour les ports fournis et rôles requis).
 
-Les liaisons est ces différents composant et le client sont explicitées dans la figure \ref{fig:desSer}.
+Les liaisons entre différents les composants du serveur et le client sont shématisés dans la figure \ref{fig:desSer}. 
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.32]{img/DescribServeur}
@@ -20,20 +20,22 @@ Les liaisons est ces différents composant et le client sont explicitées dans l
   \label{fig:desSer}.
 \end{figure}
 
+Nous retrouvons une version formelle de ce shéma dans la figure \ref{fig:M1} pour la partie \og serveur \fg puis dans la figure \ref{fig:M11} pour la partie \og client \fg ainsi que sa liaison avec le serveur.
 
-\subsection{ConnexionManager}
+\section{Côté Serveur}
+\subsection{Déscription des composants serveur}
+\subsubsection{ConnexionManager}
 Ce composant possède les services suivants : 
 \begin{itemize}
 \item 
-  \verb+ServiceFExternalSocket+ : Fournit une connexion au serveur.
+  \verb+ServiceFExternalSocket+ : Fournit une connexion au(x) potentiel(s) client(s).
 \item 
   \verb+ServicerDDBQuery+ :  requière une réponse de la base de données (requête SQL).
 \item 
   \verb+ServiceRSecurityManager+ :  requière une validation de l'authentification
 \end{itemize}
 
-
-\subsection{Database}
+\subsubsection{Database}
 Ce composant possède les services suivants : 
 \begin{itemize}
 \item 
@@ -42,7 +44,7 @@ Ce composant possède les services suivants :
   \verb+ServicerFExecuteSQL+ :  fournit une réponse à une requête du client (par le ConnexionManager).
 \end{itemize}
 
-\subsection{SecurityManager}
+\subsubsection{SecurityManager}
 Ce composant possède les services suivants : 
 \begin{itemize}
 \item 
@@ -51,12 +53,34 @@ Ce composant possède les services suivants :
   \verb+ServicerSecurityManager+ :  requière une réponde de sécurité de la base de données (requête SQL).
 \end{itemize}
 
-\section{Diagramme M1}
-\pagestyle{empty}
-%\newgeometry{a3paper}
+
+%\pagestyle{empthy}
+\subsection{Diagramme M1 côté serveur}
+
 \begin{figure}[htb]
+\pagestyle{empty}
   \centering
   \includegraphics[scale=0.20]{img/M1}
-  \caption{Model (M1)}
+  \caption{Model (M1) côté serveur}
   \label{fig:M1}
 \end{figure}
+\clearpage
+\pagestyle{fancy}
+\section{Côté Client}
+
+\subsection{Description du Client}
+Le client est composant permettant  à un utilisateur de demander connexion au serveur à partir d'un login et d'un mot de passe. Une fois connecté, le client peut interroger la base de donnée du serveur.
+ 
+Le composant client possède le service : 
+\begin{itemize}
+\item 
+  \verb+ServiceRConnexionRPC+ : Requière une connexion au serveur
+\end{itemize}
+\subsection{Diagramme M1 côté client}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.27]{img/M11}
+  \caption{Model (M1) côté client}
+  \label{fig:M11}
+\end{figure}
+
