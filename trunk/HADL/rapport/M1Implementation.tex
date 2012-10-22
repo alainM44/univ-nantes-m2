@@ -1,5 +1,5 @@
-\chapter{Implémentation du M1}
-Dans ce chapitre nous définirons une application \textit{Client-Serveur} en implémentant le méta-model proposé au chapitre \ref{chap:M2}.
+\chapter{Implémentation du M1}\label{chap:M1}
+Dans ce chapitre nous définirons une application \textit{Clients-Serveur} en implémentant le méta-modèle proposé au chapitre \ref{chap:M2}.
 
 \section{Démarche modélisation M1}
 L'énoncé du projet/TP nous propose un serveur avec les fonctionnalités suivantes :
@@ -10,9 +10,9 @@ L'énoncé du projet/TP nous propose un serveur avec les fonctionnalités suivan
 \item \verb+SecurityManager+ :  Gestion d'un système de sécurité.
 \end{itemize}
 
-Un composant étant par définition la spécification d'une fonctionnalités, chacune des fonctionnalités précedement listées est un \verb+Composant+. Chaque service de chaque composant a son port requis relié au rôle fournis  du connecteur ( et inversement pour les ports fournis et rôles requis).
+Un composant étant par définition la spécification d'une fonctionnalité, chacune des fonctionnalités précedement listées est un \verb+Composant+. Chaque service de chaque composant a son port requis relié au rôle requis  du connecteur (et inversement pour les ports et rôles fournis).
 
-Les liaisons entre différents les composants du serveur et le client sont shématisés dans la figure \ref{fig:desSer}. 
+Les liaisons entre les différents composants du serveur et le client sont shématisées dans la figure \ref{fig:desSer}. 
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.32]{img/DescribServeur}
@@ -20,7 +20,7 @@ Les liaisons entre différents les composants du serveur et le client sont shém
   \label{fig:desSer}.
 \end{figure}
 
-Nous retrouvons une version formelle de ce shéma dans la figure \ref{fig:M1} pour la partie \og serveur \fg puis dans la figure \ref{fig:M11} pour la partie \og client \fg ainsi que sa liaison avec le serveur.
+Nous retrouvons une version formelle de ce shéma dans la figure \ref{fig:M1} pour la partie \og serveur \fg{} puis dans la figure \ref{fig:M11} pour la partie \og client \fg{} ainsi que sa liaison avec le serveur.
 
 \section{Côté Serveur}
 \subsection{Déscription des composants serveur}
@@ -28,11 +28,11 @@ Nous retrouvons une version formelle de ce shéma dans la figure \ref{fig:M1} po
 Ce composant possède les services suivants : 
 \begin{itemize}
 \item 
-  \verb+ServiceFExternalSocket+ : Fournit une connexion au(x) potentiel(s) client(s).
+  \verb+ServiceFExternalSocket+ : fournit une connexion au(x) potentiel(s) client(s).
 \item 
   \verb+ServicerDDBQuery+ :  requière une réponse de la base de données (requête SQL).
 \item 
-  \verb+ServiceRSecurityManager+ :  requière une validation de l'authentification
+  \verb+ServiceRSecurityManager+ :  requière une validation de l'authentification.
 \end{itemize}
 
 \subsubsection{Database}
@@ -53,28 +53,29 @@ Ce composant possède les services suivants :
   \verb+ServicerSecurityManager+ :  requière une réponde de sécurité de la base de données (requête SQL).
 \end{itemize}
 
-
-%\pagestyle{empthy}
 \subsection{Diagramme M1 côté serveur}
-
-\begin{figure}[htb]
+\pagestyle{fancy}
+\clearpage
 \pagestyle{empty}
+{
+\begin{figure}[htb]
   \centering
   \includegraphics[scale=0.20]{img/M1}
   \caption{Model (M1) côté serveur}
   \label{fig:M1}
 \end{figure}
+}
 \clearpage
+
 \pagestyle{fancy}
 \section{Côté Client}
-
 \subsection{Description du Client}
-Le client est composant permettant  à un utilisateur de demander connexion au serveur à partir d'un login et d'un mot de passe. Une fois connecté, le client peut interroger la base de donnée du serveur.
+Le client est un composant permettant  à un utilisateur de demander une connexion au serveur à partir d'un login et d'un mot de passe. Une fois connecté, le client peut interroger la base de données du serveur.
  
 Le composant client possède le service : 
 \begin{itemize}
 \item 
-  \verb+ServiceRConnexionRPC+ : Requière une connexion au serveur
+  \verb+ServiceRConnexionRPC+ : requière une connexion au serveur.
 \end{itemize}
 \subsection{Diagramme M1 côté client}
 \begin{figure}[htb]
