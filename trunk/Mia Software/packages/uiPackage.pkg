@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE PACKAGE SYSTEM "package.dtd">
-<PACKAGE NAME="uiPackage" METAMODEL="Ui" NUMBER="8"
+<PACKAGE NAME="uiPackage" METAMODEL="Ui" NUMBER="12"
  DOCUMENTATION="">
 	<fileHeader version="5" toolName="Mia-Generation" toolVersion="7.3.0"/>
 	<TEXT_MACRO NAME="Button" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
@@ -20,15 +20,31 @@ String retour = new String("");
 
 for(ui.Action a	: current.getActions())
 {
-retour +="\n		Button btn"+a.getName()+" = new Button(this, SWT.NONE);\n"+
-"		btn"+a.getName()+".setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));\n"+
-"		btn"+a.getName()+".setText(\""+a.getName()+"\");\n"+
-"		btn"+a.getName()+".addSelectionListener(new SelectionAdapter(){\n"+
-"		        public void widgetSelected(SelectionEvent event)\n"+
+String listener = new String("");
+if(a.getNextPage() != null)
+{
+listener = "		btn"+a.getName()+".addListener(SWT.Selection, new Listener() {\n"+
+"		        public void handleEvent(Event event) \n"+
 "		        {\n"+
-"		          "+a.getName()+";\n"+
+"                "+a.getNextPage().getModel().getName() +" "+  a.getNextPage().getModel().getName().toLowerCase() + " = " + current.getName()+
+".this.getSelected" +a.getNextPage().getModel().getName()+"();\n"+
+"                 if ("+a.getNextPage().getModel().getName().toLowerCase()+" != null) {\n"+
+"		          "+current.getName()+".this."+manager.getString(current, new Call("actionMethod", a))+";\n"+
 "		        }\n"+
 "		      });\n";
+}
+else
+{
+listener = "		btn"+a.getName()+".addSelectionListener(new SelectionAdapter(){\n"+
+"		        public void widgetSelected(SelectionEvent event)\n"+
+"		        {\n"+
+"		          "+manager.getString(current, new Call("actionMethod", a))+";\n"+
+"		        }\n"+
+"		      });\n";
+}
+retour +="\n		Button btn"+a.getName()+" = new Button(this, SWT.NONE);\n"+
+//"		btn"+a.getName()+".setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));\n"+
+"		btn"+a.getName()+".setText(\""+a.getName()+"\");\n"+listener;
 }
 return retour;
 ]]></TEXT>
@@ -36,6 +52,8 @@ return retour;
 	<SCRIPT NAME="IView" META_OBJECT="View" CATEGORY="default" VISIBILITY="private">
 		<TEXT><![CDATA[
 package com.mia.banque.uigenerated.view;
+
+[[importInterface]]
 
 public interface I[[name]]{
 [[IViewMethode]]
@@ -58,7 +76,7 @@ if(a.getNextPage()!=null)
 {
 attribute += a.getNextPage().getModel().getName() + " arg";
 }
-retour = retour +"public void "+ a.getName()+"("+ attribute+");\n";
+retour = retour +"public void "+ manager.getString(current, new Call("actionMethodWithType", a))+";\n";
 }
 
 return retour;
@@ -68,7 +86,25 @@ return retour;
 		<TEXT><![CDATA[
 package com.mia.banque.uigenerated.view.impl.swt;
 
-import org.eclipse.swt.*
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.ShellAdapter;
+import org.eclipse.swt.events.ShellEvent;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Shell;
+
+[[importThisData]]
+
+import com.mia.banque.uigenerated.controler.I[[ControlerName]]Controler;
+import com.mia.banque.uigenerated.view.I[[name]];
 
 public class [[name]] extends Shell implements IBanqueView {
 
@@ -87,7 +123,7 @@ private [[ControlerName]] model;
 		this.controler = controler;
 		
 		this.createContents();
-		}
+		
 	}
 
 	protected void createContents() {
@@ -114,23 +150,78 @@ private [[ControlerName]] model;
 [[name]].java
 ]]></TEXT>
 	</SCRIPT>
+	<TEXT_MACRO NAME="actionMethod" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+
+retour += action.getName()+"(";
+
+if(action.getNextPage() != null)
+{
+retour += action.getNextPage().getModel().getName().toLowerCase();
+}
+
+retour+=")";
+
+
+return retour;
+]]></TEXT>
+		<PARAMETER NAME="action" TYPE_KIND="metaModel" TYPE_NAME="ui.Action"/>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="actionMethodWithType" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+
+retour += action.getName()+"(";
+
+if(action.getNextPage() != null)
+{
+retour += action.getNextPage().getModel().getName() + " " + action.getNextPage().getModel().getName().toLowerCase();
+}
+
+retour+=")";
+
+
+return retour;
+]]></TEXT>
+		<PARAMETER NAME="action" TYPE_KIND="metaModel" TYPE_NAME="ui.Action"/>
+	</TEXT_MACRO>
 	<TEXT_MACRO NAME="generateMethodView" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
 		<TEXT><![CDATA[
 String retour = new String("");
 for(ui.Action a : current.getActions()){
-String attribute ="";
 String param ="";
-
 if(a.getNextPage()!=null)
 {
-attribute += a.getNextPage().getModel().getName() + " arg";
-param+= "arg";
+param+= a.getNextPage().getModel().getNamespace().getName();
 }
 
 
-retour += "public void "+a.getName()+"("+attribute+"){\n"+
-"this.controler."+a.getName()+"("+param+");\n}\n\n";
+retour += "public void "+manager.getString(current, new Call("actionMethodWithType", a))+"{\n"+
+"this.controler."+manager.getString(current, new Call("actionMethod", a))+";\n}\n\n";
 }
+
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="importInterface" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+for(Property att : current.getModel().getAllAttributes())
+{
+if(att.getAssociation()!=null){
+retour += "import data."+att.getType().getPackage().getName()+"."+att.getType().getName()+";\n";
+}
+}
+
+
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="importThisData" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+retour += "import data."+current.getModel().getPackage().getName()+"."+current.getModel().getName()+";\n";
 
 return retour;
 ]]></TEXT>
