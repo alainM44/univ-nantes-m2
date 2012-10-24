@@ -40,11 +40,22 @@ La \verb+Configuration+  est un composant composé de \verb+Composants+ :
   Un connecteur peut être aussi une \verb+Configuration+.
 \end{itemize}
 
+\paragraph{Corrections du M2 après évaluation}
+Suite aux remarques émises lors de l'évaluation nous avons apporté les corrections suivantes : 
+\begin{enumerate}
+\item
+  Expliciter un lien direct entre un \verb+Connecteur+ et \verb+Glu+.
+\item
+  Appliquer un pattern \textit{composite} à l'entité \verb+Conecteur+.
+\item
+  Refractoring de la hierachie entre \verb+Composant+, \verb+Connecteur+ et \verb+Configuration+. Désormais \verb+Composant+ et \verb+Connecteur+ sont au \og même niveau \fg{} par rapport à \verb+Configuration+.
+\end{enumerate}
+
 \section{Diagramme M2}
 \pagestyle{empty}
 \begin{figure}[htb]
   %\centering
-  \includegraphics[scale=0.36]{img/M2}
+  \includegraphics[scale=0.33]{img/M2}
   \caption{Méta-Model (M2)}
   \label{fig:M2}
 \end{figure}

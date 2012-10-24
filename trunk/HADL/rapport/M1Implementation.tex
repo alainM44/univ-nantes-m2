@@ -5,8 +5,8 @@ Dans ce chapitre nous définirons une application \textit{Clients-Serveur} en im
 L'énoncé du projet/TP nous propose un serveur avec les fonctionnalités suivantes :
 
 \begin{itemize}
-\item \verb+ConnexionManager+ :   Gestion des connexions. 
-\item  \verb+Database+ :  Gestion de la base de données.
+\item \verb+ConnexionManager+ : Gestion des connexions. 
+\item  \verb+Database+ : Gestion de la base de données.
 \item \verb+SecurityManager+ :  Gestion d'un système de sécurité.
 \end{itemize}
 
@@ -21,6 +21,17 @@ Les liaisons entre les différents composants du serveur et le client sont shém
 \end{figure}
 
 Nous retrouvons une version formelle de ce shéma dans la figure \ref{fig:M1} pour la partie \og serveur \fg{} puis dans la figure \ref{fig:M11} pour la partie \og client \fg{} ainsi que sa liaison avec le serveur.
+
+
+\paragraph{Corrections du M1 après évaluation}
+Dans le M1 intialement proposé, on pouvait noter l'absence de \textit{composant serveur}. Pour paller à ce problème nous avons apporté les modifications suivantes : 
+\begin{enumerate}
+\item Création d'une \verb+ConfigurationServeur+.
+\item Mise en place d'un lien \verb+binding+ entre cette configuration et le \verb+Composant+ serveur.
+\item Liaison \verb+attachement+ entre les rôles du  \ver+Connecteur+ RPC et le \verb+Composant+ serveur.
+\end{enumerate}
+
+Ces modifications sont visibles sur la figure \ref{fig:M11}
 
 \section{Côté Serveur}
 \subsection{Déscription des composants serveur}
@@ -80,7 +91,7 @@ Le composant client possède le service :
 \subsection{Diagramme M1 côté client}
 \begin{figure}[htb]
   \centering
-  \includegraphics[scale=0.27]{img/M11}
+  \includegraphics[scale=0.24]{img/M11}
   \caption{Model (M1) côté client}
   \label{fig:M11}
 \end{figure}
