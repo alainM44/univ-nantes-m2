@@ -15,7 +15,6 @@
  */
 package human;
 
-import ia.IA;
 import ia.IIA;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -32,13 +31,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-
-;
 
 /**
  * @author Alain MARGUERITE
@@ -52,9 +48,8 @@ import javax.swing.SwingUtilities;
 public class Human extends JFrame {
 
 	// private enum {etat1;et
-	private HashMap<String, ImageIcon> mMapImageClient; // recueil des
-														// différente
-	// imagesent
+	private HashMap<String, ImageIcon> mMapImageClient;
+	// recueil desdifférentes images
 	private String mCurrentStateClient = new String(); // décrit l'état courant
 	private JLabel mLabelImageClient;
 	private JTextArea mJtxtAreaClient;
@@ -67,15 +62,13 @@ public class Human extends JFrame {
 	private static IIA ia;
 
 	/**
-	 * 
+	 * Classe d'écrivant un automate controllable via une IHM par un utilisateur
 	 * 
 	 * @author Alain MARGUERITE
 	 * @author Romain RINCÉ
 	 * 
+	 * @see RemoteException
 	 */
-
-	// Création d'une variable locale permettant d'interoger le server
-
 	public Human() throws RemoteException {
 		construireIHM();
 	}
@@ -105,8 +98,9 @@ public class Human extends JFrame {
 				Color.lightGray, 26));
 
 		mIhmClient.add(mLabelImageClient, BorderLayout.NORTH);
-		// /////////////////////////////////////////////////////////: center area
-		mJtxtAreaClient = new JTextArea("Client connecté au serveur : "+"\n");
+		// /////////////////////////////////////////////////////////: center
+		// area
+		mJtxtAreaClient = new JTextArea("Client connecté au serveur : " + "\n");
 		mJtxtAreaClient.setLineWrap(true);
 		mJPanel = new JScrollPane(mJtxtAreaClient);
 		mJPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -146,6 +140,14 @@ public class Human extends JFrame {
 		mIhmClient.pack();
 	}
 
+	/**
+	 * Écris sur l'entrée standard et sur la texte area de l'IHM
+	 * 
+	 * @param mCurrentState
+	 *            String de l'état courant
+	 * @param msg
+	 *            message suppémentaire falcutatif à afficher
+	 */
 	public void setmCurrentStateClient(String mCurrentState, String msg) {
 		this.mCurrentStateClient = mCurrentState;
 		switch (mCurrentStateClient) {
@@ -159,6 +161,7 @@ public class Human extends JFrame {
 
 			break;
 		case "etat3":
+		
 			break;
 		case "etat4":
 			mButBegin.setEnabled(false);
@@ -178,6 +181,14 @@ public class Human extends JFrame {
 		mIhmClient.repaint();
 	}
 
+	/**
+	 * Ecris sur l'entrée standart et sur la texte area de l'IHM
+	 * 
+	 * @param mCurrentState
+	 *            String de l'état courant
+	 * @param msg
+	 *            message suppémentaire falcutatif à afficher
+	 */
 	public void writeChangeStateClient(String state, String msg) {
 		Calendar cal = Calendar.getInstance();
 		mJtxtAreaClient.append("[Client :" + cal.get(Calendar.MINUTE) + "m"
@@ -198,7 +209,6 @@ public class Human extends JFrame {
 					Thread.sleep(1000);
 				} catch (InterruptedException ex) {
 				}
-
 				SwingUtilities.invokeLater(new Runnable() {
 					public void run() {
 
@@ -279,7 +289,7 @@ public class Human extends JFrame {
 			}
 		};
 
-		worker.start(); 
+		worker.start();
 	}
 
 	public static void main(String[] argv) throws RemoteException {
@@ -293,18 +303,17 @@ public class Human extends JFrame {
 			e.printStackTrace();
 			return;
 		}
-
 		Human human = new Human();
 
 	}
-	public class ButtonEndHandler implements ActionListener {
 
+	public class ButtonEndHandler implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			setmCurrentStateClient("etat1", "human press on end button ");
 			mButData.setEnabled(false);
 			mButBegin.setEnabled(true);
-			mButEnd.setEnabled(true);
+			mButEnd.setEnabled(false);
 
 			try {
 				ia.sendEnd();
@@ -319,48 +328,46 @@ public class Human extends JFrame {
 		}
 
 	}
+
 	public class ButtonBeginHandler implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
 			setmCurrentStateClient("etat2", "human press on begin button ");
-
 			try {
 				ia.sendBegin();
-				// System.out.println("send begin");
 			} catch (RemoteException e2) {
-				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
 
 			try {
 				waitAndSee();
 			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
 
 	}
 
+	/**
+	 * Classe d'écrivant un automate controllable via une IHM par un utilisateur
+	 * 
+	 * @author Alain MARGUERITE
+	 * @author Romain RINCÉ
+	 * 
+	 * @see RemoteException
+	 */
 	public class ButtonDataHandler implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
 			setmCurrentStateClient("etat4", "human press on data button ");
-
 			try {
 				ia.sendData();
-				// System.out.println("send begin");
 			} catch (RemoteException e2) {
-				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
-
 			try {
 				waitAndSee();
 			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}

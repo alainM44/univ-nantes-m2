@@ -1,5 +1,3 @@
-package ia;
-
 /*   This file is part of FormalSoftwareProject.
 
  FormalSoftwareProject is free software: you can redistribute it and/or modify
@@ -16,8 +14,9 @@ package ia;
  along with FormalSoftwareProject.  If not, see <http://www.gnu.org/licenses/>
  */
 
-import ia.IIA;
+package ia;
 
+import ia.IIA;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -31,36 +30,32 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Random;
-
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import javax.tools.JavaCompiler;
-import javax.swing.Timer;
 
 /**
+ * 
  * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
  * 
- *         Classe décrivant une IHM permettant de simuler un automate
- * @see JFrame
+ *         Classe décrivant une automate avec une IHM décrivant ces état.
+ * 
+ * @see UnicastRemoteObject
  */
 @SuppressWarnings("serial")
-public class IA extends UnicastRemoteObject implements IIA {// extends JFrame {
+public class IA extends UnicastRemoteObject implements IIA {
 
 	// private enum {etat1;et
-	private HashMap<String, ImageIcon> mMapImageServeur; // recueil des
-															// différente
-	// images
+	private HashMap<String, ImageIcon> mMapImageServeur;
+	// recueil des différente images
 	private String mCurrentStateServeur = new String(); // décrit l'état courant
 	private JLabel mLabelImageServeur;
 	private JScrollPane mJScrollPane;
@@ -68,6 +63,11 @@ public class IA extends UnicastRemoteObject implements IIA {// extends JFrame {
 	private JFrame mIhmIA;
 	private JButton mButQuit;
 
+	/**
+	 * Constructeur par défaut.
+	 * 
+	 * @throws RemoteException
+	 */
 	protected IA() throws RemoteException {
 		super();
 		construireIHM();
@@ -78,9 +78,8 @@ public class IA extends UnicastRemoteObject implements IIA {// extends JFrame {
 		mIhmIA = new JFrame("Formal Software project (IA)");
 		mIhmIA.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mIhmIA.setLayout(new BorderLayout());
-
 		mIhmIA.setPreferredSize(new Dimension(600, 570));
-		// ///////////////////////////////////////////////////////center area
+		// ///////////////////////////////////////////////////////north area
 
 		mMapImageServeur = new HashMap<String, ImageIcon>();
 		mMapImageServeur
@@ -106,8 +105,7 @@ public class IA extends UnicastRemoteObject implements IIA {// extends JFrame {
 				Color.lightGray, 26));
 
 		mIhmIA.add(mLabelImageServeur, BorderLayout.NORTH);
-		// /////////////////////////////////////////////////////////: center
-		// area
+		// ///////////////////////////////////////////////////// center area
 		mJtxtAreaServeur = new JTextArea("Serveur lancé: " + "\n");
 		mJtxtAreaServeur.setLineWrap(true);
 		mJScrollPane = new JScrollPane(mJtxtAreaServeur);
@@ -137,36 +135,26 @@ public class IA extends UnicastRemoteObject implements IIA {// extends JFrame {
 		mIhmIA.pack();
 	}
 
+	/**
+	 * Écris sur l'entrée standard et sur la texte area de l'IHM
+	 * 
+	 * @param mCurrentState
+	 *            String de l'état courant
+	 * @param msg
+	 *            message suppémentaire falcutatif à afficher
+	 */
 	public void setmCurrentStateServeur(String mCurrentState, String msg) {
 		this.mCurrentStateServeur = mCurrentState;
-		switch (mCurrentStateServeur) {
-		case "etat1":
-			// mButBegin.setEnabled(true);
-			// mButEnd.setEnabled(false);
-			// mButData.setEnabled(false);
-			break;
-		case "etat2":
-			// mButBegin.setEnabled(true);
-			// mButEnd.setEnabled(false);
-			// mButData.setEnabled(false);
-			break;
-		case "etat3":
-			// mButBegin.setEnabled(true);
-			// mButEnd.setEnabled(false);
-			// mButData.setEnabled(false);
-			break;
-		case "etat4":
-			// mButBegin.setEnabled(true);
-			// mButEnd.setEnabled(false);
-			// mButData.setEnabled(false);
-			break;
-		default:
-			break;
-		}
 		writeChangeStateServeur(mCurrentState, msg);
 		setImageServeur(mCurrentState);
 	}
 
+	/**
+	 * Mise à jour de l'image de l'IHM
+	 * 
+	 * @param state
+	 *            clé de l'image à afficher.
+	 */
 	public void setImageServeur(String state) {
 		mLabelImageServeur.setIcon(mMapImageServeur.get(state));
 		mLabelImageServeur.repaint();
@@ -174,14 +162,14 @@ public class IA extends UnicastRemoteObject implements IIA {// extends JFrame {
 	}
 
 	public void writeChangeStateServeur(String state, String msg) {
-
 		Calendar cal = Calendar.getInstance();
 		System.out.println("[Serveur :" + cal.get(Calendar.MINUTE) + "s"
 				+ cal.get(Calendar.SECOND) + cal.get(Calendar.MILLISECOND)
 				+ "ms] Passage à l'" + state + " " + msg + "\n");
 		mJtxtAreaServeur.append("[Serveur :" + cal.get(Calendar.MINUTE) + "s"
-				+ cal.get(Calendar.SECOND) + cal.get(Calendar.MILLISECOND)
-				+ "ms] Passage à l'" + state + " " + msg + "\n");
+				+ cal.get(Calendar.SECOND) + "s"
+				+ cal.get(Calendar.MILLISECOND) + "ms] Passage à l'" + state
+				+ " " + msg + "\n");
 	}
 
 	public static void main(String[] args) {
@@ -195,7 +183,7 @@ public class IA extends UnicastRemoteObject implements IIA {// extends JFrame {
 		}
 
 		try {
-			// Création du serveur de forum et enregistrement sur le réseau
+			// Création de l'IA et enregistrement sur le réseau
 			LocateRegistry.createRegistry(1099);
 			IA leServeur = new IA();
 			Naming.bind("//localhost/IA", leServeur);
@@ -210,50 +198,20 @@ public class IA extends UnicastRemoteObject implements IIA {// extends JFrame {
 	@Override
 	public void sendBegin() {
 		setmCurrentStateServeur("etat2", "Human puts on begin");
-
 	}
-
 
 	@Override
 	public void sendEnd() {
 		setmCurrentStateServeur("etat1", "Human puts on end1");
-		// System.out.println("Human puts on end0");
-		// Thread worker = new Thread() {
-		// public void run() {
-		//
-		// try {
-		// Thread.sleep(2500);
-		// } catch (InterruptedException ex) {
-		// }
-		//
-		// // Report the result using invokeLater().
-		// SwingUtilities.invokeLater(new Runnable() {
-		// public void run() {
-		// setmCurrentStateServeur("etat1", "Human puts on end1");
-		// }
-		// });
-		// }
-		// };
-		//
-		// worker.start();
 	}
-
-
 
 	@Override
 	public void sendData() {
-
 		setmCurrentStateServeur("etat4", "Human puts on DATA");
 	}
 
-
-
 	@Override
 	public String whatCanIDo() throws RemoteException, InterruptedException {
-		return chooseAway();
-	}
-
-	private String chooseAway() throws InterruptedException {
 		String IaOrder = new String();
 		Random r = new Random();
 		int valeur;
@@ -295,7 +253,7 @@ public class IA extends UnicastRemoteObject implements IIA {// extends JFrame {
 			case 1:
 				IaOrder = "etat3";
 				setmCurrentStateServeur("etat3", "send dack");
-				// TODO
+
 			case 2:
 				System.out.println("I wait");
 				break;
@@ -304,7 +262,6 @@ public class IA extends UnicastRemoteObject implements IIA {// extends JFrame {
 				System.out.println("erreur random");
 				break;
 			}
-
 		default:
 			break;
 		}
