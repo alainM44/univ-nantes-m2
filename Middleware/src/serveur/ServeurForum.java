@@ -22,6 +22,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author Alain MARGUERITE
@@ -41,7 +42,8 @@ public class ServeurForum extends UnicastRemoteObject implements IServeurForum {
 	SujetDiscussion sport;
 	SujetDiscussion musique;
 	SujetDiscussion cinema;
-	ArrayList<String> sujetDiscussions;
+	ArrayList<String> sujetDiscussionsTitres;
+	HashMap<String, SujetDiscussion> sujetDiscussions;
 
 	/**
 	 * Contructeur par defaut instanciant les différents Sujets de discussion.
@@ -54,27 +56,23 @@ public class ServeurForum extends UnicastRemoteObject implements IServeurForum {
 		sport = new SujetDiscussion("sport");
 		musique = new SujetDiscussion("musique");
 		cinema = new SujetDiscussion("cinema");
-		sujetDiscussions = new ArrayList<String>();
-//		System.out.println(sport.getTitre());
-		//Erreur ici
-		sujetDiscussions.add(sport.getTitre());
-		sujetDiscussions.add(musique.getTitre());
-		sujetDiscussions.add(cinema.getTitre());
+		sujetDiscussionsTitres = new ArrayList<String>();
+		sujetDiscussions = new HashMap<String, SujetDiscussion>();
+	
+		sujetDiscussionsTitres.add(sport.getTitre());
+		sujetDiscussionsTitres.add(musique.getTitre());
+		sujetDiscussionsTitres.add(cinema.getTitre());
+		
+		sujetDiscussions.put(sport.getTitre(),sport);
+		sujetDiscussions.put(musique.getTitre(),musique);
+		sujetDiscussions.put(cinema.getTitre(),cinema);
+
 
 	}
 
 	@Override
 	public ISujetDiscussion obtientSujet(String titre) throws RemoteException {
-		if (titre.equals("cinema"))
-			return cinema;
-		else if (titre.equals("musique"))
-			return musique;
-		else if (titre.equals("sport"))
-			return sport;
-		else
-			return null;// TODO retourne une valeur null. Peu propre prévoire un
-						// lancement d'exception ou rien si changement du
-						// programme.
+		return sujetDiscussions.get(titre);
 	}
 
 	public static void main(String[] args) {
@@ -102,6 +100,12 @@ public class ServeurForum extends UnicastRemoteObject implements IServeurForum {
 
 	@Override
 	public ArrayList<String> getSujets() throws RemoteException {
-		return sujetDiscussions;
+		return sujetDiscussionsTitres;
+	}
+
+	@Override
+	public void creerSujet(String nouveauSujet) throws RemoteException {
+		sujetDiscussionsTitres.add(nouveauSujet);
+		sujetDiscussions.put(nouveauSujet,new SujetDiscussion(nouveauSujet));
 	}
 }
