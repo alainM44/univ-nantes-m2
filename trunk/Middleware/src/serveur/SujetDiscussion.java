@@ -60,16 +60,16 @@ public class SujetDiscussion extends UnicastRemoteObject implements
 		mtitre = titre;
 		protagonistes = new ArrayList<IAffichageClient>();
 	}
-
-	public synchronized void inscription(IAffichageClient c) {
+	@Override
+	public synchronized void inscription(IAffichageClient c) throws RemoteException  {
 		protagonistes.add(c);
 	}
-
-	public synchronized void desInscription(IAffichageClient c) {
+	@Override
+	public synchronized void desInscription(IAffichageClient c)  throws RemoteException {
 		protagonistes.remove(c);
 	}
-
-	public synchronized void diffuse(String message) {
+	@Override
+	public synchronized void diffuse(String message)  throws RemoteException {
 		for (IAffichageClient iac : protagonistes)
 			try {
 				iac.affiche(message);

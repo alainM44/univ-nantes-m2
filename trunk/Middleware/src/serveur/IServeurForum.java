@@ -23,4 +23,12 @@ public interface IServeurForum extends Remote {
 	 */
 	public ArrayList<String> getSujets() throws RemoteException;
 
+	/**
+	 * Permet au client de creer un nouveau sujet
+	 * 
+	 * @param nouveauSujet
+	 *            nom du nouveau sujet
+	 */
+	public void creerSujet(String nouveauSujet) throws RemoteException;
+
 }

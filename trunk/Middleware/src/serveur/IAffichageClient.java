@@ -41,4 +41,6 @@ public interface IAffichageClient extends Remote {
 	 */
 	public void affiche(String message) throws RemoteException;
 
+
+
 }

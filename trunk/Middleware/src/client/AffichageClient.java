@@ -27,8 +27,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
+
 import serveur.IAffichageClient;
 import serveur.ISujetDiscussion;
 
@@ -45,15 +48,17 @@ import serveur.ISujetDiscussion;
 public class AffichageClient extends UnicastRemoteObject implements
 		IAffichageClient {
 	ISujetDiscussion sujetDiscussion;
+	private JScrollPane mJPanel;
 	private static final long serialVersionUID = 2L;
 
-	JFrame f = new JFrame();
+	JFrame mFramePrincipale = new JFrame();
 
 	JTextArea discussion = new JTextArea(10, 20);
 
 	JTextField composeMessage = new JTextField(20);
 
 	JButton boutonEnvoi = new JButton("ENVOI");
+	String clientName = new String();
 
 	class ActionEnvoi implements ActionListener {
 		public synchronized void actionPerformed(ActionEvent e) {
@@ -67,23 +72,23 @@ public class AffichageClient extends UnicastRemoteObject implements
 		}
 	}
 
-	public AffichageClient(String titre, ISujetDiscussion s)
+	public AffichageClient(String titre, ISujetDiscussion s, String client)
 			throws RemoteException {
 		sujetDiscussion = s;
-		// Placement.p(f, new Label(titre), 1, 1, 1, 1);
-		// Placement.p(f, discussion, 1, 2, 1, 1);
-		// Placement.p(f, composeMessage, 1, 3, 1, 1);
-		// Placement.p(f, boutonEnvoi, 1, 4, 1, 1);
+		clientName = client;
 		boutonEnvoi.addActionListener(new ActionEnvoi());
-		f.setTitle(titre);
-		f.setPreferredSize(new Dimension(300, 300));
-		f.setLayout(new BorderLayout());
-		
-		f.add(discussion,BorderLayout.NORTH);
-		f.add(composeMessage,BorderLayout.CENTER);
-		f.add(boutonEnvoi,BorderLayout.SOUTH);
-		f.pack();
-		f.setVisible(true);
+		mFramePrincipale.setTitle(titre);
+		mFramePrincipale.setPreferredSize(new Dimension(300, 300));
+		mFramePrincipale.setLayout(new BorderLayout());
+		mJPanel = new JScrollPane(discussion);
+		mJPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		mFramePrincipale.add(mJPanel, BorderLayout.NORTH);
+		mFramePrincipale.add(composeMessage, BorderLayout.CENTER);
+		boutonEnvoi.setFocusable(true);
+	
+		mFramePrincipale.add(boutonEnvoi, BorderLayout.SOUTH);
+		mFramePrincipale.pack();
+		mFramePrincipale.setVisible(true);
 	}
 
 	/**
@@ -91,11 +96,12 @@ public class AffichageClient extends UnicastRemoteObject implements
 	 */
 	@Override
 	public void affiche(String message) {
-
-		discussion.append("\n" + message);
+		composeMessage.setText("");
+		discussion.append("\n" + clientName + " :" + message);
 	}
 
 	public void termine() {
-		f.dispose();
+		mFramePrincipale.dispose();
 	}
+
 }
