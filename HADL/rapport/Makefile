@@ -13,7 +13,7 @@
 # September 2005: Added the -o flag to dvips.  Thanks
 # to Juan J. Merelo Guervós <jmerelo@geneura.ugr.es>
 
-TEXFILE	= Rapport_FormalSoftware_MARGUERITE_RINCE.tex
+TEXFILE	= Rapport_FormalSoftware_MARGUERITE_RINC.tex
 
 .PHONY: dvi ps pdf clean
 
