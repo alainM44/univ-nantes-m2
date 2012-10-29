@@ -43,4 +43,7 @@ clean:
 	$(TEXFILE:.tex=.out) \
 	$(TEXFILE:.tex=.dvi) \
 	$(TEXFILE:.tex=.pdf) \
+	$(TEXFILE:.tex=.lof) \
+	$(TEXFILE:.tex=.toc) \
+	$(TEXFILE:.tex=.idx) \
 	$(TEXFILE:.tex=.ps)
