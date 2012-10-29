@@ -1,0 +1,22 @@
+\chapter{Implémentation du protocole}
+
+\section{Solutions choisies}
+Le langage choisi est \textsc{JAVA}. Les motivations de ce choix sont les suivants : la facilité  ainsi que la mise à disposition par \textsc{JAVA} de moniteurs. Effet, la classe \texttt{UnicastRemoteObject} propose les objets \textit{RMI} (Remote Method Invocation). Il s'agit d'objets \og distants \fg{} auxquels des appels de méthodes peuvent être effectués comme si l'objet était local. De plus  l'implémentation des objets \texttt{RMI}  utilise les moniteurs. Ce mécanisme garantissant l'emploie de canaux de type \texttt{FIFO} est approprié pour le protocole de ce projet.  
+
+\section{Implémentation}
+
+\subsection{Partie serveur}
+La partie \og serveur \fg{} est implémentée par la classe \texttt{IA}, la figure \ref{fig:ia} illustre que cette classe hérite de l'interface \texttt{IIA}. Cet héritage est indispensable pour l'utilisation d'objet \texttt{RMI}. Les signatures des méthodes que l'interface contient, sont les moyen pour le client de dialoguer avec le serveur. Bien sur le client doit avoir la connaissance de cette interface.
+
+ \begin{figure}[htb]
+   \centering
+   \includegraphics[scale=.5]{img/ia.eps}
+   \caption{Partie serveur}
+   \label{fig:ia}
+ \end{figure}
+
+\subsection{Partie client}
+
+
+% LocalWords:  Implémentation UnicastRemoteObject RMI Remote Method
+% LocalWords:  l'implémentation FIFO IA IIA
