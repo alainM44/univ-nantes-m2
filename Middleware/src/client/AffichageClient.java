@@ -16,15 +16,16 @@
 
 package client;
 
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -43,59 +44,84 @@ import serveur.ISujetDiscussion;
  */
 public class AffichageClient extends UnicastRemoteObject implements
 		IAffichageClient {
-	ISujetDiscussion sujetDiscussion;
-	private JScrollPane mJPanel;
 	private static final long serialVersionUID = 2L;
 
-	JFrame mFramePrincipale = new JFrame();
-
-	JTextArea discussion = new JTextArea(10, 20);
-
-	JTextField composeMessage = new JTextField(20);
-
-	JButton boutonEnvoi = new JButton("ENVOI");
-	String clientName = new String();
+	ISujetDiscussion sujetDiscussion;
+	private JScrollPane mJPanel;
+	private JFrame mFramePrincipale = new JFrame();
+	private JTextArea mJtextAreaDiscussion;
+	private JTextField mJtextFieldComposeMesage;
+	private JLabel mLabelCenter;
+	private JButton mButonEnvoi = new JButton("ENVOI");
+	private String mClientName = new String();
 
 	class ActionEnvoi implements ActionListener {
 		public synchronized void actionPerformed(ActionEvent e) {
 			try {
-				sujetDiscussion.diffuse(composeMessage.getText());
+				sujetDiscussion.diffuse(mJtextFieldComposeMesage.getText());
 			} catch (RemoteException e1) {
 				System.out
 						.println("Erreur AffichageClient.java envoi du message :"
-								+ composeMessage.getText());
+								+ mJtextFieldComposeMesage.getText());
 			}
 		}
 	}
 
+	/**
+	 * Constructeur de l'iHM
+	 * 
+	 * @param titre
+	 *            titre du forum
+	 * @param s
+	 *            référence du sujet de discussion
+	 * @param client
+	 *            Nom du client
+	 * @throws RemoteException
+	 */
 	public AffichageClient(String titre, ISujetDiscussion s, String client)
 			throws RemoteException {
 		sujetDiscussion = s;
-		clientName = client;
-		boutonEnvoi.addActionListener(new ActionEnvoi());
-		mFramePrincipale.setTitle(titre);
+		mClientName = client;
+		mButonEnvoi.addActionListener(new ActionEnvoi());
+		mFramePrincipale.setTitle("Forum " + titre);
 		mFramePrincipale.setPreferredSize(new Dimension(300, 300));
 		mFramePrincipale.setLayout(new BorderLayout());
-		mJPanel = new JScrollPane(discussion);
+		mJtextAreaDiscussion = new JTextArea(10, 20);
+		mJtextAreaDiscussion.setEditable(false);
+		mJPanel = new JScrollPane(mJtextAreaDiscussion);
 		mJPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		mFramePrincipale.add(mJPanel, BorderLayout.NORTH);
-		mFramePrincipale.add(composeMessage, BorderLayout.CENTER);
-		boutonEnvoi.setFocusable(true);
-	
-		mFramePrincipale.add(boutonEnvoi, BorderLayout.SOUTH);
+		mLabelCenter = new JLabel("Bienvenu dans le forum " + titre);
+		mLabelCenter.setSize(30, 150);
+		mFramePrincipale.add(mLabelCenter, BorderLayout.NORTH);
+		mFramePrincipale.add(mJPanel, BorderLayout.CENTER);
+
+		mJtextFieldComposeMesage = new JTextField("blah");
+		mJtextFieldComposeMesage.setSize(new Dimension(10, 5));
+
+		mLabelCenter.setPreferredSize(new Dimension(150, 10));
+		mButonEnvoi.setFocusable(true);
+
+		// south area
+		Box boxSouth = Box.createHorizontalBox();
+		// boxSouth.add(mLabelCenter);
+		boxSouth.add(mJtextFieldComposeMesage);
+		boxSouth.add(mButonEnvoi);
+
+		mFramePrincipale.add(boxSouth, BorderLayout.SOUTH);
+		mFramePrincipale.setResizable(false);
 		mFramePrincipale.pack();
 		mFramePrincipale.setVisible(true);
 	}
 
-	/**
-	 * Ajoute a l'écran le message diffusé
-	 */
 	@Override
 	public void affiche(String message) {
-		composeMessage.setText("");
-		discussion.append("\n" + clientName + " :" + message);
+		mJtextFieldComposeMesage.setText("");
+		mJtextAreaDiscussion.append("\n" + mClientName + " :" + message);
 	}
 
+	/**
+	 * Permet de fermer lIHM client
+	 */
 	public void termine() {
 		mFramePrincipale.dispose();
 	}
