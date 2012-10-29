@@ -14,9 +14,53 @@ La partie \og serveur \fg{} est implémentée par la classe \texttt{IA}, la figu
    \caption{Partie serveur}
    \label{fig:ia}
  \end{figure}
+\clearpage
+\paragraph{L'IHM serveur} (\cf{} figure \ref{fig:ihmIA}) est composée de deux parties : 
+\begin{enumerate}
+\item 
+Partie supérieur : Affichage de l'automate serveur.
+\item
+Partie inférieur : Affichage textuel des événements.
+\end{enumerate}
+L'utilisateur n'a en théorie aucune interactions possible avec le serveur. Dans un soucis pratique nous avons cependant rajouté un bouton \texttt{QUIT} permettant de quitter et réinitialiser le serveur.
+ \begin{figure}[htb]
+   \centering
+   \includegraphics[scale=.5]{img/ihmIA.eps}
+   \caption{IHM du serveur}
+   \label{fig:ihmIA}
+ \end{figure}
 
+
+\clearpage
 \subsection{Partie client}
+\paragraph{L'IHM client}(\cf{} figure \ref{fig:ihmCLIENT}) est composée de trois parties : 
+\begin{enumerate}
+\item 
+Partie supérieur : Affichage de l'automate client.
+\item
+Partie centrale : Affichage textuel des événements.
+\item 
+Partie inférieur : Boutons de contrôle.
+\end{enumerate}
+
+ \begin{figure}[htb]
+   \centering
+   \includegraphics[scale=.5]{img/ihmCLIENT.eps}
+   \caption{IHM du client}
+   \label{fig:ihmCLIENT}
+ \end{figure}
+Les boutons de contrôles :  \texttt{BEGIN}, \texttt{DATA} et \texttt{END} correspondent respectivement aux opérations : \texttt{sendBegin()}, \texttt{sendData()} et \texttt{sendEnd()}, définies dans l'interface \texttt{IIA} (\cf{} figure \ref{fig:ia}). L'utilisateur peut par ses boutons \og tirer \fg{} les transitions de l'automate.
+
+\section{Problèmes rencontrés}
+\subsection{Mutli-threading}
+Au cours du développement de l'application, il était nécessaire d'effectuer systématiquement des tests pour vérifier si les automates étaient dans un état cohérent. Dans un soucis pratiques nous avons effectué ces test en local. L'objet \og distant \fg{} \texttt{RMI} était donc lié au \texttt{localhost} (\verb+127.0.0.0+). Ainsi les messages entre le client et le serveur mettaient en moyenne moins d'un millième de seconde pour rejoindre leur destinataidé (modulo la précision de l'API de mesure temporelle de \textsc{JAVA}).
+
+Un des premiers problèmes que nous avons rencontré dans le développement l'application était donc celui de \og ralentir \fg{} ces opérations afin de vérifier la cohérence des automates.
+
+De plus les rafraîchissements des espaces de visualisation des différents automates posèrent eux aussi de nombreux problèmes. La couche \texttt{SWING} de \textsc{JAVA} en charge de l'implémentation des interface graphique, est elle même un thread à part entière. Une des difficulté était donc de synchroniser au sein d'un même tread application le thread \og vue \fg{} (la couche \texttt{SWING}) avec la couche \og métier \fg{} (algorithmes des automates et de leurs communications).
 
 
 % LocalWords:  Implémentation UnicastRemoteObject RMI Remote Method
-% LocalWords:  l'implémentation FIFO IA IIA
+% LocalWords:  l'implémentation FIFO IA IIA L'IHM QUIT IHM BEGIN END
+% LocalWords:  sendBegin sendData sendEnd Mutli-threading localhost
+% LocalWords:  modulo l'API thread tread
