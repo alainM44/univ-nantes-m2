@@ -54,12 +54,15 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \usepackage{lastpage} %numérotation type k/n
+\setlength{\topmargin}{0,1cm}
+\setlength{\headsep}{1,8cm}
+%\addtolength{\textheight}{cm}
 \renewcommand{\footrulewidth}{0.5pt} % trait horizontal
 %\renewcommand{\headrulewidth}{1pt} % suppresion du trait horizontal dans l'entête
 \lfoot{Projet Formal Software}
 \cfoot{\thepage \hspace{0.15cm}sur  \pageref{LastPage} } % numérotation des pages
 \rfoot{A.\textsc{Marguerite} \& R.\textsc{Rincé}}
-\fancyhead[L]{\hspace{-1.5cm}\includegraphics[scale=0.105]{img/logouniv.eps}} %logo entête !
+\fancyhead[L]{\hspace{-0.3cm}\includegraphics[scale=0.15]{img/logouniv.eps}} %logo entête !
 
 
 \fancypagestyle{plain}{% 1ères pages des chapitres:
@@ -83,7 +86,7 @@
   bookmarksopen=true,
   %si les signets Acrobat sont créés,
   %les afficher complètement.
-  pdftitle={Initiation à la Recherche}, %informations apparaissant dans
+  pdftitle={FormalSoftware}, %informations apparaissant dans
   pdfauthor={MARGUERITE Alain\\ RINCE Romain},
   %dans les informations du document
   pdfsubject={Doc}
@@ -130,7 +133,6 @@
 
 
 \begin{document}
-
 \maketitle
 \renewcommand{\labelitemi}{$\bullet$} 
 
