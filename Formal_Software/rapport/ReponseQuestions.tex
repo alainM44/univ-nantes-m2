@@ -1,0 +1,30 @@
+\chapter{Réponses aux questions théoriques}\label{chap:Rep}
+\section{Modélisation du réseau de Petri}
+
+bla
+borné?
+
+\section{Graphe de marquages}
+
+blabla
+
+\section{Logique temporelle}
+
+Deux propositions nous étaient donnés afin d'être exprimées en logique temporelle:
+\begin{enumerate}
+ \item Le protocole peut toujours revenir à l’état initial.
+ \item Entre deux états où les processus A et B sont en attente, il existe un état où A est déconnecté.
+\end{enumerate}
+Tout d'abord, définissons un ensemble $E$ tous les éléments résultant du produit cartésien de tous les états de A avec ceux de B (soit 16 éléments dans le cas du problème donné).\\
+Notre alphabet pour la logique temporelle sera donc tous les éléments de $E$.\\
+Munissons nous de $i \in E$, $i$ étant l'état où A et B sont dans l'état initial. On peut alors exprimer la première proposition de la façon suivante :
+\begin{equation}
+ \Box\Diamond i
+\end{equation}
+Pour la seconde proposition, munissons nous de $a \in E$ et $d_A \subset E$. $a$ étant l'état où A et B sont en attente et $d_A$ tout état du système où A est déconnecté (dans l'état initial). On peut alors exprimer la seconde proposition de la façon suivante :
+\begin{equation}
+ \Box((a\wedge\bigcirc\Diamond a)\Longrightarrow(\neg(\neg d_A\cup a)))
+\end{equation}
+
+
+
