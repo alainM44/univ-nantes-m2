@@ -16,4 +16,11 @@ import iMetamodel.IPort;
  */
 public class Service implements IPort {
 
+	private String name;
+
+	public Service(String string) {
+		// TODO Auto-generated constructor stub
+		name = string;
+	}
+
 }

@@ -1,6 +1,9 @@
 package metamodel;
 
 public class PortF extends Port {
-//	RoleF rolef;
-//	Ser
+
+	public PortF(String string) {
+		super(string);
+		// TODO Auto-generated constructor stub
+	}
 }
