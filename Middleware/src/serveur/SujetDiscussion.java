@@ -20,8 +20,6 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-//import list.Liste;
-
 /**
  * 
  * @author Alain MARGUERITE
@@ -43,6 +41,7 @@ public class SujetDiscussion extends UnicastRemoteObject implements
 	 * Titre et identifiant unique du sujet de discussion
 	 */
 	private String mtitre;
+	// private IAffichageClient mAffichageClient;
 	/*
 	 * liste des protagonistes de ce sujet de discussion
 	 */
@@ -60,16 +59,23 @@ public class SujetDiscussion extends UnicastRemoteObject implements
 		mtitre = titre;
 		protagonistes = new ArrayList<IAffichageClient>();
 	}
+
 	@Override
-	public synchronized void inscription(IAffichageClient c) throws RemoteException  {
+	public synchronized void inscription(IAffichageClient c)
+			throws RemoteException {
+		// mAffichageClient=c;
 		protagonistes.add(c);
 	}
+
 	@Override
-	public synchronized void desInscription(IAffichageClient c)  throws RemoteException {
+	public synchronized void desInscription(IAffichageClient c)
+			throws RemoteException {
+		protagonistes.get(protagonistes.indexOf(c)).fermetureSujet();
 		protagonistes.remove(c);
 	}
+
 	@Override
-	public synchronized void diffuse(String message)  throws RemoteException {
+	public synchronized void diffuse(String message) throws RemoteException {
 		for (IAffichageClient iac : protagonistes)
 			try {
 				iac.affiche(message);

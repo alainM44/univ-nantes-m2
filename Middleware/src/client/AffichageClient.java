@@ -20,6 +20,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import javax.swing.Box;
@@ -39,6 +41,7 @@ import serveur.ISujetDiscussion;
  * 
  *         Classe implémentant une IHM Client ou s'afficheront les diffusions
  *         d'un Sujet de Discussion.
+ * 
  * @see IAffichageClient
  * @see UnicastRemoteObject
  */
@@ -47,14 +50,23 @@ public class AffichageClient extends UnicastRemoteObject implements
 	private static final long serialVersionUID = 2L;
 
 	ISujetDiscussion sujetDiscussion;
-	private JScrollPane mJPanel;
+	private String mtitreForum;
+	private JScrollPane mJPanelDicussion;
+	private JScrollPane mJPanelState;
 	private JFrame mFramePrincipale = new JFrame();
+	private JTextArea mJtxtAreaDebug;
 	private JTextArea mJtextAreaDiscussion;
 	private JTextField mJtextFieldComposeMesage;
 	private JLabel mLabelCenter;
 	private JButton mButonEnvoi = new JButton("ENVOI");
 	private String mClientName = new String();
+	private ClientForum mClientForum;
 
+	/**
+	 * 
+	 * @author alain
+	 * 
+	 */
 	class ActionEnvoi implements ActionListener {
 		public synchronized void actionPerformed(ActionEvent e) {
 			try {
@@ -78,22 +90,24 @@ public class AffichageClient extends UnicastRemoteObject implements
 	 *            Nom du client
 	 * @throws RemoteException
 	 */
-	public AffichageClient(String titre, ISujetDiscussion s, String client)
+	public AffichageClient(String titre, ISujetDiscussion s, ClientForum client)
 			throws RemoteException {
+		mtitreForum=titre;
 		sujetDiscussion = s;
-		mClientName = client;
+		mClientForum = client;
+		mClientName = client.getTitle();
 		mButonEnvoi.addActionListener(new ActionEnvoi());
 		mFramePrincipale.setTitle("Forum " + titre);
 		mFramePrincipale.setPreferredSize(new Dimension(300, 300));
 		mFramePrincipale.setLayout(new BorderLayout());
 		mJtextAreaDiscussion = new JTextArea(10, 20);
 		mJtextAreaDiscussion.setEditable(false);
-		mJPanel = new JScrollPane(mJtextAreaDiscussion);
-		mJPanel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		mJPanelDicussion = new JScrollPane(mJtextAreaDiscussion);
+		mJPanelDicussion.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		mLabelCenter = new JLabel("Bienvenu dans le forum " + titre);
 		mLabelCenter.setSize(30, 150);
-		mFramePrincipale.add(mLabelCenter, BorderLayout.NORTH);
-		mFramePrincipale.add(mJPanel, BorderLayout.CENTER);
+	//	mFramePrincipale.add(mLabelCenter, BorderLayout.NORTH);
+		mFramePrincipale.add(mJPanelDicussion, BorderLayout.NORTH);
 
 		mJtextFieldComposeMesage = new JTextField("blah");
 		mJtextFieldComposeMesage.setSize(new Dimension(10, 5));
@@ -101,11 +115,23 @@ public class AffichageClient extends UnicastRemoteObject implements
 		mLabelCenter.setPreferredSize(new Dimension(150, 10));
 		mButonEnvoi.setFocusable(true);
 
+		
 		// south area
 		Box boxSouth = Box.createHorizontalBox();
 		// boxSouth.add(mLabelCenter);
 		boxSouth.add(mJtextFieldComposeMesage);
 		boxSouth.add(mButonEnvoi);
+
+		mFramePrincipale.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				try {
+					fermetureSujet();
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 
 		mFramePrincipale.add(boxSouth, BorderLayout.SOUTH);
 		mFramePrincipale.setResizable(false);
@@ -114,7 +140,7 @@ public class AffichageClient extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public void affiche(String message) {
+	public void affiche(String message) throws RemoteException {
 		mJtextFieldComposeMesage.setText("");
 		mJtextAreaDiscussion.append("\n" + mClientName + " :" + message);
 	}
@@ -122,8 +148,14 @@ public class AffichageClient extends UnicastRemoteObject implements
 	/**
 	 * Permet de fermer lIHM client
 	 */
-	public void termine() {
+	public void termine() throws RemoteException {
 		mFramePrincipale.dispose();
+	}
+
+	@Override
+	public void fermetureSujet() throws RemoteException {
+		mClientForum.fermetureSujet(mtitreForum);
+
 	}
 
 }
