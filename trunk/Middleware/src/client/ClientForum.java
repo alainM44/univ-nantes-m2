@@ -16,7 +16,6 @@
 
 package client;
 
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -24,6 +23,7 @@ import java.awt.event.ActionListener;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.Box;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -31,10 +31,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
+import common.FrameWarning;
+
 import serveur.IServeurForum;
 import serveur.ISujetDiscussion;
 
@@ -49,19 +53,21 @@ import serveur.ISujetDiscussion;
 @SuppressWarnings("serial")
 public class ClientForum extends JFrame implements ListSelectionListener {
 
-	String name= new String("Anonyme");
-	JLabel mLabelNorth = new JLabel(
+	private String name = new String("Anonyme");
+	private JLabel mLabelNorth = new JLabel(
 			"Bienvenue dans le ForumRMI, veuillez entrer votre nom :");
-	JTextField mjtfNorth = new JTextField("");
-	JButton mButtonSave = new JButton("SAVE");
-	JButton boutonRefreshListServer = new JButton("RefreshList");
-	JTextField mjtfSouth = new JTextField("blahblah");
-	JButton boutonCreateServer = new JButton("CreateServer");
-	JButton boutonJoin = new JButton("JoinServer");
-	JButton boutonQuit = new JButton("Quit");
-	JList mlist;
-	DefaultListModel mlistModel;
-	IServeurForum leServeur;
+	private JTextField mjtfNorth = new JTextField("");
+	private JButton mButtonSave = new JButton("SAVE");
+	private JButton boutonRefreshListServer = new JButton("RefreshList");
+	private JTextField mjtfSouth = new JTextField("blahblah");
+	private JButton boutonCreateServer = new JButton("CreateServer");
+	private JButton boutonJoin = new JButton("JoinServer");
+	private JButton boutonQuit = new JButton("Quit");
+	private JList mlist;
+	private DefaultListModel mlistModel;
+	private IServeurForum leServeur;
+
+	private HashMap<String, Boolean> mHMforumOuverts;
 
 	/**
 	 * Classe d'écrivant les actions à effectuer lors d'un enclanchement de
@@ -72,13 +78,8 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 	 * 
 	 */
 	class ActionInscription implements ActionListener {
-
 		private AffichageClient ihmSujet; // affichage client associé au bouton
-
-		// private ISujetDiscussion sujetDiscussionServeur; // Sujet associé au
-		// bouton
-
-		// Création d'une variable locale permettant d'interoger le server
+		private ClientForum source;
 
 		/**
 		 * Constructeur principal
@@ -90,28 +91,46 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		 * 
 		 * @throws RemoteException
 		 */
-		public ActionInscription() throws RemoteException {
+		public ActionInscription(ClientForum clientforum)
+				throws RemoteException {
 			super();
+			source = clientforum;
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			try {
-				ISujetDiscussion sujetDiscussionServeur = leServeur
-						.obtientSujet((String) mlist.getSelectedValue());
-				String titre = (String) mlist.getSelectedValue();
-				System.out.println("tata" + titre);
-				ihmSujet = new AffichageClient(titre, sujetDiscussionServeur,name);
 
-				sujetDiscussionServeur.inscription(ihmSujet);
-			} catch (RemoteException e1) {
-				System.out.println("erreur ClientForum.java actionPerformed");
+			String titre = (String) mlist.getSelectedValue();
+			System.out.println(mHMforumOuverts);
+
+			if (mHMforumOuverts.get(titre)) // dforum déjà ouvert
+			{
+				 new FrameWarning();
+				System.out.println("NANNNNNN déjà inscrit");
+				// new JFrame("Désolé forum déjà ouvert");
+
+			} else {
+				try {
+					ISujetDiscussion sujetDiscussionServeur = leServeur
+							.obtientSujet((String) mlist.getSelectedValue());
+
+					System.out.println("tata1" + titre);
+					mHMforumOuverts.put(titre, true);
+					ihmSujet = new AffichageClient(titre,
+							sujetDiscussionServeur, source);
+					sujetDiscussionServeur.inscription(ihmSujet);
+				} catch (RemoteException e1) {
+					System.out
+							.println("erreur ClientForum.java actionPerformed");
+					e1.printStackTrace();
+				}
+
 			}
-
 		}
 	}
 
 	public ClientForum() throws RemoteException {
+
 		try {
 			leServeur = (IServeurForum) Naming
 					.lookup("//localhost/ServeurForum");
@@ -138,10 +157,10 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				name=mjtfNorth.getText();
+				name = mjtfNorth.getText();
 				mjtfNorth.setVisible(false);
 				mButtonSave.setVisible(false);
-				mLabelNorth.setText("Bienvenu(e) "+name);
+				mLabelNorth.setText("Bienvenu(e) " + name);
 			}
 		});
 		boxNorth.add(mjtfNorth);
@@ -151,12 +170,14 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 
 		// center area
 		mlistModel = new DefaultListModel();
-		ArrayList<String> sujets = leServeur.getSujets();
+		ArrayList<String> sujets = new ArrayList<String>();
+		sujets = leServeur.getSujets();
+		mHMforumOuverts = new HashMap<String, Boolean>();
 		// on peuple la liste
-		for (String sujet : sujets)
+		for (String sujet : sujets) {
 			mlistModel.addElement(sujet);
-		System.out.println("liste des sujets :" + leServeur.getSujets());
-
+			mHMforumOuverts.put(sujet, false);
+		}
 		mlist = new JList(mlistModel);
 		mlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		mlist.setSelectedIndex(0);
@@ -166,7 +187,7 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		JScrollPane listScrollPane = new JScrollPane(mlist);
 		add(listScrollPane, BorderLayout.CENTER);
 
-		// south area
+				// south area
 		Box boxSouth = Box.createHorizontalBox();
 		mjtfSouth = new JTextField("blahblah");
 		mjtfSouth.setSize(new Dimension(10, 10));
@@ -198,30 +219,38 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		});
 		boxSouth.add(boutonRefreshListServer);
 
-		boutonJoin.addActionListener(new ActionInscription());
+		boutonJoin.addActionListener(new ActionInscription(this));
 		boxSouth.add(boutonJoin);
-
 		boxSouth.add(Box.createHorizontalGlue());
 		boxSouth.add(boutonQuit);
 		boutonQuit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				JButton source = (JButton) arg0.getSource();
-				JFrame f = (JFrame) source.getParent().getParent().getParent()
-						.getParent().getParent();
-				f.dispose();
+				// JButton source = (JButton) arg0.getSource();
+				// JFrame f = (JFrame)
+				// source.getParent().getParent().getParent()
+				// .getParent().getParent();
+				// f.dispose();
+				System.exit(0);
 			}
 		});
 
 		add(boxSouth, BorderLayout.SOUTH);
 		setVisible(true);
 		pack();
+
 	}
 
 	public static void main(String[] argv) throws RemoteException {
 
 		System.setProperty("java.security.policy", "file:./no.policy");
 		new ClientForum();
+	}
+
+	public void fermetureSujet(String titreSujet) throws RemoteException {
+		System.out.println("on est plus inscrit");
+		mHMforumOuverts.put(titreSujet, false);
+		System.out.println(mHMforumOuverts);
 	}
 
 	@Override
