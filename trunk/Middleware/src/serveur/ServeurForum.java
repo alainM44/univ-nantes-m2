@@ -100,6 +100,7 @@ public class ServeurForum extends UnicastRemoteObject implements IServeurForum {
 
 	@Override
 	public ArrayList<String> getSujets() throws RemoteException {
+		System.out.println(sujetDiscussionsTitres);
 		return sujetDiscussionsTitres;
 	}
 
