@@ -39,8 +39,14 @@ public interface IAffichageClient extends Remote {
 	 *            String à afficher sur l'IHM du client
 	 * @throws RemoteException
 	 */
-	public void affiche(String message) throws RemoteException;
+	public void affiche(String user, String message) throws RemoteException;
 
+	
+	/**
+	 * Notifie le client de la fermeture de son affichage d'un sujet
+	 * 
+	 * @throws RemoteException
+	 */
 	public void fermetureSujet()throws RemoteException;
 
 

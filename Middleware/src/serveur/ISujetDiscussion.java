@@ -51,10 +51,14 @@ public interface ISujetDiscussion extends Remote {
 	/**
 	 * 
 	 * @param Message
-	 *            Message à diffuser
+	 *            Message à diffuser * @param message String à afficher sur
+	 *            l'IHM du client * @param message String à afficher sur l'IHM
+	 *            du client
+	 * @param user
+	 *            Nom du diffuseur
 	 * @throws RemoteException
 	 */
-	public void diffuse(String Message) throws RemoteException;
+	public void diffuse(String user, String Message) throws RemoteException;
 
 	/**
 	 * 

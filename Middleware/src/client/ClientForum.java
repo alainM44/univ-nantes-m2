@@ -53,7 +53,7 @@ import serveur.ISujetDiscussion;
 @SuppressWarnings("serial")
 public class ClientForum extends JFrame implements ListSelectionListener {
 
-	private String name = new String("Anonyme");
+	private String mName = new String("Anonyme");
 	private JLabel mLabelNorth = new JLabel(
 			"Bienvenue dans le ForumRMI, veuillez entrer votre nom :");
 	private JTextField mjtfNorth = new JTextField("");
@@ -157,10 +157,10 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				name = mjtfNorth.getText();
+				mName = mjtfNorth.getText();
 				mjtfNorth.setVisible(false);
 				mButtonSave.setVisible(false);
-				mLabelNorth.setText("Bienvenu(e) " + name);
+				mLabelNorth.setText("Bienvenu(e) " + mName);
 			}
 		});
 		boxNorth.add(mjtfNorth);
@@ -197,6 +197,7 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					leServeur.creerSujet(mjtfSouth.getText());
+					mHMforumOuverts.put(mjtfSouth.getText(), false);
 					rafraichir();
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
@@ -226,11 +227,6 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		boutonQuit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// JButton source = (JButton) arg0.getSource();
-				// JFrame f = (JFrame)
-				// source.getParent().getParent().getParent()
-				// .getParent().getParent();
-				// f.dispose();
 				System.exit(0);
 			}
 		});
@@ -242,9 +238,13 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 	}
 
 	public static void main(String[] argv) throws RemoteException {
-
 		System.setProperty("java.security.policy", "file:./no.policy");
 		new ClientForum();
+	}
+
+	
+	public String getmName() {
+		return mName;
 	}
 
 	public void fermetureSujet(String titreSujet) throws RemoteException {

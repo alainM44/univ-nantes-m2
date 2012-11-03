@@ -17,7 +17,9 @@
 package client;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -56,6 +58,8 @@ public class AffichageClient extends UnicastRemoteObject implements
 	private JFrame mFramePrincipale = new JFrame();
 	private JTextArea mJtxtAreaDebug;
 	private JTextArea mJtextAreaDiscussion;
+	private Font mFontName;
+	private Font mFonteTxt;
 	private JTextField mJtextFieldComposeMesage;
 	private JLabel mLabelCenter;
 	private JButton mButonEnvoi = new JButton("ENVOI");
@@ -70,11 +74,12 @@ public class AffichageClient extends UnicastRemoteObject implements
 	class ActionEnvoi implements ActionListener {
 		public synchronized void actionPerformed(ActionEvent e) {
 			try {
-				sujetDiscussion.diffuse(mJtextFieldComposeMesage.getText());
+				sujetDiscussion.diffuse(mClientName,mJtextFieldComposeMesage.getText());
 			} catch (RemoteException e1) {
 				System.out
 						.println("Erreur AffichageClient.java envoi du message :"
 								+ mJtextFieldComposeMesage.getText());
+				e1.printStackTrace();
 			}
 		}
 	}
@@ -95,13 +100,15 @@ public class AffichageClient extends UnicastRemoteObject implements
 		mtitreForum=titre;
 		sujetDiscussion = s;
 		mClientForum = client;
-		mClientName = client.getTitle();
+		mClientName = client.getmName();
 		mButonEnvoi.addActionListener(new ActionEnvoi());
 		mFramePrincipale.setTitle("Forum " + titre);
 		mFramePrincipale.setPreferredSize(new Dimension(300, 300));
 		mFramePrincipale.setLayout(new BorderLayout());
 		mJtextAreaDiscussion = new JTextArea(10, 20);
 		mJtextAreaDiscussion.setEditable(false);
+		mFontName =new Font("TimesRoman", Font.BOLD, 13);
+		mFonteTxt= new Font("TimesRoman", Font.PLAIN, 11);
 		mJPanelDicussion = new JScrollPane(mJtextAreaDiscussion);
 		mJPanelDicussion.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		mLabelCenter = new JLabel("Bienvenu dans le forum " + titre);
@@ -140,9 +147,13 @@ public class AffichageClient extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public void affiche(String message) throws RemoteException {
+	public void affiche(String user, String message) throws RemoteException {
 		mJtextFieldComposeMesage.setText("");
-		mJtextAreaDiscussion.append("\n" + mClientName + " :" + message);
+		mJtextAreaDiscussion.setFont(mFontName);
+		mJtextAreaDiscussion.setForeground(Color.BLUE);
+		mJtextAreaDiscussion.append("\n" + user + " :");
+		mJtextAreaDiscussion.setFont(mFonteTxt);
+		mJtextAreaDiscussion.append(message);
 	}
 
 	/**
