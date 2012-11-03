@@ -75,10 +75,10 @@ public class SujetDiscussion extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public synchronized void diffuse(String message) throws RemoteException {
+	public synchronized void diffuse(String user, String message) throws RemoteException {
 		for (IAffichageClient iac : protagonistes)
 			try {
-				iac.affiche(message);
+				iac.affiche(user, message);
 			} catch (RemoteException e) {
 				System.out.println("Erreur SujetDiscussion.java diffuse");
 			}
