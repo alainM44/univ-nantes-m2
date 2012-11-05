@@ -2,6 +2,8 @@ package metamodel;
 
 import java.util.ArrayList;
 
+import metamodel.connecteur.Connecteur;
+
 /**
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
