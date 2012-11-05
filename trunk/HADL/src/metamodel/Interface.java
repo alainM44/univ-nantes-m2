@@ -2,6 +2,7 @@ package metamodel;
 
 import java.util.AbstractList;
 
+import metamodel.port.Port;
 import metamodel.service.Service;
 
 /**
