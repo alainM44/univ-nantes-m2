@@ -8,8 +8,8 @@ import metamodel.PortF;
 import metamodel.PortR;
 import metamodel.Propriete;
 import metamodel.ProprieteFonc;
-import metamodel.Service;
-import metamodel.ServiceF;
+import metamodel.service.Service;
+import metamodel.service.ServiceF;
 
 public class DataBase extends Composant {
 
