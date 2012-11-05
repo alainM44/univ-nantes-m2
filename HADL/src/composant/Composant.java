@@ -1,6 +1,7 @@
-package metamodel;
+package composant;
 
 import java.util.AbstractList;
+
 import metamodel.propiete.Propriete;
 import metamodel.service.Service;
 

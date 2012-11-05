@@ -1,4 +1,4 @@
-package metamodel;
+package composant;
 
 
 import java.util.HashMap;

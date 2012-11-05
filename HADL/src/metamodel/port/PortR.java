@@ -1,6 +1,6 @@
 package metamodel.port;
 
-import metamodel.Configuration;
+import configuration.Configuration;
 
 /**
  * @author Alain MARGUERITE

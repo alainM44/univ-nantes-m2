@@ -1,6 +1,6 @@
 package metamodel.role;
 
-import metamodel.Composant;
+import composant.Composant;
 
 /**
  * @author Alain MARGUERITE
