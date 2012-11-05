@@ -1,9 +1,8 @@
 package metamodel;
 
 import java.util.AbstractList;
-
-import metamodel.port.Port;
 import metamodel.propiete.Propriete;
+import metamodel.service.Service;
 
 /**
  * @author Alain MARGUERITE
@@ -18,20 +17,15 @@ import metamodel.propiete.Propriete;
  *         </p>
  */
 public class Composant {
-	private Interface requis;
-	private Interface fournis;
-	private AbstractList<Propriete> proprietes;
-	
-	/**
-	 * La méthode à besoin des services d'un autre composant.
-	 * 
-	 * @param config Configuration du systeme
-	 * @param port Port demandant la requête
-	 * @param args Les arguments nécessaire pour se voir offrir le service
-	 * @return Retourne le resultat du service demandé
-	 */
-	public Object need(Configuration config, Port port, Object args[]){
-		return port.need(config, args);//Peut-être pas finie
+	private InterfaceComposant requis;
+	private InterfaceComposant fournis;
 
+	
+
+	public Service getServiceR(String name){
+		return requis.services.get(name);
+	}
+	public Service getServiceF(String name){
+		return fournis.services.get(name);
 	}
 }

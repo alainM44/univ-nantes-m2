@@ -1,8 +1,10 @@
 package metamodel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import metamodel.connecteur.Connecteur;
+import metamodel.port.PortR;
 import metamodel.propiete.Propriete;
 
 /**
@@ -28,26 +30,19 @@ public class Configuration {// TODO Réfléchir ! Est ce que la classe
 	private ArrayList<Binding> bindings;
 	private ArrayList<Connecteur> connecteurs;
 
-	/**
-	 * Fait appel au connecteur demandé par le port ayant les propriétés
-	 * "propriete" et l'envoie au port
-	 * 
-	 * @param propriete
-	 *            Les proporiétés du port appellant.
-	 * @return Le connecteur associé au port qui appelle la méthode
-	 */
-	public Connecteur connect(Propriete propriete) {// TODO Peut être pas finie
-		return findConnecteur(propriete);
+
+	public Connecteur attachement( ) {
+		
+		return null;
 	}
 
 	// TODO à impléménter
 	/**
+	 * µ
 	 * 
-	 * @param propriete
-	 *            Information sur le port fourni pour la connection
 	 * @return Retourne le connecteur à associer au port.
 	 */
-	private Connecteur findConnecteur(Propriete propriete) {
+	private Connecteur findConnecteur() {
 		return null;
 	}
 }
