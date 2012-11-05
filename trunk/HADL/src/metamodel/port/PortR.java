@@ -13,8 +13,6 @@ public abstract class PortR<T> extends Port<T> {
 		super(string);
 
 	}
-	public void attachement(Configuration config){
-		config.attache(this);
-	}
+	
 
 }
