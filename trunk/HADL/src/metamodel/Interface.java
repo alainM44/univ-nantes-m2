@@ -2,6 +2,8 @@ package metamodel;
 
 import java.util.AbstractList;
 
+import metamodel.service.Service;
+
 /**
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
