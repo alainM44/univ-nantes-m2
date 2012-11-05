@@ -55,8 +55,10 @@ Les boutons de contrôles :  \texttt{BEGIN}, \texttt{DATA} et \texttt{END} corre
 \subsection{Mutli-threading}
 Au cours du développement de l'application, il était nécessaire d'effectuer systématiquement des tests pour vérifier si les automates étaient dans un état cohérent. Dans un souci pratique nous avons effectué ces tests en local. L'objet \og distant \fg{} \texttt{RMI} était donc lié au \texttt{localhost} (\verb+127.0.0.0+). Ainsi les messages entre le client et le serveur mettaient en moyenne moins d'un millième de seconde pour rejoindre leur destinataire (modulo la précision de l'API de mesure temporelle de \textsc{JAVA}).
 
+\paragraph{}
 Un des premiers problèmes que nous avons rencontré dans le développement l'application était donc celui de \og ralentir \fg{} ces opérations afin de vérifier la cohérence des automates.
 
+\paragraph{}
 De plus les rafraîchissements des espaces de visualisation des différents automates posèrent eux aussi de nombreux problèmes. La couche \texttt{SWING} de \textsc{JAVA} en charge de l'implémentation des interfaces graphiques, est elle-même un thread à part entière. Une des difficultés était donc de synchroniser au sein d'un même thread application, le thread \og vue \fg{} (la couche \texttt{SWING}) avec la couche \og métier \fg{} (algorithmes des automates et de leurs communications).
 
 
