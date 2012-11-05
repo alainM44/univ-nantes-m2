@@ -3,7 +3,6 @@ package metamodel.connecteur;
 import java.util.AbstractList;
 
 
-import metamodel.Glu;
 import metamodel.role.Role;
 
 /**

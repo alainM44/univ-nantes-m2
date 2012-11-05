@@ -1,6 +1,9 @@
-package metamodel;
+package composant;
 
 import java.util.ArrayList;
+
+import configuration.Configuration;
+
 
 /**
  * @author Alain MARGUERITE

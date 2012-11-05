@@ -2,7 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
-import metamodel.Composant;
+import composant.Composant;
+
 import metamodel.port.Port;
 import metamodel.port.PortF;
 import metamodel.port.PortR;

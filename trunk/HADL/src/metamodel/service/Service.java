@@ -2,7 +2,8 @@ package metamodel.service;
 
 import java.util.HashMap;
 
-import metamodel.Configuration;
+import configuration.Configuration;
+
 import metamodel.port.Port;
 import metamodel.port.PortF;
 import metamodel.port.PortR;
@@ -40,7 +41,8 @@ public abstract class Service {
 	}
 
 	/**
-	 * Attache un port à un rôle
+	 * Attache un port à un rôle, c'est la configuration du Service qui prend en
+	 * charge cette liaison.
 	 * 
 	 * @param port
 	 *            Port à attacher

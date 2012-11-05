@@ -1,11 +1,14 @@
-package metamodel;
+package configuration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import composant.Composite;
+
 import metamodel.connecteur.Connecteur;
 import metamodel.port.PortR;
 import metamodel.propiete.Propriete;
+import metamodel.service.Service;
 
 /**
  * @author Alain MARGUERITE
@@ -31,12 +34,11 @@ public class Configuration {// TODO Réfléchir ! Est ce que la classe
 	private ArrayList<Connecteur> connecteurs;
 
 
-	public Connecteur attachement( ) {
-		
-		return null;
+	public Connecteur attachement(Service service) {
+		//TODO
+		return null
 	}
 
-	// TODO à impléménter
 	/**
 	 * µ
 	 * 

@@ -1,4 +1,4 @@
-package metamodel;
+package metamodel.connecteur;
 
 /**
  * @author Alain MARGUERITE
