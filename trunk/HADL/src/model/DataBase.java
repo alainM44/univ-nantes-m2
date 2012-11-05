@@ -3,11 +3,11 @@ package model;
 import java.util.ArrayList;
 
 import metamodel.Composant;
-import metamodel.Port;
-import metamodel.PortF;
-import metamodel.PortR;
-import metamodel.Propriete;
-import metamodel.ProprieteFonc;
+import metamodel.port.Port;
+import metamodel.port.PortF;
+import metamodel.port.PortR;
+import metamodel.propiete.Propriete;
+import metamodel.propiete.ProprieteFonc;
 import metamodel.service.Service;
 import metamodel.service.ServiceF;
 
