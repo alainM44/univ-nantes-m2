@@ -1,0 +1,71 @@
+\chapter{Introduction}\label{chap:Intro}
+\section{Présentation du sujet}
+L'objectif de ce projet/TP est de réaliser un protocole de transfert de messages entre deux machines avec des listes des canaux de communication \textit{First In First Out}. La démarche proposée par l'énnonce propose les  étapes  suivantes :
+  
+  
+  \begin{enumerate}
+  \item 
+    Modéliser ce protocole avec l'outil \textsc{Roméo}.
+  \item
+    Construire le graphe des marquages.
+  \item
+    Spécifier en logique temporelle: \hfill \\
+    le protocole peut toujours revenir à l’état initial.
+  \item 
+    Expliciter les propriétés vraies.
+  \item
+    Programmer une implémentation : \hfill \\
+    Une machine est pilotée par l'utilisateur, l'autre par le programme.
+  \item
+    Tests  :\hfill \\
+    rendre observable les différentes transitions.
+  \end{enumerate}
+
+
+\begin{algorithm}
+\caption{\textbf{Recherche}(nœud $N$, rectangle $R$)}
+/* \textit{Recherche l'ensemble des feuilles contenues dans un rectangle requête $d$-dimensionnel à partir d'un nœud $N$, les feuilles solutions seront stockées dans $\Lambda$} */
+\label{algo:recherche}
+\begin{algorithmic}[1]
+\IF {$N$ n'est pas une feuille}
+  \FORALL{éléments $n$ de $N$ dont le MBR intersecte $R$}
+    \STATE \textbf{Recherche}($n$, $R$)
+  \ENDFOR
+\ELSE[$N$ est une feuille] %\COMMENT{$N$ est une feuille}
+  \FORALL{éléments $n$ de $N$ dont le MBR intersecte $R$}
+    \STATE ajouter $n$ à $\Lambda$
+  \ENDFOR
+\ENDIF
+\RETURN $\Lambda$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{\textbf{Ajout}(élément $E$, nœud $NR$)}
+/* \textit{Ajoute un nouvel élément $E$ dans le R-tree de nœud racine $NR$} */
+\label{algo:ajout}
+\begin{algorithmic}[1]
+\STATE On parcourt l'arbre depuis la racine $NR$ jusqu'à la feuille appropriée. À chaque niveau, on sélectionne le nœud dont le MBR nécessite le plus petit élargissement pour contenir le MBR de $E$
+\STATE En cas d'égalité, on choisit le nœud ayant le MBR de plus petite \og superficie \fg{}
+\IF{la feuille atteinte $L$ n'est pas pleine}
+  \STATE On insère $E$ dans $L$
+  \STATE On met à jour tous les MBR de $L$ jusqu'à $NR$ pour qu'ils puissent contenir le MBR de E 
+\ELSE[la feuille $L$ est pleine]
+  \STATE On définie $\xi$ l'ensemble constitué de tous les éléments de $L$ et du nouvel élément~$E$\\
+On choisit deux éléments $e_1$ et $e_2$ tel que la distance entre $e_1$ et $e_2$ soit la plus grande de toutes les autres paires de $\xi$\\
+On crée deux nœuds $l_1$ et $l_2$ contenant respectivement $e_1$ et $e_2$
+  \STATE On parcourt tous les éléments restants de $\xi$ et l'on assigne chacun d'eux à $l_1$ ou $l_2$, en fonction du MBR de ces nœuds qui permet le plus petit élargissement pour contenir le MBR de l'élément considéré
+  \IF{égalité de l'élargissement}
+    \STATE On assigne l'élément au nœud ayant le MBR de plus petite superficie
+    \IF{égalité de superficie}
+      \STATE On assigne l'élément au nœud ayant le moins d'élément
+    \ENDIF
+  \ENDIF
+  \IF[On rappelle que m est le nombre minimal d'éléments que peut contenir un nœud]{il reste $\lambda$ éléments dans $\xi$ et qu'un nœud contient $m - \lambda$ éléments}
+    \STATE On assigne tous les éléments restants dans $\xi$ à ce nœud
+  \ENDIF
+  \STATE On met à jour le MBR des nœuds se trouvant sur le chemin de $L$ à $NR$ pour que ceux ci couvrent le MBR de $l_1$ et $l_2$
+  \STATE On effectue les \og splits \fg{} éventuels des nœuds supérieurs
+\ENDIF 
+\end{algorithmic}
+\end{algorithm}
