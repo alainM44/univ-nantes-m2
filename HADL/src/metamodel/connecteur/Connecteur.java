@@ -2,8 +2,9 @@ package metamodel.connecteur;
 
 import java.util.AbstractList;
 
+
 import metamodel.Glu;
-import metamodel.Role;
+import metamodel.role.Role;
 
 /**
  * @author Alain MARGUERITE

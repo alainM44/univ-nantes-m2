@@ -1,6 +1,6 @@
 package iMetamodel;
 
-import metamodel.Propriete;
+import metamodel.propiete.Propriete;
 
 /**
  * @author Alain MARGUERITE

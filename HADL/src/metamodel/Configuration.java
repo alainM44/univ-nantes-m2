@@ -3,6 +3,7 @@ package metamodel;
 import java.util.ArrayList;
 
 import metamodel.connecteur.Connecteur;
+import metamodel.propiete.Propriete;
 
 /**
  * @author Alain MARGUERITE
