@@ -1,6 +1,6 @@
 package metamodel.port;
 
-public class PortF extends Port {
+public abstract class PortF<T> extends Port<T> {
 
 	public PortF(String string) {
 		super(string);

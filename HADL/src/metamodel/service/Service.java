@@ -1,6 +1,11 @@
 package metamodel.service;
 
-import iMetamodel.IPort;
+import java.util.HashMap;
+
+import metamodel.Configuration;
+import metamodel.port.Port;
+import metamodel.port.PortF;
+import metamodel.port.PortR;
 
 /**
  * @author Alain MARGUERITE
@@ -14,13 +19,36 @@ import iMetamodel.IPort;
  *         </p>
  * 
  */
-public class Service implements IPort {
+
+public abstract class Service {
 
 	private String name;
+	private Configuration config;
+	private HashMap<String, PortR> portR;
+	private HashMap<String, PortF> portF;
 
 	public Service(String string) {
-		// TODO Auto-generated constructor stub
 		name = string;
+	}
+
+	public PortR getPortR(String name) {
+		return portR.get(name);
+	}
+
+	public PortF getPortF(String name) {
+		return portF.get(name);
+	}
+
+	/**
+	 * Attache un port à un rôle
+	 * 
+	 * @param port
+	 *            Port à attacher
+	 */
+	public void attache() {
+
+		config.attachement(this);
+
 	}
 
 }

@@ -1,14 +1,20 @@
 package metamodel.port;
 
+import metamodel.Configuration;
+
 /**
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
+ * @param <T>
  */	
-public class PortR extends Port {
+public abstract class PortR<T> extends Port<T> {
 
 	public PortR(String string) {
 		super(string);
-		// TODO Auto-generated constructor stub
+
+	}
+	public void attachement(Configuration config){
+		config.attache(this);
 	}
 
 }
