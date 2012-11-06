@@ -1,0 +1,56 @@
+\chapter{Logical Time}
+\section{Question 1 Design a logical-time base algorithm}
+
+Posons 
+\begin{algorithm}
+\caption{\textbf{CO\_Reception}( Message m\{Emetteur e, ListPred pred\})}
+/* \textit{ où pred est la liste des prédécesseurs */}
+\label{algo:recherche}
+\begin{algorithmic}[1]
+  \IF{ $\forall$ p$\in$ pred $\mid$ p.sn $\leq$ del(p.i)}
+     \STATE  del(e.i) ++
+     \STATE  cb +=\{e.sn, e.i\}
+   \STATE  CO\_Deliver(m)
+   \FORALL{ m\'~ $\in$ ListMessages}
+   CO\_Receive(m\'~)
+   \ENDFOR
+   \ELSE
+   \STATE ListMessages.add(m)
+  \ENDIF
+ \end{algorithmic}
+\end{algorithm}
+
+
+\section{Question 2 Analyse of the algorithm}
+
+\begin{algorithm}
+\caption{\textbf{CO\_Broadcast}()}
+/* \textit{ Avec horloge globale */}
+\label{algo:broad}
+\begin{algorithmic}[1]
+\STATE Broadcast(m,cb)
+\STATE S_n $\leftarrow$ GC.clock
+\STATE cb $\leftarrow $ \{(sn, i\}
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\begin{algorithm}
+\caption{\textbf{CO\_Receive}( Message m\{Emetteur,ListPred\})}
+/* \textit{ Avec horloge globale */}
+\label{algo:q3}
+\begin{algorithmic}[1]
+  \IF{ $\forall$ p$\in$ cb $\mid$ p.sn $\leq$ del(p.i)}
+   \STATE  del(e.i) $\leftarrow$ e.sn
+   \STATE  CO\_Deliver(m)
+   \FORALL{ m\'~ $\in$ ListMessages}
+   CO\_Receive(m\'~)
+   \ENDFOR
+   \ELSE
+   \STATE ListMessages.add(m)
+  \ENDIF  
+\end{algorithmic}
+\end{algorithm}
+
+

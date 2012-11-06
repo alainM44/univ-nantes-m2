@@ -1,0 +1,58 @@
+\chapter{Messages with Bounded Lifetime}
+
+\section{System model : messages with a bounded lifetime}
+
+\subsection{Question 4 Extended the previous algorithm}
+
+\begin{algorithm}
+\caption{\textbf{Send\_Time}()}
+/* \textit{ Avec horloge globale */}
+\label{algo:Q4a}
+\begin{algorithmic}[1]
+  \IF{ $\exists$ M $\in$ ListeMessages  $\mid$ \{ m.send\_time + $\Delta$ = GC.clock() \}}
+      \STATE  CO\_Deliver(M)
+   \FORALL{ p $\in$ m.pred }
+   \IF{del(p.i) $\leq$ p.sm}
+   del(p.i) $\leftarrow$ p.sn
+   \ENDIF
+   \ENDFOR
+  \ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+\caption{\textbf{CO\_Recceive\_With\_Delay}(Message m)}
+/* \textit{ Au moment où on reçoit un message */}
+\label{algo:Q4b}
+\begin{algorithmic}[1]
+  \IF{m.send\_time + $\Delta$ $\leq$ GC.Clock}
+  \STATE Delete(m)
+  \ELSE[$\forall$ p$\in$ pred $\mid$ p.sn $\leq$ del(p.i)]
+   \STATE  del(e.i) $\leftarrow$ e.sn
+     \STATE  cb +=\{e.sn, e.i\}
+     \STATE  CO\_Deliver(m)
+     \FORALL{m\'~ $\in$ ListMessages}
+     CO\_Receive(m\'~})
+       \ENDFOR
+       \ELSE
+       \STATE ListMessages.add(m)
+       \ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsection{Question 5 Analize the algorithm}
+ blah  blah  blah  blah  blah  blah  blah  blah 
+
+\begin{algorithm}
+\caption{\textbf{Q5}(Message m)}
+/* \textit{ Au moment où on reçoit un message */}
+\label{algo:Q5}
+\begin{algorithmic}[1]
+\end{algorithmic}
+\end{algorithm}
+
+
+
+ blah  blah  blah  blah 
