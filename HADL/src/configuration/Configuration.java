@@ -37,7 +37,8 @@ public class Configuration  extends Composant{// TODO Réfléchir ! Est ce que l
 	private Composite composite;
 	private HashMap<String, Binding> bindings;
 	private HashMap<String, Composant> composants;
-	private HashMap<String, InterfaceConfig> interfacesConfigs;
+	private InterfaceConfig interfacesConfigsR;
+	private InterfaceConfig interfacesConfigsF;
 	private HashMap<String, Connecteur> connecteurs;
 
 
