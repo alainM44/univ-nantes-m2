@@ -47,9 +47,9 @@ public abstract class Service {
 	 * @param port
 	 *            Port à attacher
 	 */
-	public void attache() {
+	public void attache(Port port) {
 
-		config.attachement(this);
+		config.attachement(this,port);
 
 	}
 

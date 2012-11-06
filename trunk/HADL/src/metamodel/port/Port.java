@@ -1,5 +1,7 @@
 package metamodel.port;
 
+import metamodel.role.Role;
+
 
 
 /**
@@ -9,6 +11,7 @@ package metamodel.port;
 public abstract class Port<T>{
 
 	private String name;
+	private Role role;
 
 	public Port(String string) {
 		this.name = string;
@@ -20,5 +23,15 @@ public abstract class Port<T>{
 	public String getName() {
 		return name;
 	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	
 
 }
