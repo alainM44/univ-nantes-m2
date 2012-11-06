@@ -1,5 +1,7 @@
 package metamodel.role;
 
+import java.util.HashMap;
+
 import metamodel.connecteur.Glu;
 import metamodel.port.Port;
 
@@ -12,7 +14,7 @@ public class Role {
 
 	private String name;
 	private Glu glu;
-	private Port port;
+	private HashMap<String, Port> ports;
 	
 	
 	public Role(String name2) {
@@ -30,14 +32,7 @@ public class Role {
 	}
 
 
-	public Port getPort() {
-		return port;
-	}
 
-
-	public void setPort(Port port) {
-		this.port = port;
-	}
 
 	
 	

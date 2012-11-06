@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import javax.naming.Binding;
 
+import composant.Composant;
 import composant.Composite;
 
 import metamodel.connecteur.Connecteur;
@@ -30,13 +31,15 @@ import metamodel.service.Service;
  *         intermédaire.
  *         </p>
  */
-public class Configuration {// TODO Réfléchir ! Est ce que la classe
+public class Configuration  extends Composant{// TODO Réfléchir ! Est ce que la classe
 							// configuration peut être remplacer par un fichier
 							// texte ?
 	private Composite composite;
 	private HashMap<String, Binding> bindings;
+	private HashMap<String, Composant> composants;
+	private HashMap<String, InterfaceConfig> interfacesConfigs;
 	private HashMap<String, Connecteur> connecteurs;
-	private HashMap<String, Role> roles;
+
 
 	/**
 	 * Attache un port avec un rôle en utilisant son service associé
@@ -48,11 +51,11 @@ public class Configuration {// TODO Réfléchir ! Est ce que la classe
 	 */
 	public void attachement(Service service, Port port) {
 		//TODO
-		Port portaAttacher =service.getPortF(port.getName());
-		Role roleaAttacher =	roles.get("LeRoleAAttacher");		//comment on connait le role quil faut ?
+//		Port portaAttacher =service.getPortF(port.getName());
+//		Role roleaAttacher =	roles.get("LeRoleAAttacher");		//comment on connait le role quil faut ?
 
-		roleaAttacher.setPort(portaAttacher);
-		portaAttacher.setRole(roleaAttacher);	
+//		roleaAttacher.setPort(portaAttacher);
+//		portaAttacher.setRole(roleaAttacher);	
 	}
 
 	/**
