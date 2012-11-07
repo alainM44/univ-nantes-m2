@@ -2,9 +2,58 @@
 
 \section{Question 3 Modify your algorithm from logical time to physical time}
 
- blah  blah  blah  blah  blah  blah  blah  blah  blah  blah 
+Posons les variables globales du system
 
- blah  blah  blah  blah  blah  blah 
+\begin{itemize}
+\item  \verb+GlobalClock+ : Horloge globale du système.
+\end{itemize}
 
 
- blah  blah  blah  blah  blah  blah 
+Redéfinissions la procedure \verb+CO_Brodcast+ : \ref{algo:broad}.
+
+\begin{algorithm}
+\caption{\textbf{CO\_Broadcast}()}
+/* \textit{ Avec horloge globale */}
+\label{algo:broad}
+\begin{algorithmic}[1]
+\STATE Broadcast(m,cb)
+\STATE S_n $\leftarrow$ GC.clock
+\STATE cb $\leftarrow $ \{(sn, i\}
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\begin{algorithm}
+\caption{\textbf{CO\_Receive}(Message m)}
+/* \textit{ Avec horloge globale */}
+\label{algo:q3}
+\begin{algorithmic}[1]
+  \IF{ $\forall$ p$\in$ m.cb $\mid$ p.sn $\leq$ del(p.i)}
+   \STATE  del(m.i) $\leftarrow$ m.sn
+   \STATE  CO\_Deliver(m)
+   \FORALL{ m\'~ $\in$ ListMessages}
+   CO\_Receive2(m\'~)
+   \ENDFOR
+   \ELSE
+   \STATE ListMessages.add(m)
+  \ENDIF  
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+\caption{\textbf{CO\_Receive2}(Message m)}
+/* \textit{ Avec horloge globale */}
+\label{algo:receive2}
+\begin{algorithmic}[1]
+  \IF{ $\forall$ p$\in$ m.cb $\mid$ p.sn $\leq$ del(p.i)}
+   \STATE  del(m.i) $\leftarrow$ m.sn
+   \STATE  CO\_Deliver(m)
+   \STATE ListMessages.delete(m)
+   \FORALL{ m\'~ $\in$ ListMessages}
+   CO\_Receive2(m\'~)
+   \ENDFOR
+  \ENDIF  
+\end{algorithmic}
+\end{algorithm}
