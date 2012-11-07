@@ -1,7 +1,7 @@
 \chapter{Implémentation du protocole}
 
 \section{Solutions choisies}
-Le langage choisi est \textsc{JAVA}. Les motivations de ce choix sont les suivantes : la facilité  ainsi que la mise à disposition par \textsc{JAVA} de moniteurs. Effet, la classe \texttt{UnicastRemoteObject} propose les objets \textit{RMI} (Remote Method Invocation). Il s'agit d'objets \og distants \fg{} auxquels des appels de méthodes peuvent être effectués comme si l'objet était local. De plus  l'implémentation des objets \texttt{RMI}  utilise les moniteurs. Ce mécanisme, garantissant l'emploi de canaux de type \texttt{FIFO}, est donc approprié pour le protocole de ce projet.  
+Le langage choisi est \textsc{JAVA}. Les motivations de ce choix sont les suivantes : la facilité  ainsi que la mise à disposition par \textsc{JAVA} de moniteurs. En effet, la classe \texttt{UnicastRemoteObject} propose les objets Remote Method Invocation (\textit{RMI}). Il s'agit d'objets \og distants \fg{} auxquels des appels de méthodes peuvent être effectués comme si l'objet était local. De plus  l'implémentation des objets \texttt{RMI}  utilise les moniteurs. Ce mécanisme, garantissant l'emploi de canaux de type \texttt{FIFO}, est donc approprié pour le protocole de ce projet.  
 
 \section{Implémentation}
 
@@ -49,7 +49,7 @@ Partie inférieure : Boutons de contrôle.
    \caption{IHM du client}
    \label{fig:ihmCLIENT}
  \end{figure}
-Les boutons de contrôles :  \texttt{BEGIN}, \texttt{DATA} et \texttt{END} correspondent respectivement aux opérations : \texttt{sendBegin()}, \texttt{sendData()} et \texttt{sendEnd()}, définies dans l'interface \texttt{IIA} (\cf{} figure \ref{fig:ia}). L'utilisateur peut par ses boutons \og tirer \fg{} les transitions de l'automate.
+Les boutons de contrôles :  \texttt{BEGIN}, \texttt{DATA} et \texttt{END} correspondent respectivement aux opérations : \texttt{sendBegin()}, \texttt{sendData()} et \texttt{sendEnd()}, définies dans l'interface \texttt{IIA} (\cf{} figure \ref{fig:ia}). L'utilisateur, peut par ses boutons, \og tirer \fg{} les transitions de l'automate.
 
 \section{Problèmes rencontrés}
 \subsection{Mutli-threading}
