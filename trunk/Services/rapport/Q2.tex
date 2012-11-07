@@ -1,18 +1,26 @@
 \chapter{Logical Time}
 \section{Question 1 Design a logical-time base algorithm}
 
-Posons 
+Posons les variables du processus suivantes : 
+
+\begin{itemize}
+\item  \verb+ListMessages+ : représente la liste des messages qui ont été reçu mais pas délivrés.
+\item \verb+m.i+ indique l'identifiant du processus à l'origine du message.
+\item \verb+m.sn+ indique le prédécesseur du message envoyé par le processus émetteur.
+\item \verb+m.cb+ Liste des prédécesseurs du message.
+\end{itemize}
+Nous choisissions délibérément un langage pseudo-code verbeux pour justifier l'algorithme.
 \begin{algorithm}
-\caption{\textbf{CO\_Reception}( Message m\{Emetteur e, ListPred pred\})}
-/* \textit{ où pred est la liste des prédécesseurs */}
-\label{algo:recherche}
+  \caption{\textbf{CO\_Receive}( Message m}
+%/* \textit{ où pred est la liste des prédécesseurs */}
+\label{algo:receive}
 \begin{algorithmic}[1]
-  \IF{ $\forall$ p$\in$ pred $\mid$ p.sn $\leq$ del(p.i)}
-     \STATE  del(e.i) ++
-     \STATE  cb +=\{e.sn, e.i\}
+  \IF{ $\forall$ p$\in$ m.cb $\mid$ p.sn $\leq$ del(p.i)}
+     \STATE  del(m.i) ++
+     \STATE  cb +=\{m.sn, m.i\}
    \STATE  CO\_Deliver(m)
    \FORALL{ m\'~ $\in$ ListMessages}
-   CO\_Receive(m\'~)
+   CO\_Receive2(m\'~)
    \ENDFOR
    \ELSE
    \STATE ListMessages.add(m)
@@ -21,36 +29,45 @@ Posons
 \end{algorithm}
 
 
+La fonction \verb+CO_Receive2(Message m)+ est la fonction suivante : 
+\begin{algorithm}
+  \caption{\textbf{CO\_Receive2}( Message m)}
+%/* \textit{ où pred est la liste des prédécesseurs */}
+\label{algo:reveive2}
+\begin{algorithmic}[1]
+  \IF{ $\forall$ p$\in$ m.cb $\mid$ p.sn $\leq$ del(p.i)}
+     \STATE  del(m.i) ++
+     \STATE  cb +=\{m.sn, m.i\}
+   \STATE  CO\_Deliver(m)
+   \STATE  ListMessage.delete(m)
+   \FORALL{ m\'~ $\in$ ListMessages}
+   CO\_Receive2(m\'~)
+   \ENDFOR
+  \ENDIF
+ \end{algorithmic}
+\end{algorithm}
+
+
 \section{Question 2 Analyse of the algorithm}
 
-\begin{algorithm}
-\caption{\textbf{CO\_Broadcast}()}
-/* \textit{ Avec horloge globale */}
-\label{algo:broad}
-\begin{algorithmic}[1]
-\STATE Broadcast(m,cb)
-\STATE S_n $\leftarrow$ GC.clock
-\STATE cb $\leftarrow $ \{(sn, i\}
-\end{algorithmic}
-\end{algorithm}
+Les valeurs que peuvent prendre cb sont les suivantes :
 
+\begin{description}
+\item[Minimun]
+\ref{figmin}
+\item[Maximun]
+nombre de messages
+\ref{fig:max}
+\end{description}
 
+Regardons si les propriétés blah blah 
 
-\begin{algorithm}
-\caption{\textbf{CO\_Receive}( Message m\{Emetteur,ListPred\})}
-/* \textit{ Avec horloge globale */}
-\label{algo:q3}
-\begin{algorithmic}[1]
-  \IF{ $\forall$ p$\in$ cb $\mid$ p.sn $\leq$ del(p.i)}
-   \STATE  del(e.i) $\leftarrow$ e.sn
-   \STATE  CO\_Deliver(m)
-   \FORALL{ m\'~ $\in$ ListMessages}
-   CO\_Receive(m\'~)
-   \ENDFOR
-   \ELSE
-   \STATE ListMessages.add(m)
-  \ENDIF  
-\end{algorithmic}
-\end{algorithm}
+\begin{description}
+\item[Validité] Les canaux étant sûr, aucun messages de ne peut être \og perdu \fg{}. En effet il n'y a pas de parasites dans les canaux.
+\item[Intégrité] Dans l'algorithme \ref{algo:reveive} si un message est reçu et qu'il est délivré immédiatement alors il n'est lu qu'une fois. Au contraire s'il n'est pas délivré il est mis en attente et sera supprimé dès qu'il sera délivré (\emph{cf.} ligne  de l'algoritme \ref{algo:receive2}.
+\item[CO\_Delivry] Cette propriété est vérifiée grâce à la condition à la ligne de l'algoritme \ref{algor:eceive}
+\item[Terminaison] On ne peut pas perdre de messages car les canaux sont sur. 
+\end{description}
 
-
+% LocalWords:  Logical Time logical-time algorithm ListMessages m.i
+% LocalWords:  m.sn m.cb pseudo-code

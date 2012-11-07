@@ -3,14 +3,13 @@
 \section{System model : messages with a bounded lifetime}
 
 \subsection{Question 4 Extended the previous algorithm}
-
 \begin{algorithm}
 \caption{\textbf{Send\_Time}()}
 /* \textit{ Avec horloge globale */}
 \label{algo:Q4a}
 \begin{algorithmic}[1]
-  \IF{ $\exists$ M $\in$ ListeMessages  $\mid$ \{ m.send\_time + $\Delta$ = GC.clock() \}}
-      \STATE  CO\_Deliver(M)
+  \IF{ $\exists$ m $\in$ ListeMessages  $\mid$ \{ m.send\_time + $\Delta$ = GC.clock() \}}
+      \STATE  CO\_Deliver(m)
    \FORALL{ p $\in$ m.pred }
    \IF{del(p.i) $\leq$ p.sm}
    del(p.i) $\leftarrow$ p.sn
@@ -33,7 +32,7 @@
      \STATE  cb +=\{e.sn, e.i\}
      \STATE  CO\_Deliver(m)
      \FORALL{m\'~ $\in$ ListMessages}
-     CO\_Receive(m\'~})
+     CO\_Receive2(m\'~})
        \ENDFOR
        \ELSE
        \STATE ListMessages.add(m)
