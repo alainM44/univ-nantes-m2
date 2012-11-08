@@ -11,7 +11,7 @@ wr.write("digraph G {\n")
 for ligne in rd:
     if ligne[0] != "-" :
         result = ligne.split()
-        wr.write(result[0] + " -> " + result[4] +";\n")
+        wr.write(result[0] + " -> " + result[4] +" [label=\""+result[2]+"\"];\n")
 wr.write("}")
     
  # Fermeture des fichiers
