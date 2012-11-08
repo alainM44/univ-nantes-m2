@@ -17,7 +17,7 @@ Redéfinissions la procedure \verb+CO_Brodcast+ : \ref{algo:broad}.
 \label{algo:broad}
 \begin{algorithmic}[1]
 \STATE Broadcast(m,cb)
-\STATE S_n $\leftarrow$ GC.clock
+\STATE S\_n $\leftarrow$ GC.clock
 \STATE cb $\leftarrow $ \{(sn, i\}
 \end{algorithmic}
 \end{algorithm}
@@ -33,7 +33,7 @@ Redéfinissions la procedure \verb+CO_Brodcast+ : \ref{algo:broad}.
    \STATE  del(m.i) $\leftarrow$ m.sn
    \STATE  CO\_Deliver(m)
    \FORALL{ m\'~ $\in$ ListMessages}
-   CO\_Receive2(m\'~)
+\STATE aa%   CO\_Receive2(m\'~)
    \ENDFOR
    \ELSE
    \STATE ListMessages.add(m)
@@ -52,7 +52,7 @@ Redéfinissions la procedure \verb+CO_Brodcast+ : \ref{algo:broad}.
    \STATE  CO\_Deliver(m)
    \STATE ListMessages.delete(m)
    \FORALL{ m\'~ $\in$ ListMessages}
-   CO\_Receive2(m\'~)
+   \STATE aaa%CO\_Receive2(m\'~)
    \ENDFOR
   \ENDIF  
 \end{algorithmic}

@@ -19,8 +19,8 @@ Nous choisissions délibérément un langage pseudo-code verbeux pour justifier 
      \STATE  del(m.i) ++
      \STATE  cb +=\{m.sn, m.i\}
    \STATE  CO\_Deliver(m)
-   \FORALL{ m\'~ $\in$ ListMessages}
-   CO\_Receive2(m\'~)
+   \FORALL{m\'~ $\in$ ListMessages}
+\STATE aa%    \STATE CO\_Receive2(m\'~)
    \ENDFOR
    \ELSE
    \STATE ListMessages.add(m)
@@ -41,7 +41,7 @@ La fonction \verb+CO_Receive2(Message m)+ est la fonction suivante :
    \STATE  CO\_Deliver(m)
    \STATE  ListMessage.delete(m)
    \FORALL{ m\'~ $\in$ ListMessages}
-   CO\_Receive2(m\'~)
+   \STATE CO\_Receive2(m\'~)
    \ENDFOR
   \ENDIF
  \end{algorithmic}
@@ -60,7 +60,8 @@ nombre de messages
 \ref{fig:max}
 \end{description}
 
-Regardons si les propriétés blah blah 
+
+
 
 \begin{description}
 \item[Validité] Les canaux étant sûr, aucun messages de ne peut être \og perdu \fg{}. En effet il n'y a pas de parasites dans les canaux.
@@ -69,5 +70,27 @@ Regardons si les propriétés blah blah
 \item[Terminaison] On ne peut pas perdre de messages car les canaux sont sur. 
 \end{description}
 
+
+
+Regardons si les propriétés blah blah
+
+\begin{description}
+\item[Validité] Les canaux étant sûr, aucun messages de ne peut être \og perdu \fg{}. En effet il n'y a pas de parasites dans les canaux.
+\item[Intégrité] Dans l'algorithme \ref{algo:reveive} si un message est reçu et qu'il est délivré immédiatement alors il n'est lu qu'une fois. Au contraire s'il n'est pas délivré il est mis en attente et sera supprimé dès qu'il sera délivré (\emph{cf.} ligne de l'algoritme \ref{algo:receive2}.
+\item[CO\_Delivry] Cette propriété est vérifiée grâce à la condition à la ligne de l'algoritme \ref{algor:eceive}
+\item[Terminaison] On ne peut pas perdre de messages car les canaux sont sur.
+\end{description}
+
+\begin{figure}[htb]
+%\centering
+%Regardons si les propriétés blah blah 
+\setlength{\unitlength}{0.75mm}
+\begin{picture}(60,40)
+\put(20,20){\vector(1,0){80}}
+\put(40,20){\circle*{2}}
+\put(20,0){\vector(1,0){80}}
+\put(40,20){\vector(3,-2){29,7}}
+\put(40,10){\shortstack[l]{m1}}
+\end{picture}            \caption{blah}                                                                                                    \end{figure}
 % LocalWords:  Logical Time logical-time algorithm ListMessages m.i
 % LocalWords:  m.sn m.cb pseudo-code

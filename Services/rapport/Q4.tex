@@ -12,7 +12,7 @@
       \STATE  CO\_Deliver(m)
    \FORALL{ p $\in$ m.pred }
    \IF{del(p.i) $\leq$ p.sm}
-   del(p.i) $\leftarrow$ p.sn
+   \STATE  del(p.i) $\leftarrow$ p.sn
    \ENDIF
    \ENDFOR
   \ENDIF
@@ -32,7 +32,7 @@
      \STATE  cb +=\{e.sn, e.i\}
      \STATE  CO\_Deliver(m)
      \FORALL{m\'~ $\in$ ListMessages}
-     CO\_Receive2(m\'~})
+     \STATE aaa %%     CO\_Receive2(m\'~})
        \ENDFOR
        \ELSE
        \STATE ListMessages.add(m)
@@ -44,14 +44,11 @@
 \subsection{Question 5 Analize the algorithm}
  blah  blah  blah  blah  blah  blah  blah  blah 
 
-\begin{algorithm}
-\caption{\textbf{Q5}(Message m)}
-/* \textit{ Au moment où on reçoit un message */}
-\label{algo:Q5}
-\begin{algorithmic}[1]
-\end{algorithmic}
-\end{algorithm}
+%% \begin{algorithm}
+%% \caption{\textbf{Q5}(Message m)}
+%% /* \textit{ Au moment où on reçoit un message */}
+%% \label{algo:Q5}
+%% \begin{algorithmic}[1]
+%% \end{algorithmic}
+%% \end{algorithm}
 
-
-
- blah  blah  blah  blah 
