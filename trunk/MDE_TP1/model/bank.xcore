@@ -1,0 +1,42 @@
+@GenModel(editDirectory="/MDE_TP1.edit/src-gen")
+@GenModel(editorDirectory="/MDE_TP1.editor/src-gen")
+package tp.bank
+
+class Bank
+{
+	String name
+	contains Agency [] agencies opposite bank
+}
+
+abstract class Person
+{
+	String name
+}
+
+class Customer extends Person
+{
+	contains Account [] accounts opposite customer
+	refers Agency agency opposite customers
+}
+
+class Employee extends Person
+{
+	refers Agency agency opposite employees
+}
+
+class Account
+{
+	String accountId
+	refers Customer [1] customer opposite accounts
+	refers Employee referent
+	refers Agency [1] agency
+}
+
+class Agency
+{
+
+	String name
+	refers Bank bank opposite agencies
+	contains Customer [] customers opposite agency
+	contains Employee [] employees opposite agency
+}
