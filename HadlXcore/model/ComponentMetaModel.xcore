@@ -1,0 +1,119 @@
+
+@GenModel(editDirectory="/HadlXcore.edit/src-gen")
+@GenModel(editorDirectory="/HadlXcore.editor/src-gen")
+package metamodel
+
+class Composant
+{
+	String name
+	contains Propriete [] proprietes
+	contains InterfaceComposant requis
+	contains InterfaceComposant fournis
+	container Configuration config opposite composants
+}
+
+class Configuration extends Composant
+{
+	contains Connecteur [] connecteurs opposite config
+	contains Composant [] composants opposite config
+	contains InterfaceConfig requisConf
+	contains InterfaceConfig fourniConf
+}
+
+abstract class Interface
+{
+}
+
+class InterfaceComposant extends Interface
+{
+	refers Port [] ports
+	contains ServiceF [] servicesF
+	contains ServiceR [] servicesR
+}
+
+class InterfaceConnecteur extends Interface
+{
+	contains RoleR requis
+	contains RoleF fourni
+}
+
+class InterfaceConfig extends InterfaceComposant
+{
+}
+
+abstract class Port
+{
+	String name
+}
+
+abstract class Service
+{
+	String name
+	contains PortR [] portsR
+	contains PortF [] portsF
+}
+
+class PortR extends Port
+{
+}
+
+class PortF extends Port
+{
+}
+
+class ServiceF extends Service
+{
+}
+
+class ServiceR extends Service
+{
+}
+
+abstract class Connecteur
+{
+	String name
+	refers Configuration config opposite connecteurs
+	contains InterfaceConnecteur fromI
+	contains InterfaceConnecteur toI
+}
+
+class ConnecteurSimple extends Connecteur
+{
+	contains Glu[2] glu
+}
+
+class ConnecteurComposite extends Connecteur
+{
+	contains Connecteur [] connecteurs
+}
+
+class Glu
+{
+	refers RoleR roleR
+	refers RoleF roleF
+}
+
+abstract class Role
+{
+	String name
+}
+
+class RoleF extends Role
+{
+}
+
+class RoleR extends Role
+{
+}
+
+abstract class Propriete
+{
+}
+
+class PropFonct extends Propriete
+{
+}
+
+class PropNonFonc extends Propriete
+{
+}
