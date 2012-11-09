@@ -2,17 +2,17 @@
 
 \section{Question 3 Modify your algorithm from logical time to physical time}
 
-Posons les variables globales du system
+Posons les variables globales du système
 
 \begin{itemize}
 \item  \verb+GlobalClock+ : Horloge globale du système.
 \end{itemize}
 
 
-Redéfinissions la procedure \verb+CO_Brodcast+ : \ref{algo:broad}.
+Redéfinissions la procédure \verb+CO_Brodcast+ : \ref{algo:broad}.
 
 \begin{algorithm}
-\caption{\textbf{CO\_Broadcast}()}
+\caption{\textbf{COBroadcast}()}
 /* \textit{ Avec horloge globale */}
 \label{algo:broad}
 \begin{algorithmic}[1]
@@ -33,7 +33,7 @@ Redéfinissions la procedure \verb+CO_Brodcast+ : \ref{algo:broad}.
    \STATE  del(m.i) $\leftarrow$ m.sn
    \STATE  CO\_Deliver(m)
    \FORALL{ m\'~ $\in$ ListMessages}
-\STATE aa%   CO\_Receive2(m\'~)
+   \STATE   CO\_Receive2(m')
    \ENDFOR
    \ELSE
    \STATE ListMessages.add(m)
@@ -51,9 +51,15 @@ Redéfinissions la procedure \verb+CO_Brodcast+ : \ref{algo:broad}.
    \STATE  del(m.i) $\leftarrow$ m.sn
    \STATE  CO\_Deliver(m)
    \STATE ListMessages.delete(m)
-   \FORALL{ m\'~ $\in$ ListMessages}
-   \STATE aaa%CO\_Receive2(m\'~)
+   \FORALL{ m' $\in$ ListMessages}
+   \STATE CO\_Receive2(m)
    \ENDFOR
   \ENDIF  
 \end{algorithmic}
 \end{algorithm}
+
+% LocalWords:  From Logical Time to Physical Modify your algorithm CO
+% LocalWords:  from logical time physical GlobalClock Brodcast cb sn
+% LocalWords:  Broadcast GC.clock Receive m.cb p.sn del p.i m.i m.sn
+% LocalWords:  Deliver ListMessages aa ListMessages.add aaa
+% LocalWords:  ListMessages.delete
