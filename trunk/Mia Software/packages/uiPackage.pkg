@@ -1,52 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE PACKAGE SYSTEM "package.dtd">
-<PACKAGE NAME="uiPackage" METAMODEL="Ui" NUMBER="12"
+<PACKAGE NAME="uiPackage" METAMODEL="Ui" NUMBER="25"
  DOCUMENTATION="">
 	<fileHeader version="5" toolName="Mia-Generation" toolVersion="7.3.0"/>
+	<SCENARIO NAME="test" VISIBILITY="public" META_OBJECT="View" CATEGORY="default" DOCUMENTATION="">
+		<SERVICE_CALL NAME="current" PACKAGE="System" META_OBJECT="View"/>
+		<GENERATION_STEP TYPE="FileTemplate" PACKAGE="uiPackage" META_OBJECT="View" CATEGORY="default" NAME="IView" PARAM_COUNT="0"/>
+		<GENERATION_STEP TYPE="FileTemplate" PACKAGE="uiPackage" META_OBJECT="View" CATEGORY="default" NAME="View" PARAM_COUNT="0"/>
+		<GENERATION_STEP TYPE="FileTemplate" PACKAGE="uiController" META_OBJECT="View" CATEGORY="default" NAME="IController" PARAM_COUNT="0"/>
+		<GENERATION_STEP TYPE="FileTemplate" PACKAGE="uiController" META_OBJECT="View" CATEGORY="default" NAME="Controler" PARAM_COUNT="0"/>
+	</SCENARIO>
 	<TEXT_MACRO NAME="Button" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
 		<TEXT><![CDATA[
-String retour = new String("");
+return manager.apply(current.getActions(), "buttonAttribute","\n");
 
-for(ui.Action a	: current.getActions())
-{
-retour += "private Button btn"+a.getName()+";\n";
-}
-return retour;
 ]]></TEXT>
 	</TEXT_MACRO>
 	<TEXT_MACRO NAME="ButtonsAndListeners" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
 		<TEXT><![CDATA[
-String retour = new String("");
+return manager.apply(current.getActions(), "ChooseButtonType","\n");
 
-for(ui.Action a	: current.getActions())
-{
-String listener = new String("");
-if(a.getNextPage() != null)
-{
-listener = "		btn"+a.getName()+".addListener(SWT.Selection, new Listener() {\n"+
-"		        public void handleEvent(Event event) \n"+
-"		        {\n"+
-"                "+a.getNextPage().getModel().getName() +" "+  a.getNextPage().getModel().getName().toLowerCase() + " = " + current.getName()+
-".this.getSelected" +a.getNextPage().getModel().getName()+"();\n"+
-"                 if ("+a.getNextPage().getModel().getName().toLowerCase()+" != null) {\n"+
-"		          "+current.getName()+".this."+manager.getString(current, new Call("actionMethod", a))+";\n"+
-"		        }\n"+
-"		      });\n";
-}
-else
-{
-listener = "		btn"+a.getName()+".addSelectionListener(new SelectionAdapter(){\n"+
-"		        public void widgetSelected(SelectionEvent event)\n"+
-"		        {\n"+
-"		          "+manager.getString(current, new Call("actionMethod", a))+";\n"+
-"		        }\n"+
-"		      });\n";
-}
-retour +="\n		Button btn"+a.getName()+" = new Button(this, SWT.NONE);\n"+
-//"		btn"+a.getName()+".setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));\n"+
-"		btn"+a.getName()+".setText(\""+a.getName()+"\");\n"+listener;
-}
-return retour;
 ]]></TEXT>
 	</TEXT_MACRO>
 	<SCRIPT NAME="IView" META_OBJECT="View" CATEGORY="default" VISIBILITY="private">
@@ -63,21 +36,24 @@ public interface I[[name]]{
 	</SCRIPT>
 	<SCRIPT NAME="IView$Filename" META_OBJECT="View" CATEGORY="default">
 		<TEXT><![CDATA[
-I[[name]].java
+com/mia/banque/uigenerated/view/I[[name]].java
 ]]></TEXT>
 	</SCRIPT>
 	<TEXT_MACRO NAME="IViewMethode" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
 		<TEXT><![CDATA[
-String retour = new String("") ;
-for (ui.Action a : current.getActions() )
+return manager.apply(current.getActions(), "IMethodWithType","\n");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="ListAttribute" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+for(Property att : current.getModel().getAllAttributes())
 {
-String attribute = new String("") ;
-if(a.getNextPage()!=null)
-{
-attribute += a.getNextPage().getModel().getName() + " arg";
+if(att.getAssociation()!=null){
+retour += "private List "+att.getType().getName().toLowerCase()+"List;\n";
 }
-retour = retour +"public void "+ manager.getString(current, new Call("actionMethodWithType", a))+";\n";
 }
+
 
 return retour;
 ]]></TEXT>
@@ -103,14 +79,16 @@ import org.eclipse.swt.widgets.Shell;
 
 [[importThisData]]
 
+[[importInterface]]
+
 import com.mia.banque.uigenerated.controler.I[[ControlerName]]Controler;
 import com.mia.banque.uigenerated.view.I[[name]];
 
-public class [[name]] extends Shell implements IBanqueView {
+public class [[name]] extends Shell implements I[[name]] {
 
 private I[[ControlerName]]Controler controler;
 private [[ControlerName]] model;
-
+[[ListAttribute]]
 [[Button]]
 
 	/**
@@ -140,68 +118,29 @@ private [[ControlerName]] model;
 
 [[ButtonsAndListeners]]
 }
+	@Override
+	protected void checkSubclass() {
+		// Disable the check that prevents subclassing of SWT components
+	}
 [[generateMethodView]]
+[[getters]]
 }
 ]]></TEXT>
 		<PROPERTY NAME="Filename"/>
 	</SCRIPT>
 	<SCRIPT NAME="View$Filename" META_OBJECT="View" CATEGORY="default">
 		<TEXT><![CDATA[
-[[name]].java
+com/mia/banque/uigenerated/view/impl/swt/[[name]].java
 ]]></TEXT>
 	</SCRIPT>
-	<TEXT_MACRO NAME="actionMethod" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
-		<TEXT><![CDATA[
-String retour = new String("");
-
-retour += action.getName()+"(";
-
-if(action.getNextPage() != null)
-{
-retour += action.getNextPage().getModel().getName().toLowerCase();
-}
-
-retour+=")";
-
-
-return retour;
-]]></TEXT>
-		<PARAMETER NAME="action" TYPE_KIND="metaModel" TYPE_NAME="ui.Action"/>
-	</TEXT_MACRO>
-	<TEXT_MACRO NAME="actionMethodWithType" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
-		<TEXT><![CDATA[
-String retour = new String("");
-
-retour += action.getName()+"(";
-
-if(action.getNextPage() != null)
-{
-retour += action.getNextPage().getModel().getName() + " " + action.getNextPage().getModel().getName().toLowerCase();
-}
-
-retour+=")";
-
-
-return retour;
-]]></TEXT>
-		<PARAMETER NAME="action" TYPE_KIND="metaModel" TYPE_NAME="ui.Action"/>
-	</TEXT_MACRO>
 	<TEXT_MACRO NAME="generateMethodView" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
 		<TEXT><![CDATA[
-String retour = new String("");
-for(ui.Action a : current.getActions()){
-String param ="";
-if(a.getNextPage()!=null)
-{
-param+= a.getNextPage().getModel().getNamespace().getName();
-}
-
-
-retour += "public void "+manager.getString(current, new Call("actionMethodWithType", a))+"{\n"+
-"this.controler."+manager.getString(current, new Call("actionMethod", a))+";\n}\n\n";
-}
-
-return retour;
+return manager.apply(current.getActions(), "MethodView","\n");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="getters" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return  manager.apply(current.getActions(), "ChooseGetter","\n");
 ]]></TEXT>
 	</TEXT_MACRO>
 	<TEXT_MACRO NAME="importInterface" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
@@ -223,6 +162,153 @@ return retour;
 String retour = new String("");
 retour += "import data."+current.getModel().getPackage().getName()+"."+current.getModel().getName()+";\n";
 
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="ActionAttribute" META_OBJECT="ui.Action" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+
+if(current.getNextPage() != null)
+{
+retour += current.getNextPage().getModel().getName();
+}
+
+
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="ActionAttributeLC" META_OBJECT="ui.Action" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+
+if(current.getNextPage() != null)
+{
+retour += current.getNextPage().getModel().getName().toLowerCase();
+}
+
+
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
+	<SCRIPT NAME="ButtonListener" META_OBJECT="ui.Action" CATEGORY="default">
+		<TEXT><![CDATA[
+		//Liste de [[ActionAttributeLC]]s
+		Group grp[[ActionAttribute]]s = new Group(grpDetails, SWT.NONE);
+		grp[[ActionAttribute]]s.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		grp[[ActionAttribute]]s.setText("Liste des [[ActionAttributeLC]]s");
+		grp[[ActionAttribute]]s.setLayout(new GridLayout());
+
+		this.[[ActionAttributeLC]]List = new List(grp[[ActionAttribute]]s, SWT.BORDER | SWT.V_SCROLL | SWT.SINGLE);
+		this.[[ActionAttributeLC]]List.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		
+		for (final [[ActionAttribute]] [[ActionAttributeLC]] : this.model.get[[ActionAttribute]]s()) {
+			this.[[ActionAttributeLC]]List.add([[ActionAttributeLC]].toString());
+		}
+		Button btn[[name]] = new Button(grp[[ActionAttribute]]s, SWT.PUSH);
+		btn[[name]].setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
+		btn[[name]].setText("Afficher compte");
+		btn[[name]].addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				[[ActionAttribute]] [[ActionAttributeLC]] = getSelected[[ActionAttribute]]();
+				if ([[ActionAttributeLC]] != null) {
+					[[name]][[parameters]];
+				}
+			}			
+		});
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="ButtonListenerSimple" META_OBJECT="ui.Action" CATEGORY="default">
+		<TEXT><![CDATA[
+		Button btn[[name]] = new Button(this, SWT.NONE);
+		btn[[name]].setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1));
+		btn[[name]].setText("[[name]]");
+		btn[[name]].addSelectionListener(new SelectionAdapter(){
+		        public void widgetSelected(SelectionEvent event)
+		        {
+		          [[name]]();
+		        }
+		      });
+]]></TEXT>
+	</SCRIPT>
+	<TEXT_MACRO NAME="ChooseButtonType" META_OBJECT="ui.Action" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+if(current.getNextPage()!=null)
+	return manager.getString(current, "ButtonListener");
+else
+	return manager.getString(current, "ButtonListenerSimple");
+
+
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="ChooseGetter" META_OBJECT="ui.Action" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+if (current.getNextPage() != null)
+	return manager.getString(current, "Getter");
+else
+	return "";
+]]></TEXT>
+	</TEXT_MACRO>
+	<SCRIPT NAME="Getter" META_OBJECT="ui.Action" CATEGORY="default">
+		<TEXT><![CDATA[
+	private [[ActionAttribute]] getSelected[[ActionAttribute]]() {
+		int index = this.[[ActionAttributeLC]]List.getSelectionIndex();
+		if (index > -1 && index < this.model.[[ActionAttributeLC]]sSize()) {
+			return this.model.get[[ActionAttribute]]s(index);
+		}
+		return null;
+	}
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="IMethod" META_OBJECT="ui.Action" CATEGORY="default">
+		<TEXT><![CDATA[
+public void [[name]][[parameters]];
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="IMethodWithType" META_OBJECT="ui.Action" CATEGORY="default">
+		<TEXT><![CDATA[
+public void [[name]][[parametersWithType]];
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="MethodView" META_OBJECT="ui.Action" CATEGORY="default">
+		<TEXT><![CDATA[
+public void [[name]][[parametersWithType]]
+{
+controler.[[name]][[parameters]];
+}
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="buttonAttribute" META_OBJECT="ui.Action" CATEGORY="default">
+		<TEXT><![CDATA[
+private Button btn[[name]];
+]]></TEXT>
+	</SCRIPT>
+	<TEXT_MACRO NAME="parameters" META_OBJECT="ui.Action" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+retour+="(";
+if(current.getNextPage() != null)
+{
+retour += current.getNextPage().getModel().getName().toLowerCase();
+}
+retour+=")";
+
+return retour;
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="parametersWithType" META_OBJECT="ui.Action" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+String retour = new String("");
+
+retour+="(";
+
+if(current.getNextPage() != null)
+{
+retour +=current.getNextPage().getModel().getName() + " " + current.getNextPage().getModel().getName().toLowerCase();
+}
+
+retour+=")";
 return retour;
 ]]></TEXT>
 	</TEXT_MACRO>
