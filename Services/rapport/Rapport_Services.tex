@@ -5,7 +5,6 @@
 \usepackage [frenchb]{babel}
 % Pour pouvoir utiliser 
 \usepackage{ucs}
-
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{keystroke}
@@ -36,6 +35,12 @@
 \usepackage{pdfpages}
 
 
+\usepackage{pict2e}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+
 %Pour taper des algorithme en pseudo code
 \usepackage{algorithm,algorithmic}
 %Utilisation d'acronyme
@@ -43,6 +48,10 @@
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+
+\setlength{\topmargin}{0,1cm}
+\setlength{\headsep}{1,8cm}
+
 \usepackage{lastpage} %numérotation type k/n
 \renewcommand{\footrulewidth}{0.5pt} % trait horizontal
 %\renewcommand{\headrulewidth}{1pt} % suppresion du trait horizontal dans l'entête
@@ -131,8 +140,13 @@
 
 %\input{Remerciements}
 %\input{Introduction}
-\input{Q2}
+\chapter*{Avant-propos}
+\paragraph{Note pour l'ensemble des algorithmes :} 
+À chaque opération d'ajout dans la variable \verb+cb+ une opération de mise à jour doit être effectuée afin que pour un même processus on seulement garde l'information du message le plus récent. 
 
+Nous avons choisi pour la rédaction de ce document un langage pseudo-code verbeux pour justifier les algorithmes.
+
+\input{Q2}
 \input{Q3}
 \input{Q4}
 

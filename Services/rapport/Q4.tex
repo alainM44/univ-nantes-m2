@@ -5,7 +5,7 @@
 \subsection{Question 4 Extended the previous algorithm}
 \begin{algorithm}
 \caption{\textbf{Send\_Time}()}
-/* \textit{ Avec horloge globale */}
+/* \textit{ Avec horloge globale} */
 \label{algo:Q4a}
 \begin{algorithmic}[1]
   \IF{ $\exists$ m $\in$ ListeMessages  $\mid$ \{ m.send\_time + $\Delta$ = GC.clock() \}}
@@ -22,7 +22,7 @@
 
 \begin{algorithm}
 \caption{\textbf{CO\_Recceive\_With\_Delay}(Message m)}
-/* \textit{ Au moment où on reçoit un message */}
+/* \textit{ Au moment où on reçoit un message} */
 \label{algo:Q4b}
 \begin{algorithmic}[1]
   \IF{m.send\_time + $\Delta$ $\leq$ GC.Clock}
@@ -32,7 +32,7 @@
      \STATE  cb +=\{e.sn, e.i\}
      \STATE  CO\_Deliver(m)
      \FORALL{m\'~ $\in$ ListMessages}
-     \STATE aaa %%     CO\_Receive2(m\'~})
+     \STATE    CO\_Receive2(m'))
        \ENDFOR
        \ELSE
        \STATE ListMessages.add(m)
@@ -42,7 +42,27 @@
 
 
 \subsection{Question 5 Analize the algorithm}
- blah  blah  blah  blah  blah  blah  blah  blah 
+
+Définissions $P(m)$ l'ensemble des prédécesseurs de $m$, ainsi que $Gc$ le temps fourni l'horloge globale. Démontrons par l'absurde la propriété de terminaison : \hfill \\
+%\begin{center}
+\hspace{2cm}$Deliv(m) \Rightarrow \forall  m' \in P(m), Deliv(m')  \vee Discard(m)$ \\ 
+Supposons que: \\
+$\exists m' \in P(m) | \neg Deliv(m') \wedge \neg Discard(m') $\\
+et \\
+  $Gc= m.st + \Delta$\\
+et\\
+$Delive(m') = \bot$\\ 
+et\\
+$m' \rightarrow _M m$\\\\
+Donc\\
+$Deliv(m) = \bot \Rightarrow m'.st+ \Delta \geq Gc$\\
+Soit $m'.st+\Delta \geq m.st+\Delta$\\
+$m'.st \geq m.st $\\
+Or\\
+$m' \rightarrow _M m \Rightarrow m'.st < m.st $ \\
+%\end{center}
+Nous avons donc une contradiction.
+
 
 %% \begin{algorithm}
 %% \caption{\textbf{Q5}(Message m)}
@@ -52,3 +72,10 @@
 %% \end{algorithmic}
 %% \end{algorithm}
 
+
+% LocalWords:  with Bounded Lifetime System model bounded lifetime CO
+% LocalWords:  Extended the previous algorithm Send Time m.send time
+% LocalWords:  ListeMessages GC.clock Deliver m.pred del p.i p.sm e.i
+% LocalWords:  p.sn Recceive Delay GC.Clock Delete pred e.sn cb aaa
+% LocalWords:  ListMessages ListMessages.add Analize blah Receive
+% LocalWords:  Deliv Discard
