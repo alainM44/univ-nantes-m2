@@ -1,12 +1,13 @@
 \documentclass[blends,pdf,slideColor,colorBG,accumulate,total]{prosper}
 \usepackage[francais]{babel}
 \usepackage{amsmath, amsfonts, amsbsy, pstricks, pst-node, pst-text, pst-3d}
-\usepackage{slashbox}
 \usepackage{moreverb,epsfig,color,subfigure}
 \NoFrenchBabelItemize
 \usepackage{ucs}
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx,color,caption2,amssymb,pstricks,lmodern}
+
+\hypersetup{pdfpagemode=FullScreen}
 
 \newcommand{\items}[1]{\begin{itemize} \item #1 \end{itemize}}
 \newcommand{\itemss}[2]{\begin{itemize} \item #1 \item #2 \end{itemize}}
@@ -51,9 +52,9 @@
 \newlength{\MiniPageRight}
 
 
-\title{Advanced Software Composition}
-\subtitle{An open component model an its support in Java}
-%\caption{IR}
+\title{\large{}Advanced Software Composition}
+\subtitle{\small{}An open component model an its support in Java\\\emph{Eric Bruneton, Thierry Coupaye, Matthieu Leclerc, Vivien Quema, Jean-Bernard Stefani}}
+\slideCaption{Advanced Software Composition}
 \author{R.\textsc{Rincé}}
 
 %\Logo{\includegraphics[scale=0.40]{img/logouniv.eps}}
@@ -64,11 +65,15 @@
 \institution{
   Université de Nantes \\
   2 rue de la Houssinière, \\
-  BP92208, F-44322 Nantes cedex 03, FRANCE
-  
+  BP92208, \textsc{Nantes} cedex 03, \textsc{France}\\
+  \begin{figure}[t]
+    \begin{center}
+      \includegraphics[width=0.2\textwidth]{img/logouniv}
+    \end{center}
+  \end{figure}
 }
 
-\DefaultTransition{Box}
+\DefaultTransition{Dissolve}
 
 \begin{document}
 
@@ -102,20 +107,21 @@
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % }
-\overlays{5}{
+\overlays{6}{
   \begin{slide}[Dissolve]{The \textsc{Fractal} component model}
     \textbf{Objectives of the \textsc{Fractal} component model}
-    \begin{Itemize}
+\begin{Itemize}
       \fromSlide{2}{\item Composite components}
       \fromSlide{3}{\item Shared components}
       \fromSlide{4}{\item Introspection capabilities}
       \fromSlide{5}{\item Reconfiguration capabilities}
     \end{Itemize}
+
   \end{slide}
 }
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\overlays{5}{
+\overlays{6}{
   \begin{slide}[Dissolve]{The \textsc{Fractal} component model}
       \textbf{Details of a \textsc{Fractal} component}
     \begin{Itemize}
@@ -134,7 +140,7 @@
   \begin{slide}[Box]{The \textsc{Fractal} component model}
       \begin{figure}[t]
         \begin{center}
-          \includegraphics[width=0.8\textwidth]{img/component}
+          \includegraphics[width=1\textwidth]{img/component}
         \end{center}
       \end{figure}
   \end{slide}
