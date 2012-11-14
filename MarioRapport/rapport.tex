@@ -1,0 +1,175 @@
+\documentclass[12pt,a4paper,utf8x]{report}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}  
+\usepackage [frenchb]{babel}
+
+% Pour pouvoir utiliser le verbatim dans les sections utiliser la commande versalitas
+\newcommand{\versalitas}[1]{{\usefont{T1}{cmr}{bx}{sc}#1}}% 
+
+\usepackage{textcomp}
+\usepackage{keystroke}
+\usepackage{amssymb}
+ 
+\usepackage{amsmath}
+\renewcommand{\thesection}{\arabic{section}} % numérotation des sectiosn
+\usepackage[cc]{titlepic} %rajouter le logo dans la page de garde
+\usepackage{url} % Pour avoir de belles url
+\usepackage {geometry}
+\usepackage[linktocpage]{hyperref}
+
+% Pour mettre du code source
+\usepackage {listings}
+% Pour pouvoir passer en paysage
+\usepackage{lscape}	
+
+% Pour pouvoir faire plusieurs colonnes
+\usepackage {multicol}
+
+% POur crééer un index
+\usepackage{makeidx}
+
+\usepackage[pdftex]{graphicx}
+
+\hypersetup{
+backref=true,
+%permet d'ajouter des liens dans...
+pagebackref=true,%...les bibliographies
+hyperindex=true, %ajoute des liens dans les index.
+colorlinks=true, %colorise les liens
+breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+urlcolor= blue, %couleur des hyperliens
+citecolor=	cyan,
+bookmarks=true, %créé des signets pour Acrobat
+bookmarksopen=true,
+%si les signets Acrobat sont créés,
+%les afficher complètement.
+pdftitle={Initiation à la Recherche}, %informations apparaissant dans
+pdfauthor={MARGUERITE Alain\\ RINCE Romain},
+%dans les informations du document
+pdfsubject={Doc}
+%sous Acrobat.
+}
+\hyphenation{si-tu-a-tion}
+\makeindex
+
+\newcommand\fractal{\textsc{Fractal}} 
+\newcommand\julia{\textsc{Julia}} 
+%%%% debut macro pour enlever le nom chapitre %%%%
+% \makeatletter
+% \def\@makechapterhead#1{%
+%   \vspace*{50\p@}%
+%   {\parindent \z@ \raggedright \normalfont
+%     \interlinepenalty\@M
+%     \ifnum \c@secnumdepth >\m@ne
+%         \Huge\bfseries \thechapter\quad
+%     \fi
+%     \Huge \bfseries #1\par\nobreak
+%     \vskip 40\p@
+%   }}
+% 
+% \def\@makeschapterhead#1{%
+%   \vspace*{50\p@}%
+%   {\parindent \z@ \raggedright
+%     \normalfont
+%     \interlinepenalty\@M
+%     \Huge \bfseries  #1\par\nobreak
+%     \vskip 40\p@
+%   }}
+% \makeatother
+%%%% fin macro %%%%
+
+%Couverture 
+
+%Couverture 
+\widowpenalty=10000
+\clubpenalty=10000
+ 
+\title{An open component Model and its support in Java\\\vspace{0.5cm}
+\small E. \textsc{Bruneton}*, T. \textsc{Coupaye}*, M. \textsc{Leclerc}**, V. \textsc{Quema}**, J.B. \textsc{Stefani}**\\\vspace{0.5cm}
+France Télécom R\&D* et \textsc{INRIA} Rhône-Alpes**}
+\titlepic{\includegraphics[scale=0.80]{img/logouniv}}
+		
+
+\author{Romain \textsc{Rincé}}
+\date{Université de Nantes \\ 2 rue de la Houssinière, BP92208, F-44322 \textsc{Nantes} cedex 03, \textsc{France}}
+
+\hyphenation{appar-tiennent}
+\hyphenation{pro-blèmes}
+
+\begin{document}
+
+\maketitle
+\renewcommand{\labelitemi}{$\bullet$} 
+
+\clearpage
+
+% \tableofcontents
+\clearpage
+
+\section{Introduction}
+Le papier \og \emph{An open component Model and its support in Java}\fg{} présente le modèle à composant \fractal{} réalisé conjointement avec la section R\&D de France Télécom et l'équipe \textsc{INRIA} Rhône-Alpes. 
+
+L'objectif des auteurs étant de résoudre un certain nombre de limitations présentes dans les différents modèles existants (e.g. \textsc{EJB}, \textsc{CORBA}, .Net) telles que :
+\begin{itemize}
+ \item Les faibles possibilités d'extensibilité.
+ \item La difficulté (voire l'impossibilité) d'ajouter dynamiquement des moyens de contrôle sur les composants.
+ \item La nécessité de parfois devoir faire des choix difficiles entre le degré de configurabilité et les performances. 
+\end{itemize}
+Afin de répondre à ces problématiques, les auteurs présentent leur modèle à composant \fractal, ainsi que son implémentation en Java, le framework \julia.
+
+
+
+
+\section{Le modèle à composant \versalitas{Fractal}}
+L'objectif du modèle à composants \fractal{} est de pouvoir implémenter ou gérer des systèmes logiciels complexes, et ce même sur des systèmes moins traditionnels tels que l'embarqué. Pour ce faire \fractal{} offre la possibilité d'avoir des composants composite, des composants partagés,  des capacités d'introspection et de reconfiguration.
+
+Il est à présent nécessaire de détailler un peu plus précisément le modèle \fractal{} (c.f. Figure \ref{fig:Comp}). Le modèle \fractal{} est principalement composé de deux entités qui sont le contenu et la membrane. 
+\begin{figure}[htbp] %on ouvre l'environnement figure
+  \center
+  \includegraphics{img/fractal_component}
+  \caption{Exemple d'un modèle \fractal{} de composants} %la légende
+ \label{fig:Comp} %la légende
+\end{figure}
+
+\paragraph{Contenu}Le contenu peut être soit un ensemble de composants, soit du code du langage cible (e.g. Un objet en java).
+\paragraph{Membrane} La membrane est l'élément qui permet au modèle d'offrir une organisation en composant. Celle-ci va encapsuler le contenu pour lui offrir les propriétés d'un composant. La membrane dispose en effet d'interfaces externes pour communiquer avec des composants de même niveaux ou avec son parent, et d'interfaces internes pour communiquer avec ses sous-composants. Ces interfaces peuvent être soit de type \verb+Client+ (c'est-à-dire qui demandent un service), soit de type \verb+Serveur+ (c'est-à-dire qui fournissent un service). Les interfaces \verb+Serveur+ peuvent être relié à plusieurs interfaces \verb+Client+ ou aucune. 
+
+Afin de pouvoir communiquer entre composants, les interfaces de ceux-ci doivent bien évidemment être liées. 
+
+La membrane dispose aussi de contrôleurs qui offrent un certain nombre d'actions sur le composant. Ces contrôleurs peuvent notamment effectuer les actions suivantes :
+\begin{itemize}
+ \item Accéder ou modifier les attributs du composant.
+ \item modifier les liaisons internes au composant.
+ \item Ajouter ou supprimer des sous-composants.
+ \item Agir sur le cycle de vie du composant (e.g. Démarrer ou arrêter l'exécution du composant).
+\end{itemize}
+Il s'agit bien sûr d'une liste non-exhaustive des contrôleurs ; le modèle \fractal{} permettant l'extensibilité de ses contrôleurs. 
+
+Pour une spécification plus détaillée, vous pouvez vous reporter au rapport technique de \fractal\cite{TFCM}.
+
+
+
+
+
+
+\section{Le framework \versalitas{Julia}}
+
+
+ %on ferme l'environnement figure
+% Pour avoir un interligne de 1,5
+% \input{P0}
+%\input{P01}
+% \input{P1}
+% \input{P2}
+% \input{annexereal}
+
+% Pour finir l'interligne de 1,5
+
+\printindex
+
+\appendix
+\bibliographystyle{alpha}
+\bibliography{biblio.bib}
+
+\end{document}
