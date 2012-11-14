@@ -1,0 +1,9 @@
+\begin{thebibliography}{BCS03}
+
+\bibitem[BCS03]{TFCM}
+E.~Bruneton, T.~Coupaye, and J.B. Stefani.
+\newblock The fractal component model.
+\newblock Technical report, ObjectWeb Consortium,
+  \url{http://www.objectweb.org/fractal}, 2003.
+
+\end{thebibliography}
