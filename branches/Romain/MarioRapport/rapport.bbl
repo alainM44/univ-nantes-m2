@@ -1,9 +1,25 @@
 \begin{thebibliography}{BCS03}
 
+\bibitem[AOK]{AOKell}
+Aokell.
+\newblock \url{http://fractal.ow2.org/aokell/index.html}.
+
 \bibitem[BCS03]{TFCM}
 E.~Bruneton, T.~Coupaye, and J.B. Stefani.
 \newblock The fractal component model.
 \newblock Technical report, ObjectWeb Consortium,
   \url{http://www.objectweb.org/fractal}, 2003.
+
+\bibitem[Fra]{FracTalk}
+Fractalk.
+\newblock \url{http://csl.ensm-douai.fr/FracTalk}.
+
+\bibitem[Jul]{Julia}
+Julia.
+\newblock \url{http://fractal.ow2.org/julia/}.
+
+\bibitem[Thi]{Think}
+Think.
+\newblock \url{http://think.ow2.org/}.
 
 \end{thebibliography}

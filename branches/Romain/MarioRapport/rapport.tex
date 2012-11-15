@@ -85,8 +85,8 @@ pdfsubject={Doc}
 \widowpenalty=10000
 \clubpenalty=10000
  
-\title{An open component Model and its support in Java\\\vspace{0.5cm}
-\small E. \textsc{Bruneton}*, T. \textsc{Coupaye}*, M. \textsc{Leclerc}**, V. \textsc{Quema}**, J.B. \textsc{Stefani}**\\\vspace{0.5cm}
+\title{{\Huge Résumé d'article}\\\vspace{1cm}An open component Model and its support in Java\\\vspace{0.3cm}
+\small E. \textsc{Bruneton}*, T. \textsc{Coupaye}*, M. \textsc{Leclerc}**, V. \textsc{Quema}**, J.B. \textsc{Stefani}**\\
 France Télécom R\&D* et \textsc{INRIA} Rhône-Alpes**}
 \titlepic{\includegraphics[scale=0.80]{img/logouniv}}
 		
@@ -133,14 +133,12 @@ Il est à présent nécessaire de détailler un peu plus précisément le modèl
 \end{figure}
 
 \paragraph{Contenu}Le contenu peut être soit un ensemble de composants, soit du code du langage cible (e.g. Un objet en java).
-\paragraph{Membrane} La membrane est l'élément qui permet au modèle d'offrir une organisation en composant. Celle-ci va encapsuler le contenu pour lui offrir les propriétés d'un composant. La membrane dispose en effet d'interfaces externes pour communiquer avec des composants de même niveaux ou avec son parent, et d'interfaces internes pour communiquer avec ses sous-composants. Ces interfaces peuvent être soit de type \verb+Client+ (c'est-à-dire qui demandent un service), soit de type \verb+Serveur+ (c'est-à-dire qui fournissent un service). Les interfaces \verb+Serveur+ peuvent être relié à plusieurs interfaces \verb+Client+ ou aucune. 
-
-Afin de pouvoir communiquer entre composants, les interfaces de ceux-ci doivent bien évidemment être liées. 
+\paragraph{Membrane} La membrane est l'élément qui permet au modèle d'offrir une organisation en composant. Celle-ci va encapsuler le contenu pour lui offrir les propriétés d'un composant. La membrane dispose en effet d'interfaces externes pour communiquer avec des composants de même niveaux ou avec son parent, et d'interfaces internes pour communiquer avec ses sous-composants. Ces interfaces peuvent être soit de type \verb+Client+ (c'est-à-dire qui demandent un service), soit de type \verb+Serveur+ (c'est-à-dire qui fournissent un service). Les interfaces \verb+Serveur+ peuvent être reliées à plusieurs interfaces \verb+Client+ ou aucune. Les interfaces des composants devant bien évidemment être liées pour pouvoir communiquer. 
 
 La membrane dispose aussi de contrôleurs qui offrent un certain nombre d'actions sur le composant. Ces contrôleurs peuvent notamment effectuer les actions suivantes :
 \begin{itemize}
  \item Accéder ou modifier les attributs du composant.
- \item modifier les liaisons internes au composant.
+ \item Modifier les liaisons internes au composant.
  \item Ajouter ou supprimer des sous-composants.
  \item Agir sur le cycle de vie du composant (e.g. Démarrer ou arrêter l'exécution du composant).
 \end{itemize}
@@ -154,7 +152,43 @@ Pour une spécification plus détaillée, vous pouvez vous reporter au rapport t
 
 
 \section{Le framework \versalitas{Julia}}
+\julia\cite{Julia} est un framework implémentant en Java le modèle \fractal. Il fournit donc un ensemble extensible de classes (\verb+Controller+ et \verb+Interceptor+) permettant le design des membranes des composants. L'objectif étant de répondre aux problématiques présentées en introduction, \julia{} permet une gestion des coûts en performance plus fine grâce à une continuité entre la reconfiguration statique et dynamique. De plus \julia{} doit pouvoir fonctionner sur des environnements restraints n'ayant, par exemple, pas de \verb+ClassLoader+, pas d'\textsc{API} de reflexion, pas d'\textsc{API} de collection~\dots{}
 
+\paragraph{Présention}\julia{} dipose donc d'un ensemble de \verb+Controller+ et d'\verb+Interceptor+ (c.f. Figure \ref{fig:Julia} ).
+\begin{figure}[htbp] %on ouvre l'environnement figure
+  \center
+  \includegraphics[scale=0.7]{img/implJ}
+  \caption{Exemple d'un modèle \fractal{} de composants} %la légende
+ \label{fig:Julia} %la légende
+\end{figure} 
+Les \verb+Interceptor+ gèrent les entrées/sorties sur l'appel de méthodes des interfaces (à l'exception des interfaces de contrôle). Les \verb+Controller+ quant-à-eux correspondent, en terme de concept, aux contrôlleurs de \fractal. Dans son ensemble un composant est donc un ensemble de trois types d'objets : 
+\begin{itemize}
+ \item Les objets qui implémentent les interfaces. Il faut noter qu'il est nécessaire de passer par un \verb+Interceptor+ pour que la membrane ait accès à cet objet concret (L'interface ayant un lien \verb+impl+ vers cet objet) ; les interfaces \verb+Client+ ont leur lien \verb+impl+ à \verb+null+ (Ils ne nécessitent pas d'objets les instanciants).
+ \item Les objets de la membrane (\verb+Controller+ et \verb+Interceptor+).
+ \item Les objets implémentants le contenu.
+\end{itemize}
+
+\paragraph{Extensibilité}Afin de permettre l'extensibilité de son framework, \julia{} fournit un mécanisme de classe abstraite permettant d'étendre les classes offertes de base. Par exemple il est possible d'étendre un contrôlleur gérant le démarrage et l'arrêt d'un composant (i.e. un \verb+LifeCycleController+) pour lui fournir une capacité d'arrêt automatique.
+
+\paragraph{Optimisations}Pour améliorer les performances, \julia{} effectue divers optimisations
+\begin{itemize}
+\item Des optimisations intra-composant qui consistent à faire fusionner les objets de certains contrôleurs entre-eux. 
+\item Des optimisations inter-composant qui consistant à effectuer des optimisations de référence sur les liens (c.f. Figure \ref{fig:short}).
+\begin{figure}[htbp] %on ouvre l'environnement figure
+  \center
+  \includegraphics[scale=0.5]{img/shortcut}
+  \caption{Exemple d'un modèle \fractal{} de composants} %la légende
+ \label{fig:short} %la légende
+\end{figure} 
+
+\section{Qualité du modèle \versalitas{Fractal} et de \versalitas{Julia}}
+Dans la dernière partie du papier, les auteurs évaluent leur travail par rapport aux problèmes soulevés en début de rapport. \julia{} semble répondre à toutes leurs exigences, tant sur le plan de la modularité et l'extensibilité, que sur les performances (notamment mémoire). De plus \julia{} étant relativement léger (45 ko en exécution), il est capable de tourner sur des systèmes extêmement restreints.
+
+Cependant les auteurs soulèvent certaines limitations au niveau de la modularité et de l'exensibilité du framework \julia{} ; notamment dû au méchanisme de classes abstraites proposé.
+\paragraph{Brève conclusion} 
+Les résultats obtenus par les auteurs ainsi qu'une relative fierté de ces derniers vis-à-vis de leurs travaux, laissent à penser que le modèle \fractal{} possède nombre de qualités ; la création d'une communauté développant de nouveaux frameworks autour de celui-ci (AOKell\cite{AOKell}, Think\cite{Think}, FracTalk\cite{FracTalk}~\dots) ne fait que confirmer cette observation.
+  
+\end{itemize}
 
  %on ferme l'environnement figure
 % Pour avoir un interligne de 1,5
