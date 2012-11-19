@@ -1,0 +1,71 @@
+\documentclass{lettre}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage{eurosym}%Symbole euros
+\usepackage[french]{babel}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+backref=true,
+%permet d'ajouter des liens dans...
+pagebackref=true,%...les bibliographies
+hyperindex=true, %ajoute des liens dans les index.
+colorlinks=true, %colorise les liens
+breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+urlcolor= black, %couleur des hyperliens
+citecolor=	cyan,
+bookmarks=true, %créé des signets pour Acrobat
+bookmarksopen=true,
+%si les signets Acrobat sont créés,
+%les afficher complètement.
+pdftitle={Initiation à la Recherche}, %informations apparaissant dans
+pdfauthor={MARGUERITE Alain\\ RINCE Romain},
+%dans les informations du document
+pdfsubject={Doc}
+%sous Acrobat.
+}
+
+\makeatletter
+\newcommand*{\NoRule}{\renewcommand*{\rule@length}{0}}
+\makeatother
+\begin{document}
+ 
+\begin{letter}{Monsieur Cédric \textsc{Brun}\\
+\emph{Obeo}\\7 Boulevard Ampère\\44 481 \textsc{Carquefou}
+ }
+\francais
+\pagestyle{headings}
+
+\renewcommand{\vrefname}{\hspace{-2.4cm}\small Réf. :~\No~\'Etudiant~} % défini le label (name)
+\renewcommand{\nrefname}{} % pour supprimer \Nref
+
+% \Vref{074862X}
+\name{Romain \textsc{Rincé}}
+\signature{Romain \textsc{Rincé}}
+\address{Romain \textsc{Rincé}\\5 Place du Bouffay\\44000 \textsc{Nantes}}
+\lieu{Nantes}
+% Ce paramètre sert à indiquer dans la lettre « Au Pôle
+% Nord, le 25 décembre 2000 »
+
+\telephone{+33 (0)6 83 65 29 57}
+\email{\href{mailto:romainrince@gmail.com}{romainrince@gmail.com}}
+\nofax
+\NoRule
+\def\concname{\hspace{-2.4cm}\small Objet :~} % On définit ici la commande 'objet'
+\conc{Candidature spontanée  \vspace{0.5cm}}
+\opening{Monsieur \textsc{Brun},}
+ \vspace{0.5cm}
+ Je suis actuellement en Master 2 \textsc{ALMA} à l'\emph{Université de Nantes}. Afin de valider mon diplôme, il est nécessaire que j'effectue un stage que j'aimerais pouvoir effectuer au sein de la société \emph{Obeo}.
+ 
+ Ces deux années de Master ont été pour moi l'occasion d'être initié aux concepts de l'architecture logicielle et notamment à l'ingénierie dirigée par les modèles. Les différents cours qui m'ont été dispensé ainsi que mon projet de fin d'études visant à l'injection de tests par transformation de modèles confirment ma volonté de me diriger dans cette voie.
+ 
+ La qualité des enseignements dispensés à  l'\emph{Université de Nantes}, par votre intervenant Stéphane \textsc{Begaudeau}, font montre du sérieux de votre entreprise. De plus l'orientation open source de la société \emph{Obeo} et son active contribution à la fondation \emph{Eclipse} sont, pour moi, des motivations supplémentaires d'effectuer mon stage de fin d'études chez \emph{Obeo}. 
+  
+ \closing{Je vous remercie par avance de l’attention que vous porterez à ma demande et vous prie de
+croire, Monsieur, à l’expression de ma considération distinguée.}
+
+ 
+\end{letter}
+ 
+\end{document}
