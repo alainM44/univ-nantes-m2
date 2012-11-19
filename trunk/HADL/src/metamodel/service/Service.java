@@ -24,7 +24,7 @@ import metamodel.port.PortF;
 import metamodel.port.PortR;
 import metamodel.role.RoleF;
 import metamodel.role.RoleR;
-import configuration.Configuration;
+
 
 /**
  * Classe décrivant un service
@@ -36,7 +36,7 @@ import configuration.Configuration;
 public abstract class Service extends Observable implements Observer {
 
 	private String name;
-	private Configuration config;
+
 	protected HashMap<String, PortR> portR;
 	protected HashMap<String, PortF> portF;
 
@@ -45,8 +45,14 @@ public abstract class Service extends Observable implements Observer {
 
 	protected Service bindService;
 
-	public Service(String string) {
-		name = string;
+
+	public Service(String name, HashMap<String, PortR> portR,
+			HashMap<String, PortF> portF) {
+		super();
+		this.name = name;
+		this.portR = portR;
+		this.portF = portF;
+
 	}
 
 	public abstract void action();
@@ -88,14 +94,6 @@ public abstract class Service extends Observable implements Observer {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Configuration getConfig() {
-		return config;
-	}
-
-	public void setConfig(Configuration config) {
-		this.config = config;
 	}
 
 	public HashMap<String, PortR> getPortR() {

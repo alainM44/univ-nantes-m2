@@ -16,7 +16,12 @@
 
 package metamodel.service;
 
+import java.util.HashMap;
 import java.util.Observable;
+
+import metamodel.port.PortF;
+import metamodel.port.PortR;
+import metamodel.role.RoleR;
 
 /**
  * Classe décrivant une service requis
@@ -27,8 +32,10 @@ import java.util.Observable;
  */
 public abstract class ServiceF extends Service {
 
-	public ServiceF(String string) {
-		super(string);
+	public ServiceF(String name, HashMap<String, PortR> portR,
+			HashMap<String, PortF> portF) {
+		super(name, portR, portF);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -36,8 +43,7 @@ public abstract class ServiceF extends Service {
 		if (bindService == null) {
 			action();
 			notifyAll();
-		}
-		else{
+		} else {
 			bindService.setPortF(portF);
 			bindService.action();
 			setPortR(bindService.getPortR());

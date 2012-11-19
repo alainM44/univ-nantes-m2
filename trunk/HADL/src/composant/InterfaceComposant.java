@@ -29,8 +29,22 @@ import metamodel.service.Service;
  */
 public class InterfaceComposant extends Interface {
 
-	public HashMap<String, Service> services;
+	public HashMap<String, Service> services = new HashMap<String, Service>();
 
+	
+	public InterfaceComposant(HashMap<String, Service> services) {
+		super();
+		this.services = services;
+	}
+
+	public InterfaceComposant() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public void addService(Service service){
+		services.put(service.getName(),service);
+	}
 	public HashMap<String, Service> getServices() {
 		return services;
 	}

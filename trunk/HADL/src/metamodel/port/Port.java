@@ -35,7 +35,6 @@ public abstract class Port {
 		this.name = string;
 	}
 
-	public abstract void attachement();
 
 	public String getName() {
 		return name;
