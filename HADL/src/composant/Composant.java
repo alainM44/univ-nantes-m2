@@ -1,42 +1,45 @@
+/*   This file is part of HADL_Project.
+
+ HADL_Project is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ HADL_Project is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with HADL_Project.  If not, see <http://www.gnu.org/licenses/>
+ */
 package composant;
 
-import java.util.AbstractList;
-import java.util.HashMap;
-
-import metamodel.propiete.Propriete;
-import metamodel.service.Service;
-import metamodel.service.ServiceF;
-import metamodel.service.ServiceR;
-
 /**
+ * 
+ * Classe décrivant un composant (pattern composite)
+ * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
  * 
- *         Note sur le métamodèle en général :
- *         <p>
- *         Il est nécessaire de trouver qui est la classe "gérante" du système.
- *         Il est fortement probable que ce rôle soit attribué à la classe
- *         Configuration. Les appels de méthodes se faisant donc par son
- *         intermédaire.
- *         </p>
  */
 public class Composant {
 	private InterfaceComposant requis;
 	private InterfaceComposant fourni;
+
 	public InterfaceComposant getRequis() {
 		return requis;
 	}
+
 	public void setRequis(InterfaceComposant requis) {
 		this.requis = requis;
 	}
+
 	public InterfaceComposant getFournis() {
 		return fourni;
 	}
+
 	public void setFournis(InterfaceComposant fournis) {
 		this.fourni = fournis;
 	}
-
-	
-
-
 }

@@ -1,57 +1,71 @@
+/*   This file is part of HADL_Project.
+
+ HADL_Project is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ HADL_Project is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with HADL_Project.  If not, see <http://www.gnu.org/licenses/>
+ */
+
 package configuration;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.naming.Binding;
+import metamodel.connecteur.Connecteur;
+import metamodel.role.RoleF;
+import metamodel.role.RoleR;
+import metamodel.service.Service;
 
 import composant.Composant;
 import composant.Composite;
 import composant.InterfaceComposant;
 
-import metamodel.connecteur.Connecteur;
-import metamodel.port.Port;
-import metamodel.port.PortR;
-import metamodel.propiete.Propriete;
-import metamodel.role.Role;
-import metamodel.role.RoleF;
-import metamodel.role.RoleR;
-import metamodel.service.Service;
-
 /**
+ * Classe décrivant une configuration
+ * 
+ * <p>
+ * La classe Configuration tient lieu de ciment entre toutes les instances des
+ * classes du metamodèle HADL.
+ * </p>
+ * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
+ * @see Composant
  * 
- *         La classe Configuration tient lieu de ciment entre toutes les
- *         instances des classes du metamodèle HADL.
- * 
- * 
- *         Note sur le métamodèle en général :
- *         <p>
- *         Il est nécessaire de trouver qui est la classe "gérante" du système.
- *         Il est fortement probable que ce rôle soit attribué à la classe
- *         Configuration. Les appels de méthodes se faisant donc par son
- *         intermédaire.
- *         </p>
  */
-public class Configuration extends Composant {// TODO Réfléchir ! Est ce que la
-												// classe
-	// configuration peut être remplacer par un fichier
-	// texte ?
+
+public class Configuration extends Composant {
 	private Composite composite;
-	private HashMap<String, Binding> bindings;
-	private HashMap<String, Composant> composants;
 	private InterfaceConfig interfacesConfigsR;
 	private InterfaceConfig interfacesConfigsF;
+
+	private HashMap<String, Couple> bindings;
 	/**
+	 * Regroupe les composants de la configurations
+	 * 
+	 * @Key Nom du composant
+	 * @Value Composant associé
+	 * 
+	 */
+	private HashMap<String, Composant> composants;
+	/**
+	 * Regroupe les connecteurs de la configurations
+	 * 
 	 * @Key Nom du connecteur
-	 * @Value Connecteur
+	 * @Value Connecteur associé
 	 * 
 	 */
 	private HashMap<String, Connecteur> connecteurs;
 
 	/**
-	 * Attachement
+	 * Regroupe les Attachements associés à la configuration
 	 * 
 	 * @Key Nom du service
 	 * @Value Nom du connecteur
@@ -66,8 +80,7 @@ public class Configuration extends Composant {// TODO Réfléchir ! Est ce que l
 	 */
 	private HashMap<String, String> serviceOrientation;
 
-	public Configuration(Composite composite,
-			HashMap<String, Binding> bindings,
+	public Configuration(Composite composite, HashMap<String, Couple> bindings,
 			HashMap<String, Composant> composants,
 			InterfaceConfig interfacesConfigsR,
 			InterfaceConfig interfacesConfigsF,
@@ -107,6 +120,20 @@ public class Configuration extends Composant {// TODO Réfléchir ! Est ce que l
 				roler.setService(service);
 				rolef.setService(service);
 
+				if (bindings.containsKey(serviceName)) {
+					Couple couple = bindings.get(serviceName);
+					Composant composant = composants.get(couple.getComposant());
+					Service bindservice;
+					if (couple.getFouR() == "f") {
+						bindservice = composant.getFournis().getService(
+								couple.getName());
+					} else {
+						bindservice = composant.getRequis().getService(
+								couple.getName());
+					}
+					service.setBindService(bindservice);
+					bindservice.setBindService(service);
+				}
 			}
 			// BOUCLE A OPTIMISER pn fait la même chose avec icf
 			for (String serviceName : icf.getServices().keySet()) {
@@ -126,6 +153,21 @@ public class Configuration extends Composant {// TODO Réfléchir ! Est ce que l
 				service.setRolef(rolef);
 				roler.setService(service);
 				rolef.setService(service);
+
+				if (bindings.containsKey(serviceName)) {
+					Couple couple = bindings.get(serviceName);
+					Composant composant = composants.get(couple.getComposant());
+					Service bindservice;
+					if (couple.getFouR() == "f") {
+						bindservice = composant.getFournis().getService(
+								couple.getName());
+					} else {
+						bindservice = composant.getRequis().getService(
+								couple.getName());
+					}
+					service.setBindService(bindservice);
+					bindservice.setBindService(service);
+				}
 			}
 		}
 	}
