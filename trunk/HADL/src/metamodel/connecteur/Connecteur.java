@@ -25,9 +25,17 @@ import java.util.HashMap;
  * @author Romain RINCÉ
  * @see InterfaceConnecteur
  */
-public class Connecteur extends InterfaceConnecteur {
+public class Connecteur// extends InterfaceConnecteur
+//TODO Probleme connecteur ne doit pas etendre InterfaceConnecteur
+{
 
 	private HashMap<String, InterfaceConnecteur> interfacesConnecteurs;
-	private Glu gluNS;
-	private Glu gluSN;
+
+	public Connecteur(HashMap<String, InterfaceConnecteur> interfacesConnecteurs) {
+		super();
+		this.interfacesConnecteurs = interfacesConnecteurs;
+	}
+
+	
+	
 }
