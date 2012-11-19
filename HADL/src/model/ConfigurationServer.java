@@ -31,8 +31,8 @@ public class ConfigurationServer extends Configuration {
 
 	public ConfigurationServer(String name){
 		
-		 new composite
-		return new Configuration(composite, bindings, composants, interfacesConfigsR, interfacesConfigsF, connecteurs, attachements, serviceOrientation);
+//		 new composite
+//		return new Configuration(composite, bindings, composants, interfacesConfigsR, interfacesConfigsF, connecteurs, attachements, serviceOrientation);
 	}
 
 }

@@ -16,17 +16,18 @@
 
 package model;
 
+import java.util.HashMap;
+
+import metamodel.propiete.Propriete;
 import composant.Composant;
+import composant.InterfaceComposant;
 
 public class ConnexionManager extends Composant {
 
-//	public ConnexionManager(/*ProprieteNonFonc mPropNonFonC,*/ ProprieteFonc mPropFonc)
-//		super();
-//		this.mPorts.add(new PortR("PortRExecuteSQL"));
-//		this.mPorts.add(new PortF("PortFFxecuteSQL"));
-//		this.mServices.add(new ServiceF("ServiceFExecuteSQL"));	
-//		this.mPorts.add(new PortR("PortRSecurityManagement"));
-//		this.mPorts.add(new PortF("PortFSecurityManagement"));
-//		this.mServices.add(new ServiceF("ServiceFExecuteSQL"));	
-	//	}
+	public ConnexionManager(InterfaceComposant requis,
+			InterfaceComposant fourni, HashMap<String, Propriete> proprietes) {
+		super(requis, fourni, proprietes);
+		// TODO Auto-generated constructor stub
+	}
+
 }

@@ -15,6 +15,10 @@
  */
 package composant;
 
+import java.util.HashMap;
+
+import metamodel.propiete.Propriete;
+
 /**
  * 
  * Classe décrivant un composant (pattern composite)
@@ -26,6 +30,15 @@ package composant;
 public class Composant {
 	private InterfaceComposant requis;
 	private InterfaceComposant fourni;
+	private HashMap<String, Propriete> proprietes;
+
+	public Composant(InterfaceComposant requis, InterfaceComposant fourni,
+			HashMap<String, Propriete> proprietes) {
+		super();
+		this.requis = requis;
+		this.fourni = fourni;
+		this.proprietes = proprietes;
+	}
 
 	public InterfaceComposant getRequis() {
 		return requis;
@@ -35,11 +48,20 @@ public class Composant {
 		this.requis = requis;
 	}
 
-	public InterfaceComposant getFournis() {
+	public InterfaceComposant getFourni() {
 		return fourni;
 	}
 
-	public void setFournis(InterfaceComposant fournis) {
-		this.fourni = fournis;
+	public void setFourni(InterfaceComposant fourni) {
+		this.fourni = fourni;
 	}
+
+	public HashMap<String, Propriete> getProprietes() {
+		return proprietes;
+	}
+
+	public void setProprietes(HashMap<String, Propriete> proprietes) {
+		this.proprietes = proprietes;
+	}
+
 }

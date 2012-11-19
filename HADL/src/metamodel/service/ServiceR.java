@@ -16,6 +16,13 @@
 
 package metamodel.service;
 
+import java.util.HashMap;
+
+import metamodel.port.PortF;
+import metamodel.port.PortR;
+import metamodel.role.RoleF;
+import metamodel.role.RoleR;
+
 /**
  * Classe décrivant un sevice resuis
  * 
@@ -24,8 +31,11 @@ package metamodel.service;
  * @see Service
  */
 public abstract class ServiceR extends Service {
-	public ServiceR(String string) {
-		super(string);
-	
+
+	public ServiceR(String name, HashMap<String, PortR> portR,
+			HashMap<String, PortF> portF) {
+		super(name, portR, portF);
+		// TODO Auto-generated constructor stub
 	}
+
 }
