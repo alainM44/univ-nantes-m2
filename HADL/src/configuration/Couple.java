@@ -1,4 +1,4 @@
-package configuration;
+package metamodel.configuration;
 
 
 public class Couple {
