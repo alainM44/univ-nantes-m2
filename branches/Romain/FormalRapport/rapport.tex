@@ -102,7 +102,15 @@ pdfsubject={Doc}
 \renewcommand{\labelitemi}{$\bullet$} 
 
 
-\section{Introduction}
+\section{Contexte}
+Le papier \emph{Applying Event and Machine Decomposition to a Flash-Based Filestore in Event-B} présente un moyen de réprésenter, grâce à la méthode formelle \emph{Event-B}, un système de fichier géré dans une système flash. L'étude effectuée repose sur un autre travail précédemment effectué par les auteurs dans lequel il explicite un modèle abstrait d'un système de fichiers arborescent. Le papier présente donc les différentes méthodes employées pour parvenir au modèle flash, tel que le raffinement et la décomposition de machine.
+
+\section{Problématique}
+La difficulté étant de réussir à faire coincider un modèle formel avec un système de fichier ayant des contraintes physiques fortes et de s'assurer de la validité des opérations effectué sur le support ; en particuler les opérations d'écritures qui sont relativement sensibles à l'erreur. Les auteurs prennent donc en compte dans leur modélisation les possibles erreurs d'écritures.
+\section{Résultats}
+Les auteurs obtiennent, au final, un modèle viable qu'il prouvent par la suite grâce à Rodin. Le modèle présenté sépare la partie \og système de fichier\fg{} de la partie \og interface flash\fg{} qui assure une certaine lisibilité et un meilleure taux de preuve automatique.
+\section{Conclusion}
+
 
 % \begin{figure}[htbp] %on ouvre l'environnement figure
 %   \center
