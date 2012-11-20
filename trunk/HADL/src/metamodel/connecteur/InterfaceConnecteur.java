@@ -16,7 +16,7 @@
 
 package metamodel.connecteur;
 
-import iNterface.Interface;
+import metamodel.iNterface.Interface;
 import metamodel.role.RoleF;
 import metamodel.role.RoleR;
 

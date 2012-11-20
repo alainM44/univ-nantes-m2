@@ -14,7 +14,7 @@
  along with HADL_Project.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package iNterface;
+package metamodel.iNterface;
 
 /**
  * Interface du M2

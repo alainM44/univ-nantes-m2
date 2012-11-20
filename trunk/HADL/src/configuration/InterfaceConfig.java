@@ -14,9 +14,10 @@
  along with HADL_Project.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package configuration;
+package metamodel.configuration;
 
-import composant.InterfaceComposant;
+import metamodel.composant.InterfaceComposant;
+
 
 /**
  * 

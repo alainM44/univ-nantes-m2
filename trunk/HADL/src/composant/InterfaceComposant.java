@@ -14,10 +14,13 @@
  along with HADL_Project.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package composant;
+package metamodel.composant;
 
-import iNterface.Interface;
+
+
 import java.util.HashMap;
+
+import metamodel.iNterface.Interface;
 import metamodel.service.Service;
 
 /**

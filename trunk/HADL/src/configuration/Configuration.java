@@ -14,18 +14,17 @@
  along with HADL_Project.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package configuration;
+package metamodel.configuration;
 
 import java.util.HashMap;
 
+import metamodel.composant.Composant;
+import metamodel.composant.InterfaceComposant;
 import metamodel.connecteur.Connecteur;
 import metamodel.role.RoleF;
 import metamodel.role.RoleR;
 import metamodel.service.Service;
 
-import composant.Composant;
-import composant.Composite;
-import composant.InterfaceComposant;
 
 /**
  * Classe décrivant une configuration

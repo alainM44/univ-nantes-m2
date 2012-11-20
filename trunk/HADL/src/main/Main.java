@@ -2,38 +2,37 @@ package main;
 
 import java.util.HashMap;
 
+
+import metamodel.composant.InterfaceComposant;
 import metamodel.port.PortF;
 import metamodel.port.PortR;
 import metamodel.propiete.Propriete;
 import metamodel.role.RoleR;
 import metamodel.service.Service;
-import model.ConnecteurCMtoSM;
-import model.ConnexionManager;
-import model.DataBase;
-import model.PortFCQuery;
-import model.PortFDBQuery;
-import model.PortFExecuteSQL;
-import model.PortFExternalSocket;
-import model.PortFSASM;
-import model.PortFSecurityAuth;
-import model.PortFSecurityManagement;
-import model.PortRCQuery;
-import model.PortRDBQuery;
-import model.PortRExecuteSQL;
-import model.PortRExternalSocket;
-import model.PortRSASM;
-import model.PortRSecurityAuth;
-import model.PortRSecurityManagement;
-import model.RoleRExecuteSQL;
-import model.ServiceFExecuteSQL;
-import model.ServiceFExternalSocket;
-import model.ServiceFSecurityManagement;
-import model.ServiceRCQuery;
-import model.ServiceRDBQuery;
-import model.ServiceRSecurityAuth;
-import model.ServiceFSAM;
+import model.serveur.connexionManager.ConnexionManager;
+import model.serveur.connexionManager.PortFDBQuery;
+import model.serveur.connexionManager.PortFExternalSocket;
+import model.serveur.connexionManager.PortFSecurityAuth;
+import model.serveur.connexionManager.PortRDBQuery;
+import model.serveur.connexionManager.PortRExternalSocket;
+import model.serveur.connexionManager.PortRSecurityAuth;
+import model.serveur.connexionManager.ServiceFExternalSocket;
+import model.serveur.connexionManager.ServiceRDBQuery;
+import model.serveur.connexionManager.ServiceRSecurityAuth;
+import model.serveur.dataBase.DataBase;
+import model.serveur.dataBase.PortFExecuteSQL;
+import model.serveur.dataBase.PortFSecurityManagement;
+import model.serveur.dataBase.PortRExecuteSQL;
+import model.serveur.dataBase.PortRSecurityManagement;
+import model.serveur.dataBase.ServiceFExecuteSQL;
+import model.serveur.dataBase.ServiceFSecurityManagement;
+import model.serveur.securityManager.PortFCQuery;
+import model.serveur.securityManager.PortFSASM;
+import model.serveur.securityManager.PortRCQuery;
+import model.serveur.securityManager.PortRSASM;
+import model.serveur.securityManager.ServiceFSASM;
+import model.serveur.securityManager.ServiceRCQuery;
 
-import composant.InterfaceComposant;
 
 public class Main {
 
@@ -54,7 +53,8 @@ public class Main {
 		portF.put("PortFExecuteSQL", new PortFExecuteSQL("PortFExecuteSQL"));
 
 		ServiceFExecuteSQL serviceFExecuteSQL = new ServiceFExecuteSQL(
-				"ServiceFExecuteSQL", portR, portF);
+				"ServiceFExecuteS" +
+				"L", portR, portF);
 
 		portR = new HashMap<String, PortR>();
 		portR.put("PortRSecurityManagement", new PortRSecurityManagement(
@@ -120,7 +120,7 @@ public class Main {
 		portF = new HashMap<String, PortF>();
 		portF.put("PortFSASM", new PortFSASM("PortFSASM"));
 
-		ServiceFSAM serviceFSAM = new ServiceFSAM("serviceFSAM", portR, portF);
+		ServiceFSASM serviceFSAM = new ServiceFSASM("serviceFSAM", portR, portF);
 
 		portR = new HashMap<String, PortR>();
 		portR.put("PortRCQuery", new PortRCQuery("PortRCQuery"));
