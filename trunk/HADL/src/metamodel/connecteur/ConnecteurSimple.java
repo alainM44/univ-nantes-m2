@@ -24,29 +24,31 @@ package metamodel.connecteur;
  * @see Connecteur
  */
 public class ConnecteurSimple extends Connecteur {
-	private Glu gluNS;
-	private Glu gluSN;
+	private Glu gluFtoR;
+	private Glu gluRtoF;
 
-	public ConnecteurSimple(Glu gluNS, Glu gluSN) {
-		super();
-		this.gluNS = gluNS;
-		this.gluSN = gluSN;
+
+	public ConnecteurSimple(InterfaceConnecteur irequise,
+			InterfaceConnecteur ifournie, Glu gluFtoR, Glu gluRtoF) {
+		super(irequise, ifournie);
+		this.gluFtoR = gluFtoR;
+		this.gluRtoF = gluRtoF;
+	}
+	public Glu getGluFtoR() {
+		return gluFtoR;
+	}
+	public void setGluFtoR(Glu gluFtoR) {
+		this.gluFtoR = gluFtoR;
+	}
+	public Glu getGluRtoF() {
+		return gluRtoF;
+	}
+	public void setGluRtoF(Glu gluRtoF) {
+		this.gluRtoF = gluRtoF;
 	}
 
-	public Glu getGluNS() {
-		return gluNS;
-	}
 
-	public void setGluNS(Glu gluNS) {
-		this.gluNS = gluNS;
-	}
 
-	public Glu getGluSN() {
-		return gluSN;
-	}
 
-	public void setGluSN(Glu gluSN) {
-		this.gluSN = gluSN;
-	}
 
 }

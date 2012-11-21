@@ -42,13 +42,11 @@ public abstract class Glu extends Observable implements Observer {
 		return roleR.getService().getValueInPortR(name);
 	}
 
-
-
-	public void setValueInPortF(Object e,String namePort){
+	// transmet les valeurs au port fourni
+	public void setValueInPortF(Object e, String namePort) {
 		roleF.getService().setValueInPortF(e, namePort);
 	}
-	
-	
+
 	@Override
 	public void update(Observable o, Object arg) {
 		execute();
@@ -62,7 +60,7 @@ public abstract class Glu extends Observable implements Observer {
 	}
 
 	/**
-	 *  Action de la glue Le client DOIT appeller setPortF
+	 * Action de la glue Le client DOIT appeller setPortF
 	 */
 	public abstract void action();
 

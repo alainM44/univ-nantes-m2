@@ -30,55 +30,30 @@ import metamodel.role.RoleR;
 
 public class InterfaceConnecteur extends Interface {
 
-	private Connecteur connecteur;
-	// RequisNord
-	private RoleR roleRN;
-	// RequisSud
-	private RoleR roleRS;
-	// FournisSud
-	private RoleF roleFS;
-	// FournisNord
-	private RoleF roleFN;
 
-	public Connecteur getConnecteur() {
-		return connecteur;
+	private RoleR roleR;
+
+
+	private RoleF roleF;
+
+
+	public InterfaceConnecteur(RoleR roleR, RoleF roleF) {
+		super();
+		this.roleR = roleR;
+		this.roleF = roleF;
 	}
 
-	public void setConnecteur(Connecteur connecteur) {
-		this.connecteur = connecteur;
+
+	public RoleR getRoleR() {
+		return roleR;
 	}
 
-	public RoleR getRoleRN() {
-		return roleRN;
+
+	public RoleF getRoleF() {
+		return roleF;
 	}
 
-	public void setRoleRN(RoleR roleRN) {
-		this.roleRN = roleRN;
-	}
-
-	public RoleR getRoleRS() {
-		return roleRS;
-	}
-
-	public void setRoleRS(RoleR roleRS) {
-		this.roleRS = roleRS;
-	}
-
-	public RoleF getRoleFS() {
-		return roleFS;
-	}
-
-	public void setRoleFS(RoleF roleFS) {
-		this.roleFS = roleFS;
-	}
-
-	public RoleF getRoleFN() {
-		return roleFN;
-	}
-
-	public void setRoleFN(RoleF roleFN) {
-		this.roleFN = roleFN;
-	}
+	
 
 	
 }
