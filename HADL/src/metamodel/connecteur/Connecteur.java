@@ -29,12 +29,29 @@ public class Connecteur// extends InterfaceConnecteur
 //TODO Probleme connecteur ne doit pas etendre InterfaceConnecteur
 {
 
-	private HashMap<String, InterfaceConnecteur> interfacesConnecteurs;
-
-	public Connecteur(HashMap<String, InterfaceConnecteur> interfacesConnecteurs) {
+	private InterfaceConnecteur irequise;
+	private InterfaceConnecteur ifournie;
+	
+	
+	public Connecteur(InterfaceConnecteur irequise, InterfaceConnecteur ifournie) {
 		super();
-		this.interfacesConnecteurs = interfacesConnecteurs;
+		this.irequise = irequise;
+		this.ifournie = ifournie;
 	}
+
+
+	public InterfaceConnecteur getIrequise() {
+		return irequise;
+	}
+
+
+	public InterfaceConnecteur getIfournie() {
+		return ifournie;
+	}
+	
+
+
+	
 
 	
 	

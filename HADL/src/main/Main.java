@@ -2,13 +2,35 @@ package main;
 
 import java.util.HashMap;
 
-
 import metamodel.composant.InterfaceComposant;
+import metamodel.connecteur.Glu;
+import metamodel.connecteur.InterfaceConnecteur;
 import metamodel.port.PortF;
 import metamodel.port.PortR;
 import metamodel.propiete.Propriete;
+import metamodel.role.RoleF;
 import metamodel.role.RoleR;
-import metamodel.service.Service;
+import model.serveur.configurationServer.RoleFSMtoCM;
+import model.serveur.conneteurCMtoSM.ConnecteurCMtoSM;
+import model.serveur.conneteurCMtoSM.GluCMtoSM;
+import model.serveur.conneteurCMtoSM.GluSMtoCM;
+import model.serveur.conneteurCMtoSM.RoleFCMtoSM;
+import model.serveur.conneteurCMtoSM.RoleRCMtoSM;
+import model.serveur.conneteurCMtoSM.RoleRSMtoCM;
+import model.serveur.conneteurDBtoCM.ConnecteurCMtoDB;
+import model.serveur.conneteurDBtoCM.GluCMtoDB;
+import model.serveur.conneteurDBtoCM.GluDBtoCM;
+import model.serveur.conneteurDBtoCM.RoleFCMtoDB;
+import model.serveur.conneteurDBtoCM.RoleFDBtoCM;
+import model.serveur.conneteurDBtoCM.RoleRCMtoDB;
+import model.serveur.conneteurDBtoCM.RoleRDBtoCM;
+import model.serveur.conneteurSMtoDB.ConnecteurSMtoDB;
+import model.serveur.conneteurSMtoDB.GluDBtoSM;
+import model.serveur.conneteurSMtoDB.GluSMtoDB;
+import model.serveur.conneteurSMtoDB.RoleFDBtoSM;
+import model.serveur.conneteurSMtoDB.RoleFSMtoDB;
+import model.serveur.conneteurSMtoDB.RoleRDBtoSM;
+import model.serveur.conneteurSMtoDB.RoleRSMtoDB;
 import model.serveur.connexionManager.ConnexionManager;
 import model.serveur.connexionManager.PortFDBQuery;
 import model.serveur.connexionManager.PortFExternalSocket;
@@ -33,7 +55,6 @@ import model.serveur.securityManager.PortRSASM;
 import model.serveur.securityManager.ServiceFSASM;
 import model.serveur.securityManager.ServiceRCQuery;
 
-
 public class Main {
 
 	/**
@@ -53,8 +74,7 @@ public class Main {
 		portF.put("PortFExecuteSQL", new PortFExecuteSQL("PortFExecuteSQL"));
 
 		ServiceFExecuteSQL serviceFExecuteSQL = new ServiceFExecuteSQL(
-				"ServiceFExecuteS" +
-				"L", portR, portF);
+				"ServiceFExecuteS" + "L", portR, portF);
 
 		portR = new HashMap<String, PortR>();
 		portR.put("PortRSecurityManagement", new PortRSecurityManagement(
@@ -138,7 +158,48 @@ public class Main {
 		// FIN SecurityManager ////////////////////////////
 
 		// //////////////CONNECTEURS//////////////////////
+		// connecteurCMtoSM
+		RoleRSMtoCM roleR = new RoleRSMtoCM("RoleRSMtoCM");
+		RoleFSMtoCM roleF = new RoleFSMtoCM("RoleFSMtoCM");
+		InterfaceConnecteur ifournie = new InterfaceConnecteur(roleR, roleF);
+		RoleRCMtoSM roleR2 = new RoleRCMtoSM("RoleRCMtoSM");
+		RoleFCMtoSM roleF2 = new RoleFCMtoSM("RoleFCMtoSM");
+		InterfaceConnecteur irequise = new InterfaceConnecteur(roleR2, roleF2);
+		GluSMtoCM gluSMtoCM = new GluSMtoCM(roleR, roleF2);
+		GluCMtoSM gluCMtoSM = new GluCMtoSM(roleR2, roleF);
+		ConnecteurCMtoSM connecteurCMtoSM = new ConnecteurCMtoSM(irequise,
+				ifournie, gluSMtoCM, gluCMtoSM);
+		// connecteurCMtoDB
+		RoleRCMtoDB roleRCMtoDB = new RoleRCMtoDB("RoleRCMtoDB");
+		RoleFCMtoDB roleFCMtoDB = new RoleFCMtoDB("RoleFCMtoDB");
+		irequise = new InterfaceConnecteur(roleRCMtoDB,
+				roleFCMtoDB);
 
-		ConnecteurCMtoSM connecteurCMtoSM = new ConnecteurCMtoSM();
+		
+		RoleRDBtoCM roleRDBtoCM = new RoleRDBtoCM("roleRDBtoCM");
+		RoleFDBtoCM roleFDBtoCM = new RoleFDBtoCM("roleFDBtoCM");
+		ifournie = new InterfaceConnecteur(roleRDBtoCM, roleFDBtoCM);
+		
+		GluDBtoCM gluDBtoCM = new GluDBtoCM(roleRDBtoCM, roleFCMtoDB);
+		GluCMtoDB gluCMtoDB = new GluCMtoDB(roleRCMtoDB, roleFDBtoCM);
+		ConnecteurCMtoDB connecteurCMtoDB = new ConnecteurCMtoDB(irequise,
+				ifournie, gluDBtoCM, gluCMtoDB);
+		
+		RoleRSMtoDB roleRSMtoDB =new RoleRSMtoDB("roleRSMtoDB");
+		RoleFSMtoDB roleFSMtoDB =new RoleFSMtoDB("roleFSMtoDB");
+		//ConnecteurSMtoDB
+		irequise = new InterfaceConnecteur(roleRSMtoDB,
+				roleFSMtoDB);
+		
+		RoleRDBtoSM roleRDBtoSM = new RoleRDBtoSM("roleRDBtoSM");
+		RoleFDBtoSM roleFDBtoSM = new RoleFDBtoSM("roleFDBtoSM");
+		ifournie = new InterfaceConnecteur(roleRDBtoSM , roleFDBtoSM);
+		
+		GluDBtoSM gluDBtoSM = new GluDBtoSM(roleRDBtoSM, roleFSMtoDB);
+		GluSMtoDB gluSMtoDB = new GluSMtoDB(roleRSMtoDB, roleFDBtoSM);
+		
+		ConnecteurSMtoDB connecteurSMtoDB = new ConnecteurSMtoDB(irequise, ifournie, gluDBtoSM, gluSMtoDB);
+
 	}
+
 }
