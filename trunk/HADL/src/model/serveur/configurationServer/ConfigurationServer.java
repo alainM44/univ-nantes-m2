@@ -1,38 +1,37 @@
-package model;
+package model.serveur.configurationServer;
 
 import java.util.HashMap;
 
 
 
+import metamodel.composant.Composant;
+import metamodel.configuration.Configuration;
+import metamodel.configuration.Couple;
+import metamodel.configuration.InterfaceConfig;
 import metamodel.connecteur.Connecteur;
+import metamodel.propiete.Propriete;
 
-import composant.Composant;
-import composant.Composite;
-
-import configuration.Configuration;
-import configuration.InterfaceConfig;
 
 public class ConfigurationServer extends Configuration {
 
-	public ConfigurationServer(Composite composite,
-			HashMap<String, Binding> bindings,
+	public ConfigurationServer(HashMap<String, Couple> bindings,
 			HashMap<String, Composant> composants,
 			InterfaceConfig interfacesConfigsR,
 			InterfaceConfig interfacesConfigsF,
 			HashMap<String, Connecteur> connecteurs,
 			HashMap<String, String> attachements,
-			HashMap<String, String> serviceOrientation) {
-		
-//		HashMap<String, Composant> composantss;
-		super(composite, bindings, composants, interfacesConfigsR, interfacesConfigsF,
-				connecteurs, attachements, serviceOrientation);
+			HashMap<String, Propriete> proprietes) {
+		super(bindings, composants, interfacesConfigsR, interfacesConfigsF,
+				connecteurs, attachements, proprietes);
 		// TODO Auto-generated constructor stub
 	}
 
-	public ConfigurationServer(String name){
-		
+
+
+//	public ConfigurationServer(String name){
+//		
 //		 new composite
 //		return new Configuration(composite, bindings, composants, interfacesConfigsR, interfacesConfigsF, connecteurs, attachements, serviceOrientation);
-	}
+//	}
 
 }
