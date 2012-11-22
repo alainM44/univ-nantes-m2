@@ -191,7 +191,7 @@ public class Main {
 		InterfaceConnecteur irequise = new InterfaceConnecteur(roleR2, roleF2);
 		GluSMtoCM gluSMtoCM = new GluSMtoCM(roleR, roleF2);
 		GluCMtoSM gluCMtoSM = new GluCMtoSM(roleR2, roleF);
-		ConnecteurCMtoSM connecteurCMtoSM = new ConnecteurCMtoSM(irequise,
+		ConnecteurCMtoSM connecteurCMtoSM = new ConnecteurCMtoSM("ConnecteurCMtoSM",irequise,
 				ifournie, gluSMtoCM, gluCMtoSM);
 		// connecteurCMtoDB
 		RoleRCMtoDB roleRCMtoDB = new RoleRCMtoDB("RoleRCMtoDB");
@@ -204,7 +204,7 @@ public class Main {
 
 		GluDBtoCM gluDBtoCM = new GluDBtoCM(roleRDBtoCM, roleFCMtoDB);
 		GluCMtoDB gluCMtoDB = new GluCMtoDB(roleRCMtoDB, roleFDBtoCM);
-		ConnecteurCMtoDB connecteurCMtoDB = new ConnecteurCMtoDB(irequise,
+		ConnecteurCMtoDB connecteurCMtoDB = new ConnecteurCMtoDB("ConnecteurCMtoDB",irequise,
 				ifournie, gluDBtoCM, gluCMtoDB);
 
 		RoleRSMtoDB roleRSMtoDB = new RoleRSMtoDB("roleRSMtoDB");
@@ -219,7 +219,7 @@ public class Main {
 		GluDBtoSM gluDBtoSM = new GluDBtoSM(roleRDBtoSM, roleFSMtoDB);
 		GluSMtoDB gluSMtoDB = new GluSMtoDB(roleRSMtoDB, roleFDBtoSM);
 
-		ConnecteurSMtoDB connecteurSMtoDB = new ConnecteurSMtoDB(irequise,
+		ConnecteurSMtoDB connecteurSMtoDB = new ConnecteurSMtoDB("ConnecteurSMtoDB",irequise,
 				ifournie, gluDBtoSM, gluSMtoDB);
 		// /////FIN CONNECTEURS
 
@@ -233,7 +233,7 @@ public class Main {
 		GluCtoS gluCtoS = new GluCtoS(roleRCtoS, roleFCtoS);
 		GluStoC gluStoC = new GluStoC(roleRStoC, roleFStoC);
 
-		ConnecteurRPC connecteurRPC = new ConnecteurRPC(irequise, ifournie,
+		ConnecteurRPC connecteurRPC = new ConnecteurRPC("ConnecteurRPC",irequise, ifournie,
 				gluCtoS, gluStoC);
 		// /fin Connecteur RPC1111
 		// COMPOSANT CLIENT//////////////////
@@ -274,7 +274,7 @@ public class Main {
 		connecteurs.put(connecteurCMtoDB.getName(), connecteurCMtoDB);
 		connecteurs.put(connecteurCMtoSM.getName(), connecteurCMtoSM);
 		connecteurs.put(connecteurSMtoDB.getName(), connecteurSMtoDB);
-
+		System.out.println(connecteurs.size());
 		HashMap<String, String> attachements = new HashMap<String, String>();
 
 		attachements.put("ServiceFExecuteSQL", "ConnecteurCMtoDB");
@@ -289,6 +289,7 @@ public class Main {
 				"ConfigurationServeur", bindings, composants,
 				interfacesConfigsR, interfacesConfigsF, connecteurs,
 				attachements, proprietesConfig);
+		
 		// /FIn config Server/////////////////////////
 
 		// /ConfigMain
