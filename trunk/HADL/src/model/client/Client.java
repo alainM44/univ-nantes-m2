@@ -13,6 +13,7 @@ public class Client extends Composant {
 		super(requis, fourni, proprietes);
 		// TODO Auto-generated constructor stub
 	}
+
 	
 	
 	
