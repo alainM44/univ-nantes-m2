@@ -71,14 +71,14 @@ public class Configuration extends Composant {
 	private HashMap<String, String> attachements;
 
 
-	public Configuration(HashMap<String, Couple> bindings,
+	public Configuration(String name, HashMap<String, Couple> bindings,
 			HashMap<String, Composant> composants,
 			InterfaceConfig interfacesConfigsR,
 			InterfaceConfig interfacesConfigsF,
 			HashMap<String, Connecteur> connecteurs,
 			HashMap<String, String> attachements,
 			HashMap<String, Propriete> proprietes) {
-		super(interfacesConfigsR, interfacesConfigsF, proprietes);
+		super(name, interfacesConfigsR, interfacesConfigsF, proprietes);
 		this.bindings = bindings;
 		this.composants = composants;
 		this.interfacesConfigsR = interfacesConfigsR;
@@ -86,6 +86,9 @@ public class Configuration extends Composant {
 		this.connecteurs = connecteurs;
 		this.attachements = attachements;
 
+		//On ajoute la configuration à ces composants connus
+		composants.put(getName(), this);
+		
 		// on recupère tous les service d'un composant
 		for (String composantName : composants.keySet()) {
 			InterfaceComposant icr = composants.get(composantName).getRequis();
@@ -105,17 +108,19 @@ public class Configuration extends Composant {
 				roler.setService(service);
 				rolef.setService(service);
 
+				//Bindings
 				if (bindings.containsKey(serviceName)) {
 					Couple couple = bindings.get(serviceName);
 					Composant composant = composants.get(couple.getComposant());
 					Service bindservice;
 					if (couple.getFouR() == "f") {
 						bindservice = composant.getFourni().getService(
-								couple.getName());
+								couple.getService());
 					} else {
 						bindservice = composant.getRequis().getService(
-								couple.getName());
+								couple.getService());
 					}
+					//Le binding est fait dans les deux sens
 					service.setBindService(bindservice);
 					bindservice.setBindService(service);
 				}
@@ -141,10 +146,10 @@ public class Configuration extends Composant {
 					Service bindservice;
 					if (couple.getFouR() == "f") {
 						bindservice = composant.getFourni().getService(
-								couple.getName());
+								couple.getService());
 					} else {
 						bindservice = composant.getRequis().getService(
-								couple.getName());
+								couple.getService());
 					}
 					service.setBindService(bindservice);
 					bindservice.setBindService(service);

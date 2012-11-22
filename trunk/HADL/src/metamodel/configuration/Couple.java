@@ -3,22 +3,22 @@ package metamodel.configuration;
 
 public class Couple {
 
-	private String name;
+	private String service;
 	private String composant;
 	private String FouR;
 	
 	
-	public Couple(String name, String composant,String FouR) {
+	public Couple(String service, String composant,String FouR) {
 		super();
 		this.FouR=FouR;
-		this.name = name;
+		this.service = service;
 		this.composant = composant;
 	}
-	public String getName() {
-		return name;
+	public String getService() {
+		return service;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setService(String name) {
+		this.service = name;
 	}
 	public String getComposant() {
 		return composant;
