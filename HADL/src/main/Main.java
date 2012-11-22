@@ -312,7 +312,7 @@ public class Main {
 				attachements, proprietesConfig);
 		// ////FIN ConfigMain
 		
-		
+		client.getRequis().getService("ServiceRConnexionRPC").execute();
 		
 		
 	}

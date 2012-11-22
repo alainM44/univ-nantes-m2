@@ -1,6 +1,7 @@
 package model.client;
 
 import java.util.HashMap;
+import java.util.Observable;
 
 import metamodel.port.PortF;
 import metamodel.port.PortR;
@@ -15,8 +16,19 @@ public class ServiceRConnexionRPC extends metamodel.service.ServiceR {
 
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
-
+		
+		
 	}
+
+	/* (non-Javadoc)
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		System.out.println(getValueInPortF("PortFClient"));
+		
+	}
+
+	
 
 }

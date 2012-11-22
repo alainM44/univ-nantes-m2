@@ -30,7 +30,7 @@ public class RoleR extends Role {
 
 	public RoleR(String name) {
 		super(name);
-		getService().addObserver(this);
+
 	}
 
 	public String getName() {

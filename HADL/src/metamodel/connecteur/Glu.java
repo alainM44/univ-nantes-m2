@@ -57,6 +57,7 @@ public abstract class Glu extends Observable implements Observer {
 		this.roleR = roleR;
 		this.roleF = roleF;
 		roleR.addObserver(this);
+		this.addObserver(roleF);
 	}
 
 	/**

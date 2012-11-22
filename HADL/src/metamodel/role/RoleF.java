@@ -31,7 +31,7 @@ public class RoleF extends Role implements Observer {
 
 	public RoleF(String name) {
 		super(name);
-		getGlu().addObserver(this);
+
 	}
 
 	public String getName() {
