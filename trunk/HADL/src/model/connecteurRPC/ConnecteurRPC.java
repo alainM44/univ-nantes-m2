@@ -6,9 +6,9 @@ import metamodel.connecteur.InterfaceConnecteur;
 
 public class ConnecteurRPC extends ConnecteurSimple {
 
-	public ConnecteurRPC(InterfaceConnecteur irequise,
+	public ConnecteurRPC(String name, InterfaceConnecteur irequise,
 			InterfaceConnecteur ifournie, Glu gluFtoR, Glu gluRtoF) {
-		super(irequise, ifournie, gluFtoR, gluRtoF);
+		super(name, irequise, ifournie, gluFtoR, gluRtoF);
 		// TODO Auto-generated constructor stub
 	}
 

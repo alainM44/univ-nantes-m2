@@ -28,9 +28,9 @@ public class ConnecteurSimple extends Connecteur {
 	private Glu gluRtoF;
 
 
-	public ConnecteurSimple(InterfaceConnecteur irequise,
+	public ConnecteurSimple(String name, InterfaceConnecteur irequise,
 			InterfaceConnecteur ifournie, Glu gluFtoR, Glu gluRtoF) {
-		super(irequise, ifournie);
+		super(name, irequise, ifournie);
 		this.gluFtoR = gluFtoR;
 		this.gluRtoF = gluRtoF;
 	}
