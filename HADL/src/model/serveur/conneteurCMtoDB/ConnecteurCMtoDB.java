@@ -6,9 +6,9 @@ import metamodel.connecteur.InterfaceConnecteur;
 
 public class ConnecteurCMtoDB extends ConnecteurSimple {
 
-	public ConnecteurCMtoDB(InterfaceConnecteur irequise,
+	public ConnecteurCMtoDB(String name, InterfaceConnecteur irequise,
 			InterfaceConnecteur ifournie, Glu gluFtoR, Glu gluRtoF) {
-		super(irequise, ifournie, gluFtoR, gluRtoF);
+		super(name, irequise, ifournie, gluFtoR, gluRtoF);
 		// TODO Auto-generated constructor stub
 	}
 

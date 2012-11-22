@@ -32,8 +32,9 @@ public class Connecteur// extends InterfaceConnecteur
 	private InterfaceConnecteur irequise;
 	private InterfaceConnecteur ifournie;
 
-	public Connecteur(InterfaceConnecteur irequise, InterfaceConnecteur ifournie) {
+	public Connecteur(String name,InterfaceConnecteur irequise, InterfaceConnecteur ifournie) {
 		super();
+		this.name = name;
 		this.irequise = irequise;
 		this.ifournie = ifournie;
 	}
