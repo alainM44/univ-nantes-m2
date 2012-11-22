@@ -1,8 +1,14 @@
 package main;
 
+import java.awt.color.CMMException;
 import java.util.HashMap;
 
+import metamodel.composant.Composant;
 import metamodel.composant.InterfaceComposant;
+import metamodel.configuration.Configuration;
+import metamodel.configuration.Couple;
+import metamodel.configuration.InterfaceConfig;
+import metamodel.connecteur.Connecteur;
 import metamodel.connecteur.Glu;
 import metamodel.connecteur.InterfaceConnecteur;
 import metamodel.port.PortF;
@@ -10,6 +16,18 @@ import metamodel.port.PortR;
 import metamodel.propiete.Propriete;
 import metamodel.role.RoleF;
 import metamodel.role.RoleR;
+import metamodel.service.Service;
+import model.client.Client;
+import model.client.PortFClient;
+import model.client.PortRClient;
+import model.client.ServiceRConnexionRPC;
+import model.connecteurRPC.ConnecteurRPC;
+import model.connecteurRPC.GluCtoS;
+import model.connecteurRPC.GluStoC;
+import model.connecteurRPC.RoleFCtoS;
+import model.connecteurRPC.RoleFStoC;
+import model.connecteurRPC.RoleRCtoS;
+import model.connecteurRPC.RoleRStoC;
 import model.serveur.configurationServer.RoleFSMtoCM;
 import model.serveur.conneteurCMtoSM.ConnecteurCMtoSM;
 import model.serveur.conneteurCMtoSM.GluCMtoSM;
@@ -54,7 +72,7 @@ import model.serveur.securityManager.PortRCQuery;
 import model.serveur.securityManager.PortRSASM;
 import model.serveur.securityManager.ServiceFSASM;
 import model.serveur.securityManager.ServiceRCQuery;
-
+import model.serveur.securityManager.SecurityManager;
 public class Main {
 
 	/**
@@ -89,7 +107,7 @@ public class Main {
 		fourni.addService(serviceFExecuteSQL);
 		fourni.addService(serviceFSecurityManagement);
 		InterfaceComposant requis = new InterfaceComposant();
-		new DataBase(requis, fourni, proprietes);
+		DataBase dataBase = new DataBase(requis, fourni, proprietes);
 		// FIN COMPOSANT DATABASE ////////////////////////////
 
 		// /////// COMPOSANT CONNEXIONMANAGER
@@ -128,7 +146,7 @@ public class Main {
 		requis = new InterfaceComposant();
 		requis.addService(serviceRSecurityAuth);
 		requis.addService(serviceRDBQuery);
-		new ConnexionManager(requis, fourni, proprietes);
+		ConnexionManager connexionManager = new ConnexionManager(requis, fourni, proprietes);
 		// FIN CONNEXIONMANAGER ////////////////////////////
 
 		// /////// COMPOSANT SecurityManager
@@ -154,7 +172,7 @@ public class Main {
 		fourni.addService(serviceFSAM);
 		requis = new InterfaceComposant();
 		requis.addService(serviceRCQuery);
-		new ConnexionManager(requis, fourni, proprietes);
+		SecurityManager securityManager = new SecurityManager(requis, fourni, proprietes);
 		// FIN SecurityManager ////////////////////////////
 
 		// //////////////CONNECTEURS//////////////////////
@@ -172,34 +190,89 @@ public class Main {
 		// connecteurCMtoDB
 		RoleRCMtoDB roleRCMtoDB = new RoleRCMtoDB("RoleRCMtoDB");
 		RoleFCMtoDB roleFCMtoDB = new RoleFCMtoDB("RoleFCMtoDB");
-		irequise = new InterfaceConnecteur(roleRCMtoDB,
-				roleFCMtoDB);
+		irequise = new InterfaceConnecteur(roleRCMtoDB, roleFCMtoDB);
 
-		
 		RoleRDBtoCM roleRDBtoCM = new RoleRDBtoCM("roleRDBtoCM");
 		RoleFDBtoCM roleFDBtoCM = new RoleFDBtoCM("roleFDBtoCM");
 		ifournie = new InterfaceConnecteur(roleRDBtoCM, roleFDBtoCM);
-		
+
 		GluDBtoCM gluDBtoCM = new GluDBtoCM(roleRDBtoCM, roleFCMtoDB);
 		GluCMtoDB gluCMtoDB = new GluCMtoDB(roleRCMtoDB, roleFDBtoCM);
 		ConnecteurCMtoDB connecteurCMtoDB = new ConnecteurCMtoDB(irequise,
 				ifournie, gluDBtoCM, gluCMtoDB);
-		
-		RoleRSMtoDB roleRSMtoDB =new RoleRSMtoDB("roleRSMtoDB");
-		RoleFSMtoDB roleFSMtoDB =new RoleFSMtoDB("roleFSMtoDB");
-		//ConnecteurSMtoDB
-		irequise = new InterfaceConnecteur(roleRSMtoDB,
-				roleFSMtoDB);
-		
+
+		RoleRSMtoDB roleRSMtoDB = new RoleRSMtoDB("roleRSMtoDB");
+		RoleFSMtoDB roleFSMtoDB = new RoleFSMtoDB("roleFSMtoDB");
+		// ConnecteurSMtoDB
+		irequise = new InterfaceConnecteur(roleRSMtoDB, roleFSMtoDB);
+
 		RoleRDBtoSM roleRDBtoSM = new RoleRDBtoSM("roleRDBtoSM");
 		RoleFDBtoSM roleFDBtoSM = new RoleFDBtoSM("roleFDBtoSM");
-		ifournie = new InterfaceConnecteur(roleRDBtoSM , roleFDBtoSM);
-		
+		ifournie = new InterfaceConnecteur(roleRDBtoSM, roleFDBtoSM);
+
 		GluDBtoSM gluDBtoSM = new GluDBtoSM(roleRDBtoSM, roleFSMtoDB);
 		GluSMtoDB gluSMtoDB = new GluSMtoDB(roleRSMtoDB, roleFDBtoSM);
+
+		ConnecteurSMtoDB connecteurSMtoDB = new ConnecteurSMtoDB(irequise,
+				ifournie, gluDBtoSM, gluSMtoDB);
+		// /////FIN CONNECTEURS
+
 		
-		ConnecteurSMtoDB connecteurSMtoDB = new ConnecteurSMtoDB(irequise, ifournie, gluDBtoSM, gluSMtoDB);
+		
+		///Connecteur RPC////
+		RoleFStoC roleFStoC = new RoleFStoC("RoleFStoC");
+		RoleRStoC roleRStoC = new RoleRStoC("RoleRStoC");
+		ifournie = new InterfaceConnecteur(roleRStoC , roleFStoC);
+		RoleFCtoS roleFCtoS =new RoleFCtoS("RoleFCtoS");
+		RoleRCtoS roleRCtoS =new RoleRCtoS("RoleRCtoS");
+//		irequise = new InterfaceConnecteur(roleRCtoS, roleFCtoS);
+		GluCtoS gluCtoS = new GluCtoS(roleRCtoS, roleFCtoS);
+		GluStoC gluStoC = new GluStoC(roleRStoC, roleFStoC);
+		
+		ConnecteurRPC connecteurRPC = new ConnecteurRPC(irequise, ifournie, gluCtoS , gluStoC);
+		///fin Connecteur RPC1111
+		// COMPOSANT CLIENT//////////////////
+		PortFClient portFClient = new PortFClient("PortFClient");
+		PortRClient portRClient = new PortRClient("PortRClient");
+		portR = new HashMap<String, PortR>();
+		portF = new HashMap<String, PortF>();
 
+		portF.put("PortFClient", portFClient);
+		portR.put("PortRClient", portRClient);
+
+		ServiceRConnexionRPC connexionRPC = new ServiceRConnexionRPC(
+				"ServiceRConnexionRPC", portR, portF);
+		InterfaceComposant irequis = new InterfaceComposant();
+		irequis.addService(connexionRPC);
+		InterfaceComposant ifournis = new InterfaceComposant();
+		proprietes = new HashMap<String, Propriete>();
+		Client client = new Client(irequis, ifournis, proprietes);
+		// //FIN COMPOSANT CLIENT/////////////////////////////////////////////////////////////////////////////
+		
+		
+		
+		
+		////ConfigurationSERVER
+		HashMap<String, Couple> bindings = new HashMap<String, Couple>();//TODO
+		InterfaceConfig interfacesConfigsF = new InterfaceConfig(); //TODO
+		InterfaceConfig interfacesConfigsR = new InterfaceConfig(); //TODO
+			
+		HashMap<String, Composant> composants = new HashMap<String, Composant>();
+		composants.put(securityManager.getName(), securityManager);
+		composants.put(dataBase.getName(), dataBase);
+		composants.put(connexionManager.getName(),connexionManager);
+
+		HashMap<String, Connecteur> connecteurs = new HashMap<String, Connecteur>();
+		connecteurs.put(connecteurCMtoDB.getName(), connecteurCMtoDB);
+		connecteurs.put(connecteurCMtoSM.getName(),connecteurCMtoSM);
+		connecteurs.put(connecteurSMtoDB.getName(),connecteurSMtoDB);
+		
+		HashMap<String, String >attachements =new HashMap<String, String>(); //TODO
+		
+		attachements.put("ServiceFExecuteS", "ConnecteurCMtoSM");
+//		attachements.put("ServiceFExecuteS", "ConnecteurCMtoSM");
+		
+		HashMap<String, Propriete >proprietesConfig = new HashMap<String, Propriete>(); //TODO
+		Configuration configurationServeur = new Configuration(bindings , composants , interfacesConfigsR, interfacesConfigsF, connecteurs, attachements, proprietesConfig);
 	}
-
 }
