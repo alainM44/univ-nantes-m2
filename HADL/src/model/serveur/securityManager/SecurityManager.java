@@ -36,9 +36,9 @@ public class SecurityManager extends Composant {
 	 * @param fourni
 	 * @param proprietes
 	 */
-	public SecurityManager(InterfaceComposant requis,
+	public SecurityManager(String name, InterfaceComposant requis,
 			InterfaceComposant fourni, HashMap<String, Propriete> proprietes) {
-		super(requis, fourni, proprietes);
+		super(name, requis, fourni, proprietes);
 		// TODO Auto-generated constructor stub
 	}
 

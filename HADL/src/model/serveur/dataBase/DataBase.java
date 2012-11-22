@@ -24,9 +24,9 @@ import metamodel.propiete.Propriete;
 
 public class DataBase extends Composant {
 
-	public DataBase(InterfaceComposant requis, InterfaceComposant fourni,
+	public DataBase(String name, InterfaceComposant requis, InterfaceComposant fourni,
 			HashMap<String, Propriete> proprietes) {
-		super(requis, fourni, proprietes);
+		super(name, requis, fourni, proprietes);
 		// TODO Auto-generated constructor stub
 	}
 

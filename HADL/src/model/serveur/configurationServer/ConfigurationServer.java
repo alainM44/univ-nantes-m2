@@ -14,14 +14,14 @@ import metamodel.propiete.Propriete;
 
 public class ConfigurationServer extends Configuration {
 
-	public ConfigurationServer(HashMap<String, Couple> bindings,
+	public ConfigurationServer(String name, HashMap<String, Couple> bindings,
 			HashMap<String, Composant> composants,
 			InterfaceConfig interfacesConfigsR,
 			InterfaceConfig interfacesConfigsF,
 			HashMap<String, Connecteur> connecteurs,
 			HashMap<String, String> attachements,
 			HashMap<String, Propriete> proprietes) {
-		super(bindings, composants, interfacesConfigsR, interfacesConfigsF,
+		super(name, bindings, composants, interfacesConfigsR, interfacesConfigsF,
 				connecteurs, attachements, proprietes);
 		// TODO Auto-generated constructor stub
 	}

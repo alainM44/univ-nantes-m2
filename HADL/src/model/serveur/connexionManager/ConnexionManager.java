@@ -24,9 +24,10 @@ import metamodel.propiete.Propriete;
 
 public class ConnexionManager extends Composant {
 
-	public ConnexionManager(InterfaceComposant requis,
+
+	public ConnexionManager(String name, InterfaceComposant requis,
 			InterfaceComposant fourni, HashMap<String, Propriete> proprietes) {
-		super(requis, fourni, proprietes);
+		super(name, requis, fourni, proprietes);
 		// TODO Auto-generated constructor stub
 	}
 

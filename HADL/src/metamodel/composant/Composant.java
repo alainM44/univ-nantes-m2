@@ -33,9 +33,10 @@ public class Composant {
 	private InterfaceComposant fourni;
 	private HashMap<String, Propriete> proprietes;
 
-	public Composant(InterfaceComposant requis, InterfaceComposant fourni,
+	public Composant(String name, InterfaceComposant requis, InterfaceComposant fourni,
 			HashMap<String, Propriete> proprietes) {
 		super();
+		this.name=name;
 		this.requis = requis;
 		this.fourni = fourni;
 		this.proprietes = proprietes;
