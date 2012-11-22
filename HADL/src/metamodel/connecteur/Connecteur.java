@@ -26,33 +26,29 @@ import java.util.HashMap;
  * @see InterfaceConnecteur
  */
 public class Connecteur// extends InterfaceConnecteur
-//TODO Probleme connecteur ne doit pas etendre InterfaceConnecteur
+// TODO Probleme connecteur ne doit pas etendre InterfaceConnecteur
 {
-
+	private String name;
 	private InterfaceConnecteur irequise;
 	private InterfaceConnecteur ifournie;
-	
-	
+
 	public Connecteur(InterfaceConnecteur irequise, InterfaceConnecteur ifournie) {
 		super();
 		this.irequise = irequise;
 		this.ifournie = ifournie;
 	}
 
-
 	public InterfaceConnecteur getIrequise() {
 		return irequise;
 	}
 
-
 	public InterfaceConnecteur getIfournie() {
 		return ifournie;
 	}
-	
 
+	public String getName() {
+		return name;
+	}
 
-	
-
-	
 	
 }
