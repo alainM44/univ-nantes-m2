@@ -83,10 +83,6 @@ public abstract class Service extends Observable implements Observer {
 		}
 	}
 
-	@Override
-	public void update(Observable o, Object arg) {
-
-	}
 
 	public String getName() {
 		return name;

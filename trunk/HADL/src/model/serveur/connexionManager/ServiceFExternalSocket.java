@@ -14,10 +14,15 @@ public class ServiceFExternalSocket extends ServiceF {
 		// TODO Auto-generated constructor stub
 	}
 
+	/* (non-Javadoc)
+	 * @see metamodel.service.ServiceF#action()
+	 */
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
-
+		String chat = new String("Chat Violet");
+		setValueInPortR(chat, "PortRExternalSocket");
 	}
+
+
 
 }
