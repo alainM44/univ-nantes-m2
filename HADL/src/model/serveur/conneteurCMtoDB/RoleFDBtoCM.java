@@ -1,4 +1,4 @@
-package model.serveur.conneteurDBtoCM;
+package model.serveur.conneteurCMtoDB;
 
 import metamodel.role.RoleF;
 
