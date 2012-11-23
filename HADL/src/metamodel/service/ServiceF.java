@@ -42,12 +42,14 @@ public abstract class ServiceF extends Service {
 	public void update(Observable o, Object arg) {
 		if (bindService == null) {
 			action();
-			notifyAll();
+			setChanged();
+			notifyObservers();
 		} else {
 			bindService.setPortF(portF);
 			bindService.action();
 			setPortR(bindService.getPortR());
-			notifyAll();
+			setChanged();
+			notifyObservers();
 		}
 	}
 

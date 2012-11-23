@@ -20,8 +20,6 @@ import java.util.HashMap;
 
 import metamodel.port.PortF;
 import metamodel.port.PortR;
-import metamodel.role.RoleF;
-import metamodel.role.RoleR;
 
 /**
  * Classe décrivant un sevice resuis
