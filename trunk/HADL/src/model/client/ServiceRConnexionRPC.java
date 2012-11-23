@@ -25,7 +25,7 @@ public class ServiceRConnexionRPC extends metamodel.service.ServiceR {
 	 */
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		System.out.println(getValueInPortF("PortFClient"));
+		System.out.println(getValueInPortF("CMtoClient"));
 		
 	}
 

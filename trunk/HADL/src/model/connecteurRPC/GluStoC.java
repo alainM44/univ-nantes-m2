@@ -11,10 +11,5 @@ public class GluStoC extends Glu {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void action() {
-		// TODO Auto-generated method stub
-
-	}
 
 }

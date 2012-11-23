@@ -20,7 +20,7 @@ public class ServiceFExternalSocket extends ServiceF {
 	@Override
 	public void action() {
 		String chat = new String("Chat Violet");
-		setValueInPortR(chat, "PortRExternalSocket");
+		setValueInPortR(chat, "CMtoClient");
 	}
 
 
