@@ -221,10 +221,10 @@ public class Main {
 		// /Connecteur RPC////
 		RoleFStoC roleFStoC = new RoleFStoC("RoleFStoC");
 		RoleRStoC roleRStoC = new RoleRStoC("RoleRStoC");
-		ifournie = new InterfaceConnecteur(roleRStoC, roleFStoC);
 		RoleFCtoS roleFCtoS = new RoleFCtoS("RoleFCtoS");
 		RoleRCtoS roleRCtoS = new RoleRCtoS("RoleRCtoS");
-		irequise = new InterfaceConnecteur(roleRCtoS, roleFCtoS);
+		ifournie = new InterfaceConnecteur(roleRStoC, roleFCtoS);
+		irequise = new InterfaceConnecteur(roleRCtoS, roleFStoC);
 		GluCtoS gluCtoS = new GluCtoS(roleRCtoS, roleFCtoS);
 		GluStoC gluStoC = new GluStoC(roleRStoC, roleFStoC);
 
