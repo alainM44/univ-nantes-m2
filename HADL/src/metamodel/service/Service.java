@@ -62,13 +62,13 @@ public abstract class Service extends Observable implements Observer {
 		if (bindService == null) {
 
 			action();
-			notifyAll();
-			try {
-				wait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			notifyObservers();//TODO
+//			try {
+//				wait();
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		} else {
 			bindService.setPortF(portF);
 			bindService.action();
