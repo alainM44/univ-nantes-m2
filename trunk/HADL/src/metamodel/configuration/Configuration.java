@@ -107,6 +107,9 @@ public class Configuration extends Composant {
 					service.setRolef(rolef);
 					roler.setService(service);
 					rolef.setService(service);
+					//Ajout des observers
+					service.addObserver(roler);
+					rolef.addObserver(service);
 				}
 				// Bindings
 				if (bindings.containsKey(serviceName)) {
@@ -140,6 +143,9 @@ public class Configuration extends Composant {
 				service.setRolef(rolef);
 				roler.setService(service);
 				rolef.setService(service);
+				//Ajout des observers
+				service.addObserver(roler);
+				rolef.addObserver(service);
 				}
 				if (bindings.containsKey(serviceName)) {
 					Couple couple = bindings.get(serviceName);

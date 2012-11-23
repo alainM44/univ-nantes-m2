@@ -62,7 +62,9 @@ public abstract class Service extends Observable implements Observer {
 		if (bindService == null) {
 
 			action();
+			setChanged();
 			notifyObservers();//TODO
+
 //			try {
 //				wait();
 //			} catch (InterruptedException e) {
@@ -73,13 +75,14 @@ public abstract class Service extends Observable implements Observer {
 			bindService.setPortF(portF);
 			bindService.action();
 			setPortR(bindService.getPortR());
-			roler.notify();
-			try {
-				bindService.wait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			setChanged();
+			notifyObservers();
+//			try {
+//				bindService.wait();
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		}
 	}
 

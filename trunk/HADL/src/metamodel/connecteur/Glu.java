@@ -15,6 +15,7 @@
  */
 package metamodel.connecteur;
 
+import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -63,10 +64,18 @@ public abstract class Glu extends Observable implements Observer {
 	/**
 	 * Action de la glue Le client DOIT appeller setPortF
 	 */
-	public abstract void action();
+	public void action()
+	{
+		HashMap<String,PortR> portR = roleR.getService().getPortR();
+		for(String portName : portR.keySet())
+		{
+			setValueInPortF(getValueInPortR(portName), portName);
+		}
+	}
 
 	public void execute() {
 		action();
+		setChanged();
 		notifyObservers(roleF);
 	}
 
