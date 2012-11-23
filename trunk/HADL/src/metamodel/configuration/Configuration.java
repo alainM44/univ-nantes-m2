@@ -70,7 +70,6 @@ public class Configuration extends Composant {
 	 */
 	private HashMap<String, String> attachements;
 
-
 	public Configuration(String name, HashMap<String, Couple> bindings,
 			HashMap<String, Composant> composants,
 			InterfaceConfig interfacesConfigsR,
@@ -86,9 +85,9 @@ public class Configuration extends Composant {
 		this.connecteurs = connecteurs;
 		this.attachements = attachements;
 
-		//On ajoute la configuration à ces composants connus
+		// On ajoute la configuration à ces composants connus
 		composants.put(getName(), this);
-		
+
 		// on recupère tous les service d'un composant
 		for (String composantName : composants.keySet()) {
 			InterfaceComposant icr = composants.get(composantName).getRequis();
@@ -96,19 +95,20 @@ public class Configuration extends Composant {
 			// Traitement des services requis
 			for (String serviceName : icr.getServices().keySet()) {
 				Service service = icr.getService(serviceName);
-				String connecteurToAttache = attachements.get(serviceName);
-				RoleR roler;
-				RoleF rolef;
-				roler = connecteurs.get(connecteurToAttache).getIrequise()
-						.getRoleR();
-				rolef = connecteurs.get(connecteurToAttache).getIrequise()
-						.getRoleF();
-				service.setRoler(roler);
-				service.setRolef(rolef);
-				roler.setService(service);
-				rolef.setService(service);
-
-				//Bindings
+				if (attachements.containsKey(serviceName)) {
+					String connecteurToAttache = attachements.get(serviceName);
+					RoleR roler;
+					RoleF rolef;
+					roler = connecteurs.get(connecteurToAttache).getIrequise()
+							.getRoleR();
+					rolef = connecteurs.get(connecteurToAttache).getIrequise()
+							.getRoleF();
+					service.setRoler(roler);
+					service.setRolef(rolef);
+					roler.setService(service);
+					rolef.setService(service);
+				}
+				// Bindings
 				if (bindings.containsKey(serviceName)) {
 					Couple couple = bindings.get(serviceName);
 					Composant composant = composants.get(couple.getComposant());
@@ -120,14 +120,15 @@ public class Configuration extends Composant {
 						bindservice = composant.getRequis().getService(
 								couple.getService());
 					}
-					//Le binding est fait dans les deux sens
+					// Le binding est fait dans les deux sens
 					service.setBindService(bindservice);
 					bindservice.setBindService(service);
 				}
 			}
 			// BOUCLE A OPTIMISER pn fait la même chose avec icf
 			for (String serviceName : icf.getServices().keySet()) {
-				Service service = icr.getService(serviceName);
+				Service service = icf.getService(serviceName);
+				if (attachements.containsKey(serviceName)) {
 				String connecteurToAttache = attachements.get(serviceName);
 				RoleR roler;
 				RoleF rolef;
@@ -139,7 +140,7 @@ public class Configuration extends Composant {
 				service.setRolef(rolef);
 				roler.setService(service);
 				rolef.setService(service);
-
+				}
 				if (bindings.containsKey(serviceName)) {
 					Couple couple = bindings.get(serviceName);
 					Composant composant = composants.get(couple.getComposant());
