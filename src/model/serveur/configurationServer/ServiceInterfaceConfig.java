@@ -19,11 +19,9 @@
 package model.serveur.configurationServer;
 
 import java.util.HashMap;
-import java.util.Observable;
 
 import metamodel.port.PortF;
 import metamodel.port.PortR;
-import metamodel.service.Service;
 import metamodel.service.ServiceF;
 
 /**

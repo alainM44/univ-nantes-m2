@@ -14,10 +14,21 @@ public class ServiceFSASM extends ServiceF {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Le service ServiceFSASM doit déterminer si le client, dont le nom est
+	 * fourni dans le port, peut s'identifier à la database en faisant appelle
+	 * au service ServiceRCQuery
+	 */
 	@Override
 	public void action() {
-		String valueInPortF = (String) getValueInPortF("CMtoSM");
-		setValueInPortR(valueInPortF == "Admin", "SMtoCM");
+		SecurityManager manager = (SecurityManager) getParentComposant();
+		String name = (String) getValueInPortF("name");
+		manager.setToIdentify(name);
+		callService("ServiceRCQuery");
+		setValueInPortR(manager.isIdentify(), "isAdmis");
+		//On remet tout les paramètres dans leur état initial
+		manager.setIdentify(false);
+		manager.setToIdentify(null);
 
 	}
 

@@ -1,14 +1,13 @@
 package aspectLog;
-
+import metamodel.*;
+import metamodel.connecteur.Glu;
+import metamodel.service.Service;
 public aspect LogAspect { 
-	pointcut logRetrait() 
-	: execution(* com.objis.demoaspectj.banque.CompteBancaire.retrait(..));
+//	pointcut afficheService(Service service) 
+//	: target(service) && call(public Object getValueInPortF(String);
 
-	before() : logRetrait() { 
-		System.out.println("Avant le retrait"); 
-	} 
+//	before() : afficheService(Service service) { 
+//		System.out.println("Avant le retrait"); 
+//	}
 
-	after() : logRetrait() { 
-		System.out.println("Après le retrait"); 
-	} 
 }

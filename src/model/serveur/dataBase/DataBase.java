@@ -16,6 +16,7 @@
 
 package model.serveur.dataBase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import metamodel.composant.Composant;
@@ -24,13 +25,31 @@ import metamodel.propiete.Propriete;
 
 public class DataBase extends Composant {
 
-	public DataBase(String name, InterfaceComposant requis, InterfaceComposant fourni,
-			HashMap<String, Propriete> proprietes) {
+	private ArrayList<String> listeAdmis;
+	private HashMap<String, String> database;
+
+	public DataBase(String name, InterfaceComposant requis,
+			InterfaceComposant fourni, HashMap<String, Propriete> proprietes) {
 		super(name, requis, fourni, proprietes);
-		// TODO Auto-generated constructor stub
+		
+		listeAdmis = new ArrayList<String>();
+		listeAdmis.add("Admin");
+		
+		database = new HashMap<String, String>();
+		database.put("dans quel", "etat gere");
+		database.put("qui est l ennemi", "un con");
+		database.put("pourquoi l ennemi est con", "il croit que l ennemi c est vous alors que l ennemi c est lui");
+		database.put("Rech.proj.pr.proj.priv.selfdef.dem.brut.poss.S'adr.a.lhôt.Mar.", "Et plus si affinites");
+		database.put("reponse?", "42");
+
 	}
 
-
-
+	public boolean isAdmis(String name) {
+		return listeAdmis.contains(name);
+	}
+	
+	public String getValueInDatabase(String requete){
+		return database.get(requete);
+	}
 
 }

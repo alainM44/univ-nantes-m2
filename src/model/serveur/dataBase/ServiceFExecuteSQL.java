@@ -1,35 +1,26 @@
 package model.serveur.dataBase;
 
 import java.util.HashMap;
-import java.util.Observable;
 
 import metamodel.port.PortF;
 import metamodel.port.PortR;
-import metamodel.role.RoleF;
-import metamodel.role.RoleR;
-import metamodel.service.Service;
+import metamodel.service.ServiceF;
 
-public class ServiceFExecuteSQL extends Service {
+public class ServiceFExecuteSQL extends ServiceF {
 
 	public ServiceFExecuteSQL(String name, HashMap<String, PortR> portR,
 			HashMap<String, PortF> portF) {
 		super(name, portR, portF);
-		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void action() {
-		// TODO Auto-generated method stub
-
-	}
-
-	/* (non-Javadoc)
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	/**
+	 * Renvoi la valeur dans la database pour la requete donnée
 	 */
 	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+	public void action() {
+		DataBase dataBase = (DataBase) getParentComposant();
+		String requete = (String) getValueInPortF("requete");
+		setValueInPortR(dataBase.getValueInDatabase(requete), "retourRequete");
 	}
 
 }
