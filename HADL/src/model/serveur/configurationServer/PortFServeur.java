@@ -13,43 +13,25 @@
  You should have received a copy of the GNU General Public License
  along with HADL_Project.  If not, see <http://www.gnu.org/licenses/>
  */
-package metamodel.role;
+/**
+ * 
+ */
+package model.serveur.configurationServer;
 
-import java.util.Observable;
-import java.util.Observer;
+import metamodel.port.PortF;
 
 /**
- * Classe décrivant un role fournis
- * 
- * @author Alain MARGUERITE
- * @author Romain RINCÉ
- * @see Role
+ * @author romain
+ *
  */
-public class RoleF extends Role implements Observer {
+public class PortFServeur extends PortF {
 
-	private String name;
-
-	public RoleF(String name) {
-		super(name);
-
+	/**
+	 * @param string
+	 */
+	public PortFServeur(String string) {
+		super(string);
+		// TODO Auto-generated constructor stub
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-//		getService().notifyAll();
-		System.out.println("roleF");
-		setChanged();
-		notifyObservers();
-		
-	}
-
-	
 }
