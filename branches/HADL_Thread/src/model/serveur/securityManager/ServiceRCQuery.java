@@ -12,21 +12,26 @@ public class ServiceRCQuery extends ServiceR {
 	public ServiceRCQuery(String name, HashMap<String, PortR> portR,
 			HashMap<String, PortF> portF) {
 		super(name, portR, portF);
-		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Envoie le nom du client à identifié à la database
+	 */
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
-
+SecurityManager manager = (SecurityManager) getParentComposant();
+setValueInPortR(manager.getToIdentify(), "name");
 	}
 
-	/* (non-Javadoc)
+	/** (non-Javadoc)
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 * 
+	 * Recupère le retour d'identification de la database : true ou false
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
+		SecurityManager manager = (SecurityManager) getParentComposant();
+		manager.setIdentify((Boolean) getValueInPortF("isAdmis"));
 		
 	}
 

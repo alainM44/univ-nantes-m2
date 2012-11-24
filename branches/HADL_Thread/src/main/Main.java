@@ -86,20 +86,20 @@ public class Main {
 		HashMap<String, Propriete> proprietes = new HashMap<String, Propriete>();
 		InterfaceComposant fourni = new InterfaceComposant();
 		HashMap<String, PortR> portR = new HashMap<String, PortR>();
-		portR.put("DBtoCM", new PortRExecuteSQL("PortRExecuteSQL"));
+		portR.put("retourRequete", new PortRExecuteSQL("PortRExecuteSQL"));
 
 		HashMap<String, PortF> portF = new HashMap<String, PortF>();
-		portF.put("CMtoDB", new PortFExecuteSQL("PortFExecuteSQL"));
+		portF.put("requete", new PortFExecuteSQL("PortFExecuteSQL"));
 
 		ServiceFExecuteSQL serviceFExecuteSQL = new ServiceFExecuteSQL(
 				"ServiceFExecuteSQL", portR, portF);
 
 		portR = new HashMap<String, PortR>();
-		portR.put("DBtoSM", new PortRSecurityManagement(
+		portR.put("isAdmis", new PortRSecurityManagement(
 				"PortRSecurityManagement"));
 
 		portF = new HashMap<String, PortF>();
-		portF.put("SMtoDB", new PortFSecurityManagement(
+		portF.put("name", new PortFSecurityManagement(
 				"PortFSecurityManagement"));
 		ServiceFSecurityManagement serviceFSecurityManagement = new ServiceFSecurityManagement(
 				"ServiceFSecurityManagement", portR, portF);
@@ -114,31 +114,34 @@ public class Main {
 		proprietes = new HashMap<String, Propriete>();
 
 		portR = new HashMap<String, PortR>();
-		portR.put("CMtoDB", new PortRDBQuery("PortRDBQuery"));
+		portR.put("requete", new PortRDBQuery("PortRDBQuery"));
 
 		portF = new HashMap<String, PortF>();
-		portF.put("DBtoCM", new PortFDBQuery("PortFDBQuery"));
+		portF.put("retourRequete", new PortFDBQuery("PortFDBQuery"));
 
 		ServiceRDBQuery serviceRDBQuery = new ServiceRDBQuery(
 				"ServiceRDBQuery", portR, portF);
 
 		portR = new HashMap<String, PortR>();
-		portR.put("CMtoSM", new PortRSecurityAuth(
+		portR.put("name", new PortRSecurityAuth(
 				"PortRSecurityAuth"));
 
 		portF = new HashMap<String, PortF>();
-		portF.put("SMtoCM", new PortFSecurityAuth(
+		portF.put("isAdmis", new PortFSecurityAuth(
 				"PortFSecurityAuth"));
 		ServiceRSecurityAuth serviceRSecurityAuth = new ServiceRSecurityAuth(
 				"ServiceRSecurityAuth", portR, portF);
 
 		portR = new HashMap<String, PortR>();
-		portR.put("CMtoClient", new PortRExternalSocket(
+		portR.put("retourRequete", new PortRExternalSocket(
 				"PortRExternalSocket"));
 
 		portF = new HashMap<String, PortF>();
-		portF.put("ClienttoCM", new PortFExternalSocket(
+		portF.put("name", new PortFExternalSocket(
 				"PortFExternalSocket"));
+		portF.put("requete", new PortFExternalSocket(
+				"PortFExternalSocket"));
+		
 		ServiceFExternalSocket serviceFExternalSocket = new ServiceFExternalSocket(
 				"ServiceFExternalSocket", portR, portF);
 		fourni = new InterfaceComposant();
@@ -154,18 +157,18 @@ public class Main {
 		proprietes = new HashMap<String, Propriete>();
 
 		portR = new HashMap<String, PortR>();
-		portR.put("SMtoCM", new PortRSASM("PortRSASM"));
+		portR.put("isAdmis", new PortRSASM("PortRSASM"));
 
 		portF = new HashMap<String, PortF>();
-		portF.put("CMtoSM", new PortFSASM("PortFSASM"));
+		portF.put("name", new PortFSASM("PortFSASM"));
 
 		ServiceFSASM serviceFSAM = new ServiceFSASM("ServiceFSAM", portR, portF);
 
 		portR = new HashMap<String, PortR>();
-		portR.put("SMtoDB", new PortRCQuery("PortRCQuery"));
+		portR.put("name", new PortRCQuery("PortRCQuery"));
 
 		portF = new HashMap<String, PortF>();
-		portF.put("DBtoSM ", new PortFCQuery("PortFCQuery"));
+		portF.put("isAdmis", new PortFCQuery("PortFCQuery"));
 		ServiceRCQuery serviceRCQuery = new ServiceRCQuery("ServiceRCQuery",
 				portR, portF);
 
@@ -231,15 +234,19 @@ public class Main {
 
 		ConnecteurRPC connecteurRPC = new ConnecteurRPC("ConnecteurRPC",irequise, ifournie,
 				gluCtoS, gluStoC);
-		// /fin Connecteur RPC1111
+		// /fin Connecteur RPC///////////////
+		
+		
 		// COMPOSANT CLIENT//////////////////
 		PortFClient portFClient = new PortFClient("PortFClient");
 		PortRClient portRClient = new PortRClient("PortRClient");
+		PortRClient portRClient2 = new PortRClient("PortRClient");
 		portR = new HashMap<String, PortR>();
 		portF = new HashMap<String, PortF>();
 
-		portF.put("CMtoClient", portFClient);
-		portR.put("ClienttoCM", portRClient);
+		portF.put("retourRequete", portFClient);
+		portR.put("name", portRClient);
+		portR.put("requete", portRClient2);
 
 		ServiceRConnexionRPC connexionRPC = new ServiceRConnexionRPC(
 				"ServiceRConnexionRPC", portR, portF);
@@ -257,12 +264,14 @@ public class Main {
 				"ServiceInterfaceConfig", "ConfigurationServeur", "f"));
 
 		PortFServeur portFServeur = new PortFServeur("PortFServeur");
+		PortFServeur portFServeur2 = new PortFServeur("PortFServeur");
 		PortRServeur portRServeur = new PortRServeur("PortRServeur");
 		portR = new HashMap<String, PortR>();
 		portF = new HashMap<String, PortF>();
 
-		portF.put("ClienttoCM", portFServeur);
-		portR.put("CMtoClient", portRServeur);
+		portF.put("name", portFServeur);
+		portF.put("requete", portFServeur2);
+		portR.put("retourRequete", portRServeur);
 		
 		InterfaceConfig interfacesConfigsF = new InterfaceConfig();
 		interfacesConfigsF.addService(new ServiceInterfaceConfig(
@@ -278,7 +287,6 @@ public class Main {
 		connecteurs.put(connecteurCMtoDB.getName(), connecteurCMtoDB);
 		connecteurs.put(connecteurCMtoSM.getName(), connecteurCMtoSM);
 		connecteurs.put(connecteurSMtoDB.getName(), connecteurSMtoDB);
-		System.out.println(connecteurs.size());
 		HashMap<String, String> attachements = new HashMap<String, String>();
 
 		attachements.put("ServiceFExecuteSQL", "ConnecteurCMtoDB");

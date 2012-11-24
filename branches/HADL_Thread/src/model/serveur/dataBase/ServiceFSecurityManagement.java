@@ -6,20 +6,22 @@ import metamodel.port.PortF;
 import metamodel.port.PortR;
 import metamodel.service.ServiceF;
 
-public class ServiceFSecurityManagement extends ServiceF{
-
-
+public class ServiceFSecurityManagement extends ServiceF {
 
 	public ServiceFSecurityManagement(String name,
 			HashMap<String, PortR> portR, HashMap<String, PortF> portF) {
 		super(name, portR, portF);
-		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 *  Demande à la database si le client, dont le nom est fourni dans le
+	 * port, peut se connecter
+	 */
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
-		
+		DataBase dataBase = (DataBase) getParentComposant();
+		boolean admis = dataBase.isAdmis((String) getValueInPortF("name"));
+		setValueInPortR(admis, "isAdmis");
 	}
 
 }

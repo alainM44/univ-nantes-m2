@@ -15,21 +15,25 @@ public class ServiceRSecurityAuth extends ServiceR {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Fourni au port la nom du client à autentifié
+	 */
 	@Override
 	public void action() {
 		ConnexionManager connexionManager = ((ConnexionManager) getParentComposant());
-		setValueInPortR(connexionManager.getClientName(), "CMtoSM");
+		setValueInPortR(connexionManager.getClientName(), "name");
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+
+	/**
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 * 
+	 * Donne a son composant la réponse d'autentification de la Database
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		ConnexionManager connexionManager = ((ConnexionManager) getParentComposant());
-		connexionManager.setAutentified((Boolean) getValueInPortF("SMtoCM"));
+		connexionManager.setAutentified((Boolean) getValueInPortF("isAdmis"));
 	}
 
 }

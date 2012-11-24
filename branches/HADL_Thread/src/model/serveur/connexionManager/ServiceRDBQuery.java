@@ -12,22 +12,26 @@ public class ServiceRDBQuery extends ServiceR{
 	public ServiceRDBQuery(String name, HashMap<String, PortR> portR,
 			HashMap<String, PortF> portF) {
 		super(name, portR, portF);
-		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Demande une requete à la database
+	 */
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
-		
+		ConnexionManager connexionManager = (ConnexionManager) getParentComposant();
+		setValueInPortR(connexionManager.getRequete(), "requete");
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 * 
+	 * Récupère la réponse de la requête fournie
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		ConnexionManager connexionManager = (ConnexionManager) getParentComposant();
+		connexionManager.setDatabaseValue((String) getValueInPortF("retourRequete"));
 	}
 
 

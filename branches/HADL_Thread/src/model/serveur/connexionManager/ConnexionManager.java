@@ -25,6 +25,7 @@ import metamodel.propiete.Propriete;
 public class ConnexionManager extends Composant {
 
 	private boolean autentified;
+	private String requete;
 	private String databaseValue;
 	private String clientName;
 
@@ -33,7 +34,8 @@ public class ConnexionManager extends Composant {
 		super(name, requis, fourni, proprietes);
 		autentified = false;
 		databaseValue = null;
-		setClientName(null);
+		clientName =null;
+		setRequete(null);
 
 	}
 
@@ -77,6 +79,20 @@ public class ConnexionManager extends Composant {
 	 */
 	protected void setClientName(String clientName) {
 		this.clientName = clientName;
+	}
+
+	/**
+	 * @return the requete
+	 */
+	public String getRequete() {
+		return requete;
+	}
+
+	/**
+	 * @param requete the requete to set
+	 */
+	public void setRequete(String requete) {
+		this.requete = requete;
 	}
 
 }

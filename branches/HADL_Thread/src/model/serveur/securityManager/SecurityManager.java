@@ -31,6 +31,9 @@ import metamodel.propiete.Propriete;
  */
 public class SecurityManager extends Composant {
 
+	private String toIdentify;
+	private boolean isIdentify;
+	
 	/**
 	 * @param requis
 	 * @param fourni
@@ -39,7 +42,36 @@ public class SecurityManager extends Composant {
 	public SecurityManager(String name, InterfaceComposant requis,
 			InterfaceComposant fourni, HashMap<String, Propriete> proprietes) {
 		super(name, requis, fourni, proprietes);
-		// TODO Auto-generated constructor stub
+toIdentify = null;
+setIdentify(false);
+	}
+
+	/**
+	 * @return the toIdentify
+	 */
+	public String getToIdentify() {
+		return toIdentify;
+	}
+
+	/**
+	 * @param toIdentify the toIdentify to set
+	 */
+	public void setToIdentify(String toIdentify) {
+		this.toIdentify = toIdentify;
+	}
+
+	/**
+	 * @return the isIdentify
+	 */
+	public boolean isIdentify() {
+		return isIdentify;
+	}
+
+	/**
+	 * @param isIdentify the isIdentify to set
+	 */
+	public void setIdentify(boolean isIdentify) {
+		this.isIdentify = isIdentify;
 	}
 
 }

@@ -14,23 +14,28 @@ public class ServiceFExternalSocket extends ServiceF {
 		// TODO Auto-generated constructor stub
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * 
 	 * @see metamodel.service.ServiceF#action()
+	 * 
+	 * S'identifie en fournissant le nom du client au SecurityManager
+	 * 
+	 * Si l'identification fonctionne, on demande une valeur dans la database
 	 */
 	@Override
 	public void action() {
-		// setValueInPortR(new String("Chat"), "CMtoClient");
-		((ConnexionManager)getParentComposant()).setClientName((String)getValueInPortF("ClienttoCM"));
+		ConnexionManager connexionManager = ((ConnexionManager)getParentComposant());
+		connexionManager.setClientName((String)getValueInPortF("name"));
 		callService("ServiceRSecurityAuth");
 		if(((ConnexionManager)getParentComposant()).isAutentified())
 		{
-			setValueInPortR("Victory", "CMtoClient");
+			connexionManager.setRequete((String) getValueInPortF("requete"));
+			callService("ServiceRDBQuery");
+			setValueInPortR(connexionManager.getDatabaseValue(), "retourRequete");
 		}
 		else
 		{
-			setValueInPortR("You failed", "CMtoClient");
+			setValueInPortR("You failed", "retourRequete");
 		}
 	}
 
