@@ -24,6 +24,8 @@ import model.connecteurRPC.RoleFStoC;
 import model.connecteurRPC.RoleRCtoS;
 import model.connecteurRPC.RoleRStoC;
 import model.serveur.configurationServer.ConfigurationServer;
+import model.serveur.configurationServer.PortFServeur;
+import model.serveur.configurationServer.PortRServeur;
 import model.serveur.configurationServer.RoleFSMtoCM;
 import model.serveur.configurationServer.ServiceInterfaceConfig;
 import model.serveur.conneteurCMtoDB.ConnecteurCMtoDB;
@@ -255,9 +257,17 @@ public class Main {
 		bindings.put("ServiceFExternalSocket", new Couple(
 				"ServiceInterfaceConfig", "ConfigurationServeur", "f"));
 
+		PortFServeur portFServeur = new PortFServeur("PortFServeur");
+		PortRServeur portRServeur = new PortRServeur("PortRServeur");
+		portR = new HashMap<String, PortR>();
+		portF = new HashMap<String, PortF>();
+
+		portF.put("ClienttoCM", portFServeur);
+		portR.put("CMtoClient", portRServeur);
+		
 		InterfaceConfig interfacesConfigsF = new InterfaceConfig();
 		interfacesConfigsF.addService(new ServiceInterfaceConfig(
-				"ServiceInterfaceConfig", null, null));
+				"ServiceInterfaceConfig", portR, portF));
 		InterfaceConfig interfacesConfigsR = new InterfaceConfig();
 
 		HashMap<String, Composant> composants = new HashMap<String, Composant>();
@@ -303,7 +313,7 @@ public class Main {
 
 		proprietesConfig = new HashMap<String, Propriete>();
 		ConfigurationMain configurationMain = new ConfigurationMain(
-				"ConfigurationServeur", bindings, composants,
+				"ConfigurationMain", bindings, composants,
 				interfacesConfigsR, interfacesConfigsF, connecteurs,
 				attachements, proprietesConfig);
 		// ////FIN ConfigMain
