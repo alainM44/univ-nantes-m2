@@ -134,7 +134,7 @@ public class Main {
 
 		portR = new HashMap<String, PortR>();
 		//TODO Peut être faux à vérifier
-		portR.put("CMtoCLient", new PortRExternalSocket(
+		portR.put("CMtoClient", new PortRExternalSocket(
 				"PortRExternalSocket"));
 
 		portF = new HashMap<String, PortF>();

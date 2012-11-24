@@ -25,7 +25,6 @@ import metamodel.port.PortR;
 import metamodel.role.RoleF;
 import metamodel.role.RoleR;
 
-
 /**
  * Classe décrivant un service
  * 
@@ -45,7 +44,6 @@ public abstract class Service extends Observable implements Observer {
 
 	protected Service bindService;
 
-
 	public Service(String name, HashMap<String, PortR> portR,
 			HashMap<String, PortF> portF) {
 		super();
@@ -58,34 +56,33 @@ public abstract class Service extends Observable implements Observer {
 	public abstract void action();
 
 	public void execute() {
-
+		System.out.println(name + " execute");
 		if (bindService == null) {
 
 			action();
 			setChanged();
-			notifyObservers();//TODO
+			notifyObservers();// TODO
 
-//			try {
-//				wait();
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+			// try {
+			// wait();
+			// } catch (InterruptedException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// }
 		} else {
 			bindService.setPortF(portF);
 			bindService.action();
 			setPortR(bindService.getPortR());
 			setChanged();
 			notifyObservers();
-//			try {
-//				bindService.wait();
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+			// try {
+			// bindService.wait();
+			// } catch (InterruptedException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// }
 		}
 	}
-
 
 	public String getName() {
 		return name;
@@ -149,7 +146,7 @@ public abstract class Service extends Observable implements Observer {
 	}
 
 	public void setValueInPortR(Object e, String name2) {
-		portF.get(name2).setValue(e);
+		portR.get(name2).setValue(e);
 	}
 
 	public Service getBindService() {
@@ -159,5 +156,5 @@ public abstract class Service extends Observable implements Observer {
 	public void setBindService(Service bindService) {
 		this.bindService = bindService;
 	}
-	
+
 }
