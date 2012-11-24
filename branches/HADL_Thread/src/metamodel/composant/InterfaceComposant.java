@@ -62,7 +62,7 @@ public class InterfaceComposant extends Interface {
 	
 	public boolean hasService(String name)
 	{
-		return services.containsValue(name);
+		return services.containsKey(name);
 	}
 
 }

@@ -44,7 +44,7 @@ public abstract class Service extends Observable implements Observer {
 	protected RoleF rolef;
 
 	protected Service bindService;
-	
+
 	private Composant parentComposant;
 
 	public Service(String name, HashMap<String, PortR> portR,
@@ -168,18 +168,26 @@ public abstract class Service extends Observable implements Observer {
 	}
 
 	/**
-	 * @param parentComposant the parentComposant to set
+	 * @param parentComposant
+	 *            the parentComposant to set
 	 */
 	public void setParentComposant(Composant parentComposant) {
 		this.parentComposant = parentComposant;
 	}
-	
-	public void callService(String serviceName)
-	{
-		Service calledService = parentComposant.getService(serviceName);
-		parentComposant.addObserver(this);
-		calledService.execute();
 
+	public void callService(String serviceName) {
+		Service calledService = parentComposant.getService(serviceName);
+//		synchronized (calledService) {
+//			calledService.execute();
+//			try {
+//				wait();
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+	calledService.execute();
+	System.out.println("chat Poe");
 	}
 
 }

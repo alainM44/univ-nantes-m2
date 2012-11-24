@@ -16,7 +16,7 @@ public class ServiceRConnexionRPC extends metamodel.service.ServiceR {
 
 	@Override
 	public void action() {
-		
+		setValueInPortR("Admin", "ClienttoCM");
 		
 	}
 
