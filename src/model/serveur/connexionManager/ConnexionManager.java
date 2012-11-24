@@ -24,11 +24,59 @@ import metamodel.propiete.Propriete;
 
 public class ConnexionManager extends Composant {
 
+	private boolean autentified;
+	private String databaseValue;
+	private String clientName;
 
 	public ConnexionManager(String name, InterfaceComposant requis,
 			InterfaceComposant fourni, HashMap<String, Propriete> proprietes) {
 		super(name, requis, fourni, proprietes);
-		// TODO Auto-generated constructor stub
+		autentified = false;
+		databaseValue = null;
+		setClientName(null);
+
+	}
+
+	/**
+	 * @return the autentified
+	 */
+	protected boolean isAutentified() {
+		return autentified;
+	}
+
+	/**
+	 * @param autentified the autentified to set
+	 */
+	protected void setAutentified(boolean autentified) {
+		this.autentified = autentified;
+	}
+
+	/**
+	 * @return the databaseValue
+	 */
+	protected String getDatabaseValue() {
+		return databaseValue;
+	}
+
+	/**
+	 * @param databaseValue the databaseValue to set
+	 */
+	protected void setDatabaseValue(String databaseValue) {
+		this.databaseValue = databaseValue;
+	}
+
+	/**
+	 * @return the clientName
+	 */
+	protected String getClientName() {
+		return clientName;
+	}
+
+	/**
+	 * @param clientName the clientName to set
+	 */
+	protected void setClientName(String clientName) {
+		this.clientName = clientName;
 	}
 
 }

@@ -36,7 +36,7 @@ public class Composant extends Observable implements Observer {
 	private InterfaceComposant fourni;
 	private HashMap<String, Propriete> proprietes;
 
-	public Composant(String name, InterfaceComposant requis, InterfaceComposant fourni,
+	public  Composant(String name, InterfaceComposant requis, InterfaceComposant fourni,
 			HashMap<String, Propriete> proprietes) {
 		super();
 		this.name=name;
@@ -105,5 +105,6 @@ public class Composant extends Observable implements Observer {
 		notifyObservers(((Service) o).getName());
 		deleteObservers();
 	}
+	
 
 }

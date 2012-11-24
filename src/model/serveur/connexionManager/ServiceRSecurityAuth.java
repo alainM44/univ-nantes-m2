@@ -7,7 +7,7 @@ import metamodel.port.PortF;
 import metamodel.port.PortR;
 import metamodel.service.ServiceR;
 
-public class ServiceRSecurityAuth  extends ServiceR{
+public class ServiceRSecurityAuth extends ServiceR {
 
 	public ServiceRSecurityAuth(String name, HashMap<String, PortR> portR,
 			HashMap<String, PortF> portF) {
@@ -17,17 +17,19 @@ public class ServiceRSecurityAuth  extends ServiceR{
 
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
-		
+		ConnexionManager connexionManager = ((ConnexionManager) getParentComposant());
+		setValueInPortR(connexionManager.getClientName(), "CMtoSM");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		ConnexionManager connexionManager = ((ConnexionManager) getParentComposant());
+		connexionManager.setAutentified((Boolean) getValueInPortF("SMtoCM"));
 	}
 
 }

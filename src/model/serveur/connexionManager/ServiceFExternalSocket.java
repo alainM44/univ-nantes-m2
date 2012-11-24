@@ -14,14 +14,24 @@ public class ServiceFExternalSocket extends ServiceF {
 		// TODO Auto-generated constructor stub
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see metamodel.service.ServiceF#action()
 	 */
 	@Override
 	public void action() {
-	callService("ServiceRSecurityAuth");
+		// setValueInPortR(new String("Chat"), "CMtoClient");
+		((ConnexionManager)getParentComposant()).setClientName((String)getValueInPortF("ClienttoCM"));
+		callService("ServiceRSecurityAuth");
+		if(((ConnexionManager)getParentComposant()).isAutentified())
+		{
+			setValueInPortR("Victory", "CMtoClient");
+		}
+		else
+		{
+			setValueInPortR("You failed", "CMtoClient");
+		}
 	}
-
-
 
 }

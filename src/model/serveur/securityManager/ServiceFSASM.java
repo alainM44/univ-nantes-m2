@@ -16,7 +16,8 @@ public class ServiceFSASM extends ServiceF {
 
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
+		String valueInPortF = (String) getValueInPortF("CMtoSM");
+		setValueInPortR(valueInPortF == "Admin", "SMtoCM");
 
 	}
 

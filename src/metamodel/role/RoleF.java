@@ -45,7 +45,7 @@ public class RoleF extends Role implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 //		getService().notifyAll();
-		System.out.println("roleF");
+//		System.out.println("roleF");
 		setChanged();
 		notifyObservers();
 		

@@ -19,9 +19,6 @@ import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
-import org.omg.PortableInterceptor.ObjectReferenceFactory;
-
-import metamodel.port.PortF;
 import metamodel.port.PortR;
 import metamodel.role.RoleF;
 import metamodel.role.RoleR;
