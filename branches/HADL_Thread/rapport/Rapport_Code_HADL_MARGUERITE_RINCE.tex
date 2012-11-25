@@ -52,8 +52,8 @@
 
 
 \fancypagestyle{plain}{% 1ères pages des chapitres:
-   \fancyhead{} % supprime l’entete...
-   \renewcommand{\headrulewidth}{0pt} % ...et le filet
+  \fancyhead{} % supprime l’entete...
+  \renewcommand{\headrulewidth}{0pt} % ...et le filet
 }
 
 \renewcommand{\thesection}{\arabic{section}}
@@ -124,18 +124,40 @@
 
 
 \section{Introduction}\label{sec:intro}
-Dans le cadre du module \textsc{Components and Architectures}, il nous est proposé de réalisé un Home Archictecture Domain Language (HADL). Dans un précédent rapport, nous avons proposé un méta modèle de notre architecture à composant, ainsi qu'une implémentation de ce dernier proposant un modèle d'une application clients-serveurs. La dernière étape de ce projet est de coder cette application. Dans ce document nous détaillerons les choix d'implémentations ainsi que les problématiques rencontrées. Enfin nous terminerons par un bref résumé des tâches à effectuer restantes.
+Dans le cadre du module \textsc{Components and Architectures}, il nous est proposé de réalisé un Home Archictecture Domain Language (HADL). Dans un précédent rapport, nous avons proposé un méta modèle de notre architecture à composants, ainsi qu'une implémentation de ce dernier proposant un modèle d'une application \textit{clients-serveurs}. La dernière étape de ce projet est de coder cette application. Dans ce document nous détaillerons les choix implémentation ainsi que les problématiques rencontrées. Enfin nous terminerons par un bref résumé des tâches à effectuer restantes.
 \section{Démarches et choix d'implémentations}\label{sec:pblm}
 Le langage choisi pour ce projet est JAVA. Les motivations de ce choix sont les suivantes : la facilité, ainsi que les qualités des outils proposés par l'IDE Eclipse pour un projet de développement au nombre de classe potentiellement très grand. 
 
-Le choix de la méthode de développement s'est imposé à cette étape du projet. Fallait-il tout coder à la main, ou utiliser des outils de génération ? Nous étions notamment séduit par l'idée d'utiliser le framework EMF. Nous avons donc commencé à rédigé grammaire dans un fichier \verb+.ecore+ décriant nos méta-models. Bien que les résultats de la générations étaient satisfaisant, nous avons abandonné cette solution. Le code généré était plus complexe et possédait de nombre signatures et methodes supplémentaire. Nous avons jugé que cela pouvait rendre le développement plus difficile et nous induire en erreur. Nous avons donc fait marche arrière et recommencé la création de toutes les classes manuellement. Bien que longue et fastidueuse, cette méthode nous a permi d'avoir une vision claire de notre avancée.
+La question de la méthode de développement s'est imposée à cette étape du projet. Fallait il tout coder à la main, ou utiliser des outils de génération ? Nous étions notamment séduit par l'idée d'utiliser le framework EMF. Nous avons donc commencé à rédigé grammaire dans un fichier \verb+.ecore+ décrivant nos méta-models. Bien que les résultats de la générations étaient satisfaisants, nous avons abandonné cette solution. Le code généré était plus complexe et possédait un nombre signatures et de méthodes supplémentaires important. Nous avons jugé que cela pouvait rendre le développement plus difficile et nous induire  à des erreurs. Nous avons donc fait marche arrière et recommencé la création de toutes les classes manuellement. Bien que longue et fastidieuse, cette méthode nous a permis d'avoir une vision claire de notre avancée dans le développement.
 
 \paragraph{Journalisation}
-Nous avons choisi d'uliliser aspectJ pour remplir cette fonctionalité.  Ainsi il est possible de suivre le fil de suivre sur la sortie standard les executions des différents éléments de l'application sur la sortie stardard. 
+Nous avons choisi d'utiliser AspectJ pour remplir cette fonctionnalité.  Ainsi il est possible de suivre le fil de suivre sur la sortie standard les exécutions des différents éléments de l'application sur la sortie standard. 
+
+\section{Travail réalisé}
+À ce stage du développement, l'application est fonctionnelle. Un Client peut par l'intermédiaire d'une configuration \og Main \fg{} contenant un composant Client interroger une configuration Serveur contenant un client serveur. Les fonctionnalités à la disposition de l'utilisateur sont les suivantes :
+\begin{itemize}
+\item
+  Effectuer une connexion à partir de la commande \verb+connexion+ et d'un identifiant autorisé (ici \verb+Admin+ ou \verb+toto+)
+  \emph{ex : requete Admin 2+2}
+\item
+  Une fois connecté, l'utilisateur à sa disposition la commande \verb+requete+ prenant deux paramètres, son identifiant et une requête.  \hfill \\ 
+  \emph{ex : requete Admin 2+2}
+\item
+  Quitter l'application en tapant \verb+quit+
+\end{itemize}
+\paragraph{}
+
+L'utilisateur pourra alors, assister au traces correspondant au cheminement de sa requête au sein de l'architecture à composant de l'application.
+
 
 \section{Reste à faire}
-blah blahblah blahblah blahblah blahblah blahblah blahblah blahblah blahblah blahblah blahblah blahblah blahblah blah
-blahblahblahblahblahyy blahblahblahblahblah blahblahblah blahblahblahblah blahblah
+Tests
+
+Méthode de lecture dans les ports
+
+syynchrone asynchronisme
+
+
 
 \end{document}
 
@@ -143,6 +165,7 @@ blahblahblahblahblahyy blahblahblahblahblah blahblahblah blahblahblahblah blahbl
 %%  LocalWords:  l'IDE Fourth refinement skip end fail compt write
 %%  LocalWords:  begin step multi temp Components Archictecture HADL
 % LocalWords:  Domain Language implémentation clients-serveurs blah
-% LocalWords:  d'implémentations Eclipse blahblah blahblahblah
-% LocalWords:  blahblahblahblahblahyy blahblahblahblahblah
-% LocalWords:  blahblahblahblah
+% LocalWords:  d'implémentations Eclipse blahblah blahblahblah EMF
+% LocalWords:  blahblahblahblahblahyy blahblahblahblahblah framework
+% LocalWords:  blahblahblahblah ecore méta-models Journalisation quit
+% LocalWords:  AspectJ Admin requete

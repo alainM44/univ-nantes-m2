@@ -335,6 +335,8 @@ public class Main {
 		// "Rech.proj.pr.proj.priv.selfdef.dem.brut.poss.S'adr.a.lhôt.Mar.");
 
 		menu(args, RunFromServiceRPC);
+		
+		//TODO erreur sale quand on tente une requete sans 'etre authentifié
 
 	}
 
@@ -382,7 +384,6 @@ public class Main {
 			} else {
 
 				System.out.println("\033[2J\n");
-
 				System.err
 						.println("erreur dans la saisie veuillez recommencer");
 				System.out.println("Usage :");
