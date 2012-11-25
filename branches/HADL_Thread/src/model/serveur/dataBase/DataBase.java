@@ -34,6 +34,7 @@ public class DataBase extends Composant {
 		
 		listeAdmis = new ArrayList<String>();
 		listeAdmis.add("Admin");
+		listeAdmis.add("toto");
 		
 		database = new HashMap<String, String>();
 		database.put("dans quel", "etat gere");
@@ -41,6 +42,9 @@ public class DataBase extends Composant {
 		database.put("pourquoi l ennemi est con", "il croit que l ennemi c est vous alors que l ennemi c est lui");
 		database.put("Rech.proj.pr.proj.priv.selfdef.dem.brut.poss.S'adr.a.lhôt.Mar.", "Et plus si affinites");
 		database.put("reponse?", "42");
+		database.put("1+1", "2");
+		database.put("2+2", "4");
+		database.put("bonjour", "au revoir!");
 
 	}
 

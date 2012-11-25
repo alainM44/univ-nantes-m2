@@ -1,6 +1,11 @@
 package main;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
+
+import aspectLog.LogAspect;
 
 import metamodel.composant.Composant;
 import metamodel.composant.InterfaceComposant;
@@ -99,8 +104,8 @@ public class Main {
 				"PortRSecurityManagement"));
 
 		portF = new HashMap<String, PortF>();
-		portF.put("name", new PortFSecurityManagement(
-				"PortFSecurityManagement"));
+		portF.put("name",
+				new PortFSecurityManagement("PortFSecurityManagement"));
 		ServiceFSecurityManagement serviceFSecurityManagement = new ServiceFSecurityManagement(
 				"ServiceFSecurityManagement", portR, portF);
 
@@ -123,12 +128,10 @@ public class Main {
 				"ServiceRDBQuery", portR, portF);
 
 		portR = new HashMap<String, PortR>();
-		portR.put("name", new PortRSecurityAuth(
-				"PortRSecurityAuth"));
+		portR.put("name", new PortRSecurityAuth("PortRSecurityAuth"));
 
 		portF = new HashMap<String, PortF>();
-		portF.put("isAdmis", new PortFSecurityAuth(
-				"PortFSecurityAuth"));
+		portF.put("isAdmis", new PortFSecurityAuth("PortFSecurityAuth"));
 		ServiceRSecurityAuth serviceRSecurityAuth = new ServiceRSecurityAuth(
 				"ServiceRSecurityAuth", portR, portF);
 
@@ -137,11 +140,9 @@ public class Main {
 				"PortRExternalSocket"));
 
 		portF = new HashMap<String, PortF>();
-		portF.put("name", new PortFExternalSocket(
-				"PortFExternalSocket"));
-		portF.put("requete", new PortFExternalSocket(
-				"PortFExternalSocket"));
-		
+		portF.put("name", new PortFExternalSocket("PortFExternalSocket"));
+		portF.put("requete", new PortFExternalSocket("PortFExternalSocket"));
+
 		ServiceFExternalSocket serviceFExternalSocket = new ServiceFExternalSocket(
 				"ServiceFExternalSocket", portR, portF);
 		fourni = new InterfaceComposant();
@@ -190,8 +191,8 @@ public class Main {
 		InterfaceConnecteur irequise = new InterfaceConnecteur(roleR2, roleF2);
 		GluSMtoCM gluSMtoCM = new GluSMtoCM(roleR, roleF2);
 		GluCMtoSM gluCMtoSM = new GluCMtoSM(roleR2, roleF);
-		ConnecteurCMtoSM connecteurCMtoSM = new ConnecteurCMtoSM("ConnecteurCMtoSM",irequise,
-				ifournie, gluSMtoCM, gluCMtoSM);
+		ConnecteurCMtoSM connecteurCMtoSM = new ConnecteurCMtoSM(
+				"ConnecteurCMtoSM", irequise, ifournie, gluSMtoCM, gluCMtoSM);
 		// connecteurCMtoDB
 		RoleRCMtoDB roleRCMtoDB = new RoleRCMtoDB("RoleRCMtoDB");
 		RoleFCMtoDB roleFCMtoDB = new RoleFCMtoDB("RoleFCMtoDB");
@@ -203,8 +204,8 @@ public class Main {
 
 		GluDBtoCM gluDBtoCM = new GluDBtoCM(roleRDBtoCM, roleFCMtoDB);
 		GluCMtoDB gluCMtoDB = new GluCMtoDB(roleRCMtoDB, roleFDBtoCM);
-		ConnecteurCMtoDB connecteurCMtoDB = new ConnecteurCMtoDB("ConnecteurCMtoDB",irequise,
-				ifournie, gluDBtoCM, gluCMtoDB);
+		ConnecteurCMtoDB connecteurCMtoDB = new ConnecteurCMtoDB(
+				"ConnecteurCMtoDB", irequise, ifournie, gluDBtoCM, gluCMtoDB);
 
 		RoleRSMtoDB roleRSMtoDB = new RoleRSMtoDB("roleRSMtoDB");
 		RoleFSMtoDB roleFSMtoDB = new RoleFSMtoDB("roleFSMtoDB");
@@ -218,8 +219,8 @@ public class Main {
 		GluDBtoSM gluDBtoSM = new GluDBtoSM(roleRDBtoSM, roleFSMtoDB);
 		GluSMtoDB gluSMtoDB = new GluSMtoDB(roleRSMtoDB, roleFDBtoSM);
 
-		ConnecteurSMtoDB connecteurSMtoDB = new ConnecteurSMtoDB("ConnecteurSMtoDB",irequise,
-				ifournie, gluDBtoSM, gluSMtoDB);
+		ConnecteurSMtoDB connecteurSMtoDB = new ConnecteurSMtoDB(
+				"ConnecteurSMtoDB", irequise, ifournie, gluDBtoSM, gluSMtoDB);
 		// /////FIN CONNECTEURS
 
 		// /Connecteur RPC////
@@ -232,11 +233,10 @@ public class Main {
 		GluCtoS gluCtoS = new GluCtoS(roleRCtoS, roleFCtoS);
 		GluStoC gluStoC = new GluStoC(roleRStoC, roleFStoC);
 
-		ConnecteurRPC connecteurRPC = new ConnecteurRPC("ConnecteurRPC",irequise, ifournie,
-				gluCtoS, gluStoC);
+		ConnecteurRPC connecteurRPC = new ConnecteurRPC("ConnecteurRPC",
+				irequise, ifournie, gluCtoS, gluStoC);
 		// /fin Connecteur RPC///////////////
-		
-		
+
 		// COMPOSANT CLIENT//////////////////
 		PortFClient portFClient = new PortFClient("PortFClient");
 		PortRClient portRClient = new PortRClient("PortRClient");
@@ -272,7 +272,7 @@ public class Main {
 		portF.put("name", portFServeur);
 		portF.put("requete", portFServeur2);
 		portR.put("retourRequete", portRServeur);
-		
+
 		InterfaceConfig interfacesConfigsF = new InterfaceConfig();
 		interfacesConfigsF.addService(new ServiceInterfaceConfig(
 				"ServiceInterfaceConfig", portR, portF));
@@ -301,7 +301,7 @@ public class Main {
 				"ConfigurationServeur", bindings, composants,
 				interfacesConfigsR, interfacesConfigsF, connecteurs,
 				attachements, proprietesConfig);
-		
+
 		// /FIn config Server/////////////////////////
 
 		// /ConfigMain
@@ -320,21 +320,101 @@ public class Main {
 
 		proprietesConfig = new HashMap<String, Propriete>();
 		ConfigurationMain configurationMain = new ConfigurationMain(
-				"ConfigurationMain", bindings, composants,
-				interfacesConfigsR, interfacesConfigsF, connecteurs,
-				attachements, proprietesConfig);
+				"ConfigurationMain", bindings, composants, interfacesConfigsR,
+				interfacesConfigsF, connecteurs, attachements, proprietesConfig);
 		// ////FIN ConfigMain
-		
-		
-		ServiceRConnexionRPC RunFromServiceRPC =  (ServiceRConnexionRPC) client.getRequis().getService("ServiceRConnexionRPC");
-		RunFromServiceRPC.connexion("Admin");
-		RunFromServiceRPC.requete("Admin","qui est l ennemi");
-		RunFromServiceRPC.connexion("Admin2");
-		RunFromServiceRPC.requete("Admin2","qui est l ennemi");
-		RunFromServiceRPC.requete("Admin","Rech.proj.pr.proj.priv.selfdef.dem.brut.poss.S'adr.a.lhôt.Mar.");
+		//
+		ServiceRConnexionRPC RunFromServiceRPC = (ServiceRConnexionRPC) client
+				.getRequis().getService("ServiceRConnexionRPC");
+		// RunFromServiceRPC.connexion("Admin");
+		// RunFromServiceRPC.requete("Admin", "qui est l ennemi");
+		// RunFromServiceRPC.connexion("Admin2");
+		// RunFromServiceRPC.requete("Admin2", "qui est l ennemi");
+		// RunFromServiceRPC
+		// .requete("Admin",
+		// "Rech.proj.pr.proj.priv.selfdef.dem.brut.poss.S'adr.a.lhôt.Mar.");
 
+		menu(args, RunFromServiceRPC);
 
-		
-		
 	}
+
+	public static void menu(String[] args,
+			ServiceRConnexionRPC runFromServiceRPC) {
+		System.out.println("*****************************");
+		System.out.println("********HADL_PROJECT*********");
+		System.out.println("*****************************");
+		System.out.println("Bienvenu(es) dans une application client-serveur.");
+		System.out.println("Usage :");
+		System.out.println("\t $connexion  login");
+		System.out.println("\t $requete  login requete");
+		System.out.println("\t $quit");
+
+		String arg;
+		boolean fin = false;
+		String login = "";
+		String requete = "";
+		args = lireString();
+
+		while (!fin) {
+
+			arg = args[0];
+			// use this type of check for "wordy" arguments
+			if (arg.equals("requete") && args.length == 3) {
+				requete = args[2];
+				String name = args[1];
+				runFromServiceRPC.requete(name, requete);
+				args = lireString();
+			} else if (arg.equals("connexion")) {
+				login = args[1];
+				System.out.println("connexion " + login);
+				runFromServiceRPC.connexion(login);
+				args = lireString();
+			} else if (arg.equals("quit")) {
+				fin = true;
+				System.out.println("quit ");
+
+			} else if (arg.equals("help")) {
+				System.out.println("Usage :");
+				System.out.println("\t $connexion  login");
+				System.out.println("\t $requete  login requete");
+				System.out.println("\t $quit");
+
+			} else {
+
+				System.out.println("\033[2J\n");
+
+				System.err
+						.println("erreur dans la saisie veuillez recommencer");
+				System.out.println("Usage :");
+				System.out.println("\t $connexion  login");
+				System.out.println("\t $requete  login requete");
+				System.out.println("\t $quit");
+				args = lireString();
+
+			}
+		}
+
+	}
+
+	/**
+	 * Fonction lisant une ligne sur l'entrée standart et renvoyant un tableau
+	 * de string
+	 * 
+	 * @return String[] de la ligne courante
+	 */
+	public static String[] lireString() {// lecture d'une chaine
+		String ligne_lue = null;
+		String[] result = null;
+		try {
+			InputStreamReader lecteur = new InputStreamReader(System.in);
+			BufferedReader entree = new BufferedReader(lecteur);
+			ligne_lue = entree.readLine();
+			result = ligne_lue.split(" ");
+		} catch (IOException err) {
+			System.exit(0);
+		}
+
+		return result;
+	}
+
 }
