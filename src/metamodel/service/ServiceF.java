@@ -39,7 +39,7 @@ public abstract class ServiceF extends Service {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		System.out.println(this.getName() + " update");
+//		System.out.println(this.getName() + " update");
 		if (bindService == null) {
 			action();
 			setChanged();
