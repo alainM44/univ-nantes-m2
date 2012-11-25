@@ -25,8 +25,7 @@ import java.util.HashMap;
  * @author Romain RINCÉ
  * @see InterfaceConnecteur
  */
-public class Connecteur// extends InterfaceConnecteur
-// TODO Probleme connecteur ne doit pas etendre InterfaceConnecteur
+public class Connecteur
 {
 	private String name;
 	private InterfaceConnecteur irequise;

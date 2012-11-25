@@ -21,8 +21,10 @@ package model.serveur.configurationServer;
 import metamodel.port.PortR;
 
 /**
- * @author romain
- *
+ * 
+ * @author Alain MARGUERITE
+ * @author Romain RINCÉ
+ * @see PortR
  */
 public class PortRServeur extends PortR {
 

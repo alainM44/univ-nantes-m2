@@ -22,35 +22,32 @@ import java.util.HashMap;
 
 import metamodel.port.PortF;
 import metamodel.port.PortR;
+import metamodel.service.Service;
 import metamodel.service.ServiceF;
 
 /**
  * 
- * 
+ * @author Alain MARGUERITE
+ * @author Romain RINCÉ
+ * @see ServiceF
  */
 public class ServiceInterfaceConfig extends ServiceF {
 
-	/**
-	 * @param name
-	 * @param portR
-	 * @param portF
-	 */
 	public ServiceInterfaceConfig(String name, HashMap<String, PortR> portR,
 			HashMap<String, PortF> portF) {
 		super(name, portR, portF);
 		// TODO Auto-generated constructor stub
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see metamodel.service.ServiceF#action()
 	 */
 	@Override
 	public void action() {
 		// TODO Auto-generated method stub
-		
+
 	}
-
-
-
 
 }

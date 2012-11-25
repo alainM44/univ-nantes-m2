@@ -33,7 +33,6 @@ public abstract class ServiceR extends Service {
 	public ServiceR(String name, HashMap<String, PortR> portR,
 			HashMap<String, PortF> portF) {
 		super(name, portR, portF);
-		// TODO Auto-generated constructor stub
 	}
 
 }

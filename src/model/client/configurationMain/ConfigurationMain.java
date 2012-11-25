@@ -14,8 +14,13 @@
  along with HADL_Project.  If not, see <http://www.gnu.org/licenses/>
  */
 /**
- * 
+ *Classe décrivant la configuration main 
+ *
+ * @author alain MARGUERITE
+ * @author romain RINCÉ 
+ *
  */
+
 package model.client.configurationMain;
 
 import java.util.HashMap;
@@ -28,7 +33,10 @@ import metamodel.connecteur.Connecteur;
 import metamodel.propiete.Propriete;
 
 /**
- * @author alain
+ *Classe décrivant la configuration main 
+ *
+ * @author alain MARGUERITE
+ * @author romain RINCÉ 
  *
  */
 public class ConfigurationMain extends Configuration {
