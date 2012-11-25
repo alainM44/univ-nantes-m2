@@ -34,7 +34,7 @@ public class ServiceFExternalSocket extends ServiceF {
 				&& connexionManager.getRequete() == null) // demande de
 															// connexion
 		{
-			System.out.println("demande de connexion");
+	
 			callService("ServiceRSecurityAuth");
 			connexionManager.clientsAuthenticated.put(
 					connexionManager.getClientName(),
