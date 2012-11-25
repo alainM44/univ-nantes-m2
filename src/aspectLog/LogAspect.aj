@@ -28,44 +28,54 @@ import metamodel.service.Service;
  * @author Romain RINCÉ
  */
 public aspect LogAspect {
+	
+	
+	private static boolean enable = true;
+
 	pointcut executeService(Service service) : call(void metamodel.service.Service.execute())&& target(service);
 
 	before(Service service): executeService(service){
-		System.out.println("[TRACE] :  execution du service : "
-				+ service.getName());
+		if (enable) {
+			System.out.println("[TRACE] :  execution du service : "
+					+ service.getName());
+		}
 	}
 
 	pointcut updateRoleR(RoleR r) : execution(* metamodel.role.RoleR.update(..)) && target(r);
 
 	before(RoleR r): updateRoleR(r){
-		System.out.println("[TRACE] :  execution du role requis  : " //TODO to fix
-				+ r);
+		if (enable) {
+			System.out.println("[TRACE] :  execution du role requis  : " + r);
+			// TODO to fix
+		}
 	}
 
 	pointcut updateGlu(Glu g) : execution(* metamodel.connecteur.Glu.update(..)) && target(g);
 
 	before(Glu g): updateGlu(g){
-		System.out.println("[TRACE] :  execution d'une glu : " + g);//TODO to fix
+		if (enable) 
+			System.out.println("[TRACE] :  execution d'une glu : " + g);
+		
 	}
 
 	pointcut updateRoleF(RoleF f) : execution(* metamodel.role.RoleF.update(..)) && target(f);
 
 	before(RoleF f): updateRoleF(f){
-		System.out.println("[TRACE] :  execution du role fournis  : "//TODO to fix
-				+ f);
+		System.out.println("[TRACE] :  execution du role fournis  : " + f);
+		// TODO to // fix
 	}
 
 	pointcut demandeConnexion(String name) : call(void model.client.ServiceRConnexionRPC.connexion(String)) && args(name);
 
 	before(String name): demandeConnexion(name){
-		System.out.println("[TRACE] :  Demande de connexion \n\t le login : "
+		System.out.println("[TRACE] :  Demande de connexion \n\t  login : "
 				+ name);
 	}
 
 	pointcut demandeRequete(String name, String requete) : call(void model.client.ServiceRConnexionRPC.requete(String,String)) && args(name,requete);
 
 	before(String name, String requete): demandeRequete(name,requete){
-		System.out.println("[TRACE] :  Demande de requete  : \n\t login : "
-				+ name + " \n\t requete : " + requete);
+		System.out.println("[TRACE] :  Demande de requête  : \n\t login : "
+				+ name + " \n\t requête : " + requete);
 	}
 }
