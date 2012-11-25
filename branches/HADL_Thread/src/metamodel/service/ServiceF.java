@@ -34,12 +34,10 @@ public abstract class ServiceF extends Service {
 	public ServiceF(String name, HashMap<String, PortR> portR,
 			HashMap<String, PortF> portF) {
 		super(name, portR, portF);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-//		System.out.println(this.getName() + " update");
 		if (bindService == null) {
 			action();
 			setChanged();

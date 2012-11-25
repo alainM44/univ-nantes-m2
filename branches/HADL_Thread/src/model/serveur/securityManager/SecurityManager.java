@@ -13,9 +13,6 @@
  You should have received a copy of the GNU General Public License
  along with HADL_Project.  If not, see <http://www.gnu.org/licenses/>
  */
-/**
- * 
- */
 package model.serveur.securityManager;
 
 import java.util.HashMap;

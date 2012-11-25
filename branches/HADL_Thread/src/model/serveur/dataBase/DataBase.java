@@ -23,6 +23,13 @@ import metamodel.composant.Composant;
 import metamodel.composant.InterfaceComposant;
 import metamodel.propiete.Propriete;
 
+/**
+ * Classe décrivant un composant ayant le rôle d'une base de données
+ * 
+ * @author Alain MARGUERITE
+ * @author Romain RINCÉ
+ * 
+ */
 public class DataBase extends Composant {
 
 	private ArrayList<String> listeAdmis;

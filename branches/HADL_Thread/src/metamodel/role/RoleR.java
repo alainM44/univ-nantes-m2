@@ -45,7 +45,6 @@ public class RoleR extends Role {
 	// est notifié par le Service R et on notifie la glue
 	@Override 
 	public void update(Observable o, Object arg) {
-//		System.out.println("Roler");
 		setChanged();
 		notifyObservers();
 	}

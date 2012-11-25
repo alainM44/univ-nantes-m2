@@ -20,7 +20,6 @@ package metamodel.port;
  * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
- * @param <T>
  * @see Port
  */
 public abstract class PortR extends Port {

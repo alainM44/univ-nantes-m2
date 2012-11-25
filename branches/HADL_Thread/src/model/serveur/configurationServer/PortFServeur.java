@@ -21,8 +21,10 @@ package model.serveur.configurationServer;
 import metamodel.port.PortF;
 
 /**
- * @author romain
- *
+ * 
+ * @author Alain MARGUERITE
+ * @author Romain RINCÉ
+ * @see PortF
  */
 public class PortFServeur extends PortF {
 

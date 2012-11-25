@@ -24,6 +24,12 @@ import metamodel.composant.Composant;
 import metamodel.composant.InterfaceComposant;
 import metamodel.propiete.Propriete;
 
+/**
+ * 
+ * @author Alain MARGUERITE
+ * @author Romain RINCÉ
+ *
+ */
 public class ConnexionManager extends Composant {
 
 	private boolean autentified;
