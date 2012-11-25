@@ -18,6 +18,8 @@ package model.serveur.connexionManager;
 
 import java.util.HashMap;
 
+import javax.xml.crypto.dsig.spec.HMACParameterSpec;
+
 import metamodel.composant.Composant;
 import metamodel.composant.InterfaceComposant;
 import metamodel.propiete.Propriete;
@@ -28,6 +30,9 @@ public class ConnexionManager extends Composant {
 	private String requete;
 	private String databaseValue;
 	private String clientName;
+	
+	
+	protected HashMap<String, Boolean> clientsAuthenticated;
 
 	public ConnexionManager(String name, InterfaceComposant requis,
 			InterfaceComposant fourni, HashMap<String, Propriete> proprietes) {
@@ -35,6 +40,7 @@ public class ConnexionManager extends Composant {
 		autentified = false;
 		databaseValue = null;
 		clientName =null;
+		clientsAuthenticated =new HashMap<String, Boolean>();
 		setRequete(null);
 
 	}

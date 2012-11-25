@@ -325,7 +325,15 @@ public class Main {
 				attachements, proprietesConfig);
 		// ////FIN ConfigMain
 		
-		client.getRequis().getService("ServiceRConnexionRPC").execute();
+		
+		ServiceRConnexionRPC RunFromServiceRPC =  (ServiceRConnexionRPC) client.getRequis().getService("ServiceRConnexionRPC");
+		RunFromServiceRPC.connexion("Admin");
+		RunFromServiceRPC.requete("Admin","qui est l ennemi");
+		RunFromServiceRPC.connexion("Admin2");
+		RunFromServiceRPC.requete("Admin2","qui est l ennemi");
+		RunFromServiceRPC.requete("Admin","Rech.proj.pr.proj.priv.selfdef.dem.brut.poss.S'adr.a.lhôt.Mar.");
+
+
 		
 		
 	}
