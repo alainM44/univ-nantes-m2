@@ -28,8 +28,7 @@ import metamodel.service.Service;
  * @author Romain RINCÉ
  */
 public aspect LogAspect {
-	
-	
+
 	private static boolean enable = true;
 
 	pointcut executeService(Service service) : call(void metamodel.service.Service.execute())&& target(service);
@@ -53,16 +52,16 @@ public aspect LogAspect {
 	pointcut updateGlu(Glu g) : execution(* metamodel.connecteur.Glu.update(..)) && target(g);
 
 	before(Glu g): updateGlu(g){
-		if (enable) 
+		if (enable)
 			System.out.println("[TRACE] : execution d'une glu : " + g);
-		
+
 	}
 
 	pointcut updateRoleF(RoleF f) : execution(* metamodel.role.RoleF.update(..)) && target(f);
 
 	before(RoleF f): updateRoleF(f){
 		System.out.println("[TRACE] : execution du role fournis  : " + f);
-		// TODO to // fix
+
 	}
 
 	pointcut demandeConnexion(String name) : call(void model.client.ServiceRConnexionRPC.connexion(String)) && args(name);
