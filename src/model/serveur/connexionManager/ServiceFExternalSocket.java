@@ -62,7 +62,7 @@ public class ServiceFExternalSocket extends ServiceF {
 
 			if (connexionManager.clientsAuthenticated.get(connexionManager
 					.getClientName()))
-				setValueInPortR("Vous êtes autorisé à effectuer des reqêtes ",
+				setValueInPortR("Vous êtes autorisé à effectuer des requetes ",
 						"retourRequete");
 			else
 				setValueInPortR(

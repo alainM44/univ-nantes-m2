@@ -275,8 +275,8 @@ public class Main {
 		// /// DEBUT ConfigurationSERVER
 		// //////////////////////////////////////////////
 		HashMap<String, Couple> bindings = new HashMap<String, Couple>();
-		bindings.put("ServiceFExternalSocket", new Couple(
-				"ServiceInterfaceConfig", "ConfigurationServeur", "f"));
+//		bindings.put("ServiceFExternalSocket", new Couple(
+//				"ServiceInterfaceConfig", "ConfigurationServeur", "f"));
 
 		PortFServeur portFServeur = new PortFServeur("PortFServeur");
 		PortFServeur portFServeur2 = new PortFServeur("PortFServeur");
