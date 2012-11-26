@@ -22,10 +22,12 @@ import metamodel.port.PortR;
 import metamodel.service.ServiceF;
 
 /**
+ * Service du composant {@link DataBase} permettant de fournir une donné suite à
+ * une reqête SQL.
  * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
- *
+ * @see ServiceF
  */
 public class ServiceFExecuteSQL extends ServiceF {
 

@@ -26,7 +26,7 @@ import metamodel.service.ServiceR;
  * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
- *
+ * 
  */
 public class ServiceRCQuery extends ServiceR {
 
@@ -40,20 +40,22 @@ public class ServiceRCQuery extends ServiceR {
 	 */
 	@Override
 	public void action() {
-SecurityManager manager = (SecurityManager) getParentComposant();
-setValueInPortR(manager.getToIdentify(), "name");
+		SecurityManager manager = (SecurityManager) getParentComposant();
+		setValueInPortR(manager.getToIdentify(), "name");
 	}
 
-	/** (non-Javadoc)
+	/**
+	 * (non-Javadoc)
+	 * 
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 * 
-	 * Recupère le retour d'identification de la database : true ou false
+	 *      Recupère le retour d'identification de la database : true ou false
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		SecurityManager manager = (SecurityManager) getParentComposant();
 		manager.setIdentify((Boolean) getValueInPortF("isAdmis"));
-		
+
 	}
 
 }

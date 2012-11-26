@@ -28,7 +28,7 @@ import metamodel.propiete.Propriete;
  * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
- * 
+ * @see Composant
  */
 public class DataBase extends Composant {
 

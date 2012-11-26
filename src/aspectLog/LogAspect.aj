@@ -36,7 +36,7 @@ public aspect LogAspect {
 
 	before(Service service): executeService(service){
 		if (enable) {
-			System.out.println("[TRACE] :  execution du service : "
+			System.out.println("[TRACE] : execution du service : "
 					+ service.getName());
 		}
 	}
@@ -45,7 +45,7 @@ public aspect LogAspect {
 
 	before(RoleR r): updateRoleR(r){
 		if (enable) {
-			System.out.println("[TRACE] :  execution du role requis  : " + r);
+			System.out.println("[TRACE] : execution du role requis  : " + r);
 			// TODO to fix
 		}
 	}
@@ -54,28 +54,28 @@ public aspect LogAspect {
 
 	before(Glu g): updateGlu(g){
 		if (enable) 
-			System.out.println("[TRACE] :  execution d'une glu : " + g);
+			System.out.println("[TRACE] : execution d'une glu : " + g);
 		
 	}
 
 	pointcut updateRoleF(RoleF f) : execution(* metamodel.role.RoleF.update(..)) && target(f);
 
 	before(RoleF f): updateRoleF(f){
-		System.out.println("[TRACE] :  execution du role fournis  : " + f);
+		System.out.println("[TRACE] : execution du role fournis  : " + f);
 		// TODO to // fix
 	}
 
 	pointcut demandeConnexion(String name) : call(void model.client.ServiceRConnexionRPC.connexion(String)) && args(name);
 
 	before(String name): demandeConnexion(name){
-		System.out.println("[TRACE] :  Demande de connexion \n\t  login : "
+		System.out.println("[TRACE] : Demande de connexion \n\t  login : "
 				+ name);
 	}
 
 	pointcut demandeRequete(String name, String requete) : call(void model.client.ServiceRConnexionRPC.requete(String,String)) && args(name,requete);
 
 	before(String name, String requete): demandeRequete(name,requete){
-		System.out.println("[TRACE] :  Demande de requête  : \n\t login : "
+		System.out.println("[TRACE] : Demande de requête  : \n\t login : "
 				+ name + " \n\t requête : " + requete);
 	}
 }

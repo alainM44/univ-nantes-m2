@@ -22,20 +22,19 @@ import metamodel.composant.InterfaceComposant;
 import metamodel.propiete.Propriete;
 
 /**
+ * Description de la classe d'un composant chargé du controle d'identité pour
+ * l'accés à la configuration serveur.
+ * 
  * @author Romain RINCÉ
  * @author Alain MARGUERITE
- * 
+ * @see Composant
  */
 public class SecurityManager extends Composant {
 
 	private String toIdentify;
 	private boolean isIdentify;
 
-	/**
-	 * @param requis
-	 * @param fourni
-	 * @param proprietes
-	 */
+
 	public SecurityManager(String name, InterfaceComposant requis,
 			InterfaceComposant fourni, HashMap<String, Propriete> proprietes) {
 		super(name, requis, fourni, proprietes);

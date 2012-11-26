@@ -17,15 +17,23 @@ package model.serveur.dataBase;
 
 import java.util.HashMap;
 
+import javax.xml.crypto.Data;
+
+
+
+
+
 import metamodel.port.PortF;
 import metamodel.port.PortR;
 import metamodel.service.ServiceF;
 
 /**
+ * Service du composant {@link DataBase} fournissant une reponse à une requête
+ * de sécurité
  * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
- * 
+ * @see ServiceF
  */
 public class ServiceFSecurityManagement extends ServiceF {
 

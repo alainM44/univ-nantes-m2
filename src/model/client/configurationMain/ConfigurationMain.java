@@ -33,11 +33,11 @@ import metamodel.connecteur.Connecteur;
 import metamodel.propiete.Propriete;
 
 /**
- *Classe décrivant la configuration main 
- *
+ * Classe décrivant la configuration main
+ * 
  * @author alain MARGUERITE
- * @author romain RINCÉ 
- *
+ * @author romain RINCÉ
+ * 
  */
 public class ConfigurationMain extends Configuration {
 
@@ -58,8 +58,8 @@ public class ConfigurationMain extends Configuration {
 			HashMap<String, Connecteur> connecteurs,
 			HashMap<String, String> attachements,
 			HashMap<String, Propriete> proprietes) {
-		super(name, bindings, composants, interfacesConfigsR, interfacesConfigsF,
-				connecteurs, attachements, proprietes);
+		super(name, bindings, composants, interfacesConfigsR,
+				interfacesConfigsF, connecteurs, attachements, proprietes);
 		// TODO Auto-generated constructor stub
 	}
 
