@@ -380,7 +380,7 @@ public class Main {
 				.println("*****************************HADL_PROJECT*****************************");
 		System.out
 				.println("**********************************************************************");
-		System.out.println("Debut de application client-serveur.");
+		System.out.println("Début de l'application clients-serveur.");
 		System.out.println("Usage :");
 		System.out.println("\t $connexion  <login>");
 		System.out.println("\t $requete  <login> <requete>");
