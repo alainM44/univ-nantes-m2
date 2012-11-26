@@ -16,7 +16,7 @@
 package metamodel.propiete;
 
 /**
- * * Classe décribant une classe non fonctionelle
+ * Classe décriant une classe non fonctionelle
  * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
