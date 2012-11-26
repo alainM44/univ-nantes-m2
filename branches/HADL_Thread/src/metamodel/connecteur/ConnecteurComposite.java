@@ -17,7 +17,7 @@
 package metamodel.connecteur;
 
 /**
- * Classe abstraote décrivant l'élément composite du connecteur (pattern composite)
+ * Classe abstraite décrivant l'élément composite du connecteur (pattern composite)
  * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ

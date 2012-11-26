@@ -16,7 +16,7 @@
 package metamodel.propiete;
 
 /**
- * Classe décribant une classe fonctionelle
+ * Classe décrivant une classe fonctionelle
  * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
