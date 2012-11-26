@@ -130,6 +130,17 @@ Le langage choisi pour ce projet est JAVA. Les motivations de ce choix sont les 
 
 La question de la méthode de développement s'est imposée à cette étape du projet. Fallait il tout coder à la main, ou utiliser des outils de génération ? Nous étions notamment séduit par l'idée d'utiliser le framework EMF. Nous avons donc commencé à rédigé grammaire dans un fichier \verb+.ecore+ décrivant nos méta-models. Bien que les résultats de la générations étaient satisfaisants, nous avons abandonné cette solution. Le code généré était plus complexe et possédait un nombre signatures et de méthodes supplémentaires important. Nous avons jugé que cela pouvait rendre le développement plus difficile et nous induire  à des erreurs. Nous avons donc fait marche arrière et recommencé la création de toutes les classes manuellement. Bien que longue et fastidieuse, cette méthode nous a permis d'avoir une vision claire de notre avancée dans le développement.
 
+\paragraph{Communication au sein de l'architecture}
+Deux solutions étaient envisageables :
+\begin{enumerate}
+\item
+  Utiliser la classe \verb+Thread+ proposée par le JDK, et étendre chaque élément de notre modèle. 
+\item
+  Implémenter le pattern Observateur, à partir de l'API proposée par le JDK avec les classes \verb+Observable+ et \verb+Observer+.
+\end{enumerate} 
+
+C'est cette deuxième solution qui a été retenue. Nous évitions notamment d'étendre chaque classe de notre méta-model et de changer en profondeur ce dernier.
+
 \paragraph{Journalisation}
 Nous avons choisi d'utiliser AspectJ pour remplir cette fonctionnalité.  Ainsi il est possible de suivre le fil de suivre sur la sortie standard les exécutions des différents éléments de l'application sur la sortie standard. 
 
@@ -155,14 +166,16 @@ Les tâches restantes sont les suivantes :
 
 \begin{itemize}
 \item
-  Il aurait été été judicieux Tests
-\item
   Méthode de lecture dans les ports
 \item
- Lest ports et les services sont en synchrones blah blah blah  blah blah blah 
+  Les différents tests au niveau des branchements entres éléments n'ont pas été pas été effectués.   
+  Il aurait été été judicieux Tests
+
+\item
+  Lest ports et les services sont en synchrones blah blah blah  blah blah blah 
 \item
   Notre composant implémentant le rôle de la base de données de la configuration serveur. N'est pas relationelle. Les informations sont stockées dans structures de données standards (Tables de hachage notamment).
- 
+  
   
 \end{itemize}
 
