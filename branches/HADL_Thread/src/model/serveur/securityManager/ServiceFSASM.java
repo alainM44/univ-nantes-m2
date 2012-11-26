@@ -25,7 +25,7 @@ import metamodel.service.ServiceF;
  * 
  * @author Alain MARGUERITE
  * @author Romain RINCÉ
- *
+ * @see ServiceF
  */
 public class ServiceFSASM extends ServiceF {
 
@@ -47,7 +47,7 @@ public class ServiceFSASM extends ServiceF {
 		manager.setToIdentify(name);
 		callService("ServiceRCQuery");
 		setValueInPortR(manager.isIdentify(), "isAdmis");
-		//On remet tout les paramètres dans leur état initial
+		// On remet tout les paramètres dans leur état initial
 		manager.setIdentify(false);
 		manager.setToIdentify(null);
 

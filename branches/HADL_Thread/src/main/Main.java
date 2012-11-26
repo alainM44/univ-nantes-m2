@@ -387,9 +387,9 @@ public class Main {
 
     public static void menu(String[] args,
 			    ServiceRConnexionRPC runFromServiceRPC) {
-	System.out.println("*****************************");
-	System.out.println("********HADL_PROJECT*********");
-	System.out.println("*****************************");
+	System.out.println("**********************************************************************");
+	System.out.println("*****************************HADL_PROJECT*****************************");
+	System.out.println("**********************************************************************");
 	System.out.println("Bienvenu(es) dans une application client-serveur.");
 	System.out.println("Usage :");
 	System.out.println("\t $connexion  login");
@@ -403,7 +403,6 @@ public class Main {
 	args = lireString();
 
 	while (!fin) {
-
 	    arg = args[0];
 	    // use this type of check for "wordy" arguments
 	    if (arg.equals("requete") && args.length == 3) {

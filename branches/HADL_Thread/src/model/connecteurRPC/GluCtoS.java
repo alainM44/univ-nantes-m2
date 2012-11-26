@@ -29,7 +29,6 @@ public class GluCtoS extends Glu {
 
 	public GluCtoS(RoleR roleR, RoleF roleF) {
 		super(roleR, roleF);
-		// TODO Auto-generated constructor stub
 	}
 
 }
