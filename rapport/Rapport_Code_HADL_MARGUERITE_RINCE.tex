@@ -124,7 +124,7 @@
 
 
 \section{Introduction}\label{sec:intro}
-Dans le cadre du module \textsc{Components and Architectures}, il nous a été proposé de réaliser un Home Architecture Domain Language (HADL). Dans un précédent rapport, nous avons proposé un méta modèle de notre architecture à composants, ainsi qu'une implémentation de ce dernier proposant un modèle d'une application \textit{clients-serveur}. La dernière étape de ce projet est de coder cette application. Dans ce document nous détaillerons les choix d'implémentation ainsi que les problématiques rencontrées. Enfin nous terminerons par un bref résumé des tâches à effectuer.
+Dans le cadre du module \textsc{Components and Architectures}, il nous a été proposé de réaliser un Home Architecture Domain Language (HADL). Dans un précédent rapport, nous avons proposé un méta modèle de notre architecture à composants, ainsi qu'une implémentation de ce dernier proposant un modèle d'une application \textit{clients-serveur}. La dernière étape de ce projet est de coder cette application. Dans ce document nous détaillerons les choix implémentation ainsi que les problématiques rencontrées. Enfin nous terminerons par un bref résumé des tâches à effectuer.
 \section{Démarches et choix d'implémentations}\label{sec:pblm}
 Le langage choisi pour ce projet est JAVA. Les motivations de ce choix sont les suivantes : la facilité, ainsi que les qualités des outils proposés par l'IDE Eclipse pour un projet de développement au nombre de classe potentiellement très grand. 
 
@@ -166,17 +166,15 @@ Les tâches restantes sont les suivantes :
 
 \begin{itemize}
 \item
-  Méthode de lecture dans les ports
+  Amélioration de la transmission des objets dans les ports (éviter les cast).
 \item
-  Les différents tests au niveau des branchements entre éléments n'ont pas été pas été effectués.   
-
-\item
-  Lest ports et les services sont en synchrones blah blah blah  blah blah blah 
-\item
-  Notre composant implémentant le rôle de la base de données de la configuration serveur. N'est pas relationnelle. Les informations sont stockées dans structures de données standards (Tables de hachage notamment).
+  Rajouter des tests de compatibilité entre les interfaces de deux composants.
   
-  
-\end{itemize}
+\item
+  Gestion de la synchronisation des ports (pas de gestion asynchrone pour l'instant).
+\item
+  Notre composant DataBase n'est pas encore une base de données relationnelle.  
+  \end{itemize}
 
 \end{document}
 
@@ -187,4 +185,5 @@ Les tâches restantes sont les suivantes :
 % LocalWords:  d'implémentations Eclipse blahblah blahblahblah EMF
 % LocalWords:  blahblahblahblahblahyy blahblahblahblahblah framework
 % LocalWords:  blahblahblahblah ecore méta-models Journalisation quit
-% LocalWords:  AspectJ Admin requete
+% LocalWords:  AspectJ Admin requete clients-serveur Fallait-il Xcore
+% LocalWords:  Thread JDK l'API méta-modèle cast
