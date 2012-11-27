@@ -28,7 +28,7 @@
 \usepackage {multicol}
 %Pour faire plusieurs lignes
 \usepackage{multirow}
-\usepackage{slashbox}
+% \usepackage{slashbox}
 % Pour mettre du code source
 \usepackage {listings}
 % Pour pouvoir passer en paysage
@@ -126,8 +126,13 @@
 \date{Université de Nantes \\ 2 rue de la Houssinière, BP92208, F-44322 Nantes cedex 03, FRANCE}
 %\vspace{20cm}
 
-
 \newcommand{\cf}{\emph{cf}.}
+
+% Pour creer une nouvelle page lors d'un input
+\newcommand{\inputnp}[1]{\newpage\input{#1}}
+
+
+\input{__Keywords}
 
 
 \begin{document}
@@ -140,10 +145,11 @@
 \clearpage
 
 %\input{Remerciements}
-\input{Introduction}
-\input{TechnologieCible}
-\input{Modelisation} 
-\input{Conclusion}
+\inputnp{1_Introduction}
+\inputnp{2_Objectifs}
+\inputnp{3_Methodologie} 
+\inputnp{4_Travaux}
+\inputnp{5_Bilan}
 
 
 \listoffigures
