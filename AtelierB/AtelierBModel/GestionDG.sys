@@ -1,0 +1,62 @@
+/* GestionDG
+ * Author: BIZET CHALINE MARGUERITE RINCÉ
+ * Creation date: mer. nov. 28 2012
+ */
+MACHINE
+    GestionDG
+    
+SETS
+    ID_EMPLOYES; /* Ensemble des id correspondants aux employees*/
+    ID_DOSSIERS; /* Ensemble des id correspondants aux Dossiers */
+    ID_MODIFS;
+    LIBELLES_TRAITEMENT;
+    DATES
+    
+VARIABLES     
+    date_creation,
+    createur,
+    modification,
+    libelle,
+    modificateur
+    ,dossiersEnCours /* */
+    ,modifEnCours
+    
+INVARIANT
+    dossiersEnCours <: ID_DOSSIER
+    & modifEnCours <: ID_MODIFS
+	& createur: dossiersEnCours --> ID_EMPLOYE  /* A partir d'un dossier, nous obtenons un employe */
+    & date_creation : dossiersEnCours  --> DATES  /* A partir d'un  dossier, nous obtenons sa date de création */
+    & modification : modifEnCours --> ID_DOSSIERS/*  */
+    & libelle : modifEnCours --> LIBELLES_TRAITEMENT 
+    & date_modif : modifEnCours --> DATES 
+    & modificateur : modifEnCours --> ID_EMPLOYES
+    
+    
+    
+OPERATIONS
+    supprimerDossier (dd) =
+    PRE
+        	dd : ID_DOSSIER & dd : dossierEnCours 
+     THEN
+         ANY lesModifs WHERE
+             lesModifs <: ID_MODIFICATION & lesModifs = modifications~[{dd}]
+         THEN
+             
+         dossiersEnCours := dossiersEnCours - {dd}
+         
+         || date_creation := {dd}  <<| dossierEnCours - {dd} 
+         
+         || createur := {dd} <<| createur /* restriction de cretauer a tous les dossiers suaf dd */
+         
+         || modification :=  modification |>> {dd}   /*  */
+         || libelle := lesModifs <<| libelle   /*  */
+         || date_modif :=  lesModifs <<| date_modif /*  */
+         || modificateur :=  lesModifs <<| modificateur /*  */
+         
+         || !md: dom 
+         END /* ANY */
+
+    END
+    
+
+END
