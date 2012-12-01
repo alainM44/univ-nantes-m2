@@ -1,0 +1,1323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:viewpoint="http://www.obeo.fr/dsl/viewpoint/1.1.0" xmlns:webapp="http://www.eclipsecon.org/acceleo/tutorial/webapp/" xsi:schemaLocation="http://www.obeo.fr/dsl/viewpoint/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description/style http://www.eclipsecon.org/acceleo/tutorial/webapp/ platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.ecore" xmi:id="_DgAuETk8EeKLyYXlEpWO2Q" selectedViews="_LCxU4Dk8EeKLyYXlEpWO2Q">
+  <models xmi:type="webapp:Application" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#/"/>
+  <eAnnotations xmi:type="description:DAnnotationEntry" xmi:id="_DgAuEjk8EeKLyYXlEpWO2Q" source="Migration">
+    <details>style</details>
+    <details>someViewsAreHiddenDeactivation</details>
+    <details>edgeLabels</details>
+    <details>LabelAlignmentForDNodeListElementMigrationForNotHavingSessionDirtyAtOpening</details>
+    <details>LabelAlignmentForDNodeMigrationForNotHavingSessionDirtyAtOpening</details>
+    <details>GMFViewSizeForDNodeNotResizable</details>
+    <details>GMFTreeEdgeFixAnchors_2</details>
+    <details>RoutingStyleDesynchronization</details>
+    <details>sequenceAbsoluteBoundsFlag</details>
+  </eAnnotations>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_LCxU4Dk8EeKLyYXlEpWO2Q" initialized="true">
+    <ownedRepresentations xmi:type="viewpoint:DSemanticDiagram" xmi:id="_ROkL8DlAEeKLyYXlEpWO2Q" name="mainDiag">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_ROsHwDlAEeKLyYXlEpWO2Q" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_ROsHwTlAEeKLyYXlEpWO2Q" type="Viewpoint" element="_ROkL8DlAEeKLyYXlEpWO2Q" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_RREGUDlAEeKLyYXlEpWO2Q" type="2001" element="_RQjwADlAEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_RRFUcDlAEeKLyYXlEpWO2Q" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_RRFUcTlAEeKLyYXlEpWO2Q" x="129" y="-17"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_anay4DlaEeKLyYXlEpWO2Q" type="3001" element="_am09ADlaEeKLyYXlEpWO2Q">
+              <children xmi:type="notation:Node" xmi:id="_ancBADlaEeKLyYXlEpWO2Q" type="5001">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_ancBATlaEeKLyYXlEpWO2Q" x="-12" y="31"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_anay4TlaEeKLyYXlEpWO2Q" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_anay4jlaEeKLyYXlEpWO2Q" x="163" width="30" height="30"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ancBAjlaEeKLyYXlEpWO2Q" type="3001" element="_am2yMDlaEeKLyYXlEpWO2Q">
+              <children xmi:type="notation:Node" xmi:id="_ancoEDlaEeKLyYXlEpWO2Q" type="5001">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_ancoETlaEeKLyYXlEpWO2Q" x="-16" y="31"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_ancBAzlaEeKLyYXlEpWO2Q" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ancBBDlaEeKLyYXlEpWO2Q" y="-22" width="30" height="30"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_andPIDlaEeKLyYXlEpWO2Q" type="3001" element="_am3ZQDlaEeKLyYXlEpWO2Q">
+              <children xmi:type="notation:Node" xmi:id="_and2MDlaEeKLyYXlEpWO2Q" type="5001">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_and2MTlaEeKLyYXlEpWO2Q" x="-7" y="-17"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_andPITlaEeKLyYXlEpWO2Q" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_andPIjlaEeKLyYXlEpWO2Q" x="-8" y="168" width="30" height="30"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7ir5UDs3EeKlMbXGV59Nwg" type="3005" element="_7fh3oTs3EeKlMbXGV59Nwg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7ir5UTs3EeKlMbXGV59Nwg" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7ir5Ujs3EeKlMbXGV59Nwg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_RREGUTlAEeKLyYXlEpWO2Q" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RREGUjlAEeKLyYXlEpWO2Q" x="660" y="416" width="256" height="256"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_RRF7gDlAEeKLyYXlEpWO2Q" type="2001" element="_RQoBcDlAEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_RRHJoDlAEeKLyYXlEpWO2Q" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_RRHJoTlAEeKLyYXlEpWO2Q" x="52"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_RRb5wDlAEeKLyYXlEpWO2Q" type="3003" element="_RQoogDlAEeKLyYXlEpWO2Q">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_RRb5wTlAEeKLyYXlEpWO2Q" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RRb5wjlAEeKLyYXlEpWO2Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_RRF7gTlAEeKLyYXlEpWO2Q" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RRF7gjlAEeKLyYXlEpWO2Q" x="860" y="50" width="51" height="46"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_RRHwsDlAEeKLyYXlEpWO2Q" type="2001" element="_RQpPkDlAEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_RRI-0DlAEeKLyYXlEpWO2Q" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_RRI-0TlAEeKLyYXlEpWO2Q" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_RRdH4DlAEeKLyYXlEpWO2Q" type="3003" element="_RQp2oDlAEeKLyYXlEpWO2Q">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_RRdH4TlAEeKLyYXlEpWO2Q" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RRdH4jlAEeKLyYXlEpWO2Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_RRHwsTlAEeKLyYXlEpWO2Q" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RRHwsjlAEeKLyYXlEpWO2Q" x="865" y="160" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_RRKM8DlAEeKLyYXlEpWO2Q" type="2001" element="_RQqdsDlAEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_RRLbEDlAEeKLyYXlEpWO2Q" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_RRMCIDlAEeKLyYXlEpWO2Q" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_RReWADlAEeKLyYXlEpWO2Q" type="3003" element="_RQrEwDlAEeKLyYXlEpWO2Q">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_RReWATlAEeKLyYXlEpWO2Q" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RReWAjlAEeKLyYXlEpWO2Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_RRKM8TlAEeKLyYXlEpWO2Q" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RRKM8jlAEeKLyYXlEpWO2Q" x="870" y="325" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_OGNrMDlREeKLyYXlEpWO2Q" type="2003" element="_bRRh0DlSEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_OGO5UDlREeKLyYXlEpWO2Q" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_OGRVkDlREeKLyYXlEpWO2Q" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_bSY8IDlSEeKLyYXlEpWO2Q" type="3010" element="_bRlq4DlSEeKLyYXlEpWO2Q">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_bSY8ITlSEeKLyYXlEpWO2Q"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_OGRVkTlREeKLyYXlEpWO2Q"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_OGRVkjlREeKLyYXlEpWO2Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_OGNrMTlREeKLyYXlEpWO2Q" fontName="Ubuntu"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OGNrMjlREeKLyYXlEpWO2Q" x="50" y="290" width="193" height="93"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_OGR8oDlREeKLyYXlEpWO2Q" type="2003" element="_bRT-EDlSEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_OGSjsDlREeKLyYXlEpWO2Q" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_OGSjsTlREeKLyYXlEpWO2Q" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_bSZjMDlSEeKLyYXlEpWO2Q" type="3010" element="_bRztUDlSEeKLyYXlEpWO2Q">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_bSZjMTlSEeKLyYXlEpWO2Q"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_bSaKQDlSEeKLyYXlEpWO2Q" type="3010" element="_bR07cDlSEeKLyYXlEpWO2Q">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_bSaKQTlSEeKLyYXlEpWO2Q"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_bSaxUDlSEeKLyYXlEpWO2Q" type="3010" element="_bR2JkDlSEeKLyYXlEpWO2Q">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_bSaxUTlSEeKLyYXlEpWO2Q"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_tApx0Du8EeK7eu8xoxELRQ" type="3010" element="_s-wUYTu8EeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_tApx0Tu8EeK7eu8xoxELRQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_tAxGkDu8EeK7eu8xoxELRQ" type="3010" element="_s-ywoDu8EeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_tAxGkTu8EeK7eu8xoxELRQ"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_OGSjsjlREeKLyYXlEpWO2Q"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_OGSjszlREeKLyYXlEpWO2Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_OGR8oTlREeKLyYXlEpWO2Q" fontName="Ubuntu"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OGR8ojlREeKLyYXlEpWO2Q" x="55" y="190" width="113" height="83"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_OGTKwDlREeKLyYXlEpWO2Q" type="2003" element="_bRaEsDlSEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_OGTx0DlREeKLyYXlEpWO2Q" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_OGUY4DlREeKLyYXlEpWO2Q" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_bSbYYDlSEeKLyYXlEpWO2Q" type="3010" element="_bSBvwDlSEeKLyYXlEpWO2Q">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_bSbYYTlSEeKLyYXlEpWO2Q"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_tA0w8Du8EeK7eu8xoxELRQ" type="3010" element="_s-1z8Du8EeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_tA0w8Tu8EeK7eu8xoxELRQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_tA1YADu8EeK7eu8xoxELRQ" type="3010" element="_s-3CEDu8EeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_tA1YATu8EeK7eu8xoxELRQ"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_OGUY4TlREeKLyYXlEpWO2Q"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_OGUY4jlREeKLyYXlEpWO2Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_OGTKwTlREeKLyYXlEpWO2Q" fontName="Ubuntu"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OGTKwjlREeKLyYXlEpWO2Q" x="80" y="105"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_YNsUsDlVEeKLyYXlEpWO2Q" type="2001" element="_YMv5gDlVEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_YNs7wDlVEeKLyYXlEpWO2Q" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_YNs7wTlVEeKLyYXlEpWO2Q" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_YNxNMDlVEeKLyYXlEpWO2Q" type="3003" element="_YMwgkDlVEeKLyYXlEpWO2Q">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_YNxNMTlVEeKLyYXlEpWO2Q" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YNxNMjlVEeKLyYXlEpWO2Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_YNsUsTlVEeKLyYXlEpWO2Q" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YNsUsjlVEeKLyYXlEpWO2Q" x="305" y="300" width="166" height="76"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_YNti0DlVEeKLyYXlEpWO2Q" type="2001" element="_YMxHoDlVEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_YNuw8DlVEeKLyYXlEpWO2Q" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_YNuw8TlVEeKLyYXlEpWO2Q" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_YNybUDlVEeKLyYXlEpWO2Q" type="3003" element="_YMxusDlVEeKLyYXlEpWO2Q">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_YNybUTlVEeKLyYXlEpWO2Q" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YNybUjlVEeKLyYXlEpWO2Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_YNti0TlVEeKLyYXlEpWO2Q" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YNti0jlVEeKLyYXlEpWO2Q" x="280" y="150" width="145" height="60"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_YNvYADlVEeKLyYXlEpWO2Q" type="2001" element="_YMyVwDlVEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_YNv_EDlVEeKLyYXlEpWO2Q" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_YNv_ETlVEeKLyYXlEpWO2Q" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_YNzpcDlVEeKLyYXlEpWO2Q" type="3003" element="_YMy80DlVEeKLyYXlEpWO2Q">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_YNzpcTlVEeKLyYXlEpWO2Q" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YNzpcjlVEeKLyYXlEpWO2Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_YNvYATlVEeKLyYXlEpWO2Q" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YNvYAjlVEeKLyYXlEpWO2Q" x="235" y="40" width="186" height="76"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_bqwAgDu9EeK7eu8xoxELRQ" type="2001" element="_bpYHgDu9EeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_bq05ADu9EeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_bq05ATu9EeK7eu8xoxELRQ" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_bq6_oDu9EeK7eu8xoxELRQ" type="3017" element="_bpYukDu9EeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_bq6_oTu9EeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bq6_oju9EeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_bqwAgTu9EeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bqwAgju9EeK7eu8xoxELRQ" x="620" y="310" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_bq3VQDu9EeK7eu8xoxELRQ" type="2001" element="_bpYulDu9EeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_bq38UDu9EeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_bq38UTu9EeK7eu8xoxELRQ" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_bq7msDu9EeK7eu8xoxELRQ" type="3017" element="_bpZVoDu9EeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_bq7msTu9EeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bq7msju9EeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_bq3VQTu9EeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bq3VQju9EeK7eu8xoxELRQ" x="505" y="165" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_bq4jYDu9EeK7eu8xoxELRQ" type="2001" element="_bpZ8sDu9EeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_bq5KcDu9EeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_bq5KcTu9EeK7eu8xoxELRQ" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_bq8NwDu9EeK7eu8xoxELRQ" type="3017" element="_bpajwDu9EeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_bq8NwTu9EeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bq8Nwju9EeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_bq4jYTu9EeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bq4jYju9EeK7eu8xoxELRQ" x="480" y="75" width="30" height="30"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_ROsHwjlAEeKLyYXlEpWO2Q"/>
+          <edges xmi:type="notation:Edge" xmi:id="_brC7cDu9EeK7eu8xoxELRQ" type="4001" element="_bpv68Du9EeK7eu8xoxELRQ" source="_bqwAgDu9EeK7eu8xoxELRQ" target="_YNsUsDlVEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_brEJkDu9EeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brEJkTu9EeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brEJkju9EeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brEJkzu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brEwoDu9EeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brEwoTu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_brC7cTu9EeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_brC7cju9EeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_brC7czu9EeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brSzEDu9EeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brSzETu9EeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_brTaIDu9EeK7eu8xoxELRQ" type="4001" element="_bpwiADu9EeK7eu8xoxELRQ" source="_bq3VQDu9EeK7eu8xoxELRQ" target="_YNti0DlVEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_brUBMDu9EeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brUBMTu9EeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brUBMju9EeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brUBMzu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brUoQDu9EeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brUoQTu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_brTaITu9EeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_brTaIju9EeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_brTaIzu9EeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brVPUDu9EeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brVPUTu9EeK7eu8xoxELRQ" id="(0.496551724137931,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_brVPUju9EeK7eu8xoxELRQ" type="4001" element="_bpxJFDu9EeK7eu8xoxELRQ" source="_bq4jYDu9EeK7eu8xoxELRQ" target="_YNvYADlVEeKLyYXlEpWO2Q">
+            <children xmi:type="notation:Node" xmi:id="_brV2YDu9EeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brV2YTu9EeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brV2Yju9EeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brV2Yzu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brWdcDu9EeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brWdcTu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_brVPUzu9EeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_brVPVDu9EeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_brVPVTu9EeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brWdcju9EeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brWdczu9EeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_brXEgDu9EeK7eu8xoxELRQ" type="4001" element="_bpyXMDu9EeK7eu8xoxELRQ" source="_RRF7gDlAEeKLyYXlEpWO2Q" target="_bq4jYDu9EeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_brXrkDu9EeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brXrkTu9EeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brXrkju9EeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brXrkzu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brXrlDu9EeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brXrlTu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_brXEgTu9EeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_brXEgju9EeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_brXEgzu9EeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brY5sDu9EeK7eu8xoxELRQ" id="(0.49019607843137253,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brY5sTu9EeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_brY5sju9EeK7eu8xoxELRQ" type="4001" element="_bpy-RDu9EeK7eu8xoxELRQ" source="_RRHwsDlAEeKLyYXlEpWO2Q" target="_bq3VQDu9EeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_brZgwDu9EeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brZgwTu9EeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brZgwju9EeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brZgwzu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_braH0Du9EeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_braH0Tu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_brY5szu9EeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_brY5tDu9EeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_brY5tTu9EeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_braH0ju9EeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_braH0zu9EeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_brau4Du9EeK7eu8xoxELRQ" type="4001" element="_bpzlVDu9EeK7eu8xoxELRQ" source="_RRKM8DlAEeKLyYXlEpWO2Q" target="_bqwAgDu9EeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_brau5Du9EeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brau5Tu9EeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brau5ju9EeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brau5zu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_brbV8Du9EeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_brbV8Tu9EeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_brau4Tu9EeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_brau4ju9EeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_brau4zu9EeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brbV8ju9EeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_brbV8zu9EeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_RQjwADlAEeKLyYXlEpWO2Q" name="router" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="webapp:Router" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router"/>
+        <semanticElements xmi:type="webapp:Router" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router"/>
+        <ownedBorderedNodes xmi:type="viewpoint:DNode" xmi:id="_am09ADlaEeKLyYXlEpWO2Q" name="!/projects" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.0"/>
+          <semanticElements xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.0"/>
+          <ownedStyle xmi:type="viewpoint:Note" xmi:id="_am2LIDlaEeKLyYXlEpWO2Q">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_am2LITlaEeKLyYXlEpWO2Q"/>
+            <description xmi:type="style:NoteDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_am2LIjlaEeKLyYXlEpWO2Q"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_am2LIzlaEeKLyYXlEpWO2Q" red="252" green="233" blue="79"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']"/>
+        </ownedBorderedNodes>
+        <ownedBorderedNodes xmi:type="viewpoint:DNode" xmi:id="_am2yMDlaEeKLyYXlEpWO2Q" name="!/languages" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.1"/>
+          <semanticElements xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.1"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="viewpoint:Note" xmi:id="_am2yMTlaEeKLyYXlEpWO2Q">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_am2yMjlaEeKLyYXlEpWO2Q"/>
+            <description xmi:type="style:NoteDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_am2yMzlaEeKLyYXlEpWO2Q"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_am2yNDlaEeKLyYXlEpWO2Q" red="252" green="233" blue="79"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']"/>
+        </ownedBorderedNodes>
+        <ownedBorderedNodes xmi:type="viewpoint:DNode" xmi:id="_am3ZQDlaEeKLyYXlEpWO2Q" name="!/users" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.2"/>
+          <semanticElements xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.2"/>
+          <ownedStyle xmi:type="viewpoint:Note" xmi:id="_am4AUDlaEeKLyYXlEpWO2Q">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_am4AUTlaEeKLyYXlEpWO2Q"/>
+            <description xmi:type="style:NoteDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_am4AUjlaEeKLyYXlEpWO2Q"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_am4AUzlaEeKLyYXlEpWO2Q" red="252" green="233" blue="79"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']"/>
+        </ownedBorderedNodes>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_7fh3oTs3EeKlMbXGV59Nwg" workspacePath="/Chat/icone.png">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_RQoBcDlAEeKLyYXlEpWO2Q" name="Projects" outgoingEdges="_bpyXMDu9EeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.0"/>
+        <semanticElements xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_RQoogDlAEeKLyYXlEpWO2Q">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_RQoogTlAEeKLyYXlEpWO2Q"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_RQoogjlAEeKLyYXlEpWO2Q"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_RQoogzlAEeKLyYXlEpWO2Q" red="138" green="226" blue="52"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_RQpPkDlAEeKLyYXlEpWO2Q" name="Users" outgoingEdges="_bpy-RDu9EeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.1"/>
+        <semanticElements xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_RQp2oDlAEeKLyYXlEpWO2Q">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_RQp2oTlAEeKLyYXlEpWO2Q"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_RQp2ojlAEeKLyYXlEpWO2Q"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_RQp2ozlAEeKLyYXlEpWO2Q" red="138" green="226" blue="52"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_RQqdsDlAEeKLyYXlEpWO2Q" name="Languages" outgoingEdges="_bpzlVDu9EeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.2"/>
+        <semanticElements xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.2"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_RQrEwDlAEeKLyYXlEpWO2Q">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_RQrEwTlAEeKLyYXlEpWO2Q"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_RQrEwjlAEeKLyYXlEpWO2Q"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_RQrEwzlAEeKLyYXlEpWO2Q" red="138" green="226" blue="52"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_bRRh0DlSEeKLyYXlEpWO2Q" name="Language">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_bRSI4DlSEeKLyYXlEpWO2Q">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bRSI4TlSEeKLyYXlEpWO2Q"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bRSI4jlSEeKLyYXlEpWO2Q"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_bRSI4zlSEeKLyYXlEpWO2Q" red="255" green="255" blue="255"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_bRSI5DlSEeKLyYXlEpWO2Q" red="209" green="209" blue="209"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:ContainerMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']"/>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_bRlq4DlSEeKLyYXlEpWO2Q" name="Name">
+          <target xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0/@attributes.0"/>
+          <semanticElements xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0/@attributes.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_bRmR8DlSEeKLyYXlEpWO2Q">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bRmR8TlSEeKLyYXlEpWO2Q"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bRmR8jlSEeKLyYXlEpWO2Q"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_bRmR8zlSEeKLyYXlEpWO2Q" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_bRT-EDlSEeKLyYXlEpWO2Q" name="User">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_bRUlIDlSEeKLyYXlEpWO2Q">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bRUlITlSEeKLyYXlEpWO2Q"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bRUlIjlSEeKLyYXlEpWO2Q"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_bRUlIzlSEeKLyYXlEpWO2Q" red="255" green="255" blue="255"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_bRUlJDlSEeKLyYXlEpWO2Q" red="209" green="209" blue="209"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:ContainerMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']"/>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_bRztUDlSEeKLyYXlEpWO2Q" name="First Name">
+          <target xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.0"/>
+          <semanticElements xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_bR0UYDlSEeKLyYXlEpWO2Q">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bR0UYTlSEeKLyYXlEpWO2Q"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bR0UYjlSEeKLyYXlEpWO2Q"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_bR0UYzlSEeKLyYXlEpWO2Q" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_bR07cDlSEeKLyYXlEpWO2Q" name="Last Name">
+          <target xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.1"/>
+          <semanticElements xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.1"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_bR1igDlSEeKLyYXlEpWO2Q">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bR1igTlSEeKLyYXlEpWO2Q"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bR1igjlSEeKLyYXlEpWO2Q"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_bR1igzlSEeKLyYXlEpWO2Q" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_bR2JkDlSEeKLyYXlEpWO2Q" name="Age">
+          <target xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.2"/>
+          <semanticElements xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.2"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_bR2JkTlSEeKLyYXlEpWO2Q">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bR2JkjlSEeKLyYXlEpWO2Q"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bR2JkzlSEeKLyYXlEpWO2Q"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_bR2JlDlSEeKLyYXlEpWO2Q" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_s-wUYTu8EeK7eu8xoxELRQ" name="Projects">
+          <target xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@references.0"/>
+          <semanticElements xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@references.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_s-xigDu8EeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_s-xigTu8EeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_s-xigju8EeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_s-xigzu8EeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_s-ywoDu8EeK7eu8xoxELRQ" name="Languages">
+          <target xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@references.1"/>
+          <semanticElements xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@references.1"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_s-zXsDu8EeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_s-zXsTu8EeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_s-zXsju8EeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_s-zXszu8EeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_bRaEsDlSEeKLyYXlEpWO2Q" name="Project">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2"/>
+        <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_bRarwDlSEeKLyYXlEpWO2Q">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bRarwTlSEeKLyYXlEpWO2Q"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bRarwjlSEeKLyYXlEpWO2Q"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_bRarwzlSEeKLyYXlEpWO2Q" red="255" green="255" blue="255"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_bRarxDlSEeKLyYXlEpWO2Q" red="209" green="209" blue="209"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:ContainerMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']"/>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_bSBvwDlSEeKLyYXlEpWO2Q" name="Name">
+          <target xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@attributes.0"/>
+          <semanticElements xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@attributes.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_bSCW0DlSEeKLyYXlEpWO2Q">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bSCW0TlSEeKLyYXlEpWO2Q"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bSCW0jlSEeKLyYXlEpWO2Q"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_bSCW0zlSEeKLyYXlEpWO2Q" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_s-1z8Du8EeK7eu8xoxELRQ" name="Users">
+          <target xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@references.0"/>
+          <semanticElements xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@references.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_s-2bADu8EeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_s-2bATu8EeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_s-2bAju8EeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_s-2bAzu8EeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_s-3CEDu8EeK7eu8xoxELRQ" name="Languages">
+          <target xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@references.1"/>
+          <semanticElements xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@references.1"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_s-3CETu8EeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_s-3CEju8EeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_s-3CEzu8EeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_s-3CFDu8EeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_YMv5gDlVEeKLyYXlEpWO2Q" name="Language" incomingEdges="_bpv68Du9EeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_YMwgkDlVEeKLyYXlEpWO2Q" labelPosition="node">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_YMwgkTlVEeKLyYXlEpWO2Q"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_YMwgkjlVEeKLyYXlEpWO2Q"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_YMwgkzlVEeKLyYXlEpWO2Q" red="136" green="136" blue="136"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_YMxHoDlVEeKLyYXlEpWO2Q" name="User" incomingEdges="_bpwiADu9EeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_YMxusDlVEeKLyYXlEpWO2Q" labelPosition="node">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_YMxusTlVEeKLyYXlEpWO2Q"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_YMxusjlVEeKLyYXlEpWO2Q"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_YMxuszlVEeKLyYXlEpWO2Q" red="136" green="136" blue="136"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_YMyVwDlVEeKLyYXlEpWO2Q" name="Project" incomingEdges="_bpxJFDu9EeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_YMy80DlVEeKLyYXlEpWO2Q" labelPosition="node">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_YMy80TlVEeKLyYXlEpWO2Q"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_YMy80jlVEeKLyYXlEpWO2Q"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_YMy80zlVEeKLyYXlEpWO2Q" red="136" green="136" blue="136"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_bpYHgDu9EeK7eu8xoxELRQ" name="LanguagesCollection" outgoingEdges="_bpv68Du9EeK7eu8xoxELRQ" incomingEdges="_bpzlVDu9EeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.0"/>
+        <semanticElements xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:Lozenge" xmi:id="_bpYukDu9EeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bpYukTu9EeK7eu8xoxELRQ"/>
+          <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bpYukju9EeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_bpYukzu9EeK7eu8xoxELRQ" red="173" green="127" blue="168"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_bpYulDu9EeK7eu8xoxELRQ" name="UsersCollection" outgoingEdges="_bpwiADu9EeK7eu8xoxELRQ" incomingEdges="_bpy-RDu9EeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.1"/>
+        <semanticElements xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:Lozenge" xmi:id="_bpZVoDu9EeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bpZVoTu9EeK7eu8xoxELRQ"/>
+          <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bpZVoju9EeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_bpZVozu9EeK7eu8xoxELRQ" red="173" green="127" blue="168"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_bpZ8sDu9EeK7eu8xoxELRQ" name="ProjectsCollection" outgoingEdges="_bpxJFDu9EeK7eu8xoxELRQ" incomingEdges="_bpyXMDu9EeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.2"/>
+        <semanticElements xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.2"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="viewpoint:Lozenge" xmi:id="_bpajwDu9EeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bpajwTu9EeK7eu8xoxELRQ"/>
+          <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_bpajwju9EeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_bpajwzu9EeK7eu8xoxELRQ" red="173" green="127" blue="168"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_bpv68Du9EeK7eu8xoxELRQ" sourceNode="_bpYHgDu9EeK7eu8xoxELRQ" targetNode="_YMv5gDlVEeKLyYXlEpWO2Q">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.0"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_bpv68Tu9EeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_bpv68ju9EeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_bpv68zu9EeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bpv69Du9EeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_bpwiADu9EeK7eu8xoxELRQ" sourceNode="_bpYulDu9EeK7eu8xoxELRQ" targetNode="_YMxHoDlVEeKLyYXlEpWO2Q">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.1"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_bpxJEDu9EeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_bpxJETu9EeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_bpxJEju9EeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bpxJEzu9EeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_bpxJFDu9EeK7eu8xoxELRQ" sourceNode="_bpZ8sDu9EeK7eu8xoxELRQ" targetNode="_YMyVwDlVEeKLyYXlEpWO2Q">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.2"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_bpxJFTu9EeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_bpxJFju9EeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_bpxJFzu9EeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bpxJGDu9EeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_bpyXMDu9EeK7eu8xoxELRQ" sourceNode="_RQoBcDlAEeKLyYXlEpWO2Q" targetNode="_bpZ8sDu9EeK7eu8xoxELRQ">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.0"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_bpy-QDu9EeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_bpy-QTu9EeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_bpy-Qju9EeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bpy-Qzu9EeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_bpy-RDu9EeK7eu8xoxELRQ" sourceNode="_RQpPkDlAEeKLyYXlEpWO2Q" targetNode="_bpYulDu9EeK7eu8xoxELRQ">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.1"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_bpzlUDu9EeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_bpzlUTu9EeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_bpzlUju9EeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bpzlUzu9EeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_bpzlVDu9EeK7eu8xoxELRQ" sourceNode="_RQqdsDlAEeKLyYXlEpWO2Q" targetNode="_bpYHgDu9EeK7eu8xoxELRQ">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.2"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_bp0MYDu9EeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_bp0MYTu9EeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_bp0MYju9EeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_bp0MYzu9EeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description:DiagramDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']"/>
+      <filterVariableHistory xmi:type="viewpoint:FilterVariableHistory" xmi:id="_ROkL8TlAEeKLyYXlEpWO2Q"/>
+      <activatedLayers xmi:type="description:Layer" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer"/>
+      <target xmi:type="webapp:Application" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#/"/>
+    </ownedRepresentations>
+    <ownedRepresentations xmi:type="viewpoint:DSemanticDiagram" xmi:id="_NfVG0DvBEeK7eu8xoxELRQ" name="question12">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_NfamYDvBEeK7eu8xoxELRQ" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_NfamYTvBEeK7eu8xoxELRQ" type="Viewpoint" element="_NfVG0DvBEeK7eu8xoxELRQ" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_NiJKQDvBEeK7eu8xoxELRQ" type="2001" element="_NgVMYDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiJxUDvBEeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_NiJxUTvBEeK7eu8xoxELRQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NiaQADvBEeK7eu8xoxELRQ" type="3003" element="_NhGBYDvBEeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_NiaQATvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiaQAjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiJKQTvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiJKQjvBEeK7eu8xoxELRQ" x="675" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiKYYDvBEeK7eu8xoxELRQ" type="2001" element="_NhGocDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiK_cDvBEeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_NiK_cTvBEeK7eu8xoxELRQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Nia3EDvBEeK7eu8xoxELRQ" type="3003" element="_NhGocTvBEeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_Nia3ETvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Nia3EjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiKYYTvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiKYYjvBEeK7eu8xoxELRQ" x="765" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiK_cjvBEeK7eu8xoxELRQ" type="2001" element="_NhHPgDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiLmgDvBEeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_NiLmgTvBEeK7eu8xoxELRQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NibeIDvBEeK7eu8xoxELRQ" type="3003" element="_NhH2kDvBEeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_NibeITvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NibeIjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiK_czvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiK_dDvBEeK7eu8xoxELRQ" x="855" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiMNkDvBEeK7eu8xoxELRQ" type="2001" element="_NhIdoDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiM0oDvBEeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_NiM0oTvBEeK7eu8xoxELRQ" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NicFMDvBEeK7eu8xoxELRQ" type="3017" element="_NhJEsDvBEeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_NicFMTvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NicFMjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiMNkTvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiMNkjvBEeK7eu8xoxELRQ" x="675" y="90" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiNbsDvBEeK7eu8xoxELRQ" type="2001" element="_NhJrwDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiOCwDvBEeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_NiOCwTvBEeK7eu8xoxELRQ" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NicsQDvBEeK7eu8xoxELRQ" type="3017" element="_NhJrwTvBEeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_NicsQTvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NicsQjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiNbsTvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiNbsjvBEeK7eu8xoxELRQ" x="765" y="90" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiPQ4DvBEeK7eu8xoxELRQ" type="2001" element="_NhKS0TvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiP38DvBEeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_NiP38TvBEeK7eu8xoxELRQ" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NidTUDvBEeK7eu8xoxELRQ" type="3017" element="_NhK54DvBEeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_NidTUTvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NidTUjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiPQ4TvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiPQ4jvBEeK7eu8xoxELRQ" x="855" y="90" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiQfADvBEeK7eu8xoxELRQ" type="2001" element="_NhLg8DvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiRGEDvBEeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_NiRGETvBEeK7eu8xoxELRQ" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Nid6YDvBEeK7eu8xoxELRQ" type="3001" element="_NhRAgDvBEeK7eu8xoxELRQ">
+              <children xmi:type="notation:Node" xmi:id="_NifIgDvBEeK7eu8xoxELRQ" type="5001">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NifIgTvBEeK7eu8xoxELRQ" x="-10" y="-82"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_Nid6YTvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Nid6YjvBEeK7eu8xoxELRQ" x="-22" width="30" height="30"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NigWoDvBEeK7eu8xoxELRQ" type="3001" element="_NhRnlDvBEeK7eu8xoxELRQ">
+              <children xmi:type="notation:Node" xmi:id="_NihkwDvBEeK7eu8xoxELRQ" type="5001">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NihkwTvBEeK7eu8xoxELRQ" x="31"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_NigWoTvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NigWojvBEeK7eu8xoxELRQ" x="-22" y="31" width="30" height="30"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Niiy4DvBEeK7eu8xoxELRQ" type="3001" element="_NhS1sDvBEeK7eu8xoxELRQ">
+              <children xmi:type="notation:Node" xmi:id="_NijZ8DvBEeK7eu8xoxELRQ" type="5001">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NijZ8TvBEeK7eu8xoxELRQ" x="31"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_Niiy4TvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Niiy4jvBEeK7eu8xoxELRQ" x="-22" y="62" width="30" height="30"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Nil2MDvBEeK7eu8xoxELRQ" type="3005" element="_NhMIADvBEeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_Nil2MTvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Nil2MjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiQfATvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiQfAjvBEeK7eu8xoxELRQ" width="256" height="256"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiRtIDvBEeK7eu8xoxELRQ" type="2001" element="_NhUD0DvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiSUMDvBEeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_NiSUMTvBEeK7eu8xoxELRQ" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NimdQDvBEeK7eu8xoxELRQ" type="3003" element="_NhUq4DvBEeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_NimdQTvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NimdQjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiRtITvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiRtIjvBEeK7eu8xoxELRQ" x="855" y="180" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiS7QDvBEeK7eu8xoxELRQ" type="2001" element="_NhVR8DvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiTiUDvBEeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_NiTiUTvBEeK7eu8xoxELRQ" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NinEUDvBEeK7eu8xoxELRQ" type="3003" element="_NhV5ADvBEeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_NinEUTvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NinEUjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiS7QTvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiS7QjvBEeK7eu8xoxELRQ" x="765" y="180" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiUJYDvBEeK7eu8xoxELRQ" type="2001" element="_NhWgEDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiUwcDvBEeK7eu8xoxELRQ" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_NiUwcTvBEeK7eu8xoxELRQ" x="31"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NioScDvBEeK7eu8xoxELRQ" type="3003" element="_NhXHIDvBEeK7eu8xoxELRQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_NioScTvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NioScjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiUJYTvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiUJYjvBEeK7eu8xoxELRQ" x="675" y="180" width="30" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiVXgDvBEeK7eu8xoxELRQ" type="2003" element="_NhYVQDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiWloDvBEeK7eu8xoxELRQ" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_NiXMsDvBEeK7eu8xoxELRQ" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_Nio5gDvBEeK7eu8xoxELRQ" type="3010" element="_NhgREDvBEeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_Nio5gTvBEeK7eu8xoxELRQ"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_NiXMsTvBEeK7eu8xoxELRQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_NiXMsjvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiVXgTvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiVXgjvBEeK7eu8xoxELRQ" x="315"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiXMszvBEeK7eu8xoxELRQ" type="2003" element="_NhZjYDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiXzwDvBEeK7eu8xoxELRQ" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_NiYa0DvBEeK7eu8xoxELRQ" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_NipgkDvBEeK7eu8xoxELRQ" type="3010" element="_NhwIsDvBEeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NipgkTvBEeK7eu8xoxELRQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_NipgkjvBEeK7eu8xoxELRQ" type="3010" element="_NhxW0DvBEeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NipgkzvBEeK7eu8xoxELRQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_NiqHoDvBEeK7eu8xoxELRQ" type="3010" element="_Nhx95DvBEeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NiqHoTvBEeK7eu8xoxELRQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_NiqHojvBEeK7eu8xoxELRQ" type="3010" element="_NhzzEDvBEeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NiqHozvBEeK7eu8xoxELRQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_NiqusDvBEeK7eu8xoxELRQ" type="3010" element="_Nh0aIDvBEeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NiqusTvBEeK7eu8xoxELRQ"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_NiYa0TvBEeK7eu8xoxELRQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_NiYa0jvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiXMtDvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiXMtTvBEeK7eu8xoxELRQ" x="435"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_NiYa0zvBEeK7eu8xoxELRQ" type="2003" element="_NhaKcDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiZB4DvBEeK7eu8xoxELRQ" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_NiZB4TvBEeK7eu8xoxELRQ" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_NirVwDvBEeK7eu8xoxELRQ" type="3010" element="_Nh2PUDvBEeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NirVwTvBEeK7eu8xoxELRQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_NirVwjvBEeK7eu8xoxELRQ" type="3010" element="_Nh3dcDvBEeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NirVwzvBEeK7eu8xoxELRQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_Nir80DvBEeK7eu8xoxELRQ" type="3010" element="_Nh4EhDvBEeK7eu8xoxELRQ">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_Nir80TvBEeK7eu8xoxELRQ"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_NiZB4jvBEeK7eu8xoxELRQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_NiZo8DvBEeK7eu8xoxELRQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_NiYa1DvBEeK7eu8xoxELRQ" fontName="Ubuntu" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiYa1TvBEeK7eu8xoxELRQ" x="570"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_NfamYjvBEeK7eu8xoxELRQ"/>
+          <edges xmi:type="notation:Edge" xmi:id="_Nisj4DvBEeK7eu8xoxELRQ" type="4001" element="_Nh9kEDvBEeK7eu8xoxELRQ" source="_NiMNkDvBEeK7eu8xoxELRQ" target="_NiJKQDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NitK8DvBEeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NitK8TvBEeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NitK8jvBEeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NitK8zvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NityADvBEeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NityATvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_Nisj4TvBEeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_Nisj4jvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Nisj4zvBEeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NityAjvBEeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NityAzvBEeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_NiuZEDvBEeK7eu8xoxELRQ" type="4001" element="_Nh-LJDvBEeK7eu8xoxELRQ" source="_NiNbsDvBEeK7eu8xoxELRQ" target="_NiKYYDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiuZFDvBEeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiuZFTvBEeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NivAIDvBEeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NivAITvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NivAIjvBEeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NivAIzvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_NiuZETvBEeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_NiuZEjvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NiuZEzvBEeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NivAJDvBEeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NivnMDvBEeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_NivnMTvBEeK7eu8xoxELRQ" type="4001" element="_Nh-yNDvBEeK7eu8xoxELRQ" source="_NiPQ4DvBEeK7eu8xoxELRQ" target="_NiK_cjvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NivnNTvBEeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NivnNjvBEeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NiwOQDvBEeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiwOQTvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NiwOQjvBEeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiwOQzvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_NivnMjvBEeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_NivnMzvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NivnNDvBEeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Niw1UDvBEeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Niw1UTvBEeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_Niw1UjvBEeK7eu8xoxELRQ" type="4001" element="_NiDDoDvBEeK7eu8xoxELRQ" source="_NiRtIDvBEeK7eu8xoxELRQ" target="_NiPQ4DvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NixcYDvBEeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NixcYTvBEeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NixcYjvBEeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NixcYzvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NixcZDvBEeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NixcZTvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_Niw1UzvBEeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_Niw1VDvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Niw1VTvBEeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NiyDcDvBEeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NiyDcTvBEeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_NiyDcjvBEeK7eu8xoxELRQ" type="4001" element="_NiDqtDvBEeK7eu8xoxELRQ" source="_NiS7QDvBEeK7eu8xoxELRQ" target="_NiNbsDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_NiyqgDvBEeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiyqgTvBEeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NiyqgjvBEeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiyqgzvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_NiyqhDvBEeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiyqhTvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_NiyDczvBEeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_NiyDdDvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NiyDdTvBEeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NizRkDvBEeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NizRkTvBEeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_NizRkjvBEeK7eu8xoxELRQ" type="4001" element="_NiERxDvBEeK7eu8xoxELRQ" source="_NiUJYDvBEeK7eu8xoxELRQ" target="_NiMNkDvBEeK7eu8xoxELRQ">
+            <children xmi:type="notation:Node" xmi:id="_Niz4oDvBEeK7eu8xoxELRQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Niz4oTvBEeK7eu8xoxELRQ" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Niz4ojvBEeK7eu8xoxELRQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Niz4ozvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_Ni0fsDvBEeK7eu8xoxELRQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ni0fsTvBEeK7eu8xoxELRQ" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_NizRkzvBEeK7eu8xoxELRQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_NizRlDvBEeK7eu8xoxELRQ" fontName="Ubuntu"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NizRlTvBEeK7eu8xoxELRQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ni0fsjvBEeK7eu8xoxELRQ" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ni0fszvBEeK7eu8xoxELRQ" id="(0.5,1.0)"/>
+          </edges>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_NgVMYDvBEeK7eu8xoxELRQ" name="Language" incomingEdges="_Nh9kEDvBEeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0"/>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_NhGBYDvBEeK7eu8xoxELRQ" labelPosition="node">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhGBYTvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhGBYjvBEeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_NhGBYzvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_NhGocDvBEeK7eu8xoxELRQ" name="User" incomingEdges="_Nh-LJDvBEeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1"/>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_NhGocTvBEeK7eu8xoxELRQ" labelPosition="node">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhGocjvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhGoczvBEeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_NhGodDvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_NhHPgDvBEeK7eu8xoxELRQ" name="Project" incomingEdges="_Nh-yNDvBEeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2"/>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_NhH2kDvBEeK7eu8xoxELRQ" labelPosition="node">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhH2kTvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhH2kjvBEeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_NhH2kzvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_NhIdoDvBEeK7eu8xoxELRQ" name="LanguagesCollection" outgoingEdges="_Nh9kEDvBEeK7eu8xoxELRQ" incomingEdges="_NiERxDvBEeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.0"/>
+        <semanticElements xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.0"/>
+        <ownedStyle xmi:type="viewpoint:Lozenge" xmi:id="_NhJEsDvBEeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhJEsTvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhJEsjvBEeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_NhJEszvBEeK7eu8xoxELRQ" red="173" green="127" blue="168"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_NhJrwDvBEeK7eu8xoxELRQ" name="UsersCollection" outgoingEdges="_Nh-LJDvBEeK7eu8xoxELRQ" incomingEdges="_NiDqtDvBEeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.1"/>
+        <semanticElements xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.1"/>
+        <ownedStyle xmi:type="viewpoint:Lozenge" xmi:id="_NhJrwTvBEeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhJrwjvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhJrwzvBEeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_NhKS0DvBEeK7eu8xoxELRQ" red="173" green="127" blue="168"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_NhKS0TvBEeK7eu8xoxELRQ" name="ProjectsCollection" outgoingEdges="_Nh-yNDvBEeK7eu8xoxELRQ" incomingEdges="_NiDDoDvBEeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.2"/>
+        <semanticElements xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.2"/>
+        <ownedStyle xmi:type="viewpoint:Lozenge" xmi:id="_NhK54DvBEeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhK54TvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhK54jvBEeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_NhK54zvBEeK7eu8xoxELRQ" red="173" green="127" blue="168"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_NhLg8DvBEeK7eu8xoxELRQ" name="router" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="webapp:Router" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router"/>
+        <semanticElements xmi:type="webapp:Router" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router"/>
+        <ownedBorderedNodes xmi:type="viewpoint:DNode" xmi:id="_NhRAgDvBEeK7eu8xoxELRQ" name="!/projects" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.0"/>
+          <semanticElements xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.0"/>
+          <ownedStyle xmi:type="viewpoint:Note" xmi:id="_NhRnkDvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhRnkTvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:NoteDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhRnkjvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_NhRnkzvBEeK7eu8xoxELRQ" red="252" green="233" blue="79"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']"/>
+        </ownedBorderedNodes>
+        <ownedBorderedNodes xmi:type="viewpoint:DNode" xmi:id="_NhRnlDvBEeK7eu8xoxELRQ" name="!/languages" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.1"/>
+          <semanticElements xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.1"/>
+          <ownedStyle xmi:type="viewpoint:Note" xmi:id="_NhSOoDvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhSOoTvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:NoteDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhSOojvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_NhSOozvBEeK7eu8xoxELRQ" red="252" green="233" blue="79"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']"/>
+        </ownedBorderedNodes>
+        <ownedBorderedNodes xmi:type="viewpoint:DNode" xmi:id="_NhS1sDvBEeK7eu8xoxELRQ" name="!/users" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.2"/>
+          <semanticElements xmi:type="webapp:RouterMapping" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@router/@mappings.2"/>
+          <ownedStyle xmi:type="viewpoint:Note" xmi:id="_NhTcwDvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhTcwTvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:NoteDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhTcwjvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_NhTcwzvBEeK7eu8xoxELRQ" red="252" green="233" blue="79"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@borderedNodeMappings[name='mappigs']"/>
+        </ownedBorderedNodes>
+        <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_NhMIADvBEeK7eu8xoxELRQ" workspacePath="/Chat/icone.png">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeRouter']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_NhUD0DvBEeK7eu8xoxELRQ" name="Projects" outgoingEdges="_NiDDoDvBEeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.0"/>
+        <semanticElements xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.0"/>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_NhUq4DvBEeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhUq4TvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhUq4jvBEeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_NhUq4zvBEeK7eu8xoxELRQ" red="138" green="226" blue="52"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_NhVR8DvBEeK7eu8xoxELRQ" name="Users" outgoingEdges="_NiDqtDvBEeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.1"/>
+        <semanticElements xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.1"/>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_NhV5ADvBEeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhV5ATvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhV5AjvBEeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_NhV5AzvBEeK7eu8xoxELRQ" red="138" green="226" blue="52"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_NhWgEDvBEeK7eu8xoxELRQ" name="Languages" outgoingEdges="_NiERxDvBEeK7eu8xoxELRQ" width="3" height="3" resizeKind="NSEW">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.2"/>
+        <semanticElements xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.2"/>
+        <ownedStyle xmi:type="viewpoint:Square" xmi:id="_NhXHIDvBEeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhXHITvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhXHIjvBEeK7eu8xoxELRQ"/>
+          <color xmi:type="viewpoint:RGBValues" xmi:id="_NhXHIzvBEeK7eu8xoxELRQ" red="138" green="226" blue="52"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_NhYVQDvBEeK7eu8xoxELRQ" name="Language">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0"/>
+        <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_NhY8UDvBEeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhY8UTvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhY8UjvBEeK7eu8xoxELRQ"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_NhY8UzvBEeK7eu8xoxELRQ" red="255" green="255" blue="255"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_NhY8VDvBEeK7eu8xoxELRQ" red="209" green="209" blue="209"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:ContainerMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']"/>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_NhgREDvBEeK7eu8xoxELRQ" name="Name">
+          <target xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0/@attributes.0"/>
+          <semanticElements xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.0/@attributes.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_Nhg4IDvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Nhg4ITvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_Nhg4IjvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_Nhg4IzvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_NhZjYDvBEeK7eu8xoxELRQ" name="User">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1"/>
+        <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_NhZjYTvBEeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhZjYjvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhZjYzvBEeK7eu8xoxELRQ"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_NhZjZDvBEeK7eu8xoxELRQ" red="255" green="255" blue="255"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_NhZjZTvBEeK7eu8xoxELRQ" red="209" green="209" blue="209"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:ContainerMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']"/>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_NhwIsDvBEeK7eu8xoxELRQ" name="First Name">
+          <target xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.0"/>
+          <semanticElements xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_NhwvwDvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhwvwTvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhwvwjvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_NhwvwzvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_NhxW0DvBEeK7eu8xoxELRQ" name="Last Name">
+          <target xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.1"/>
+          <semanticElements xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.1"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_Nhx94DvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Nhx94TvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_Nhx94jvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_Nhx94zvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_Nhx95DvBEeK7eu8xoxELRQ" name="Age">
+          <target xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.2"/>
+          <semanticElements xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@attributes.2"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_Nhyk8DvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Nhyk8TvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_Nhyk8jvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_Nhyk8zvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_NhzzEDvBEeK7eu8xoxELRQ" name="Projects">
+          <target xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@references.0"/>
+          <semanticElements xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@references.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_NhzzETvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhzzEjvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhzzEzvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_NhzzFDvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_Nh0aIDvBEeK7eu8xoxELRQ" name="Languages">
+          <target xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@references.1"/>
+          <semanticElements xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.1/@references.1"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_Nh1BMDvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh1BMTvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh1BMjvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_Nh1BMzvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_NhaKcDvBEeK7eu8xoxELRQ" name="Project">
+        <target xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2"/>
+        <semanticElements xmi:type="webapp:Model" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2"/>
+        <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_NhaxgDvBEeK7eu8xoxELRQ">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhaxgTvBEeK7eu8xoxELRQ"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_NhaxgjvBEeK7eu8xoxELRQ"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_NhaxgzvBEeK7eu8xoxELRQ" red="255" green="255" blue="255"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_NhaxhDvBEeK7eu8xoxELRQ" red="209" green="209" blue="209"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description:ContainerMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']"/>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_Nh2PUDvBEeK7eu8xoxELRQ" name="Name">
+          <target xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@attributes.0"/>
+          <semanticElements xmi:type="webapp:Attribute" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@attributes.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_Nh22YDvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh22YTvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh22YjvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_Nh22YzvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='attributs']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_Nh3dcDvBEeK7eu8xoxELRQ" name="Users">
+          <target xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@references.0"/>
+          <semanticElements xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@references.0"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_Nh4EgDvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh4EgTvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh4EgjvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_Nh4EgzvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']"/>
+        </ownedElements>
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_Nh4EhDvBEeK7eu8xoxELRQ" name="Languages">
+          <target xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@references.1"/>
+          <semanticElements xmi:type="webapp:Reference" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@models.2/@references.1"/>
+          <ownedStyle xmi:type="viewpoint:Square" xmi:id="_Nh4rkDvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh4rkTvBEeK7eu8xoxELRQ"/>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh4rkjvBEeK7eu8xoxELRQ"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_Nh4rkzvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='model']/@subNodeMappings[name='references']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_Nh9kEDvBEeK7eu8xoxELRQ" sourceNode="_NhIdoDvBEeK7eu8xoxELRQ" targetNode="_NgVMYDvBEeK7eu8xoxELRQ">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.0"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_Nh-LIDvBEeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh-LITvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_Nh-LIjvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh-LIzvBEeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_Nh-LJDvBEeK7eu8xoxELRQ" sourceNode="_NhJrwDvBEeK7eu8xoxELRQ" targetNode="_NhGocDvBEeK7eu8xoxELRQ">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.1"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_Nh-yMDvBEeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh-yMTvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_Nh-yMjvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh-yMzvBEeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_Nh-yNDvBEeK7eu8xoxELRQ" sourceNode="_NhKS0TvBEeK7eu8xoxELRQ" targetNode="_NhHPgDvBEeK7eu8xoxELRQ">
+        <target xmi:type="webapp:Collection" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@collections.2"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_Nh-yNTvBEeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh-yNjvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_Nh-yNzvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Nh-yODvBEeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='models']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_NiDDoDvBEeK7eu8xoxELRQ" sourceNode="_NhUD0DvBEeK7eu8xoxELRQ" targetNode="_NhKS0TvBEeK7eu8xoxELRQ">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.0"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_NiDqsDvBEeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_NiDqsTvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_NiDqsjvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NiDqszvBEeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_NiDqtDvBEeK7eu8xoxELRQ" sourceNode="_NhVR8DvBEeK7eu8xoxELRQ" targetNode="_NhJrwDvBEeK7eu8xoxELRQ">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.1"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_NiERwDvBEeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_NiERwTvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_NiERwjvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NiERwzvBEeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_NiERxDvBEeK7eu8xoxELRQ" sourceNode="_NhWgEDvBEeK7eu8xoxELRQ" targetNode="_NhIdoDvBEeK7eu8xoxELRQ">
+        <target xmi:type="webapp:ModelView" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#//@views.2"/>
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_NiERxTvBEeK7eu8xoxELRQ" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_NiERxjvBEeK7eu8xoxELRQ" red="136" green="136" blue="136"/>
+          <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_NiERxzvBEeK7eu8xoxELRQ">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NiERyDvBEeK7eu8xoxELRQ"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description:EdgeMapping" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description:DiagramDescription" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']"/>
+      <filterVariableHistory xmi:type="viewpoint:FilterVariableHistory" xmi:id="_NfVG0TvBEeK7eu8xoxELRQ"/>
+      <activatedLayers xmi:type="description:Layer" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer"/>
+      <target xmi:type="webapp:Application" href="platform:/resource/org.eclipsecon.acceleo.tutorial.webapp.model/webapp.xmi#/"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/my.project.design/description/My.odesign#//@ownedViewpoints[name='']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>
