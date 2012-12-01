@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:validation="http://www.obeo.fr/dsl/viewpoint/description/validation/1.1.0" name="My">
+  <ownedViewpoints label="webapp" icon="/home/alain/Bureau/icone.png">
+    <ownedRepresentations xsi:type="description:DiagramDescription" domainClass="webapp.Application">
+      <metamodel href="../../org.eclipsecon.acceleo.tutorial.webapp.model/webapp.ecore#/"/>
+      <validationSet name="AttributesNotNull">
+        <ownedRules xsi:type="validation:SemanticValidationRule" level="ERROR" targetClass="webapp.Model">
+          <audits auditExpression="[thisEObject.attributes->notEmpty()/]"/>
+        </ownedRules>
+      </validationSet>
+      <defaultLayer name="Default" icon="/home/alain/Bureau/icone.png">
+        <nodeMappings name="nodeModel" label="nodeModel" preconditionExpression="[thisEObject.attributes->notEmpty()/]" domainClass="webapp.Model">
+          <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="nodeApplication" label="nodeApplication" domainClass="webapp.Application">
+          <style xsi:type="style:EllipseNodeDescription" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="nodeCollection" label="nodeCollection" domainClass="webapp.Collection">
+          <style xsi:type="style:LozengeNodeDescription" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="nodeRouter" label="nodeRouter" domainClass="webapp.Router">
+          <borderedNodeMappings name="mappigs" semanticCandidatesExpression="[thisEObject.mappings/]" domainClass="webapp.RouterMapping">
+            <style xsi:type="style:NoteDescription" labelExpression="&lt;%path%>" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/Chat/icone.png"/>
+        </nodeMappings>
+        <nodeMappings name="nodeModelViews" label="nodeModelViews" domainClass="webapp.ModelView">
+          <style xsi:type="style:SquareDescription" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="nodeStaticView" label="nodeStaticView" domainClass="webapp.StaticView">
+          <style xsi:type="style:NoteDescription" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="application" label="applicationapplication" domainClass="webapp.Application">
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/Chat/icone/.png"/>
+        </nodeMappings>
+        <edgeMappings name="models" label="ref_collection_model" sourceMapping="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']" targetMapping="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModel']" targetFinderExpression="[model/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings sourceMapping="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']" targetMapping="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']" targetFinderExpression="[collection/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="model" label="model" domainClass="webapp.Model" listContainer="true">
+          <subNodeMappings name="attributs" semanticCandidatesExpression="[thisEObject.attributes/]" domainClass="webapp.Attribute">
+            <style xsi:type="style:SquareDescription" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="references" semanticCandidatesExpression="[thisEObject.references/]" domainClass="webapp.Reference">
+            <style xsi:type="style:SquareDescription" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="operations" semanticCandidatesExpression="[thisEObject.operations/]" domainClass="webapp.Operation">
+            <style xsi:type="style:SquareDescription" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+      <optionalLayers name="NotDefault">
+        <edgeMappings name="ModelViewtoCollection" sourceMapping="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']" targetMapping="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']" targetFinderExpression="[collection/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CollectionToModelView" sourceMapping="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeCollection']" targetMapping="//@ownedViewpoints[name='']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='nodeModelViews']" targetFinderExpression="[model/]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </optionalLayers>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
