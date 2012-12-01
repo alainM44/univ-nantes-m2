@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<webapp:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webapp="http://www.eclipsecon.org/acceleo/tutorial/webapp/" xsi:schemaLocation="http://www.eclipsecon.org/acceleo/tutorial/webapp/ webapp.ecore" name="EclipseCon">
+  <router name="router">
+    <mappings path="!/projects" view="//@views.0"/>
+    <mappings path="!/languages" view="//@views.2"/>
+    <mappings path="!/users" view="//@views.1"/>
+  </router>
+  <collections name="LanguagesCollection" model="//@models.0"/>
+  <collections name="UsersCollection" model="//@models.1"/>
+  <collections name="ProjectsCollection" model="//@models.2"/>
+  <models name="Language">
+    <attributes name="Name" defaultValue=""/>
+  </models>
+  <models name="User">
+    <attributes name="First Name"/>
+    <attributes name="Last Name"/>
+    <attributes name="Age"/>
+    <references name="Projects" type="//@models.2"/>
+    <references name="Languages" type="//@models.0"/>
+  </models>
+  <models name="Project">
+    <attributes name="Name"/>
+    <references name="Users" type="//@models.1"/>
+    <references name="Languages" type="//@models.0"/>
+  </models>
+  <views xsi:type="webapp:ModelView" name="Projects" collection="//@collections.2"/>
+  <views xsi:type="webapp:ModelView" name="Users" collection="//@collections.1"/>
+  <views xsi:type="webapp:ModelView" name="Languages" collection="//@collections.0"/>
+</webapp:Application>

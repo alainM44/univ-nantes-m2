@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipsecon.acceleo.tutorial.webapp.model/src-gen"
+    editDirectory="/org.eclipsecon.acceleo.tutorial.webapp.model.edit/src-gen" editorDirectory="/org.eclipsecon.acceleo.tutorial.webapp.model.editor/src-gen"
+    modelPluginID="org.eclipsecon.acceleo.tutorial.webapp.model" modelName="Webapp"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>webapp.ecore</foreignModel>
+  <genPackages prefix="Webapp" basePackage="org.eclipsecon.acceleo.tutorial" disposableProviderFactory="true"
+      ecorePackage="webapp.ecore#/">
+    <genClasses image="false" ecoreClass="webapp.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Application">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//Application/router"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//Application/collections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//Application/models"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//Application/views"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Parameter"/>
+    <genClasses ecoreClass="webapp.ecore#//Operation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//Operation/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//Reference/type"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//Attribute/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//Model/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//Model/references"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference webapp.ecore#//Model/operations"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference webapp.ecore#//Model/application"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Collection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//Collection/model"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference webapp.ecore#//Collection/application"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//RouterMapping">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//RouterMapping/path"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//RouterMapping/view"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//Router">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//Router/mappings"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference webapp.ecore#//Router/application"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="webapp.ecore#//AbstractView">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute webapp.ecore#//AbstractView/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//AbstractView/operations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//AbstractView/application"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//ModelView">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference webapp.ecore#//ModelView/collection"/>
+    </genClasses>
+    <genClasses ecoreClass="webapp.ecore#//StaticView"/>
+  </genPackages>
+</genmodel:GenModel>
