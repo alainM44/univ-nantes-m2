@@ -16,6 +16,10 @@
 
 package client;
 
+//TODO pattern delegate passer la liste des adresses des serveurs(objectsRMI)
+//2eme serveur a l'adresse du 1er 
+//3ème à l'adresse des deux premiers
+//
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -54,9 +58,7 @@ public class AffichageClient extends UnicastRemoteObject implements
 	ISujetDiscussion sujetDiscussion;
 	private String mtitreForum;
 	private JScrollPane mJPanelDicussion;
-	private JScrollPane mJPanelState;
 	private JFrame mFramePrincipale = new JFrame();
-	private JTextArea mJtxtAreaDebug;
 	private JTextArea mJtextAreaDiscussion;
 	private Font mFontName;
 	private Font mFonteTxt;
@@ -74,7 +76,8 @@ public class AffichageClient extends UnicastRemoteObject implements
 	class ActionEnvoi implements ActionListener {
 		public synchronized void actionPerformed(ActionEvent e) {
 			try {
-				sujetDiscussion.diffuse(mClientName,mJtextFieldComposeMesage.getText());
+				sujetDiscussion.diffuse(mClientName,
+						mJtextFieldComposeMesage.getText());
 			} catch (RemoteException e1) {
 				System.out
 						.println("Erreur AffichageClient.java envoi du message :"
@@ -97,7 +100,7 @@ public class AffichageClient extends UnicastRemoteObject implements
 	 */
 	public AffichageClient(String titre, ISujetDiscussion s, ClientForum client)
 			throws RemoteException {
-		mtitreForum=titre;
+		mtitreForum = titre;
 		sujetDiscussion = s;
 		mClientForum = client;
 		mClientName = client.getmName();
@@ -107,13 +110,14 @@ public class AffichageClient extends UnicastRemoteObject implements
 		mFramePrincipale.setLayout(new BorderLayout());
 		mJtextAreaDiscussion = new JTextArea(10, 20);
 		mJtextAreaDiscussion.setEditable(false);
-		mFontName =new Font("TimesRoman", Font.BOLD, 13);
-		mFonteTxt= new Font("TimesRoman", Font.PLAIN, 11);
+		mFontName = new Font("TimesRoman", Font.BOLD, 13);
+		mFonteTxt = new Font("TimesRoman", Font.PLAIN, 11);
 		mJPanelDicussion = new JScrollPane(mJtextAreaDiscussion);
-		mJPanelDicussion.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		mJPanelDicussion
+				.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		mLabelCenter = new JLabel("Bienvenu dans le forum " + titre);
 		mLabelCenter.setSize(30, 150);
-	//	mFramePrincipale.add(mLabelCenter, BorderLayout.NORTH);
+		// mFramePrincipale.add(mLabelCenter, BorderLayout.NORTH);
 		mFramePrincipale.add(mJPanelDicussion, BorderLayout.NORTH);
 
 		mJtextFieldComposeMesage = new JTextField("blah");
@@ -122,7 +126,6 @@ public class AffichageClient extends UnicastRemoteObject implements
 		mLabelCenter.setPreferredSize(new Dimension(150, 10));
 		mButonEnvoi.setFocusable(true);
 
-		
 		// south area
 		Box boxSouth = Box.createHorizontalBox();
 		// boxSouth.add(mLabelCenter);
