@@ -1,9 +1,9 @@
 \chapter{Technologie cible et outils}\label{chap:met}
-Au cours de premières semaines du projet, l'un des objectifs qui nous était proposé était d'étudier le framework play et de s'assurer de la compatibilité de sa philosphie et un projet de génération de code. Dans la section \ref{sec:pla} de ce chapitre, nous détaillerons les qualités de ce framework qui ont motivé la selection de \play{} pour ce projet. Dans un second temps (\cf{} section \ref{sec:pro}, nous aborderons le prototype que nous avons élaboré avec \play. 
+Au cours des premières semaines du projet, l'un des objectifs qui nous était proposé était d'étudier le framework \play{} et de s'assurer de la compatibilité de sa philosophie avec un projet de génération de code. Dans la section \ref{sec:pla} de ce chapitre, nous détaillerons les qualités de ce framework qui ont motivées la sélection de \play{} pour ce projet. Dans un second temps (\cf{} section \ref{sec:pro}, nous aborderons le prototype que nous avons élaboré avec \play. 
 
 
 \section{Framework Play}\label{sec:pla}
-\play{} est un framework basé sur les langages Java et Scala permettant de la création d'applications web. De plus en plus de développeurs choisissent ce nouvel outil qui présente de nombreux avantages. L'aspect \og prêt à l'emploi \fg{} (\textit{Plug'n Play}) permi par ses fonctionalités par défaut le rendre efficace et rapide d'utilisation. Le développement est facilité, d'une part par par des mécaniosmes de compilations à la volée (\textit{shadow-build}), mais aussi par la mise a disposition de systèmes tests intégrées (JUnit, Selenium). La gestion des native des requêtes rendent ces dernières non-bloquantes (asynchronisme). Enfin son architecture modulaire, composée de plugins et d'un \textit{design pattern} MVC, permettent une répartition claire du code source ce qui propice à la démarche MDA
+\play{} est un framework basé sur les langages Java et Scala permettant de la création d'applications web. De plus en plus de développeurs choisissent ce nouvel outil qui présente de nombreux avantages. L'aspect \og prêt à l'emploi \fg{} (\textit{Plug'n Play}) permis par ses fonctionnalités par défaut le rendent efficace et rapide d'utilisation. Le développement est facilité, d'une part par par des mécanismes de compilation à la volée (\textit{shadow-build}), mais aussi par la mise à disposition de systèmes tests intégrées (JUnit, Selenium). La gestion des native des requêtes rendent ces dernières non-bloquantes (synchronisme). Enfin son architecture modulaire, composée de plugins et d'un \textit{design pattern} MVC, permettent une répartition claire du code source ce qui est propice à la démarche MDA.
 
 {\huge $\Uparrow$ woua c'est nuull refractoring!!}
 
@@ -11,41 +11,17 @@ Au cours de premières semaines du projet, l'un des objectifs qui nous était pr
 
 \section{Conception d’une maquette d’exemple}\label{sec:pro}
 
-blahblahblahblahblahblah
 Le prototype proposé est une implémentation d'un site marchand. 
 
-%% \begin{figure}[htb]
-%%   \centering
-%%   \includegraphics[scale=.4]{img/proto.eps}
-%%   \label{Prototype Play_Shop }
-%%   \label{fig:pro}
-%% \end{figure}
-
-
-
-\section{Méta models}\label{sec:met}
-
-\subsection{Méta Model Entity}\label{sub:ent}
-Le méta-modèle Entity représente une couche \og métier \fg{}. Il permet notamment de moldéliser la persistance des données :  
-
 \begin{figure}[htb]
   \centering
-  \includegraphics[scale=.3]{img/Entity.eps}
-  \caption{Méta model Entity}
-  \label{fig:ent}
+  \includegraphics[scale=.2]{img/proto.eps}
+  \caption{Prototype Play\_Shop}
+  \label{fig:pro}
 \end{figure}
 
-\subsection{Méta Model SOA}\label{sub:soa}
-blah bklah fdslmk blah bklah fdslmk 
-\begin{figure}[htb]
-  \centering
-  \includegraphics[scale=.3]{img/SOA.eps}
-  \caption{Méta model SOA}
-  \label{fig:soa}
-\end{figure}
 
-\subsection{Méta Model Cinématique}\label{sub:cin}
-blah bklah fdslmk blah bklah fdslmk 
+
 %% \begin{figure}[htb]
 %%   \centering
 %%   \includegraphics[scale=.3]{img/Cin.eps}
@@ -53,3 +29,8 @@ blah bklah fdslmk blah bklah fdslmk
 %%   \label{fig:soa}
 %% \end{figure}
 
+
+%%  LocalWords:  framework play Scala web Plug'n shadow-build JUnit
+%%  LocalWords:  Selenium non-bloquantes plugins MVC MDA woua nuull
+%%  LocalWords:  refractoring implémentation Shop models Model Entity
+%%  LocalWords:  méta-modèle model SOA blah bklah fdslmk
