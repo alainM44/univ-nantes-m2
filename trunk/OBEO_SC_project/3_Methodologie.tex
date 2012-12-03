@@ -1,21 +1,30 @@
 \chapter{Technologie cible et outils}\label{chap:met}
-Au cours des premières semaines du projet, l'un des objectifs qui nous était proposé était d'étudier le framework \play{} et de s'assurer de la compatibilité de sa philosophie avec un projet de génération de code. Dans la section \ref{sec:pla} de ce chapitre, nous détaillerons les qualités de ce framework qui ont motivées la sélection de \play{} pour ce projet. Dans un second temps (\cf{} section \ref{sec:pro}, nous aborderons le prototype que nous avons élaboré avec \play. 
+Le premier objectif proposé a été d'étudier le framework \kwplay et de s'assurer de la compatibilité de sa philosophie avec un projet de génération de code. Dans la section \ref{sec:pla} de ce chapitre, nous détaillerons les qualités de ce framework qui ont motivées la sélection de \kwplay pour ce projet. Dans un second temps (\cf{} section \ref{sec:pro}, nous aborderons le prototype que nous avons élaboré avec \kwplay. 
 
 
 \section{Framework Play}\label{sec:pla}
-\play{} est un framework basé sur les langages Java et Scala permettant de la création d'applications web. De plus en plus de développeurs choisissent ce nouvel outil qui présente de nombreux avantages. L'aspect \og prêt à l'emploi \fg{} (\textit{Plug'n Play}) permis par ses fonctionnalités par défaut le rendent efficace et rapide d'utilisation. Le développement est facilité, d'une part par par des mécanismes de compilation à la volée (\textit{shadow-build}), mais aussi par la mise à disposition de systèmes tests intégrées (JUnit, Selenium). La gestion des native des requêtes rendent ces dernières non-bloquantes (synchronisme). Enfin son architecture modulaire, composée de plugins et d'un \textit{design pattern} MVC, permettent une répartition claire du code source ce qui est propice à la démarche MDA.
+\kwplay{} est un framework basé sur les langages Java et Scala permettant de la création d'applications web. De plus en plus de développeurs choisissent cet outil, qui est relativement récent, et qui présente de nombreux avantages. L'aspect \guim{prêt à l'emploi} (\textit{Plug'n Play}) permis par ses fonctionnalités par défaut le rendent efficace et rapide à mettre en place et à configurer. Le développement également est facilité, d'une part par par des mécanismes de compilation à la volée (\textit{shadow-build}) lors du chargement des pages, mais aussi par la mise à disposition de systèmes tests intégrées (JUnit, Selenium). Sa gestion des requêtes Web peut être bloquante ou non-bloquante (synchronisme). La génération des pages Web renvoyées peut être dynamisée grâce à un mécanismes de templating basé sur Scala. Enfin son architecture modulaire, composée de plugins et du \textit{design pattern} MVC (Modèle-Vue-Contrôleur), permettent une répartition claire du code source ce qui est propice à la démarche MDA. 
 
-{\huge $\Uparrow$ woua c'est nuull refractoring!!}
+
+%TODO (terme à définir en début de rapport).
+
+%{\huge $\Uparrow$ woua c'est nuull refractoring!!} Tu mens.
 
 
 
 \section{Conception d’une maquette d’exemple}\label{sec:pro}
 
-Le prototype proposé est une implémentation d'un site marchand. 
+Nous nous sommes proposés de bâtir un mini-site Web basé sur \kwplay. L'ojectif est double :
+\begin{itemize}
+\item Nous familiariser avec le framework \kwplay et comprendre son fonctionnement.
+\item Obtenir une maquette qui sera utilisée comme objectif de code à générer.
+\end{itemize}
+
+Le prototype que nous avons proposé est une implémentation simpliée d'un site marchand. Ce type de site web est en effet très courant, et il implique différents aspects et fonctionnalités : Stockage persistant de données (produits vendus), utilisation de formulaires (inscription des clients), utilisation de sessions (authentification des clients sur le site, et achats).
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[scale=.2]{img/proto.eps}
+  %\includegraphics[scale=.2]{img/proto.eps}
   \caption{Prototype Play\_Shop}
   \label{fig:pro}
 \end{figure}
