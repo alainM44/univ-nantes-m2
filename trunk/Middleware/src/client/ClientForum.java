@@ -49,6 +49,9 @@ import serveur.ISujetDiscussion;
  *         Classe décrivant un client du forum. Il sert uniquement à orienter un
  *         client sur un SujetDiscussion.
  * 
+ *         TODO on peut rejoindre quand on a crée mais pas un serveur qu'un
+ *         autre a creer
+ * 
  */
 @SuppressWarnings("serial")
 public class ClientForum extends JFrame implements ListSelectionListener {
@@ -105,7 +108,7 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 
 			if (mHMforumOuverts.get(titre)) // dforum déjà ouvert
 			{
-				 new FrameWarning();
+				new FrameWarning();
 				System.out.println("NANNNNNN déjà inscrit");
 				// new JFrame("Désolé forum déjà ouvert");
 
@@ -150,7 +153,7 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		// North area
 		Box boxNorth = Box.createHorizontalBox();
 		boxNorth.add(mLabelNorth);
-		mjtfNorth = new JTextField("blahblah");
+		mjtfNorth = new JTextField("tape here you pseudo");
 		mjtfNorth.setSize(new Dimension(10, 10));
 		mButtonSave.addActionListener(new ActionListener() {
 
@@ -160,7 +163,7 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 				mName = mjtfNorth.getText();
 				mjtfNorth.setVisible(false);
 				mButtonSave.setVisible(false);
-				mLabelNorth.setText("Bienvenu(e) " + mName);
+				mLabelNorth.setText("Bienvenue " + mName);
 			}
 		});
 		boxNorth.add(mjtfNorth);
@@ -187,7 +190,7 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		JScrollPane listScrollPane = new JScrollPane(mlist);
 		add(listScrollPane, BorderLayout.CENTER);
 
-				// south area
+		// south area
 		Box boxSouth = Box.createHorizontalBox();
 		mjtfSouth = new JTextField("blahblah");
 		mjtfSouth.setSize(new Dimension(10, 10));
@@ -242,7 +245,6 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		new ClientForum();
 	}
 
-	
 	public String getmName() {
 		return mName;
 	}
@@ -277,7 +279,7 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		}
 		mlistModel.removeAllElements();
 		for (String sujet : sujets) {
-
+			mHMforumOuverts.put(sujet, false);
 			mlistModel.addElement(sujet);
 			System.out.println(sujet);
 		}
