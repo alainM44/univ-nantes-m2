@@ -1,6 +1,6 @@
 \section{\kwsoa}\label{sub:soa}
 
-\kwsoa (Service Oriented Architecture) - ou Architecture Orientée Services - modélise le concept de Services et d'Opérations au travers d'un système basé sur les Composants. Concrêtement, un modèle basé sur \kwsoa est constitué de Composants. Chaque Composant peut possèder des Services dont des Interfaces permettent de communiquer avec l'extérieur. Ces Interfaces définissent une une plusieurs Opérations, chaque opération étant caractérisée par un ensemble de Paramètres d'entrée et de sortie. Ces paramètres peuvent être des types relativement basiques (Integer, String, ...) mais également des \guim{Entity} complexes, comme des informations complètes sur les utilisateurs, ou sur des produits.	
+\kwsoa{} (Service Oriented Architecture) - ou Architecture Orientée Services - modélise le concept de Services et d'Opérations au travers d'un système basé sur les Composants. Concrêtement, un modèle basé sur \kwsoa est constitué de Composants. Chaque Composant peut possèder des Services dont des Interfaces permettent de communiquer avec l'extérieur. Ces Interfaces définissent une une plusieurs Opérations, chaque opération étant caractérisée par un ensemble de Paramètres d'entrée et de sortie. Ces paramètres peuvent être des types relativement basiques (Integer, String, ...) mais également des \guim{Entity} complexes, comme des informations complètes sur les utilisateurs, ou sur des produits.	
 
 \begin{figure}[htb]
   \centering
@@ -17,8 +17,15 @@ Cela permet de séparer les différents concepts sans pour autant remettre en ca
 
 \subsection{Conception du modèle}
 
-La conception du modèle SOA pour le contexte de notre magasin en ligne a été assez simple à convenir : Pour chaque cas d'utilisation ou action, nous avons modélisé un certain nombre d'opérations basiques. Ces opérations ont été réunies dans différents Composants et Services, en fonction de leur contexte, mais également en fonction du type d'utilisateur susceptible de faire appel à ces opérations.\\
-Ainsi, les opérations consistant à inscrire ou connecter un utilisateur ont été regroupées au sein d'un \textit{AuthentificationManager} accessible uniquement par l'application en elle-même. 
+La conception du modèle SOA pour le contexte de notre magasin en ligne a été assez simple à convenir : Pour chaque cas d'utilisation ou action, nous avons modélisé un certain nombre d'opérations basiques. Ces opérations ont été réunies dans différents Composants et Services, en fonction de leur contexte, mais également en fonction du type d'utilisateur susceptible de faire appel à ces opérations.
+\\\\
+Les types de Services que nous avons représenté dans notre Modèle SOA sont regroupés dans les Composants suivants :
+\begin{itemize}
+\item \textbf{UserManager :} Contient un Service de gestion des utilisateurs/clients du site, accessible depuis l'intérieur de l'application uniquement. Ce Service sera utilisé pour contrôler l'inscription et l'authentification des utilisateurs du site.
+\item \textbf{ProductsManager :} Contient des Services de gestion des produits vendus sur le site. Ces Services pourront - pour la plupart - être appelables depuis l'extérieur. On distinguera deux Services différents pour distinguer le traitement des informations relatives aux produits (label, description), et les ventes en elles-mêmes (prix, stock). Cela permet également d'assigner des propriétés/paramètres différents pour ces deux Services, ce qui faciliterait une gestion des droits d'accès aux Services.
+\item \textbf{ShopManager :} Tout comme l'\textbf{UserManager}, ce Composant contient des Services qui seront - à priori - destinés à une utilisation interne à l'application. Il sera utilisé lors de l'ajout des produits au \guim{Panier} d'un client (appelé \guim{Cart}, en Anglais), et pour valider les achats des clients. C'est également ce Composant qui pourra faire le lien avec les Services de paiements externes (non-implémentés dans notre prototype).
+\end{itemize}
+%Ainsi, les opérations consistant à inscrire ou connecter un utilisateur ont été regroupées au sein d'un \textit{AuthentificationManager} accessible uniquement par l'application en elle-même. 
 
 \subsection{Génération du code des services}
 
