@@ -5,7 +5,7 @@
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=.3]{img/SOA.eps}
-  \caption{Méta model SOA}
+  \caption{Métamodèle SOA}
   \label{fig:soa}
 \end{figure}
 
@@ -42,3 +42,5 @@ Le principe est de recevoir des requêtes HTTP de type GET/POST/PUT/DELETE prove
 Par exemple, il devrait être possible d'appeler certains services depuis un logiciel de gestion, pour la gestion des ventes des produits, des factures, ou des comptes utilisateurs, ou pour collecter des informations.
 \\\\
 Nous avons donc implémenté un tel système, en configurant - pour chaque opération accessible depuis l'extérieur - des Routes spécifiques, déclenchant l'exécution des opération, et retournant un résultat au format \textit{JSON}.
+
+\clearpage
