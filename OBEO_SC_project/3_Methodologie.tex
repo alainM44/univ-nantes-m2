@@ -41,17 +41,27 @@ Ainsi, lorsqu'une requête arrive à l'application, \kwplay{} regarde d'abord da
 
 \section{Conception d’une maquette d’exemple}\label{sec:pro}
 
-Nous nous sommes proposés de bâtir un mini-site Web basé sur \kwplay{}. L'ojectif est double :
-\begin{itemize}
+Nous nous sommes proposés de bâtir un mini-site Web basé sur \kwplay{}.
+\\
+L'ojectif est double :
+\begin{enumerate}
 \item Nous familiariser avec le framework \kwplay{} et comprendre son fonctionnement.
 \item Obtenir une maquette qui sera utilisée comme objectif de code à générer.
-\end{itemize}
+\end{enumerate}
 
-Le prototype que nous avons proposé est une implémentation simpliée d'un site marchand. Ce type de site web est en effet très courant, et il implique différents aspects et fonctionnalités : Stockage persistant de données (produits vendus), utilisation de formulaires (inscription des clients), utilisation de sessions (authentification des clients sur le site, et achats).
+Le prototype que nous avons proposé est une implémentation simpliée d'un site marchand. Ce type de site web est en effet très courant, et il implique différents aspects et fonctionnalités : 
+\begin{itemize}
+\item Stockage persistant de données : Produits vendus, profils clients
+\item Utilisation de formulaires : Inscription des clients
+\item Gestion de sessions : Authentification des clients sur le site, gestion d'un \guim{Panier} temporaire, et achats
+\item Mise en place de services administrateurs : Gestion des produits mis en vente
+\item Dans la même optique, mise en place de services de type REST, pour une gestion distante du magasin
+\item Étoffage graphique du site web : Un site marchand doit être agréable à parcourir.
+\end{itemize}
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[scale=.2]{img/proto.eps}
+  \includegraphics[scale=.4]{img/proto.eps}
   \caption{Prototype Play\_Shop}
   \label{fig:pro}
 \end{figure}

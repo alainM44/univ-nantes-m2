@@ -13,9 +13,27 @@ Ces solutions proposées permettent notamment de diminuer les délais de projets
 
 La société \kwobeo{} est aussi un membre actif dans le domaine Open Source et est membre de la fondation Eclipse. Elle est à l'initiative du projet Acceleo (\cf{} \cite{acceleo}), un générateur de code basé sur le framework EMF. 
 
+% TODO : D'avantage d'info sur OBEO
+Bacon ipsum dolor sit amet turkey filet mignon pancetta, ribeye short ribs sausage spare ribs pig frankfurter swine leberkas drumstick t-bone. Sausage drumstick tail, beef ribs jowl ground round tenderloin boudin ribeye jerky turkey chuck leberkas frankfurter ham hock. Shank hamburger jowl capicola cow. Jerky tri-tip hamburger jowl pork chop venison spare ribs leberkas beef pork belly ground round pork chicken.
+
+Shoulder hamburger ground round fatback pastrami boudin. Meatball filet mignon rump, shoulder ham jerky frankfurter prosciutto pig tri-tip turducken. Biltong frankfurter spare ribs short ribs bresaola ball tip chuck brisket shoulder pork chop. Leberkas short loin filet mignon ground round swine hamburger, bacon jowl. Andouille rump t-bone, frankfurter tail pork belly pork chop shank pork loin jerky tongue jowl strip steak kielbasa. Kielbasa turkey leberkas short loin sirloin, fatback tri-tip.
+
+%%
 
 \section{Acceleo et démarche M2T}
-Acceleo est un projet Open Source de la fondation Eclipse dont \kwobeo{} est à l'origine. À partir de modèles basé sur le framework EMF (\cf{} \cite{emf}), Acceleo permet de générer du code en mettant en œuvre l'approche Model driven architecture (MDA). Le générateur Acceleo est une implémentation de la norme de l'Object Management Group \cite{omg} pour les transformations de modèle vers texte (Model to Text : M2T).
+Acceleo est un projet Open Source de la fondation Eclipse dont \kwobeo{} est à l'origine. À partir de modèles basé sur le framework EMF (\cf{} \cite{emf}), Acceleo permet de générer du code en mettant en œuvre l'approche Model Driven Architecture (MDA). Le générateur Acceleo est une implémentation de la norme de l'Object Management Group \cite{omg} pour les transformations de modèle vers texte (Model to Text : M2T).
+\\\\
+Le principe du Model To Text repose sur au moins trois notions essentielles :
+\begin{itemize}
+\item Le Méta-Modèle (ou M2) : Le M2 sert à définir les différents concepts pouvant entrer en jeu, ainsi que les relations que ces concepts entretienent entre-eux. Le M2 sert donc de base à la modélisation d'un système.
+\item Le Modèle (ou M1) : Il repose sur le M2 pour décrire un système (ou une facette d'un système) en organisant les différents éléments entre eux de manière concrête, et en leur assignant un certain nombre de propriétés. Ainsi, le Modèle est utilisé pour fournir une description non-technique du réel et/ou de l'application attendue.
+\item Le générateur de code : Il est utilisé pour \guim{traduire} un Modèle en code exécutable. Utilisant - la plupart du temps - un système basé sur les templates, il est configuré pour générer certaines portions de code en fonction des éléments rencontrés en parcourant le Modèle. Le générateur de code est donc utilisé pour passer d'un Modèle non-technique à une application exécutable sur la plateforme et/ou l'environnement cible. L'objectif étant qu'un même générateur de code soit capable de produire des applications différentes à partir de Modèles différents (reposant sur le même M2).\\
+\end{itemize}
+
+Le Modèle permet donc de représenter une application et son contexte en faisant abstraction de la technologie ou plateforme cible, à l'inverse du Générateur qui doit savoir produire une solution technique en faisant abstraction du contexte concrêt, qui est fourni par le Modèle.
+
+% TODO Un schema pourrait etre intressant.
+
 
 
 %%  LocalWords:  Obeo MDA Acceleo
