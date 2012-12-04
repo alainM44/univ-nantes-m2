@@ -5,9 +5,15 @@ Le premier objectif proposé a été d'étudier le framework \kwplay et de s'ass
 \section{Le Framework Play}\label{sec:pla}
 
 \kwplay{} est un CMS (Content Management System) web basé sur les langages Java et Scala permettant de la création d'applications web. De plus en plus de développeurs choisissent cet outil, qui est relativement récent, et qui présente de nombreux avantages. L'aspect \guim{prêt à l'emploi} (\textit{Plug'n Play}) permis par ses fonctionnalités par défaut le rendent efficace et rapide à mettre en place et à configurer. Le développement également est facilité, d'une part par par des mécanismes de compilation à la volée (\textit{shadow-build}) lors du chargement des pages, mais aussi par la mise à disposition de systèmes tests intégrées (JUnit, Selenium). Sa gestion des requêtes Web peut être bloquante ou non-bloquante (synchronisme). La génération des pages Web renvoyées peut être dynamisée grâce à un mécanismes de templating basé sur Scala. Enfin son architecture modulaire, composée de plugins et du \textit{design pattern} MVC (Modèle-Vue-Contrôleur), permettent une répartition claire du code source ce qui est propice à la démarche MDA. %TODO (MDA : terme à définir en début de rapport).
-\\\\
-(ici un tit logo Play ?)
-\\\\
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=.3]{img/logoPlay.eps}
+  \caption{Framework Play!}
+  \label{fig:play}
+\end{figure}
+
+
 Le Framwork \kwplay{} propose de diviser l'implémentation d'un site web en trois composantes principales :
 
 \subsection{Les pages web}
@@ -42,7 +48,7 @@ Le prototype que nous avons proposé est une implémentation simpliée d'un site
 
 \begin{figure}[htb]
   \centering
-  %\includegraphics[scale=.2]{img/proto.eps}
+  \includegraphics[scale=.2]{img/proto.eps}
   \caption{Prototype Play\_Shop}
   \label{fig:pro}
 \end{figure}
