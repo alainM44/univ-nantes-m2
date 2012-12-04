@@ -1,6 +1,6 @@
 \section{\kwsoa}\label{sub:soa}
 
-\kwsoa (Service Oriented Architecture) - ou Architecture Orientée Services - modélise le concept de Services et d'Opérations au travers d'un système basé sur les Composants. Concrêtement, un modèle basé sur \kwsoa est constitué de Composants. Chaque Composant peut possèder des Services dont des Interfaces permettent de communiquer avec l'extérieur. Ces Interfaces définissent une une plusieurs Opérations, chaque opération étant caractérisée par un ensemble de Paramètres d'entrée et de sortie.
+\kwsoa (Service Oriented Architecture) - ou Architecture Orientée Services - modélise le concept de Services et d'Opérations au travers d'un système basé sur les Composants. Concrêtement, un modèle basé sur \kwsoa est constitué de Composants. Chaque Composant peut possèder des Services dont des Interfaces permettent de communiquer avec l'extérieur. Ces Interfaces définissent une une plusieurs Opérations, chaque opération étant caractérisée par un ensemble de Paramètres d'entrée et de sortie. Ces paramètres peuvent être des types relativement basiques (Integer, String, ...) mais également des \guim{Entity} complexes, comme des informations complètes sur les utilisateurs, ou sur des produits.	
 
 \begin{figure}[htb]
   \centering
@@ -9,10 +9,36 @@
   \label{fig:soa}
 \end{figure}
 
-\subsection{Le concept de \kwsoa dans \kwplay}
+\subsection{Le concept de \kwsoa{} dans \kwplay{}}
 
-Bacon ipsum dolor sit amet beef ribeye capicola ham hock kielbasa, pork pancetta turkey. Pork loin brisket pork belly strip steak. Beef ribs jerky meatloaf bacon filet mignon meatball. Tri-tip tenderloin short ribs shank turkey, drumstick ham cow t-bone ground round hamburger meatloaf shankle doner. Andouille corned beef spare ribs beef, capicola swine chicken jerky beef ribs flank pork chop ham leberkas.
+\kwplay{}, de part son achitecture en MVC, ne propose pas d'implémentation concrête de la notion de Services. 
+Nous avons donc fait le choix de déporter ces derniers dans des classes externes de type Singleton, ce qui permet de faire appel aux différents Services depuis n'importe quel Controleur de \kwplay{}. (\textit{Services.getAKindOfService().do\_service()}). 
+Cela permet de séparer les différents concepts sans pour autant remettre en cause l'architecture originelle de \kwplay{}.
 
-\subsection{Mise en place du générateur}
+\subsection{Conception du modèle}
 
-Salami frankfurter meatball pig. Shoulder brisket turkey andouille pork belly. Prosciutto strip steak chuck tongue, hamburger doner swine spare ribs. Tri-tip pig bresaola short loin, short ribs boudin pastrami salami leberkas ribeye tail cow turducken turkey.
+La conception du modèle SOA pour le contexte de notre magasin en ligne a été assez simple à convenir : Pour chaque cas d'utilisation ou action, nous avons modélisé un certain nombre d'opérations basiques. Ces opérations ont été réunies dans différents Composants et Services, en fonction de leur contexte, mais également en fonction du type d'utilisateur susceptible de faire appel à ces opérations.\\
+Ainsi, les opérations consistant à inscrire ou connecter un utilisateur ont été regroupées au sein d'un \textit{AuthentificationManager} accessible uniquement par l'application en elle-même. 
+
+\subsection{Génération du code des services}
+
+\subsubsection{Séparation interfaces/implémentations}
+
+Afin d'assurer une souplesse de l'application, la génération des différents Services systématiquement découpée en deux parties :
+\begin{itemize}
+\item Des interfaces, contenant les signatures des différentes opérations.
+\item Des classes d'implémentation, liées à ces interfaces.
+\end{itemize}	
+
+Les classes d'implémentation sont générées avec le code des différentes opérations, lorsque celles-ci sont basiques et/ou facilement interprêtables (récupérer/éditer/détruire une entité). Dans tous les cas, des balises \guim{user code} (à définir) sont également insérées afin de laisser libre choix à l'utilisateur pour les détails de l'implémentation.\\
+Cette séparation interfaces/implémentations permet également d'avoir plusieurs types d'implémentation de Services pour une même interface.\\
+Nous avons implémenté les différentes classes de Services comme étant des Singleton. Il est ainsi possible d'appeler un Service depuis n'importe quel endroit de l'application avec une syntaxe du type \textit{Services.getMonPremierService().faireMonTravail()}.
+
+\subsubsection{Plus loin avec SOA : Les webservices}
+
+Ils nous a été proposé d'ajouter des couches supplémentaires par dessus les simples implémentations de Services SOA, notamment au niveau des moyens d'accéder à ces Services.\\
+Nous avons donc mis en place des solutions permettant d'appeler certains Services depuis l'extérieur, sans passer par l'interface du site Web. Pour ce faire, nous avons procédé à la mise en place d'un service de type REST (REpresentational State Transfer).\\
+Le principe est de recevoir des requêtes HTTP de type GET/POST/PUT/DELETE provenant d'autres programme que des simples navigateurs. \\
+Par exemple, il devrait être possible d'appeler certains services depuis un logiciel de gestion, pour la gestion des ventes des produits, des factures, ou des comptes utilisateurs, ou pour collecter des informations.
+\\\\
+Nous avons donc implémenté un tel système, en configurant - pour chaque opération accessible depuis l'extérieur - des Routes spécifiques, déclenchant l'exécution des opération, et retournant un résultat au format \textit{JSON}.
