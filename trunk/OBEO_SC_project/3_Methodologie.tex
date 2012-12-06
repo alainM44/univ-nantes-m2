@@ -1,5 +1,5 @@
 \chapter{Technologie cible et outils}\label{chap:met}
-Le premier objectif proposé a été d'étudier le framework \kwplay et de s'assurer de la compatibilité de sa philosophie avec un projet de génération de code. Dans la section \ref{sec:pla} de ce chapitre, nous détaillerons les qualités de ce framework qui ont motivées la sélection de \kwplay pour ce projet. Dans un second temps (\cf{} section \ref{sec:pro}, nous aborderons le prototype que nous avons élaboré avec \kwplay. 
+Le premier objectif proposé a été d'étudier le framework \kwplay et de s'assurer de la compatibilité de sa philosophie avec un projet de génération de code. Dans la section \ref{sec:pla} de ce chapitre, nous détaillerons les qualités de ce framework qui ont motivées la sélection de \kwplay pour ce projet. Dans un second temps (\cf{} section \ref{sec:pro}), nous aborderons le prototype que nous avons élaboré avec \kwplay. 
 
 
 \section{Le Framework Play}\label{sec:pla}
@@ -16,6 +16,8 @@ Le premier objectif proposé a été d'étudier le framework \kwplay et de s'ass
 
 Le Framwork \kwplay{} propose de diviser l'implémentation d'un site web en trois composantes principales :
 
+
+{\huge INSPIRATION PLAY}
 \subsection{Les pages web}
 % Parler vite fait du templatage scala
 Pour la gestion de ses pages web, \kwplay{} propose une approche basée sur les templates. Les pages peuvent donc être écrites avec du HTML classique, et être enrichies avec du code \kwscala{} pour générer du contenu dynamiquement. Ainsi, il est possible d'insérer des clauses conditionnelles (if/else) ou des boucles (for/while) à l'intérieur du code HTML. Afin de conserver une architecture cohérente, il est possible de passer un certain nombre d'arguments/objets en paramètre de ces templates, afin que les pages puissent en afficher le contenu de manière formatée.
