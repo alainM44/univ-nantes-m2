@@ -1,13 +1,21 @@
 \section{Entity}\label{sub:ent}
-Le métamodèle Entity représente une couche \og métier \fg{}. Il permet notamment de modéliser la persistance des données :  
+Le méta-modèle Entity représente une couche \og métier \fg{}. Il permet notamment de modéliser la persistance des données :  
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[scale=.3]{img/Entity.eps}
-  \caption{Métamodèle Entity}
+  \includegraphics[scale=.4]{img/Entity.eps}
+  \caption{Méta-modèle Entity}
   \label{fig:ent}
 \end{figure}
 
 
+
+\subsection{Gestion des entités avec \kwplay{}}
+Le framework \kwplay{} utilise la notion de \textit{Model} qui s'accorde parfaitement avec le concept d'\kwentity{}. 
+
+\subsection{Conception du modèle}
+Nous avons employé la simple démarche suivante : pour chaque modèle on associe une entité. À ce stade, on en déduit facilement les attributs de chaque instance d'\verb+Entity+ et les instances \verb+Reference+ correspondant aux associations avec d'autres entités. \kwplay{} utilise des mécanismes d'annotation au sein de ses modèles. Ces annotations permettent notamment de donner des contraintes à des attributs. Nous avons facilement pris en compte ce concept en utilisant la classe \verb+Annotation+ mise à disposition dans les méta data d'un \verb+Attribut+.
 \clearpage
 
+
+% LocalWords:  Entity framework Model
