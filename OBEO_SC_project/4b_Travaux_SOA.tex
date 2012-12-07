@@ -27,6 +27,8 @@ Les types de Services que nous avons représenté dans notre Modèle SOA sont re
 \end{itemize}
 %Ainsi, les opérations consistant à inscrire ou connecter un utilisateur ont été regroupées au sein d'un \textit{AuthentificationManager} accessible uniquement par l'application en elle-même. 
 
+% Ici schéma du Modèle SOA (je m'en charge aussi)
+
 \subsection{Génération du code des services}
 
 \subsubsection{Séparation interfaces/implémentations}
@@ -49,5 +51,7 @@ Le principe est de recevoir des requêtes HTTP de type GET/POST/PUT/DELETE prove
 Par exemple, il devrait être possible d'appeler certains services depuis un logiciel de gestion, pour la gestion des ventes des produits, des factures, ou des comptes utilisateurs, ou pour collecter des informations.
 \\\\
 Nous avons donc implémenté un tel système en configurant, pour chaque opération accessible depuis l'extérieur, des Routes spécifiques déclenchant l'exécution des opérations - c'est à dire des appels aux services générés précédement -, et retournant un résultat au format \textit{JSON}.
+
+% Être + ou - verbeux et ajouter un schéma (style le premier qui illustrait Play!, mais avec le concept de Services internes et de WebServices)
 
 \clearpage
