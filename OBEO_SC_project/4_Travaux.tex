@@ -1,4 +1,4 @@
-\chapter{Travaux Effectués}\label{chap:tra}
+\chapter{Contributions}\label{chap:tra}
 
 \section{Présentation de l'outil Acceleo}
 
@@ -20,6 +20,13 @@ Chaque Module est composée d'un ou plusieurs templates. Un template a pour rôl
 \\
 Par convention, chaque Module concerne un ou plusieurs aspects de la génération. Un Module peut également être dédié à la génération d'un type de fichier en particulier.
 
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.6]{img/screen_template.eps}
+  \caption{(Exemple de fichier Module dans Acceleo)}
+  \label{fig:acc_module}
+\end{figure}
+
 % Peut être une tite capture d'écran ici (Je m'en charge)
 
 \subsubsection{Les Queries}
@@ -28,6 +35,13 @@ Les Modules permettent de décomposer la génération du code en plusieurs sous-
 Cependant, dans certains cas, il est nécessaire d'exécuter une opération sur un élément du Modèle, comme la modification d'une chaine, ou l'accès à l'élément parent d'un élément, par exemple.\\
 Les Queries interviennent alors comme un moyen de déporter ces opérations non-triviales dans une base commune. Les spécificité des Queries par rapport aux templates est que ces dernières mettent en cache leur résultat. Ainsi, si une Query est appelée deux fois avec les mêmes paramètres, celle-ci ne sera pas re-calculée et se contentera de retourner le résultat obtenu précédement. Cette fonctionnalité est donc très utile pour l'appel répétitif d'opérations (même basiques), ou le stockage de variables globales.\\
 Les Queries permettent plus généralement de structure le générateur. Par convention, les générations de texte sont traitées dans des templates, tandis que les opérations plus complexes (modification de chaine, parcours d'éléments) ou répétitive sont déportées dans des Queries.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.6]{img/screen_query.eps}
+  \caption{(Exemple de Queries dans Acceleo)}
+  \label{fig:acc_module}
+\end{figure}
 
 \subsubsection{Les Services}
 
