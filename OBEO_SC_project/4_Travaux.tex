@@ -1,12 +1,44 @@
 \chapter{Travaux Effectués}\label{chap:tra}
-Acceleo est un projet Open Source de la fondation Eclipse dont \kwobeo{} est à l'origine. À partir de modèles basé sur le framework EMF (\cf{} \cite{emf}), Acceleo permet de générer du code en mettant en œuvre l'approche Model Driven Architecture (MDA). Le générateur Acceleo est une implémentation de la norme de l'Object Management Group \cite{omg} pour les transformations de modèle vers texte (Model to Text : M2T).
+
+\section{Présentation de l'outil Acceleo}
+
+Acceleo est un générateur de code Open Source développé par \kwobeo{} et la fondation Eclipse.
+\\
+Acceleo permet de générer du code, à partir de modèles basés sur le framework EMF (\cf{} \cite{emf}), en mettant en œuvre l'approche Model Driven Architecture (MDA). Le générateur Acceleo est une implémentation de la norme de l'Object Management Group \cite{omg} pour les transformations de modèle vers texte (Model to Text : M2T).
+
+\subsection{Fonctionnement}
+
+Comme la plupart des générateurs de code, Acceleo propose un système basé sur les templates : Les fichiers à générer peuvent être écrits avec des éléments statites mélés à des éléments dynamiques. Ces élément dynamiques peuvent être obtenus grâce à des opérations basiques sur le Modèle (récupération d'un élément, d'un attribut, ...), mais ils peuvent également être calculés en appelant du code Java.
+(A CHANGER SI LES AUTRES PARTIES EN PARLENT)
+
+\subsubsection{Les Modules}
+
+Dans Acceleo, un module est une unité de génération amenée a être utilisée par le générateur. Un générateur est donc une agrégation de Modules.
+\\
+Un Module est paramétré par un ou plusieurs DSL (ndla : définir précédemment, a vérifier) afin de pouvoir proposer les fonctionnalités associées, qui permettent notamment de parcourir chaque élément du Modèle.
+\\
+Par convention, chaque Module concerne un ou plusieurs aspects de la génération. Un Module peut également être dédié à la génération d'un type de fichier en particulier.
+
+
+\subsubsection{Les Query}
+
+Les Modules permettent de décomposer la génération du code en plusieurs sous-parties réutilisables. Ils sont donc utiles pour générer un même type de contenu à partir de différents éléments du Modèle.\\
+Cependant, dans certains cas, il est nécessaire d'exécuter une opération plus complexe, comme la modification d'une chaine, ou l'accès à l'élément parent d'un sous-élément, par exemple.\\
+Les Queries interviennent alors comme un moyen de déporter ces opérations non-triviales dans une base commune. Les spécificité des Queries par rapport aux templates est que ces dernières mettent en cache leur résultat. Ainsi, si une Query est appelée deux fois avec les même paramètres, celle-ci ne sera pas re-calculée et se contentera de retourner le résultat obtenu précédement. Cette fonctionnalité est donc très utile pour l'appel répétitif d'opérations (même basiques), ou le stockage de variables globales.
+
+\subsubsection{Les Services}
+
+Les Services peuvent être vus comme une extension des Query. Là où les opérations exécutables des Query se limitent à celles d'Ocl (TODO : Aborder Ocl). Le principe des Services consiste à appeler du code Java depuis une Query via des invocations de méthodes. Cela permet d'effectuer des opérations complexes ou bien de stocker un certain nombre d'informations récupérables depuis les templates pendant la génération de code.
+
+
+\subsection{Déploiement}
+
+Afin de gérer le déploiement des différents générateurs de code, 
+
+% Causer du système de menus/plugins/etc
+
 
 \input{4a_Travaux_Entity} 
 \input{4b_Travaux_SOA}
 \input{4c_Travaux_Cinematic}
-
-
-
-
-
 
