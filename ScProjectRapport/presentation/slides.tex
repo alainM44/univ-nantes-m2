@@ -1,0 +1,164 @@
+\documentclass[HeilHazel,pdf,final,colorBG,slideColor]{prosper}
+\usepackage{tikz}
+\usepackage{epsfig}
+\usepackage{amsbsy,amsmath}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amsbsy}
+\usepackage{epsfig}
+\usepackage{natbib}
+
+
+\usepackage[francais]{babel}
+
+\NoFrenchBabelItemize
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+% \usepackage{graphicx,color,caption2,amssymb,pstricks,lmodern}
+
+\setlength{\unitlength}{1cm}
+\NoFrenchBabelItemize
+
+
+
+\title{\vspace{-0,5cm}Senior capstone project, MSc Alma}
+\subtitle{Characterizing Software Architecture Changes : A Systematic Review}
+\author{Byron J.\textsc{Williams} \& Jeffrey C.\textsc{Carver}}
+\institution{\vspace{0.5cm} {\includegraphics[scale=0.13]{img/logouniv}}  \vspace{0.3cm}\\  University of Nantes }
+\email{. \\ Presentation by A.\textsc{Marguerite} \& M.\textsc{Ouairy}}
+\slideCaption{A.\textsc{M} \& M.\textsc{O}, University of Nantes, FR}
+%\Logo(8.3,7.78){\includegraphics[scale=0.9]{img/logouniv}}
+%\Logo{\includegraphics[scale=0.02]{img/logouniv}}
+
+\begin{document}
+
+\maketitle
+\newcommand{\bc}{\begin{center}} 
+\newcommand{\ec}{\end{center}} 
+\newcommand{\bi}{\begin{Itemize}} 
+\newcommand{\ei}{\end{Itemize}} 
+\newcommand{\myitemm}{\item \includegraphics[width=.4cm]{green-bullet-on-white}}
+\myitem{1}{\includegraphics[width=.4cm]{red-bullet-on-white}}
+%\myitemm{2}{\includegraphics[width=.4cm]{green-bullet-on-white}}
+
+
+\begin{slide}[Box]{Presentation's content}
+  \begin{enumerate}
+    {\bf
+    \item Research topic \hfill \\
+      \vspace{1,5cm}
+    \item  Main Contributions
+      \vspace{1,5cm}
+    \item Consequences}
+  \end{enumerate}
+\end{slide}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \overlays{8}{%
+%%   \begin{slide}[Box]{Aspect Oriented Program}
+%%     \fromSlide{1}{\textbf{Advantages :}}
+%%     \bi
+%%     \fromSlide{2}{\item[{\includegraphics[width=.4cm]{green-bullet-on-white}}] Code layering}
+%%     \fromSlide{3}{\item [{\includegraphics[width=.4cm]{green-bullet-on-white}}] Code adjusting} 
+%%     \fromSlide{4}{\item [{\includegraphics[width=.4cm]{green-bullet-on-white}}] Cross-cutting concerns}
+%%     \ei
+%%     \vspace{0,5cm}
+%%     \fromSlide{5}{\textbf{Disadvantages :}}
+%%     \bi
+%%     \fromSlide{6}{\item AOP fails to preserve modular reasoning.}
+%%     \ei
+%%     \vspace{0,5cm}
+
+%%     \fromSlide{7}{  \textbf{A solution :}}
+%%     \fromSlide{8}{
+%%       \psovalbox*[fillcolor=yellow]%
+%%                  {\parbox{7cm}{\begin{center}\parbox{9cm}{\hspace{1cm}
+%%                          Joint Point Interface (Murphy {\em et al.} 2000)}\end{center}}}}
+%%   \end{slide}
+%% }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+
+
+\overlays{2}{%
+  \begin{slide}[Box]{Main results}
+    \vspace{-1cm}
+    \textbf{Software Architecture Change Characterization Scheme :}
+    \fromSlide{2}{
+      \begin{figure}[t]
+        \begin{center}
+          \includegraphics[width=0.72\textwidth]{img/saccs}
+        \end{center}
+      \end{figure}
+    }
+  \end{slide}
+}
+
+%% %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \overlays{3}{%
+%%   \begin{slide}[Wipe]{Using Join Point Interfaces (JPI)}
+%%     \vspace{-1cm}
+%%     \textbf{Dépendencies}
+%%     \vspace{1cm}
+%%     \begin{figure}
+%%       \centering
+%%       \onlySlide*{2}{ \vspace{0,5cm}  \hfill  \includegraphics[scale=0.35]{img/diag3ab.eps}}
+%%       \onlySlide*{3}{     \includegraphics[scale=0.35]{img/diag3b.eps}}
+%%     \end{figure}
+%%   \end{slide}
+%% }
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \overlays{2}{%
+%% \begin{slide}[Wipe]{Polymorphic join points}
+%%   \vspace{-1cm}
+%%   \textbf{Example}
+%%   \vspace{1cm}
+%%   \begin{figure}
+%%     \centering
+%%     \includegraphics[scale=0.35]{img/dispatch.eps}
+%%   \end{figure}
+%%   \vspace{1cm}
+%%   \bi
+%%   \item
+%%     \textit{Dispatch}
+%%   \item 
+%%  \fromSlide{2}{   Manual ?}
+%%   \ei
+%% \end{slide}
+%% }
+%% %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %
+
+%% \overlays{8}{%
+%%   \begin{slide}[Box]{Research topic's matter}
+%%     %    \vspace{-1cm}
+%%     \fromSlide{1}{   \textbf{What is at stake ?}} 
+%%     \bi
+%%     \fromSlide{2}{\item[{\includegraphics[width=.4cm]{red-bullet-on-white}}] Modular Reasoning}
+%%     \bi
+%%     \fromSlide{3}{\item Separate compilation}
+%%     %aspect et code basique indépendant
+%%     \fromSlide{4}{\item Static modular checking (for the adoption of aspect)}
+
+%%     \ei
+%%     \ei
+%%     \vspace{1cm}
+%%     \fromSlide{5}{\textbf{Conséquences :}}
+%%     \bi
+%%     \fromSlide{6}{\item [{\includegraphics[width=.4cm]{red-bullet-on-white}}]  \textsc{AOP}'s reinforcement}
+%%     \bi
+%%     \fromSlide{7}{\item Improvement of languages' design} 
+%%     %sémantique desJ JPI
+%%     \fromSlide{8}{\item Improvement of languages' strenght} 
+%%     %cassure des liaisons intutiles
+%%     \ei
+%%     \ei  
+%%   \end{slide}
+%% }
+
+%% %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
