@@ -11,7 +11,15 @@ Un méta-modèle Entity a été établie par Obeo afin de représenter la struct
 
 
 \subsection{Gestion des entités avec \kwplay{}}
-Le framework \kwplay{} utilise la notion de \verb+Model+ qui s'accorde parfaitement avec le concept d'\kwentity{}. 
+Dans la plate-forme Play, tout le code métier est porté par les objets du modèle. Celui-ci contient les données persistantes, ce qui s'accordent parfaitement avec le concept d'\kwentity.  
+On peut par exemple écrire le code suivant pour manipuler une entité "Personne" :\\
+    // Si on voulait récupérer toutes les personnes    \\
+    List<Personne> personnes = Personne.find("byName","Takfarinas").fetch();  \\
+      Personne p1 = Personne.findById(1);  // Récupérer la personne ayant l'id 1  \\
+       p1.firstName = "paul";  // Modification de l'entité  \\
+        
+         p1.save(); // Mise à jour dans la base de données    
+         
 
 \subsection{Conception du modèle}
 Nous avons employé la simple démarche suivante : pour chaque modèle on associe une entité. À ce stade, on en déduit facilement les attributs de chaque instance d'\verb+Entity+ et les instances \verb+Reference+ correspondant aux associations avec d'autres entités. \kwplay{} utilise des mécanismes d'annotation au sein de ses modèles. Ces annotations permettent notamment de donner des contraintes à des attributs. Nous avons facilement pris en compte ce concept en utilisant la classe \verb+Annotation+ mise à disposition dans les méta datas d'un \verb+Attribut+.
