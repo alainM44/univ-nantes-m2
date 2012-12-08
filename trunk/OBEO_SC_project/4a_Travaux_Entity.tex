@@ -1,5 +1,5 @@
 \section{Le Méta-Modèle Entity}\label{sub:ent}
-Le méta-modèle Entity représente une couche \og métier \fg{}. Il permet notamment de modéliser la persistance des données :  
+Le méta-modèle \kwentity{} représente une couche \og métier \fg{}. Il permet notamment de modéliser la persistance des données, ainsi que les relations entres elles.
 
 \begin{figure}[htb]
   \centering
@@ -9,12 +9,11 @@ Le méta-modèle Entity représente une couche \og métier \fg{}. Il permet nota
 \end{figure}
 
 
-
 \subsection{Gestion des entités avec \kwplay{}}
-Le framework \kwplay{} utilise la notion de \textit{Model} qui s'accorde parfaitement avec le concept d'\kwentity{}. 
+Le framework \kwplay{} utilise la notion de \verb+Model+ qui s'accorde parfaitement avec le concept d'\kwentity{}. 
 
 \subsection{Conception du modèle}
-Nous avons employé la simple démarche suivante : pour chaque modèle on associe une entité. À ce stade, on en déduit facilement les attributs de chaque instance d'\verb+Entity+ et les instances \verb+Reference+ correspondant aux associations avec d'autres entités. \kwplay{} utilise des mécanismes d'annotation au sein de ses modèles. Ces annotations permettent notamment de donner des contraintes à des attributs. Nous avons facilement pris en compte ce concept en utilisant la classe \verb+Annotation+ mise à disposition dans les méta data d'un \verb+Attribut+.
+Nous avons employé la simple démarche suivante : pour chaque modèle on associe une entité. À ce stade, on en déduit facilement les attributs de chaque instance d'\verb+Entity+ et les instances \verb+Reference+ correspondant aux associations avec d'autres entités. \kwplay{} utilise des mécanismes d'annotation au sein de ses modèles. Ces annotations permettent notamment de donner des contraintes à des attributs. Nous avons facilement pris en compte ce concept en utilisant la classe \verb+Annotation+ mise à disposition dans les méta datas d'un \verb+Attribut+.
 \clearpage
 
 
