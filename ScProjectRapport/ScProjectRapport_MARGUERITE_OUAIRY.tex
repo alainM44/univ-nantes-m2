@@ -111,7 +111,7 @@
 \clubpenalty=10000
 
 
-\title{ {\huge \textsc{Senior capstone project}} \\  Master ALMA  \\ \textbf{Analyse of a reseach article} \\ \emph{Characterizing Software Architecture Changes : A Systematic Review}\\{\small Encadrant :  M.\textsc{Oussalah}}}
+\title{ {\huge \textsc{Senior capstone project}} \\  Master ALMA  \\ \textbf{Analyse of a research article} \\ \emph{Characterizing Software Architecture Changes : A Systematic Review}\\{\small Supervisor :  M.\textsc{Oussalah}}}
 \author{A.\textsc{Marguerite} \& M.\textsc{Ouairy}}
 \newcommand{\cf}{\emph{cf}.}
 
@@ -124,15 +124,18 @@
 
 
 \section{Introduction}\label{sec:intro}
-This article was written by Byron J. \textsc{Williams} who is an assistant professor of the Department of Computer Science at the \href{http://www.msstate.edu/}{Mississippi State University} and Jeffrey C. \textsc{Carver} assistant professor too of the Department of Computer Science at the \href{http://www.ua.edu/}{University of Alabama}.
+This article was written by Byron J. \textsc{Williams} who is an assistant professor of the Department of Computer Science at the \href{http://www.msstate.edu/}{Mississippi State University} and Jeffrey C. \textsc{Carver} assistant professor too of the Department of Computer Science at the \href{http://www.ua.edu/}{University of Alabama}. The research focus area of this article are changes and their impact of the architecture of an information system. By this way, the authors \textbf{put forward} in the first part of the article a systematic literature review, that identifies and characterizes software changes (\cf{} section \ref{sec:pblm}). Then, in a second part, they introduce the \emph{Software Architecture Change Characterization Scheme} (SACCS). We will go into this contribution in greater depth in the section \ref{sec:res}. 
+
 
 %% Cet article a été rédigé par M.\textsc{Butler} chercheur à l'\href{http://www.southampton.ac.uk/}{Université de Southampton} (UK) et K.\textsc{Damchoom} actuellement en Postdoc  à l'université de \href{http://www.southampton.ac.uk/}{Université de Southampton} (UK). Le travail proposé par ces deux chercheurs porte autour des méthodes de spécifications et de raisonnements formels. Plus particulièrement, ils utilisent la méthode \emph{Event-B}. Il s'agit d'une évolution de la méthode B introduisant la notion d'événements. Le remplacement des \og opérations \fg{} de la méthode B par des actions dotée1s de gardes donne la possibilité d'étudier des systèmes orientés plus \emph{hardware}. C'est la démarche choisie par les auteurs  dont la problématique sera développée dans la section \ref{sec:pblm}. 
 
-\section{Research problem}\label{sec:pblm}
+\section{Research area}\label{sec:pblm}
+Nowadays, developers know an increasing demands on software. These demands involve new software as well the upgrades of existing ones. Such operations lead developers to face up whith complexities and the risks of degrading the software architecture. A systematic review is a repeatable and formalized process in wich researcher systematically search a body of literature to document the state of knowledge on a particular subject. A such report, give to reseachers who use it a better \textbf{hindsight} than an ad-hoc review. \textsc{Williams} and \textsc{Carver} 
+
 %% M.\textsc{Butler} et K.\textsc{Damchoom} proposent dans ce papier d'utiliser les méthodes décrites dans la section \ref{sec:intro} avec un exemple d'application concrète. Il s'agit de l'utilisation d'une mémoire flash, et de la gestion d'erreurs de ses opérations. Par exemple comment éviter la perte de données lors d'une coupure de courant, ou suite à un retrait manuel au cours d'une opération ? Suite à des éventuelles erreurs, quels mécanismes mettre en place pour garantir la consistance des données ? Les auteurs proposent d'étudier ce problème à partir d'une architecture flash (\href{http://www.onfi.org}{ONFI}) en mettant en oeuvre les outils proposés par la méthode Event-B avec l'aide de l'IDE (Rodin) associé.
 
 
-\section{Main results}
+\section{Main results}\label{sec:res}
 %% Dans un premier temps, les auteurs présentent leur stratégie modélisation formelle du problème étudié. Ils utilisent notamment des raffinements. Deux types de raffinements sont distingués. Un raffinement vertical qui découpe le problème d'étude en 5 couches : de la première plus abstraite (\textit{Layer Abstraction}), à la cinquième moins abstraite (\textit{Fourth refinement}). Plus on \og descend \fg{} dans les couches concrètes, plus on se rapproche du modèles réel en rajoutant de nouvelles contraintes. Un raffinement horizontal consiste notamment à l'introduction de nouvelles étapes dans les opérations étudiées. Par exemple une opération d'écriture \verb+write+ est décomposée en trois sous étapes : \verb+begin+, \verb+step+ et \verb+end+. Ces décompositions en sous actions donnent de nouvelles possibilité pour proposer des preuves du bon déroulement du protocole étudié.
 %% \paragraph{}
 %% Dans un second temps, M.\textsc{Butler} et K.\textsc{Damchoom} présentent les différents algorithmes en Event-B en appliquant la stratégie précédemment décrite. Dans ce cours résumé, nous nous contenterons de présenter les idées clefs de certains d'entre eux. La consistance des données est garantie par un mécanisme utilisant des mémoires/étapes \og{} tampons\fg{}. À titre d'exemple, l'écriture d'un fichier (décomposé en bloques de datas) se fait dans un premier temps dans une variable tampon ($f\_compt\_temp$). Si chaque étape/événement (dotés de garde) de cette procédure se déroule sans erreurs, alors la variable tampon devient le résultat de la copie ($f\_compt \Rightarrow f\_content$). Sinon on passe dans un état d'erreur empêchant l'écriture de données corrompues.
@@ -152,4 +155,4 @@ This article was written by Byron J. \textsc{Williams} who is an assistant profe
 
 %%  LocalWords:  Butler Southampton UK Damchoom Postdoc Event-B ONFI
 %%  LocalWords:  l'IDE Fourth refinement skip end fail compt write
-%%  LocalWords:  begin step multi temp
+%%  LocalWords:  begin step multi temp SACCS
