@@ -1,67 +1,73 @@
 \section{Le Méta-Modèle Cinématique}
 Le métamodèle cinématique est organisé autour de trois principaux packages:
 \begin{itemize}
-  \item \textbf{Toolkit}: représente les concepts liés à la définition des widgets\footnote{Elément visuel d'une interface graphique (bouton, ascenseur,liste déroulante, etc.)} \textsc{ihm}.
-\newline
+  \item \textbf{Toolkit}: représente les concepts liés à la définition des widgets\footnote{Elément visuel d'une interface graphique (bouton, ascenseur,liste déroulante, etc\dots)} \textsc{ihm}.
+
 Le package Toolkit est construit de la manière suivante:
-\newline
+
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=.3]{img/toolkit.eps}
   \caption{Métamodèle toolkit}
-  \label{fig:Métamodèle Toolkit}
+  \label{fig:toolkit}
 \end{figure}
   \item \textbf{View}: représente les concepts liés à la définition des écrans \textsc{ihm}.
-\newline
-Le package View est construit de la manière suivante:
-\newline
+
+La construction du package View est illustrée sur la figure \ref{fig:view}.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=.3]{img/view.eps}
   \caption{Métamodèle view}
-  \label{fig:Métamodèle View}
+  \label{fig:view}
 \end{figure}
   \item \textbf{Flow}: permet d'identifier le comportement dynamique des écrans \textsc{ihm}. Le flow peut être appréhendé comme une sorte de diagramme d'activités.
-\newline
-Le package Flow est construit de la manière suivante:
-\newline
+
+Le package Flow est illustré sur la figure \ref{fig:flow} :
+
 \begin{figure}[H]
   \centering
   \includegraphics[scale=.3]{img/flow.eps}
   \caption{Métamodèle flow}
-  \label{fig:Métamodèle Flow}
+  \label{fig:flow}
 \end{figure}
+
 \end{itemize}
+
+
 \subsection{Le concept cinématique dans \kwplay{}}
-Nous retrouvons dans \kwplay{} un repertoire dans lequel sont regroupés les différents fichiers Web (HTML, XML, …) liés aux vues (principe MVC). Les fichiers relatifs à la création des \textsc{ihm} sont donc indépendants du reste de l'application.   
+Nous retrouvons dans \kwplay{} un repertoire dans lequel sont regroupés les différents fichiers Web (HTML, XML,\dots) liés aux vues (principe MVC). Les fichiers relatifs à la création des \textsc{IHM} sont donc indépendants du reste de l'application.   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Conception du modèle}
-La modélisation \textsc{ihm} de l'application prototype \texttt{Play} a été mise en place à l'aide de l'outil Acceleo. Le modèle est construit autour des trois principes du métamodèle défini précédemment:
+La modélisation \textsc{ihm} de l'application prototype \kwplay{} a été mise en place à l'aide de l'outil Acceleo. Le modèle est construit autour des trois principes du métamodèle défini précédemment:
 \begin{enumerate}
-\item \textbf{Toolkit}: Représente une palette contenant des widgets. Nous avons utilisé le modèle Toolkit (par défaut) car il couvre tous les éléments de type \guim{widget web}  actuellement existants (bouton, liste déroulante, champ de saisie, tableau, etc.). Chaque élément \guim{widget} peut lever des événements de type \textit{WidgetEventType} (onClick(), onFocus()...).
-\item \textbf{View} : Permet de représenter tous les éléments graphiques d'une interface utilisateur. Au plus haut niveau, nous définissons les éléments de type \textit{View Container}. 
-\newline
-Un \textit{View Container} peut être de type \textit{Page}, \textit{Panel} (ou \guim{Formulaire}) ou \textit{Table}. 
-\newline
-Nous choisissons le type \textit{Page} pour représenter un écran \textsc{ihm}. Pour chaque ViewContainer, sont ensuite définis les éléments qu'il contient, qui peuvent être des formulaires, des tableaux, ou des widgets simples. Nos écrans sont alors construits de manière progressive jusqu'à obtenir toutes les fenêtres \textsc{ihm} qui composent l'application.
+\item \textbf{Toolkit}: Représente une palette contenant des widgets. Nous avons utilisé le modèle Toolkit (par défaut) car il couvre tous les éléments de type \guim{widget web}  actuellement existants (bouton, liste déroulante, champ de saisie, tableau, etc.). Chaque élément \guim{widget} peut lever des événements de type \textit{WidgetEventType} (\verb+onClick()+, \verb+onFocus()+ \dots). 
+
+\item \textbf{View} : Permet de représenter tous les éléments graphiques d'une interface utilisateur. Au plus haut niveau, nous définissons les éléments de type \textit{View Container}. Un \textit{View Container} peut être de type \textit{Page}, \textit{Panel} (ou \guim{Formulaire}) ou \textit{Table}. 
+
+Nous choisissons le type \textit{Page} pour représenter un écran \textsc{ihm}. Pour chaque \textit{ViewContainer} sont ensuite définis les éléments qu'il contient. Un élément peut être un formulaires, un tableau, ou encore un widget simples. Nos écrans sont alors construits de manière progressive jusqu'à obtenir toutes les fenêtres \textsc{IHM} qui composent l'application.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=.4]{img/views.eps}
   \caption{Construction du modèle (partie Views)}
-  \label{fig:Construction du modèle (partie Views)}
+  \label{fig:view}
 \end{figure}
+
 \item \textbf{Flow} : Représente la manière dont les écrans de l'application peuvent s'enchaîner. Il décrit le comportement dynamique de l'\textsc{ihm} sous la forme d'enchaînements entre des états. Nous définissons ici, un état initial \textit{Initial State Start}, des états \textit{View State}, des états d'action \textit{Action State} et des transitions :
 \begin{itemize}
 \item Les états \textit{View State} correspondent aux écrans \textsc{ihm} et contiennent les \textit{View Container} décrit précédemment.
 \item Les états d'action \textit{Action State} définissent les actions à réaliser sur chaque écran de l'application. Ils sont liés aux fonctions offertes par la partie \kwsoa{}. 
-\newline
 \textit{Exemple}: Pour le chargement de la liste des produits disponibles pour la page d'accueil (ou Vitrine), nous définissons un \textit{Action State} nommé \guim{Load Public Product List} que nous lions à l'opération getProductList() offerte par \kwsoa{}.  
 \item Les transitions \guim{(\textit{Transition})} font passer l'\textsc{ihm} d'un état à un autre (d'un écran à un autre). Ils font également le lien entre les Action States et les View States. 
-\newline
+\paragraph{}
 \textit{Exemple}: Une transition pour l'affichage de l'écran d'accueil \guim{Display Main Page} va de l'état \guim{Action State Load Public Product List} (chargement des éléments de la page \guim{Vitrine}) à l'état \guim{View State Display MainPage} (affichage de la page \guim{Vitrine}).
 \newline
 Les transitions peuvent également avoir des conditions de garde, déterminées par des View Events (elles n'occurrent ainsi que si les conditions d'activation sont remplies).
 \end{itemize}
 \end{enumerate}       
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsection{Génération du code}
 Dans cette partie, nous nous occupons de générer les fichiers relatifs aux \guim{routes}, aux \guim{controllers} et les \guim{views}. Rappelons les caractéristiques de chaque type de fichier:
 \begin{itemize}
