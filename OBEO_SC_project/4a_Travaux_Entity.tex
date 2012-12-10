@@ -30,7 +30,7 @@ Dans la plate-forme Play, tout le code métier est porté par les objets du mod�
 \subsection{Conception du modèle}
 Nous avons employé la simple démarche suivante : pour chaque module Play, on associe une entité. À ce stade, on en déduit facilement les attributs de chaque instance d'\verb+Entity+ et les instances \verb+Reference+ correspondant aux associations avec d'autres entités. \kwplay{} utilise des mécanismes d'annotation au sein de ses modèles. Ces annotations permettent notamment de donner des contraintes à des attributs. Nous avons facilement pris en compte ce concept en utilisant la classe \verb+Annotation+ mise à disposition dans les méta datas d'un \verb+Attribut+.
 
-Nous avons élaboré un modèle d'Entity de notre application conformément au méta-modèle que nous avons décris en dessus. Ce modèle est illustré par la figure \ref{fig:entMod} ci-dessous.
+Nous avons élaboré un modèle d'Entity de notre application conformément au Méta-Modèle que nous avons décris précédement. Ce modèle est illustré par la figure \ref{fig:entMod} ci-dessous.
 
 \begin{figure}[H]
   \centering
@@ -50,8 +50,9 @@ Nous avons représenté un seul bloque dans notre modèle d'Entity qui va regrou
 \end{itemize}
 
 \subsection{Génération du code Entity}
-Cette phase a pour objectif d'utiliser Acceleo pour générer le code source de la partie modèle de notre application.
-Pour cela, on crée un template Acceleo qui prend en paramètre un bloque (élément de base de notre modèle Entity). En suite nous allons parcourir toute les entity et générer le contenu de chacune. On génère alors pour chaque entity ces attributs, ces annotations, ces références, les getters et les setters. On peut par exemple écrire le template suivant qui génère les attributs pour chaque Entity: \\
+
+L'étape de construction des Générateurs de Code pour le Modèle \kwentity a été relativement simple : Pour chaque \kwentity contenue dans le Modèle, on crée génère une simple classe Java portant le nom de ladite Entité, puis on liste l'ensemble de ses attributs (types et propriétés). Ainsi, l'ORM \kwebean (intégré à \kwplay) interprétera simplement ces classes comme étant des données à stocker dans une Base.
+
 
 %% \fbox{\parbox{\textwidth}{
 %% [template public generateElement(myBlock : Block)]   // création du template.\newline
