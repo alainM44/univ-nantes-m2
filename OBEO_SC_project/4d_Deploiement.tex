@@ -1,8 +1,8 @@
 \section{Déploiement}
 
-Pendant le développement des différents Générateurs de Code, nous avons pu utiliser les outils proposés par \kweclipse afin de configurer statiquement le répertoire cible des fichiers à générer lors de l'exécution desdits générateurs. Cette méthodologie nous a permis de définir un Projet \kwplay dédié comme cible de la génération, afin d'effectuer des tests rapidement, sans qu'il ne soit requis de reconfigurer la génération après chaque modification. Le système en place nous a donc permis de tester chaque générateur (pour Entity, SOA, et Cinematic) indépendament.
+Pendant le développement des différents Générateurs de Code, nous avons pu utiliser les outils proposés par \kweclipse{} afin de configurer statiquement le répertoire cible des fichiers à générer lors de l'exécution desdits générateurs. Cette méthodologie nous a permis de définir un Projet \kwplay{} dédié comme cible de la génération, afin d'effectuer des tests rapidement, sans qu'il ne soit requis de reconfigurer la génération après chaque modification. Le système en place nous a donc permis de tester chaque générateur (pour \kwentity, \kwsoa, et \kwcinematic) indépendament.
 \\\\
-Il n'était cependant pas concevable d'utiliser la même méthodologie pour une \guim{mise en production} du générateur \kwplay. En effet, il n'est pas concevable d'obliger un utilisateur à configurer et lancer manuellement chaque \guim{sous-générateur}, car ceux-ci sont complémentaires (à l'exception peut-être de la génération des WebServices). De plus, il faut dispenser l'utilisateur d'une configuration fastidieuse, et trouver un système plus ergonomique pour que ce dernier puisse lancer rapidement une génération de code.
+Il n'était cependant pas concevable d'utiliser la même méthodologie pour une \guim{mise en production} du générateur \kwplay{}. En effet, il n'est pas concevable d'obliger un utilisateur à configurer et lancer manuellement chaque \guim{sous-générateur}, car ceux-ci sont complémentaires (à l'exception peut-être de la génération des WebServices). De plus, il faut dispenser l'utilisateur d'une configuration fastidieuse, et trouver un système plus ergonomique pour que ce dernier puisse lancer rapidement une génération de code.
 
 \subsection{Regroupement des différents générateurs de code}
 
@@ -22,7 +22,7 @@ Nous avons ensuite modifié la manière dont les générations sont lancées afi
 
 \kwacceleo embarque une grande quantité d'outils pour faciliter le déploiement des générateurs de code. Nous avons donc pu générer automatiquement une interface utilisateur. Cette interface se présente sous forme d'un Plugin \kweclipse qui permet d'ajouter automatiquement un menu conextuel \guim{Générer application Play!} lorsqu'un clic-droit est effectué sur un fichier Modèle.
 \\
-Afin de rendre la génération plus adaptée aux besoins des utilisateurs, nous avons légèrement modifié le code de ce Plugin afin que l'utilisateur puisse sélectionner rapidement le dossier de destination du code à générer. Nous en avons égamelement profité pour ajouter une \textit{Checkbox} (case à cocher) demandant à l'utilisateur s'il souhaite - ou non - générer le code relatif aux WebServices du site \kwplay (Figure \ref{fig:ui}).
+Afin de rendre la génération plus adaptée aux besoins des utilisateurs, nous avons légèrement modifié le code de ce Plugin afin que l'utilisateur puisse sélectionner rapidement le dossier de destination du code à générer. Nous en avons également profité pour ajouter une \textit{Checkbox} (case à cocher) demandant à l'utilisateur s'il souhaite - ou non - générer le code relatif aux WebServices du site \kwplay (Figure \ref{fig:ui}).
 
 \begin{figure}[htb]
   \centering
