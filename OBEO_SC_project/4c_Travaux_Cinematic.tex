@@ -1,7 +1,7 @@
-\section{Le Méta-Modèle Cinématique}
-Le Méta-Modèle cinématique est organisé autour de trois principaux packages:
+\section{Le Méta-Modèle \kwcinematic{}}
+Le Méta-Modèle \kwcinematic{} est organisé autour de trois principaux packages:
 \begin{itemize}
-  \item \textbf{Toolkit}: représente les concepts liés à la définition des widgets\footnote{Élément visuel d'une interface graphique (bouton, ascenseur,liste déroulante, etc\dots)} \textsc{ihm}.
+  \item \textbf{Toolkit}: représente les concepts liés à la définition des widgets\footnote{Élément visuel d'une interface graphique (bouton, ascenseur, liste déroulante, etc\dots)} \textsc{ihm}.
 
 Le package Toolkit est construit de la manière suivante:
 
@@ -11,20 +11,20 @@ Le package Toolkit est construit de la manière suivante:
   \caption{Méta-Modèle toolkit}
   \label{fig:toolkit}
 \end{figure}
-  \item \textbf{View}: représente les concepts liés à la définition des écrans \textsc{ihm}.
+  \item \textbf{View}: représente les concepts liés à la définition des \guim{écrans} \textsc{IHM}.
 
 La construction du package View est illustrée sur la figure \ref{fig:view}.
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
   \includegraphics[scale=.3]{img/view.eps}
   \caption{Méta-Modèle view}
   \label{fig:view}
 \end{figure}
-  \item \textbf{Flow}: permet d'identifier le comportement dynamique des écrans \textsc{ihm}. Le flow peut être appréhendé comme une sorte de diagramme d'activités.
+  \item \textbf{Flow}: permet d'identifier le comportement dynamique des écrans \textsc{IHM}. Le flow peut être appréhendé comme une sorte de diagramme d'activités.
 
 Le package Flow est illustré sur la figure \ref{fig:flow} :
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
   \includegraphics[scale=.3]{img/flow.eps}
   \caption{Méta-Modèle flow}
@@ -35,17 +35,17 @@ Le package Flow est illustré sur la figure \ref{fig:flow} :
 
 
 \subsection{Le concept cinématique dans \kwplay{}}
-Nous retrouvons dans \kwplay{} un répertoire dans lequel sont regroupés les différents fichiers Web (HTML, XML,\dots) liés aux vues (principe MVC). Les fichiers relatifs à la création des \textsc{IHM} sont donc indépendants du reste de l'application.   
+Nous retrouvons dans un projet \kwplay{} un répertoire dans lequel sont regroupés les différents fichiers Web (HTML, XML,\dots) liés aux vues (principe MVC). Les fichiers relatifs à la création des \textsc{IHM} sont donc indépendants du reste de l'application.   
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Conception du modèle}
-La modélisation \textsc{ihm} de l'application prototype \kwplay{} a été mise en place à l'aide de l'outil Acceleo. Le modèle est construit autour des trois principes du Méta-Modèle défini précédemment:
+La modélisation \textsc{IHM} de l'application prototype \kwplay{} a été mise en place à l'aide de l'outil Acceleo. Le modèle est construit autour des trois principes du Méta-Modèle défini précédemment :
 \begin{enumerate}
-\item \textbf{Toolkit}: Représente une palette contenant des widgets. Nous avons utilisé le modèle Toolkit (par défaut) car il couvre tous les éléments de type \guim{widget web}  actuellement existants (bouton, liste déroulante, champ de saisie, tableau, etc.). Chaque élément \guim{widget} peut lever des événements de type \textit{WidgetEventType} (\verb+onClick()+, \verb+onFocus()+ \dots). 
+\item \textbf{Toolkit}: Représente une palette contenant des widgets. Nous avons utilisé le modèle Toolkit (par défaut) car il couvre tous les éléments de type \guim{widget web}  actuellement existants (bouton, liste déroulante, champ de saisie, tableau, etc\dots). Chaque élément \guim{widget} peut lever des événements de type \textit{WidgetEventType} (\verb+onClick()+, \verb+onFocus()+ \dots). 
 
 \item \textbf{View} : Permet de représenter tous les éléments graphiques d'une interface utilisateur. Au plus haut niveau, nous définissons les éléments de type \textit{View Container}. Un \textit{View Container} peut être de type \textit{Page}, \textit{Panel} (ou \guim{Formulaire}) ou \textit{Table}. 
 
-Nous choisissons le type \textit{Page} pour représenter un écran \textsc{ihm}. Pour chaque \textit{ViewContainer} sont ensuite définis les éléments qu'il contient. Un élément peut être un formulaires, un tableau, ou encore un widget simples. Nos écrans sont alors construits de manière progressive jusqu'à obtenir toutes les fenêtres \textsc{IHM} qui composent l'application.
+Nous choisissons le type \textit{Page} pour représenter un écran \textsc{IHM}. Pour chaque \textit{ViewContainer} sont ensuite définis les éléments qu'il contient. Un élément peut être un formulaires, un tableau, ou encore un widget simples. Nos écrans sont alors construits de manière progressive jusqu'à obtenir toutes les fenêtres \textsc{IHM} qui composent l'application.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=.4]{img/views.eps}
@@ -53,15 +53,11 @@ Nous choisissons le type \textit{Page} pour représenter un écran \textsc{ihm}.
   \label{fig:view}
 \end{figure}
 
-\item \textbf{Flow} : Représente la manière dont les écrans de l'application peuvent s'enchaîner. Il décrit le comportement dynamique de l'\textsc{ihm} sous la forme d'enchaînements entre des états. Nous définissons ici, un état initial \textit{Initial State Start}, des états \textit{View State}, des états d'action \textit{Action State} et des transitions :
+\item \textbf{Flow} : Représente la manière dont les écrans et les actions de l'application peuvent s'enchaîner. Il décrit le comportement dynamique de l'\textsc{IHM} sous la forme d'enchaînements entre des états. Nous définissons ici, un état initial \textit{Initial State Start}, des états \textit{View State}, des états d'action \textit{Action State} et des transitions :
 \begin{itemize}
-\item Les états \textit{View State} correspondent aux écrans \textsc{ihm} et contiennent les \textit{View Container} décrit précédemment.
-\item Les états d'action \textit{Action State} définissent les actions à réaliser sur chaque écran de l'application. Ils sont liés aux fonctions offertes par la partie \kwsoa{}. 
-\paragraph{}
-\textit{Exemple}: Pour le chargement de la liste des produits disponibles pour la page d'accueil (ou Vitrine), nous définissons un \textit{Action State} nommé \guim{Load Public Product List} que nous lions à l'opération getProductList() offerte par \kwsoa{}.  
-\item Les transitions \guim{(\textit{Transition})} font passer l'\textsc{ihm} d'un état à un autre (d'un écran à un autre). Ils font également le lien entre les Action States et les View States. Les transitions peuvent également avoir des conditions de garde, déterminées par des View Events (elles n'occurrent ainsi que si les conditions d'activation sont remplies).
-\paragraph{}
-\textit{Exemple}: Une transition pour l'affichage de l'écran d'accueil \guim{Display Main Page} va de l'état \guim{Action State Load Public Product List} (chargement des éléments de la page \guim{Vitrine}) à l'état \guim{View State Display MainPage} (affichage de la page \guim{Vitrine}).
+\item Les états \textit{View State} correspondent aux écrans \textsc{IHM} et contiennent les \textit{View Container} décrit précédemment.
+\item Les états d'action \textit{Action State} définissent les actions à réaliser sur chaque écran de l'application. Ils sont liés aux fonctions offertes par la partie \kwsoa{}.
+\item Les transitions \guim{(\textit{Transition})} font passer l'\textsc{IHM} d'un état à un autre (et d'un écran à un autre). Ils font également le lien entre les ActionStates et les ViewStates. Les transitions peuvent également avoir des conditions de garde, déterminées par des View Events (elles n'occurrent ainsi que si les conditions d'activation sont remplies).
 
 \end{itemize}
 \end{enumerate}       
@@ -69,26 +65,25 @@ Nous choisissons le type \textit{Page} pour représenter un écran \textsc{ihm}.
 
 
 \subsection{Génération du code}
-Dans cette partie, nous nous occupons de générer les fichiers relatifs aux \guim{routes}, aux \guim{controllers} et les \guim{views}. Rappelons les caractéristiques de chaque type de fichier:
+Dans le cas de \kwplay, le concept de \kwcinematic passera par les fichiers de \guim{routes}, \guim{controllers} et \guim{views}. Rappelons les caractéristiques de chaque type de fichier :
 \begin{itemize}
-\item \textbf{Controller}: Nous avons une classe \guim{MainController} dans laquelle sont déclarées des méthodes statiques pour chacune de nos Actions;
+\item \textbf{Controller}: Nous avons une classe \guim{MainController} dans laquelle sont déclarées des méthodes de chacune de nos Actions.
 \item \textbf{Route}: Fichier de configuration des routes au sein de l'application. Les \guim{routes} sont toutes associées au même contrôleur : \guim{MainController}. 
-\item \textbf{View}: Ensemble de fichiers décrivant un moteur de templates qui repose entièrement sur Scala ainsi que du code html pour la définition des formulaires, widgets, etc. 
+\item \textbf{View}: Ensemble de fichiers décrivant la forme des pages web (champs texte, formulaires, boutons, \dots) avec du code HTML.
 \end{itemize}
-Le Générateur \guim{Cinematic} se divise ainsi en un fichier de génération principal, \verb+GenerateCinematic+, lié aux fichiers de génération majeurs (un pour chaque type de fichiers - Controller, Route, View), eux-mêmes appelant des fichiers secondaires comportant les templates et queries nécessaires à l'élaboration des fichiers finaux en Scala et HTML.
-\begin{figure}[H]
+Le Générateur \guim{\kwcinematic{}} se compose ainsi d'un module de génération principal, \verb+GenerateCinematic+, lié aux modules de génération majeurs (un pour chaque type de fichiers - Controller, Route, View), eux-mêmes appelant des sous-modules et queries nécessaires à l'élaboration des fichiers finaux en HTML.
+\begin{figure}[h]
   \centering
   \includegraphics[scale=.35]{img/hierarchie.eps}
-  \caption{Hiérarchie des fichiers générateurs. Chaque ellipse correspond à un générateur \guim{principal}, et chaque rectangle à un fichier de templates secondaire.}
+  \caption{Hiérarchie des fichiers générateurs}
   \label{fig:gen}
 \end{figure}
-A partir d'un Modèle composé comme décrit précédemment, le Générateur va analyser chacun de ses éléments et, à l'aide des templates correspondants, les traduire afin de créer les fichiers Scala/HTML finaux. La hiérarchie des générateurs est illustrée sur la figure \ref{fig:gen}.
 
 \begin{description}
 
 \item[Le générateur de Routes :] analyse le Flow principal du modèle, et traduira chaque ViewState et ActionState en appels vers des méthodes contenues dans le Controller.
 
-\item[Le générateur de Controller :] génère, pour chaque ViewState du même Flow, l'ensemble des méthodes lui étant associées - ces mêmes méthodes mentionnées dans les Routes.
+\item[Le générateur de Controller :] génère, pour chaque ViewState du même Flow, l'ensemble des méthodes lui étant associées. Ces mêmes méthodes mentionnées dans les Routes.
 
 \item[Le générateur de Views :] permet la création des différentes pages de l'application. Le modèle entier est analysé afin de permettre la création de chacun des éléments nécessaires à l'\textsc{IHM}. Une application Scala est composée d'une page principale, dite \guim{main} ou \guim{index}, qui fait appel à d'autres pages qui correspondent aux différents écrans de l'application. Ainsi, la page \guim{index}, indépendante des autres écrans, n'est pas représentée dans le modèle - elle est cependant générée automatiquement avant la génération des écrans.
 
