@@ -1,0 +1,23 @@
+/* Calc_i
+ * Author: 
+ * Creation date: mer. déc. 5 2012
+ */
+IMPLEMENTATION
+   Calc_i
+REFINES
+   Calc
+
+CONCRETE_VARIABLES
+   reg
+
+INITIALISATION
+   reg := 10
+
+OPERATIONS
+   inc ( pp ) =
+   BEGIN
+       reg := reg + pp
+   END
+
+
+END

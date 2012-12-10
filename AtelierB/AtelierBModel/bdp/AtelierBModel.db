@@ -4,8 +4,8 @@
     <project decomp_dir="/comptes/E074862X/AB/AtelierBModel/bdp/expand_src" old_decomp_dir="/comptes/E074862X/AB/AtelierBModel/bdp/src" type="SYSTEM">
         <!-- Definition directory list -->
         <!-- Component file list -->
-        <component_file path="/comptes/E074862X/AB/AtelierBModel" name="GestionDG" suffix="sys" user="E074862X">
-            <component name="GestionDG" type="system" />
+        <component_file path="/comptes/E074862X/AB/AtelierBModel" name="GestionDGBis" suffix="mch" user="E074862X">
+            <component name="GestionDGBis" type="specification" />
         </component_file>
     </project>
 </db_xml>

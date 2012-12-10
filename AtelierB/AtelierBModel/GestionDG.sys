@@ -2,7 +2,7 @@
  * Author: BIZET CHALINE MARGUERITE RINCÉ
  * Creation date: mer. nov. 28 2012
  */
-MACHINE
+SYSTEM
     GestionDG
     
 SETS
@@ -37,8 +37,16 @@ INVARIANT
     & libelle : modifEnCours --> LIBELLES_TRAITEMENT /*A partir d'un Id de modification, on peut obtenir le libelle de celle-ci*/
     & date_modif : modifEnCours --> DATES /*A partir d'un Id de modification, on peut obtenir la date à laquelle elle a été effectuée*/
     & modificateur : modifEnCours +-> employesExistants/*A partir d'un Id de modification, on peut obtenir l'employé qui l'a effectué*/
-    
-    
+ 
+INITIALISATION
+    date_creation := {}
+    || createur := {}
+    || modification := {}
+    || libelle := {}
+    || modificateur := {}
+    || dossiersEnCours := {}
+    || modifEnCours := {}
+    || employesExistants := {}
     
 OPERATIONS
 
