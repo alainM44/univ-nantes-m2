@@ -83,15 +83,15 @@ Le Générateur \guim{Cinematic} se divise ainsi en un fichier de génération p
   \label{fig: hierarchie generateurs}
 \end{figure}
 A partir d'un Modèle composé comme décrit précédemment, le Générateur va analyser chacun de ses éléments et, à l'aide des templates correspondants, les traduire afin de créer les fichiers Scala/HTML finaux. 
-\newline
-Le générateur de Routes analysera le Flow principal du modèle, et traduira chaque ViewState et ActionState en appels vers des méthodes statiques contenues dans le Controller.
-\newline
-De même, le générateur de Controller générera, pour chaque ViewState du même Flow principal, l'ensemble des méthodes statiques lui étant associées - ces mêmes méthodes mentionnées dans les Routes.
-\newline
-Le générateur de Views permet la création des différentes pages de l'application - le modèle entier est analysé afin de permettre la création de chacun des éléments nécessaires à l'IHM. Une application Scala est composée d'une page principale, dite \guim{main} ou \guim{index}, qui fait appel à d'autres pages qui correspondent aux différents écrans de l'application. Ainsi, la page \guim{index}, indépendante des autres écrans, n'est pas représentée dans le modèle - elle est cependant générée automatiquement au début de l'analyse de celui-ci, avant la génération des écrans.
-\newline
-Chaque page est décrite au sein d'un ViewState (écran) par l'intermédiaire d'un ViewContainer de type \guim{Page}. Dans notre modèle actuel, il est supposé qu'un ViewState ne contient qu'un seul ViewContainer de type \guim{Page} (un écran = une page); de cette manière, un seul fichier Scala/HTML est créé par ViewState, et donc par écran. Le ViewContainer \guim{Page} peut contenir à son tour soit d'autres ViewContainers (qui sont alors soit des \guim{Panels} - formulaires - soit des \guim{Tables}), soit des ViewElements (qui sont en réalité des Widgets). Le rôle du générateur de Views est de traduire chacun de ces éléments dans les fichiers Scala/HTML de chaque écran.
-\newline
+\\
+\textbf{Le générateur de Routes} analysera le Flow principal du modèle, et traduira chaque ViewState et ActionState en appels vers des méthodes contenues dans le Controller.
+\\
+De même, \textbf{le générateur de Controller} générera, pour chaque ViewState du même Flow, l'ensemble des méthodes lui étant associées - ces mêmes méthodes mentionnées dans les Routes.
+\\
+\textbf{Le générateur de Views} permet la création des différentes pages de l'application - le modèle entier est analysé afin de permettre la création de chacun des éléments nécessaires à l'IHM. Une application Scala est composée d'une page principale, dite \guim{main} ou \guim{index}, qui fait appel à d'autres pages qui correspondent aux différents écrans de l'application. Ainsi, la page \guim{index}, indépendante des autres écrans, n'est pas représentée dans le modèle - elle est cependant générée automatiquement avant la génération des écrans.
+\\
+Chaque page est décrite au sein d'un ViewState (écran) par l'intermédiaire d'un ViewContainer de type \guim{Page}. Dans notre modèle actuel, il est supposé qu'un ViewState ne contient qu'un seul ViewContainer de type \guim{Page} (un écran = une page). De cette manière, un seul fichier de vue HTML est créé par ViewState, et donc par écran. Le ViewContainer \guim{Page} peut contenir à son tour soit d'autres ViewContainers, soit des ViewElements (qui représentent des Widgets). Par exemple, les \guim{Tables} et les \guim{Formulaires} sont des conteneurs. Le rôle du générateur de Views est de traduire chacun de ces éléments en code HTML pour chaque écran.
+\\
 Toute page du modèle est créée selon les étapes d'analyse d'élément suivantes :
 \begin{enumerate}
 \item CinematicRoot (le modèle) : récupération et analyse de chaque ViewState tour à tour.
@@ -108,19 +108,10 @@ Plutôt que de créer un template par type d'élément, nous avons créé des te
   \caption{Exemple d'analyse par le générateur de views.}
   \label{fig: exemple generateur view}
 \end{figure}
-\paragraph{Méthodes}
-Certains éléments, tels que les formulaires et les boutons, requièrent l'utilisation de méthodes (envoi de données par exemple). Ces opérations ne peuvent être récupérées directement à partir d'un élément d'un ViewContainer; il faut utiliser les Transitions. 
-\newline
-De l'élément du ViewContainer analysé, on récupère un ViewEvent. Ce ViewEvent est spécifique à cet élément. Pour pouvoir récupérer la méthode correspondante, il faut alors parcourir le Flow principal, et récupérer la Transition comportant ce même ViewEvent. Cette transition lie l'écran d'où est issu l'élément, et l'ActionState correspondant. Cet ActionState est défini avec un FlowAction, et c'est ce FlowAction qui contient la signature de la méthode à utiliser (Operation). Le générateur peut alors compléter le code créé pour l'élément dans le fichier final de l'écran, et dans les fichiers du Controller et des Routes, référençant la méthode.
+\paragraph{Actions}
+Certains éléments, tels que les formulaires et les boutons, requièrent des déclencheurrs d'Actions (envoi de données par exemple). La nature de ces Actions ne peuvent être récupérées directement à partir d'un élément d'un ViewContainer : Il faut utiliser les Transitions afin de savoir si un évènement ou une vue est reliée à une Action.
 
+De l'élément du ViewContainer analysé, il peut se trouver un ViewEvent (évènement tel qu'un clic sur un Bouton). Cet évènement est unique, spécifique à cet élément. On peut alors parcourir le Flow principal, afin de vérifier si une des Transitions prend sa source de cet Évènement. Si une telle transition existent et que sa cible est un ActionState, il est alors possible de récupérer l'Operation associée (définie dans le Modèle \kwsoa). Il est ainsi possible de lier un Évènement à une Action, et il suffit alors de générer l'appel de l'Opération correspondante (en utilisant le système de Routes).
 
-\subsection{Résultats obtenus}
-Suite au lancement de la génération du code à partir d'un modèle cinematic valide, on obtient divers fichiers Scala/HTML compatibles Play!, généré dans des dossiers précis.
-\begin{itemize}
-\item Les Views : dans le dossier /app/views ont été générés le fichier de la page d'index, ainsi qu'un fichier par ViewState contenu dans le modèle.
-\item Le Controller : dans le dossier /app/controllers se trouve le fichier Controller, comportant les différentes opérations référencées dans les ActionStates.
-\item Les routes : enfin, dans le dossier /conf, se trouve le fichier référençant les \guim{routes} reliant aux opérations contenues dans le Controller.
-\end{itemize}
-L'indentation et les espaces réservés au code utilisateurs sont des parties à prendre en compte dans le générateur. Les fichiers créés, bien que personnalisés selon les attributs du modèle, restent très génériques; la modification d'un template peut provoquer une perte de qualité du code généré; de même, si l'application générée est compatible avec play!, il est du ressort de l'utilisateur de s'assurer que le modèle qu'il propose ou les modifications qu'il apporte au code ne perturbent pas son fonctionnement, au risque de corrompre certaines fonctionnalités.
-\newline
-L'application lancée sur Play!, on peut souhaiter améliorer son ergonomie en ajoutant des Header et Footer à chaque page. La gestion de écrans se faisant à partir de la page d'index, les éléments qui précèdent le bloc de contenu et ceux qui le suivent sont préservés sur toutes les pages. Ainsi, si l'utilisateur veut créer un Header présentant des liens vers différentes pages de son application, plusieurs solutions s'offrent à lui : il peut modifier son modèle de telle sorte que les pages à référencer soient mises en valeur, avec un attribut spécial par exemple ; il peut modifier le générateur, et faire prendre en compte un ViewState spécialisé pour le Header; il peut également créer ses propres widgets et les inclure dans le générateur après modification du métamodèle. D'autres possibilités permettent de gérer cette amélioration - la plus simple étant la première, se gérant avec un simple ajout de templates gérant la génération d'une liste de liens répondant aux critères définis par l'utilisateur au préalable.
+\subsection{Le cas du \guim{Header}}
+Si l'utilisateur veut créer un \guim{Header} (en-tête de page) visible sur toutes les pages, et présentant des liens vers différentes pages de son application, il n'est pas concevable que ce dernier soit forcé d'ajouter la description de ce \guim{Header} dans toutes les Pages du Modèle. Le système que nous avons mis en place propose plusieurs solutions à ce problème : L'utilisateur peut modifier son Modèle de telle sorte que les pages à référencer soient mises en valeur, avec un attribut spécial par exemple. (TODO)
