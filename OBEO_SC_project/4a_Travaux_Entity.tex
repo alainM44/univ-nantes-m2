@@ -49,7 +49,7 @@ Nous avons représenté un seul bloque dans notre modèle d'Entity qui va regrou
 
 \subsection{Génération du code Entity}
 Cette phase a pour objectif d'utiliser Acceleo pour générer le code source de la partie modèle de notre application.
-Pour générer les modèles de notre application, on crée un template Acceleo qui prend en paramètre un bloque (élément de base de notre modèle Entity). En suite nous allons parcourir toute les entity et générer le contenu de chacune. On génère alors pour chaque entity ces attributs, ces annotations, ces références, les getters et les setters. On peut par exemple écrire le template suivant qui génère les attributs pour chaque Entity: \\
+Pour cela, on crée un template Acceleo qui prend en paramètre un bloque (élément de base de notre modèle Entity). En suite nous allons parcourir toute les entity et générer le contenu de chacune. On génère alors pour chaque entity ces attributs, ces annotations, ces références, les getters et les setters. On peut par exemple écrire le template suivant qui génère les attributs pour chaque Entity: \\
 \fbox{\parbox{\textwidth}{
 [template public generateElement(myBlock : Block)]   // création du template.\newline
 [for( myEntity : Entity | myBlock.entities)] //parcours des Entity. \newline
@@ -59,7 +59,7 @@ Pour générer les modèles de notre application, on crée un template Acceleo q
 	[ generateAttribute() /] // appel d'un autre template qui affiche les attributs.\newline
 [/for]
 }}
-\clearpage
+
 
 
 
