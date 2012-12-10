@@ -153,7 +153,7 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 		// North area
 		Box boxNorth = Box.createHorizontalBox();
 		boxNorth.add(mLabelNorth);
-		mjtfNorth = new JTextField("tape here you pseudo");
+		mjtfNorth = new JTextField("Anonyme");
 		mjtfNorth.setSize(new Dimension(10, 10));
 		mButtonSave.addActionListener(new ActionListener() {
 
@@ -192,7 +192,7 @@ public class ClientForum extends JFrame implements ListSelectionListener {
 
 		// south area
 		Box boxSouth = Box.createHorizontalBox();
-		mjtfSouth = new JTextField("blahblah");
+		mjtfSouth = new JTextField("Nouveau Sujet");
 		mjtfSouth.setSize(new Dimension(10, 10));
 		boutonCreateServer.addActionListener(new ActionListener() {
 
