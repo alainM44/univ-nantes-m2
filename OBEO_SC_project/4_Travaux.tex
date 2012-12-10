@@ -10,7 +10,7 @@ Comme la plupart des générateurs de code, \kwacceleo{} propose un système bas
 
 \subsubsection{Les Modules}
 
-Dans \kwacceleo{}, un Module est une unité de génération amenée a être utilisée par le générateur. Un générateur est donc une agrégation de Modules. Un Module est paramétré par un ou plusieurs \footnote{DSL}{Domain Specific Language} définis par des méta-modèles, a vérifier) afin de pouvoir proposer les fonctionnalités associées, qui permettent notamment de parcourir chaque élément du Modèle. Chaque Module est composée d'un ou plusieurs templates. Un template a pour rôle de générer du code d'après un ou plusieurs paramètres (éléments du Modèle).
+Dans \kwacceleo{}, un Module est une unité de génération amenée a être utilisée par le générateur. Un générateur est donc une agrégation de Modules. Un Module est paramétré par un ou plusieurs \textit{DSL}\footnote{Domain Specific Language} définis par des méta-modèles, a vérifier) afin de pouvoir proposer les fonctionnalités associées, qui permettent notamment de parcourir chaque élément du Modèle. Chaque Module est composée d'un ou plusieurs templates. Un template a pour rôle de générer du code d'après un ou plusieurs paramètres (éléments du Modèle).
 
 \begin{figure}[htb]
   \centering
@@ -42,11 +42,11 @@ Les Queries permettent plus généralement de structure le générateur. Par con
 
 \subsubsection{Les Services}
 
-Les Services peuvent être vus comme une extension des Queries. Là où les opérations exécutables des Query se limitent à actions basiques (définies par \footnote{Ocl}{}). Le principe des Services consiste à appeler du code Java depuis une Query via des invocations de méthodes. Cela permet d'effectuer des opérations complexes ou bien de stocker un certain nombre d'informations via du code Java. Ces informations restent récupérables depuis les templates pendant toute la durée de la génération de code.
+Les Services peuvent être vus comme une extension des Queries. Là où les opérations exécutables des Query se limitent à actions basiques (définies par \textit{Ocl}\footnote{Ocl : Object Constraint Language}). Le principe des Services consiste à appeler du code Java depuis une Query via des invocations de méthodes. Cela permet d'effectuer des opérations complexes ou bien de stocker un certain nombre d'informations via du code Java. Ces informations restent récupérables depuis les templates pendant toute la durée de la génération de code.
 
 \subsubsection{Les balises \guim{Code Utilisateur}}
 
-Si un Générateur de Code permet aisément de transcrire la structure et la logique de fonctionnement d'un système, il est en revanche impossible d'en saisir automatiquement tous les aspects ou particularités. En d'autres termes, un code généré sera rarement complet. \kwacceleo fournit donc un système très simple permettant de définir des zones de \guim{Code Utilisateur} au sein d'un Template. Ainsi, l'utilisateur peut apporter des modifications ou ajouts dans les fichiers générés. Si ces modifications ont été effectuées à l'intérieur d'une zone \guim{Code Utilisateur}, ces dernières ne seront pas affectées si les fichiers sont générés à nouveau. De telles zones peuvent être insérée au sein d'un Template en utilisant de simples balises \guim{\textit{\textbf{[protected]}}}
+Si un Générateur de Code permet aisément de transcrire la structure et la logique de fonctionnement d'un système, il est en revanche impossible d'en saisir automatiquement tous les aspects ou particularités. En d'autres termes, un code généré sera rarement complet. \kwacceleo fournit donc un système très simple permettant de définir des zones de \guim{Code Utilisateur} au sein d'un Template. Ainsi, l'utilisateur peut apporter des modifications ou ajouts dans les fichiers générés. Si ces modifications ont été effectuées à l'intérieur d'une zone \guim{Code Utilisateur}, ces dernières ne seront pas affectées si les fichiers sont générés à nouveau. De telles zones peuvent être insérées au sein d'un Template en utilisant de simples balises \guim{\textit{\textbf{[protected]}}}
 
 % Ici un schema ?
 \begin{figure}[htb]
