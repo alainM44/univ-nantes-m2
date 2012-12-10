@@ -19,7 +19,7 @@ Dans \kwacceleo{}, un Module est une unité de génération amenée a être util
   \label{fig:acc_module}
 \end{figure}
 
-L'utilisation des templates est rendue très intuitive grâce au langage conçu pour \kwacceleo{} : Par défaut, le texte écrit dans un Template est recopié tel-quel dans le fichier qui sera généré en sortie. Afin d'insérer du contenu dynamique (base de la génération) dans le texte du Template, \kwacceleo{} utilise les balises \guim{\textbf{[}} (ouvrantes) et \guim{\textbf{/]}} (fermantes). Ces balisent permettent d'insérer un certain nombre d'instructions, comme la récupération d'un attribut d'un élément du Modèle, mais aussi des opérations conditionnelles ou des boucles de traitement.
+L'utilisation des templates est rendue très intuitive grâce au langage conçu pour \kwacceleo{} : Par défaut, le texte écrit dans un template est recopié tel-quel dans le fichier qui sera généré en sortie. Afin d'insérer du contenu dynamique (base de la génération) dans le texte du template, \kwacceleo{} utilise les balises \guim{\textbf{[}} (ouvrantes) et \guim{\textbf{/]}} (fermantes). Ces balisent permettent d'insérer un certain nombre d'instructions, comme la récupération d'un attribut d'un élément du Modèle, mais aussi des opérations conditionnelles ou des boucles de traitement.
 
 Par convention, chaque Module concerne un ou plusieurs aspects de la génération. Un Module peut également être dédié à la génération d'un type de fichier en particulier.
 
@@ -42,7 +42,7 @@ Les Queries permettent plus généralement de structure le générateur. Par con
 
 \subsubsection{Les Services}
 
-Les Services peuvent être vus comme une extension des Queries. Là où les opérations exécutables des Query se limitent à celles d'Ocl (TODO : Aborder Ocl). Le principe des Services consiste à appeler du code Java depuis une Query via des invocations de méthodes. Cela permet d'effectuer des opérations complexes ou bien de stocker un certain nombre d'informations via du code Java. Ces informations restent récupérables depuis les templates pendant toute la durée de la génération de code.
+Les Services peuvent être vus comme une extension des Queries. Là où les opérations exécutables des Query se limitent à actions basiques (définies par \footnote{Ocl}{}). Le principe des Services consiste à appeler du code Java depuis une Query via des invocations de méthodes. Cela permet d'effectuer des opérations complexes ou bien de stocker un certain nombre d'informations via du code Java. Ces informations restent récupérables depuis les templates pendant toute la durée de la génération de code.
 
 \subsubsection{Les balises \guim{Code Utilisateur}}
 
