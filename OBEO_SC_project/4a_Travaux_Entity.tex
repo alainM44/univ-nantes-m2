@@ -26,12 +26,13 @@ p1.save(); // Mise à jour dans la base de données
 \\
 \\
 \subsection{Conception du modèle}
-Nous avons employé la simple démarche suivante : pour chaque module Play, on associe une entité. À ce stade, on en déduit facilement les attributs de chaque instance d'\verb+Entity+ et les instances \verb+Reference+ correspondant aux associations avec d'autres entités. \kwplay{} utilise des mécanismes d'annotation au sein de ses modèles. Ces annotations permettent notamment de donner des contraintes à des attributs. Nous avons facilement pris en compte ce concept en utilisant la classe \verb+Annotation+ mise à disposition dans les méta datas d'un \verb+Attribut+.\\
+Nous avons employé la simple démarche suivante : pour chaque module Play, on associe une entité. À ce stade, on en déduit facilement les attributs de chaque instance d'\verb+Entity+ et les instances \verb+Reference+ correspondant aux associations avec d'autres entités. \kwplay{} utilise des mécanismes d'annotation au sein de ses modèles. Ces annotations permettent notamment de donner des contraintes à des attributs. Nous avons facilement pris en compte ce concept en utilisant la classe \verb+Annotation+ mise à disposition dans les méta datas d'un \verb+Attribut+.
+
 Nous avons élaboré un modèle d'Entity de notre application conformément au méta-modèle que nous avons décris en dessus. Ce modèle est illustré par la figure \ref{fig:entMod} ci-dessous.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.4]{img/Entitymodel.eps}
+%  \includegraphics[scale=.4]{img/Entitymodel.eps}
   \caption{modèle Entity de l'application}
   \label{fig:entMod}
 \end{figure}
@@ -39,11 +40,11 @@ Nous avons élaboré un modèle d'Entity de notre application conformément au m
 Nous avons représenté un seul bloque dans notre modèle d'Entity qui va regrouper les Entity suivantes :  
 
 \begin{itemize}
-  \item[\textbullet] \textbf{Costumer} : Représente le client qui va faire l'achat sur la plate-forme
-  \item[\textbullet] \textbf{ProductSale} : représente les produits mis en vente.
-  \item[\textbullet]	\textbf{ProductPurchased} : représente les produits achetés par un client.
+  \item[\textbullet] \textbf{Costumer} :  client qui va faire l'achat sur la plate-forme.
+  \item[\textbullet] \textbf{ProductSale} : les produits mis en vente.
+  \item[\textbullet] \textbf{ProductPurchased} : les produits achetés par un client.
   \item[\textbullet] \textbf{ProductInfo} : contient les informations d'un produit.
-  \item[\textbullet] \textbf{Cart} : représente une carte de paiement reliant un client aux produits qu'il a acheté.
+  \item[\textbullet] \textbf{Cart} : une carte de paiement reliant un client aux produits qu'il a achetés.
    
 \end{itemize}
 
