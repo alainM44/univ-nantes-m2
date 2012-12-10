@@ -1,25 +1,25 @@
 \chapter{Contributions}\label{chap:tra}
 
-\section{Présentation de l'outil Acceleo}\label{sec:acc}
+\section{Présentation de l'outil \kwacceleo{}}\label{sec:acc}
 
-Acceleo est un générateur de code Open Source développé par \kwobeo{} et la fondation Eclipse. Acceleo permet de générer du code, à partir de modèles basés sur le framework EMF (\cf{} \cite{emf}), en mettant en œuvre l'approche Model Driven Architecture (MDA). Le générateur Acceleo est une implémentation de la norme de l'OMG pour les transformations de modèle vers texte (Model to Text : M2T \cf{} section \ref{sec:m2t}.
+Acceleo est un générateur de code Open Source développé par \kwobeo{} et la fondation Eclipse. \kwacceleo{} permet de générer du code, à partir de modèles basés sur le framework EMF (\cf{} \cite{emf}), en mettant en œuvre l'approche Model Driven Architecture (MDA). Le générateur \kwacceleo{} est une implémentation de la norme de l'OMG pour les transformations de modèle vers texte (Model to Text : M2T \cf{} section \ref{sec:m2t}).
 
 \subsection{Fonctionnement}
 
-Comme la plupart des générateurs de code, Acceleo propose un système basé sur les templates : Les fichiers à générer peuvent être écrits avec des éléments statiques mêlés à des éléments dynamiques.
+Comme la plupart des générateurs de code, \kwacceleo{} propose un système basé sur les templates : les fichiers à générer peuvent être écrits avec des éléments statiques mêlés à des éléments dynamiques.
 
 \subsubsection{Les Modules}
 
-Dans Acceleo, un Module est une unité de génération amenée a être utilisée par le générateur. Un générateur est donc une agrégation de Modules. Un Module est paramétré par un ou plusieurs DSL (ndla : définir précédemment, a vérifier) afin de pouvoir proposer les fonctionnalités associées, qui permettent notamment de parcourir chaque élément du Modèle. Chaque Module est composée d'un ou plusieurs templates. Un template a pour rôle de générer du code d'après un ou plusieurs paramètres (éléments du Modèle).
+Dans \kwacceleo{}, un Module est une unité de génération amenée a être utilisée par le générateur. Un générateur est donc une agrégation de Modules. Un Module est paramétré par un ou plusieurs \footnote{DSL}{Domain Specific Language} définis par des méta-modèles, a vérifier) afin de pouvoir proposer les fonctionnalités associées, qui permettent notamment de parcourir chaque élément du Modèle. Chaque Module est composée d'un ou plusieurs templates. Un template a pour rôle de générer du code d'après un ou plusieurs paramètres (éléments du Modèle).
 
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.6]{img/screen_template.eps}
-  \caption{Exemple de fichier Module dans Acceleo}
+  \caption{Exemple de fichier Module dans \kwacceleo{}}
   \label{fig:acc_module}
 \end{figure}
 
-L'utilisation des templates est rendue très intuitive grâce au langage conçu pour Acceleo : Par défaut, le texte écrit dans un Template est recopié tel-quel dans le fichier qui sera généré en sortie. Afin d'insérer du contenu dynamique (base de la génération) dans le texte du Template, Acceleo utilise les balises \guim{\textbf{[}} (ouvrantes) et \guim{\textbf{/]}} (fermantes). Ces balisent permettent d'insérer un certain nombre d'instructions, comme la récupération d'un attribut d'un élément du Modèle, mais aussi des opérations conditionnelles ou des boucles de traitement.
+L'utilisation des templates est rendue très intuitive grâce au langage conçu pour \kwacceleo{} : Par défaut, le texte écrit dans un Template est recopié tel-quel dans le fichier qui sera généré en sortie. Afin d'insérer du contenu dynamique (base de la génération) dans le texte du Template, \kwacceleo{} utilise les balises \guim{\textbf{[}} (ouvrantes) et \guim{\textbf{/]}} (fermantes). Ces balisent permettent d'insérer un certain nombre d'instructions, comme la récupération d'un attribut d'un élément du Modèle, mais aussi des opérations conditionnelles ou des boucles de traitement.
 
 Par convention, chaque Module concerne un ou plusieurs aspects de la génération. Un Module peut également être dédié à la génération d'un type de fichier en particulier.
 
@@ -36,7 +36,7 @@ Les Queries permettent plus généralement de structure le générateur. Par con
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.6]{img/screen_query.eps}
-  \caption{Exemple de Queries dans Acceleo}
+  \caption{Exemple de Queries dans \kwacceleo{}}
   \label{fig:acc_module}
 \end{figure}
 

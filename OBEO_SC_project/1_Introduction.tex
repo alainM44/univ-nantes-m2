@@ -9,7 +9,7 @@
 
 \chapter{L'entreprise Obeo}
 \section{Présentation de l'entreprise}
-\kwobeo{} est une société de service et un éditeur de logiciels et un créateur d'outils innovant pour la mise au point d'usines logiciels\cite{obeo}.  Elle est fondée en 2005 dans la région nantaise par l'initiative de S.\textsc{Lacrampe} (directeur général), E.\textsc{Juliot} (directeur commercial) et J.\textsc{Musset} (ancien directeur technique). En décembre 2007, une agence est ouverte à Gif-sur-Yvette (région parisienne). Elle est à l'initiative du projet Acceleo (\cf{} section \ref{sec:acc}), un générateur de code basé sur le framework EMF. Son expertise dans le domaine de l'ingénierie des modèles (démarche MDA) lui permet de proposer des solutions allant de la création à la refonte d'applications informatiques. 
+\kwobeo{} est une société de service et un éditeur de logiciels et un créateur d'outils innovant pour la mise au point d'usines de logiciels\cite{obeo}.  Elle est fondée en 2005 dans la région nantaise par l'initiative de S.\textsc{Lacrampe} (directeur général), E.\textsc{Juliot} (directeur commercial) et J.\textsc{Musset} (ancien directeur technique). En décembre 2007, une agence est ouverte à Gif-sur-Yvette (région parisienne). Elle est à l'initiative du projet \kwacceleo{} (\cf{} section \ref{sec:acc}), un générateur de code basé sur le framework EMF. Son expertise dans le domaine de l'ingénierie des modèles (démarche MDA) lui permet de proposer des solutions allant de la création à la refonte d'applications informatiques. 
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=.45]{img/logoobeo.eps}
@@ -17,14 +17,14 @@
 \end{figure}
 
 
-Ces solutions proposées permettent notamment de diminuer les délais de projets et de diminuer les risques d'erreurs. Les amélioration des performances d'adaptation et d'agilité font aussi parties des objectifs des outils et méthode de la société \kwobeo{}. Ces offres uniques sur le marché ont convaincu des clients tels que Thales, CEA, Atos Origin ou encore Orange Business Services. Les utilisateurs des produits proposés par \kwobeo sont majoritairement des chefs de projet, des architectes logiciel ou encore des développeurs.
+Les solutions proposées permettent notamment de diminuer les délais de projets et de diminuer les risques d'erreurs. Les amélioration des performances d'adaptation et d'agilité font aussi partie des objectifs, des outils et méthodes de la société \kwobeo{}. Ces offres uniques sur le marché ont convaincu des clients tels que Thales, CEA, Atos Origin ou encore Orange Business Services. Les utilisateurs des produits proposés par \kwobeo sont majoritairement des chefs de projet, des architectes logiciel ou encore des développeurs.
 La société \kwobeo{} est aussi un membre actif dans le domaine Open Source et est membre \emph{stratégique} de la fondation Eclipse \cite{fondation}.
 
 \clearpage
 
 \section{Démarche M2T}\label{sec:m2t}
 
-Dans le cadre du développement à base de modèle, l'Object Management Group \cite{omg} a créer la spécification Meta-Object Facility Model to Text Transformation Language (ou MOF2Text). La société \kwobeo emploie cette démarche qui est au coeur de son projet Acceleo (\cf{} \ref{sec:acc}).
+Dans le cadre du développement à base de modèles, l'Object Management Group \cite{omg} a créé la spécification Meta-Object Facility Model to Text Transformation Language (ou \textit{MOF2Text}). La société \kwobeo{} emploie cette démarche qui est au coeur de son projet \kwacceleo{} (\cf{} \ref{sec:acc}).
 
 \begin{figure}[htb]
   \centering
@@ -36,18 +36,18 @@ Dans le cadre du développement à base de modèle, l'Object Management Group \c
 
 Le principe du Model To Text repose sur au moins trois notions essentielles :
 \begin{itemize}
-\item Le Méta-Modèle (ou M2) : Le M2 sert à définir les différents concepts pouvant entrer en jeu, ainsi que les relations que ces concepts entretiennent entre-eux. Le M2 sert donc de base à la modélisation d'un système.
+\item Le Méta-Modèle (ou M2) : Le M2 sert à définir les différents concepts pouvant entrer en jeu au sein du système, ainsi que les relations que ces concepts entretiennent entre-eux. Le M2 sert donc de base à la modélisation.
 \item Le Modèle (ou M1) : Il repose sur le M2 pour décrire un système (ou une facette d'un système) en organisant les différents éléments entre eux de manière concrète, et en leur assignant un certain nombre de propriétés. Ainsi, le Modèle est utilisé pour fournir une description non-technique du réel et/ou de l'application attendue.
 \item Le générateur de code : Il est utilisé pour \guim{traduire} un Modèle en code exécutable. Utilisant - la plupart du temps - un système basé sur les templates, il est configuré pour générer certaines portions de code en fonction des éléments rencontrés en parcourant le Modèle. Le générateur de code est donc utilisé pour passer d'un Modèle non-technique à une application exécutable sur la plate-forme et/ou l'environnement cible. L'objectif étant qu'un même générateur de code soit capable de produire des applications différentes à partir de Modèles différents (reposant sur le même M2).\\
 \end{itemize}
 
-Le Modèle permet donc de représenter une application et son contexte en faisant abstraction de la technologie ou de la plate-forme cible, à l'inverse du Générateur qui doit savoir produire une solution technique en faisant abstraction du contexte concret, qui est fourni par le Modèle.
+Le Modèle permet donc de représenter une application et son contexte en faisant abstraction de la technologie ou de la plate-forme cible, à l'inverse du générateur qui doit savoir produire une solution technique en faisant abstraction du contexte concrêt, qui est fourni par le modèle.
 
 % TODO Un schema pourrait etre intressant.
 
 
 
-%%  LocalWords:  Obeo MDA Acceleo SC Project web Model Driven Juliot
+%%  LocalWords:  Obeo MDA \kwacceleo{} SC Project web Model Driven Juliot
 %%  LocalWords:  pouvons-nous Thibaudeau nantaise Lacrampe Musset EMF
 %%  LocalWords:  Gif-sur-Yvette framework Thales CEA Atos Origin to
 %%  LocalWords:  Eclipse l'Object Meta-Object Facility Text Language
