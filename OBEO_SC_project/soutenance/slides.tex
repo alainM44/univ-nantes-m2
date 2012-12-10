@@ -29,7 +29,9 @@
   \& N.\textsc{Sebari}}
 \institution{\vspace{0.5cm} {\hspace{1cm}\includegraphics[scale=0.13]{img/logouniv} \hspace{.5cm}\includegraphics[scale=0.2]{img/logoobeo} }  \vspace{0.3cm}\\  University of Nantes }
 %\email{}
-\slideCaption{ Université de  Nantes, FR \includegraphics[scale=0.05]{img/logouniv}}
+\slideCaption{Université de Nantes, FR \includegraphics[scale=0.05]{img/logouniv}}
+\Logo{\includegraphics[scale=0.05]{img/logouniv}}
+\DefaultTransition{Dissolve}
 
 
 \begin{document}
@@ -42,10 +44,14 @@
 \newcommand{\myitemm}{\item \includegraphics[width=.4cm]{green-bullet-on-white}}
 \myitem{1}{\includegraphics[width=.4cm]{red-bullet-on-white}}
 %\myitemm{2}{\includegraphics[width=.4cm]{green-bullet-on-white}}
-
 \newcommand{\icongb}{\includegraphics[width=.4cm]{green-bullet-on-white}} 
+\newcommand{\iconrb}{\includegraphics[width=.4cm]{red-bullet-on-white}} 
 
-\begin{slide}[Box]{Sommaire}
+\newcommand{\itemg}{\item[\icongb{}]}
+\newcommand{\itemr}{\item[\iconrb{}]}
+
+
+\begin{slide}{Sommaire}
   \begin{enumerate}
     {\bf
     \item L'entreprise Obeo
@@ -61,25 +67,92 @@
 \end{slide}
 
 
-\overlays{4}{%
-  \begin{slide}[Box]{L'Entreprise Obeo}
-    \vspace{-1cm}
-    \textbf{Systematic review}
-    \fromSlide{1}{\textbf{Method:}}
-    \bi
-    \fromSlide{2}{\item[{\icongb{}}] Concepteur de solutions logicielles} % ya plein de logiciels faut les améliorer mais cest compliqué car dangereux toussa
-    \fromSlide{3}{\item [{\icongb{}}] A l'origine du projet \textit{Acceleo}} % cest bien de tout rassembler
-    \fromSlide{4}{\item [{\icongb{}}] Membre stratégique de la \textit{fondation Eclipse}} % facilite les échanges entre scientifique et donc mieux prévoir les chgmt
-    \ei
+\overlays{3}{%
+  \begin{slide}{L'Entreprise OBEO}
+  
+    \begin{itemstep}
+    \itemg Concepteur de solutions logicielles
+    \itemg A l'origine du projet \textit{Acceleo} 
+    \itemg Membre stratégique de la \textit{fondation Eclipse} 
+    \end{itemstep}
+  
+  \end{slide}
+}
 
+% CONTEXTE (liste relatant les notions abordées ?)
+\overlays{3}{%
+  \begin{slide}{Contexte}
+  
+    \begin{itemstep}
+    \itemg Concepteur de solutions logicielles
+    \itemg A l'origine du projet \textit{Acceleo} 
+    \itemg Membre stratégique de la \textit{fondation Eclipse} 
+    \end{itemstep}
+  
+  \end{slide}
+}
+
+% OBJECTIFS (liste aussi (conception modèle, générateur) ?)
+\overlays{3}{%
+  \begin{slide}{Objectifs}
+
+    \begin{itemstep}
+    \itemg Concepteur de solutions logicielles
+    \itemg A l'origine du projet \textit{Acceleo} 
+    \itemg Membre stratégique de la \textit{fondation Eclipse} 
+    \end{itemstep}
+  
+  \end{slide}
+}
+
+% ORGANISATION (dur d'en faire une diapo, mais neamoins tres important)
+% (je laisse en liste/overlays en attendant)
+\overlays{3}{%
+  \begin{slide}{Organisation}
+  
+    \begin{itemstep}
+    \itemg Concepteur de solutions logicielles
+    \itemg A l'origine du projet \textit{Acceleo} 
+    \itemg Membre stratégique de la \textit{fondation Eclipse} 
+    \end{itemstep}
+  
   \end{slide}
 }
 
 
+% Presentation Play
+\begin{slide}[Box]{Le Framework \textit{Play!}}
+\bigskip
+  \begin{center}
+  \centering
+    \includegraphics[scale=.6]{img/play_scheme.eps} 
+  \end{center}
+\end{slide}
 
+% Prototype d'application avec screen
+\begin{slide}[Box]{Prototype d'application}
+  %\vspace{-1cm}
+  \bc{} 
+    \includegraphics[scale=.3]{img/screen_prototype.eps} 
+  \ec{}
+\end{slide}
+
+% TRAVAUX (dur d'en faire une diapo, mais neamoins tres important)
+% (je laisse en liste/overlays en attendant)
+\overlays{3}{%
+  \begin{slide}{Travaux}
+  
+    \begin{itemstep}
+    \itemg Concepteur de solutions logicielles
+    \itemg A l'origine du projet \textit{Acceleo} 
+    \itemg Membre stratégique de la \textit{fondation Eclipse} 
+    \end{itemstep}
+  
+  \end{slide}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \overlays{7}{%
-%%   \begin{slide}[Box]{Research topic}
+%%   \begin{slide}{Research topic}
 %%     \fromSlide{1}{\textbf{Motivation :}}
 %%     \bi
 %%     \fromSlide{2}{\item[{\includegraphics[width=.4cm]{green-bullet-on-white}}] Software changes} % ya plein de logiciels faut les améliorer mais cest compliqué car dangereux toussa
@@ -100,7 +173,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
 
 %% \overlays{4}{%
-%%   \begin{slide}[Box]{Main results 1/2}
+%%   \begin{slide}{Main results 1/2}
 %%     \vspace{-1cm}
 %%     \textbf{Systematic review}
 %%     \fromSlide{1}{\textbf{Method:}}
@@ -116,7 +189,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% \overlays{2}{%
-%%   \begin{slide}[Box]{Main result 2/2}
+%%   \begin{slide}{Main result 2/2}
 %%     \vspace{-1cm}
 %%     \textbf{Software Architecture Change Characterization Scheme :}
 %%     \fromSlide{2}{
@@ -132,7 +205,7 @@
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \overlays{8}{%
-%%   \begin{slide}[Box]{Research topic's matter}
+%%   \begin{slide}{Research topic's matter}
 %%     %    \vspace{-1cm}
 %%     \textbf{Main results}
 %%     \bi
