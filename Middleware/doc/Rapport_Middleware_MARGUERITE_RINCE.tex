@@ -1,0 +1,188 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8x]{inputenc} 
+\usepackage{lmodern}
+\usepackage [frenchb]{babel}
+% Pour pouvoir utiliser 
+\usepackage{ucs}
+
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{keystroke}
+\usepackage{amssymb}
+\usepackage{amsmath}
+%\renewcommand{\thesection}{\arabic{section}} % numérotation des sections	
+\usepackage[cc]{titlepic} %rajouter le logo dans la page de garde
+\usepackage{url} % Pour avoir de belles url
+\usepackage[a4paper]{geometry}
+\usepackage[linktocpage]{hyperref}
+% Pour pouvoir faire plusieurs colonnes
+\usepackage {multicol}
+%Pour faire plusieurs lignes
+\usepackage{multirow}
+\usepackage{slashbox}
+% Pour mettre du code source
+\usepackage {listings}
+% Pour pouvoir passer en paysage
+\usepackage{lscape}	
+% Pour pouvoir faire plusieurs colonnes
+\usepackage {multicol}
+% POur crééer un index
+\usepackage{makeidx}
+%insertion de pdf
+\usepackage{pdfpages}
+%Utilisation d'acronyme
+\usepackage{acronym}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\usepackage{lastpage} %numérotation type k/n
+\renewcommand{\footrulewidth}{0.5pt} % trait horizontal
+%\renewcommand{\headrulewidth}{1pt} % suppresion du trait horizontal dans l'entête
+\lfoot{Application répartie}
+\cfoot{\thepage \hspace{0.15cm}sur  \pageref{LastPage} } % numérotation des pages
+\rfoot{A.\textsc{M} \& R.\textsc{R} }
+\fancyhead[L]{\hspace{-.5cm}\includegraphics[scale=0.105]{img/logouniv.eps}} %logo entête !
+%\fancyhead{\empty} %logo entête !
+
+
+\fancypagestyle{plain}{% 1ères pages des chapitres:
+  \fancyhead{} % supprime l’entete...
+  \renewcommand{\headrulewidth}{0pt} % ...et le filet
+}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+
+
+
+
+\hypersetup{
+  backref=true,
+  %permet d'ajouter des liens dans...
+  pagebackref=true,%...les bibliographies
+  hyperindex=true, %ajoute des liens dans les index.
+  colorlinks=true, %colorise les liens
+  breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+  urlcolor= blue, %couleur des hyperliens
+  citecolor=	cyan,
+  bookmarks=true, %créé des signets pour Acrobat
+  bookmarksopen=true,
+  %si les signets Acrobat sont créés,
+  %les afficher complètement.
+  pdftitle={FSE analyse}, %informations apparaissant dans
+  pdfauthor={MARGUERITE Alain},
+  %dans les informations du document
+  pdfsubject={Doc}
+  %sous Acrobat.
+}
+
+%\makeindex
+%%%% debut macro pour enlever le nom chapitre %%%%
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+          {\parindent \z@ \raggedright \normalfont
+            \interlinepenalty\@M
+            \ifnum \c@secnumdepth >\m@ne
+            \Huge\bfseries \thechapter\quad
+            \fi
+            \Huge \bfseries #1\par\nobreak
+            \vskip 40\p@
+}}
+
+\def\@makeschapterhead#1{%
+  \vspace*{50\p@}%
+          {\parindent \z@ \raggedright
+            \normalfont
+            \interlinepenalty\@M
+            \Huge \bfseries  #1\par\nobreak
+            \vskip 40\p@
+}}
+\makeatother
+%%%% fin macro %%%%
+%Couverture 
+\widowpenalty=10000
+\clubpenalty=10000
+
+
+
+\usepackage{manfnt}
+
+\makeatletter
+\def\hang{\hangindent\parindent}
+\def\d@nger{\medbreak\begingroup\clubpenalty=10000
+  \def\par{\endgraf\endgroup\medbreak} \noindent\hang\hangafter=-2
+  \hbox to0pt{\hskip-\hangindent\dbend\hfill}}
+\outer\def\danger{\d@nger}
+\makeatother
+
+
+\title{ {\huge \textsc{Middleware}} \\  Master ALMA 2\up{eme} année  \\ \emph{Application répartie en JAVA}\\{\small Encadrant :  M.\textsc{Achour}}}
+\author{A.\textsc{Marguerite} R.\textsc{Rincé}}
+\newcommand{\cf}{\emph{cf}.}
+
+
+\begin{document}
+
+\maketitle
+\renewcommand{\labelitemi}{$\bullet$} 
+
+
+
+\section{Introduction}\label{sec:intro}
+Dans le cadre du module Middleware, il nous est proposé de concevoir une application répartie dans le langage JAVA. En effet, la classe UnicastRemoteObject propose les objets Remote Method Invocation (RMI ). Il s’agit d’objets \og distants \fg{} auxquels des appels de méthodes peuvent être effectués comme si l’objet était local. De plus l’implémentation des objets RMI utilise les moniteurs. Ce mécanisme, garantissant l’emploi de canaux de type FIFO,
+est donc approprié pour le protocole de ce projet. Dans ce rapport nous détaillerons dans la section \ref{sec:trav} l'application qui a été réalisée. Par la suite nous aborderons dans la section \ref{sec:pblm} les points inachevés, ainsi que des idées pour les résoudre. 
+
+\section{Travail réalisé}\label{sec:trav}
+L'application proposée est un forum de discussion permettant à différents utilisateurs d'échanger sur différents thèmes. Une illustration de son architecture est proposée sur la figure \ref{fig:dia}. Au lancement de l'application, l'utilisateur à la possibilité de renseigner un pseudonyme. Si il ne renseigne pas ce champs ou si il n'appuie pas  sur le bouton \verb+SAVE+, l'utilisateur aura pour identifiant \textsc{Anonyme}. Par la suite l'utilisateur peut rejoindre l'un des différents \og salons \fg listés dans la liste centrale de la fenêtre en cliquant sur son nom puis sur le bouton \verb+JoinServer+. Une nouvelle fenêtre de discussion apparaît et l'utilisateur peut dialoguer avec les autres utilisateurs connectés à ce salon. 
+
+\begin{figure}[htb]
+  \includegraphics[scale=.3]{img/dia.eps}
+  \caption{Application réalisée}
+  \label{fig:dia}
+\end{figure}
+
+Un client ne peut pas rejoindre deux fois un même salon, l'application bloque cette initiative en informant l'utilisateur qu'il est déjà connecté au sujet de discussion.
+
+Il possible pour utilisateur de créer dynamiquement des sujets de discussion au thème de son choix. Pour cela il suffit d'entrer le nom du sujet de discussion dans la barre de saisie située en bas de l'application, puis de cliquer sur le bouton \verb+CreateServer+. Le nouveau sujet de discussion apparaît dans la liste et l'utilisateur peur le rejoindre comme un sujet de discussion classique. 
+\hfill \\
+\hspace{4cm} \danger : Un autre utilisateur devra cliquer sur le bouton \verb+Refresh+ pour voir apparaître les potentiels nouveaux sujets de discussion.
+
+\section{Problèmes persistant}\label{sec:pblm}
+Bien que fonctionnelles, Certaines fonctionnalités de l'application n'ont pas été implémantées. Notamment, il n'existe pas de mécanismes en cas de pannes du serveur. Dans cette section nous donnerons plusieurs idées et concepts pouvant répondre aux problématiques posées par une telle panne.
+
+
+\paragraph{Serveur de secours}
+Une première possibilité et de mettre en place un second serveur \og fantôme \fg{} s'exécutant en même temps que le serveur principale. Durant l'exécution de l'application ce second serveur se contentera d'accumuler les informations globales du systèmes suivantes : 
+\begin{itemize}
+\item
+  La liste des sujets de discussion.
+\item
+  la liste des clients connectés au serveur.
+\item
+  La correspondance entre les sujets de discussion.
+\end{itemize}
+Lorsqu'un client rencontre une erreur dans une tentative de communication avec le serveur, il considère que le second serveur devient le serveur principale (chaque client récupère l'adresse du second serveur lors de la connexion avec le premier). Lorsque le second serveur reçoit cette sollicitation, il créer un nouveau  \og serveur de secours \fg{}. À chaque nouvelle panne ce cycle peut être itérer à nouveau.
+
+On peut d'emblée distinguer deux défaut majeur à cette solution : 
+
+\begin{enumerate}
+\item
+  Si une panne touche le serveur de secours, tout le mécanisme devient s'écroule.
+\item
+  Il est nécessaire de fournir les ressources pour créer un second serveur et la gestions des fonctionnalités précédemment décrites. Ce qui apport un coups supplémentaire et inutile si aucune panne ne surgit.
+\end{enumerate}
+
+
+\paragraph{façon propore a}
+
+protocole horloge tout ç  
+\end{document}
+
+%%  LocalWords:  Butler Southampton UK Damchoom Postdoc Event-B ONFI
+%%  LocalWords:  l'IDE Fourth refinement skip end fail compt write
+%%  LocalWords:  begin step multi temp Middleware UnicastRemoteObject
+% LocalWords:  Remote Method RMI l’implémentation FIFO SAVE cliquant
+% LocalWords:  JoinServer cliquer CreateServer Refresh implémantées
