@@ -1,0 +1,126 @@
+/* GestionDGBis
+ * Author: 
+ * Creation date: mer. déc. 5 2012
+ */
+MACHINE
+    GestionDGBis
+
+SETS
+    ID_EMPLOYES ; /* Ensemble des id correspondants aux employees*/
+    ID_DOSSIERS ; /* Ensemble des id correspondants aux Dossiers */
+    ID_MODIFS ;
+    LIBELLES_TRAITEMENT ;
+    DATES
+
+ABSTRACT_VARIABLES
+    date_creation ,
+    createur ,
+    modification ,
+    libelle ,
+    date_modif ,
+    modificateur ,
+    dossiersEnCours , /*Id des dossiers existants, à un moment donné, dans le système*/
+    modifEnCours , /*Id des modif existantes, à un moment donné, dans le système */
+    employesExistants /*Id des employés présents dans la "société" ; si l'employé quitte la société, son id est supprimé de employesExistants*/
+
+INVARIANT
+    /*Sous ensembles existants dans le système*/
+    dossiersEnCours <: ID_DOSSIERS
+    & modifEnCours <: ID_MODIFS
+    & employesExistants <: ID_EMPLOYES
+
+    /*Informations accessibles via un dossier*/
+        & createur : dossiersEnCours +-> employesExistants  /* A partir d'un dossier, nous obtenons un employe qui créé le dossier */
+        & date_creation : dossiersEnCours  --> DATES  /* A partir d'un  dossier, nous obtenons sa date de création */
+
+        /*Informations accessibles via une modifications*/
+    & modification : modifEnCours --> dossiersEnCours /* A partir d'un Id de modification, on obtient le dossier sur lequel elle est appliquée */
+    & libelle : modifEnCours --> LIBELLES_TRAITEMENT /*A partir d'un Id de modification, on peut obtenir le libelle de celle-ci*/
+    & date_modif : modifEnCours --> DATES /*A partir d'un Id de modification, on peut obtenir la date à laquelle elle a été effectuée*/
+    & modificateur : modifEnCours +-> employesExistants /*A partir d'un Id de modification, on peut obtenir l'employé qui l'a effectué*/
+
+INITIALISATION
+    date_creation := {}
+    || createur := {}
+    || modification := {}
+    || libelle := {}
+    || date_modif := {}
+    || modificateur := {}
+    || dossiersEnCours := {}
+    || modifEnCours := {}
+    || employesExistants := {}
+
+OPERATIONS
+
+/*Ajout d'employé*/
+    ajoutEmploye ( ee ) =
+    PRE
+        ee : ID_EMPLOYES & ee /: employesExistants /*On vérifie que l'employé n'existe pas déjà dans le système*/
+    THEN
+            employesExistants := employesExistants \/ { ee } /*On ajoute l'employé aux employés existants*/
+    END ;
+
+/*Suppression d'employé*/
+    supprimerEmploye ( ee ) =
+    PRE
+    ee : ID_EMPLOYES & ee : employesExistants /*On vérifie que l'employé à supprimer est présent dans le système*/
+    THEN
+    employesExistants := employesExistants - { ee } /*On supprime les informations relatves à cet employé :*/
+    || createur := createur |>>  { ee } /*-- On supprime les informations relatives aux dossiers qu'il a créés (createur)  NB : les dossiers ne sont pas détruits, seulement l'information de sur son créateur*/
+    || modificateur := modificateur |>>  { ee } /*-- On supprime les informations relatives aux modifications qu'il a effectuées (modificateur) NB : les modifications en elles-mêmes ne disparaissent pas*/
+        END ;
+
+/*Ajout de dossier*/
+    ajouterDossier ( dd , ee , date ) =
+    PRE
+        dd : ID_DOSSIERS & dd /: dossiersEnCours /*On vérifie que le dossier n'existe pas déjà*/
+        & ee : ID_EMPLOYES & ee : employesExistants /*On vérifie que l'employé existe*/
+        & date : DATES
+    THEN
+        dossiersEnCours := dossiersEnCours \/ { dd } /*On ajoute le dossier aux dossiers existants*/
+        || createur ( dd ) := ee /*On ajoute la notion de créateur entre le dossier et l'employé*/
+        || date_creation ( dd ) := date /*On ajoute la date de création au informations relatives au dossier*/
+    END ;
+
+/*Suppression de dossier*/
+    supprimerDossier ( dd ) =
+    PRE
+                dd : ID_DOSSIERS & dd : dossiersEnCours /*On supprime un dossier présent dans le système*/
+     THEN
+         ANY lesModifs WHERE
+             lesModifs <: ID_MODIFS & lesModifs = modification ~ [ { dd } ] /*On récupère l'ensemble de toutes les modifications effectuées sur le dossiers à supprimer*/
+         THEN
+
+           dossiersEnCours := dossiersEnCours - { dd } /*On supprime le dossier de la liste des dossiers existants*/
+
+         /*On supprime l'ensemble des informations relatives à ce dossier :*/
+         || date_creation := { dd } <<| date_creation /* --La date de création du dossier*/
+         || createur := { dd } <<| createur /* --L'information qui reliait un employé comme étant créateur de ce dossier*/
+         || modification :=  modification |>> { dd } /*On supprime les modifications relatives à ce dossier*/
+         || modifEnCours := modifEnCours - lesModifs
+
+         /*Et les informations relatives à ces modifs :*/
+         || libelle := lesModifs <<| libelle
+         || date_modif :=  lesModifs <<| date_modif
+         || modificateur :=  lesModifs <<| modificateur
+         END
+
+    END ;
+
+/*Nouvelle modification mm sur un dossier dd , faite par l'employé ee, avec un libellé ll, à une date date */
+        ajouterModification ( mm , dd , ee , ll , date ) =
+        PRE
+        mm : ID_MODIFS & mm /: modifEnCours /*On vérifie que la modification n'existe pas déjà*/
+        /*On vérifie que l'employé et le dossier existent*/
+        & dd : ID_DOSSIERS & dd : dossiersEnCours
+        & ee : ID_EMPLOYES & ee : employesExistants
+        & ll : LIBELLES_TRAITEMENT
+        & date : DATES
+        THEN
+        modifEnCours := modifEnCours \/ { mm } /*On ajoute la modification aux modifications existantes*/
+        || modification ( mm ) := dd /*On défini le dossier sur lequel la modification est effectuée*/
+        || modificateur ( mm ) := ee /*On défini le modificateur*/
+        || libelle ( mm ) := ll /*On défini le libellé associé à la modification*/
+        || date_modif ( mm ) := date /*On défini la date de modification*/
+        END
+END

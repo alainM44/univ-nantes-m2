@@ -1,0 +1,141 @@
+/* GestionDossiers_i
+ * Author: 
+ * Creation date: mer. déc. 5 2012
+ */
+IMPLEMENTATION
+   GestionDossiers_i
+REFINES
+   GestionDossiers
+SETS
+
+  OKKO = { ok , ko }
+
+
+
+
+
+
+
+
+VALUES
+    ID_EMPLOYES = 0 .. 9999        ;
+    ID_DOSSIERS = 10000 .. MAXINT  ;
+    ID_MODIFS = 0 .. MAXINT    ;
+
+    LIBELLES_TRAITEMENT = 0 .. 1                   ;
+    DATES = 0 .. MAXINT
+CONCRETE_VARIABLES
+   c_date_creation ,
+   c_createur ,
+   c_modification ,
+   c_libelle ,
+   c_date_modif ,
+   c_modificateur ,
+   c_dossiersEnCours ,
+   c_modifEnCours ,
+   c_employesExistants
+
+INVARIANT
+    c_dossiersEnCours : 10000 .. MAXINT   --> OKKO
+    & dossiersEnCours = c_dossiersEnCours ~ [ { ok } ] /*  */
+    & c_modifEnCours : ( 0 .. MAXINT   ) --> OKKO
+    & modifEnCours = c_modifEnCours ~ [ { ok } ]
+    & c_employesExistants : 0 .. 9999         --> OKKO
+    & employesExistants = c_employesExistants ~ [ { ok } ]
+
+
+    & c_createur : 10000 .. MAXINT   --> 0 .. 9999
+    & createur = ( dom ( createur ) <| c_createur )
+    & c_date_creation : 10000 .. MAXINT    --> 0 .. MAXINT
+    & date_creation = ( dossiersEnCours <| c_date_creation )
+
+    & c_modification : 0 .. MAXINT     --> 10000 .. MAXINT  /* A partir d'un Id de modification, on obtient le dossier sur lequel elle est appliquée */
+    & modification = ( modifEnCours <| c_modification )
+    & c_libelle : 0 .. MAXINT     --> 0 .. 1                    /*A partir d'un Id de modification, on peut obtenir le libelle de celle-ci*/
+    & libelle = ( modifEnCours <| c_libelle )
+    & c_date_modif : 0 .. MAXINT     --> 0 .. MAXINT /*A partir d'un Id de modification, on peut obtenir la date à laquelle elle a été effectuée*/
+    & date_modif = ( modifEnCours <| c_date_modif )
+    & c_modificateur : 0 .. MAXINT     --> 0 .. 9999
+    & modificateur = ( dom ( modificateur ) <| c_modificateur )
+
+INITIALISATION
+   c_date_creation := ( 10000 .. MAXINT ) * { 0 } ;
+   c_createur := ( 10000 .. MAXINT ) * { 0 } ;
+   c_modification := ( 0 .. MAXINT   ) * { 0 } ;
+   c_libelle := ( 0 .. MAXINT   ) * { 0 } ;
+   c_date_modif := ( 0 .. MAXINT   ) * { 0 } ;
+   c_modificateur := ( 0 .. MAXINT   ) * { 0 } ;
+
+   c_dossiersEnCours := ( 10000 .. MAXINT ) * { ko } ;
+   c_modifEnCours := ( 0 .. MAXINT   ) * { ko } ;
+   c_employesExistants := ( 0 .. 9999       ) * { ko }
+
+
+OPERATIONS
+   ajoutEmploye ( ee ) =
+   BEGIN
+  /*     employesExistants := employesExistants \/ { ee }*/
+       c_employesExistants ( ee ) := ok
+   END
+   ;
+
+  /* supprimerEmploye ( ee ) =
+   BEGIN*/
+       /*employesExistants := employesExistants - { ee } ||
+       createur := createur |>> { ee } ||
+       modificateur := modificateur |>> { ee }*/
+  /*     c_modificateur := c_modificateur |>> {ee};
+       c_createur := c_createur |>> {ee};
+       c_employesExistants(ee) := ko
+       
+   END
+   ;*/
+
+   ajouterDossier ( dd , ee , date ) =
+   BEGIN
+      /* dossiersEnCours := dossiersEnCours \/ { dd } ||
+       createur ( dd ) := ee ||
+       date_creation ( dd ) := date*/
+       c_createur ( dd ) := ee ;
+       c_date_creation ( dd ) := date ;
+       c_dossiersEnCours ( dd ) := ok
+   END
+   ;
+
+  /* supprimerDossier ( dd ) =
+	BEGIN
+       VAR lesModifs IN*/
+      /* WHERE
+           lesModifs <: ID_MODIFS & lesModifs = modification ~ [ { dd } ]
+       THEN
+       dossiersEnCours := dossiersEnCours - { dd } ||*/
+/*       lesModifs := c_modification~[{dd}];
+           c_date_creation := { dd } <<| c_date_creation;
+           c_createur := { dd } <<| c_createur;
+           c_modification := c_modification |>> { dd };
+           c_modifEnCours := (dom(c_modifEnCours))*{ko};
+           c_libelle := lesModifs <<| c_libelle ;
+           c_date_modif := lesModifs <<| c_date_modif ;
+           c_modificateur := lesModifs <<| c_modificateur;
+           c_dossiersEnCours(dd) := ok
+       END
+   END
+   ;*/
+
+   ajouterModification ( mm , dd , ee , ll , date ) =
+        BEGIN
+      /* modifEnCours := modifEnCours \/ { mm } ||
+       modification ( mm ) := dd ||
+       modificateur ( mm ) := ee ||
+       libelle ( mm ) := ll ||
+       date_modif ( mm ) := date*/
+       c_modification ( mm ) := dd ;
+       c_modificateur ( mm ) := ee ;
+       c_libelle ( mm ) := ll ;
+       c_date_modif ( mm ) := date ;
+       c_modifEnCours ( mm ) := ok
+
+   END
+
+
+END

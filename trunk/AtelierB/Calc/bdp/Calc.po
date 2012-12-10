@@ -1,0 +1,20 @@
+THEORY ProofList IS
+  _f(3) & _f(4) & inc.1,(_f(5) => _f(6));
+  Initialisation.1,(_f(1) => _f(2))
+END
+&
+THEORY Formulas IS
+  "`Check that the invariant (reg: 0..255) is established by the initialisation - ref 3.3'";
+  (10: 0..255);
+  ("`Component invariant'" & reg: 0..255);
+  ("`inc preconditions in this component'" & pp: 0..255 & reg+pp+1<=255);
+  "`Check that the invariant (reg: 0..255) is preserved by the operation - ref 3.4'";
+  (reg+pp: 0..255)
+END
+&
+THEORY EnumerateX 
+END
+&
+THEORY Version IS
+  POVersion(V3.8.3)(CLT == "V3.7.6")(genOPO == KO, genDivergencePO == KO, local_op == OK)
+END

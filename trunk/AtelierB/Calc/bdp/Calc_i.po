@@ -1,0 +1,39 @@
+THEORY ProofList IS
+  _f(1) & _f(2) & inc.10,(_f(3) & _f(14) => _f(15));
+  _f(1) & _f(2) & inc.9,(_f(3) & _f(4) => _f(13));
+  _f(1) & _f(2) & inc.8,(_f(3) & _f(4) => _f(12));
+  _f(1) & _f(2) & inc.7,(_f(3) & _f(4) => _f(11));
+  _f(1) & _f(2) & inc.6,(_f(3) & _f(4) => _f(10));
+  _f(1) & _f(2) & inc.5,(_f(3) & _f(4) => _f(9));
+  _f(1) & _f(2) & inc.4,(_f(3) & _f(4) => _f(8));
+  _f(1) & _f(2) & inc.3,(_f(3) & _f(4) => _f(7));
+  _f(1) & _f(2) & inc.2,(_f(3) & _f(4) => _f(6));
+  _f(1) & _f(2) & inc.1,(_f(3) & _f(4) => _f(5))
+END
+&
+THEORY Formulas IS
+  ("`Previous components invariants'" & reg$1: 0..255 & "`Component invariant'" & reg = reg$1);
+  ("`inc preconditions in previous components'" & pp: 0..255 & reg$1+pp+1<=255);
+  ("`inc preconditions in this component'" & pp: 0..255 & reg$1+pp+1<=255);
+  "`Check preconditions of called operation, or While loop construction, or Assert predicates'";
+  (reg$1+pp: INTEGER);
+  (reg$1+pp<=2147483647);
+  (-2147483647<=reg$1+pp);
+  (reg$1: INTEGER);
+  (reg$1<=2147483647);
+  (-2147483647<=reg$1);
+  (pp: INTEGER);
+  (pp<=2147483647);
+  (-2147483647<=pp);
+  "`Check that the invariant (reg = reg$1) is preserved by the operation - ref 4.4, 5.5'" & "`Check operation refinement - ref 4.4, 5.5'";
+  (reg$1+pp = reg+pp);
+  ("`Concrete variables typing predicates'" & reg$1: INTEGER & "`Variables conservation'" & reg = reg$1);
+  ("`Concrete variables typing predicates'" & reg: INTEGER)
+END
+&
+THEORY EnumerateX 
+END
+&
+THEORY Version IS
+  POVersion(V3.8.3)(CLT == "V3.7.6")(genOPO == KO, genDivergencePO == KO, local_op == OK)
+END

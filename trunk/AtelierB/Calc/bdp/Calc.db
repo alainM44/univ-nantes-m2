@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="/comptes/E074862X/AB/Calc/bdp/expand_src" old_decomp_dir="/comptes/E074862X/AB/Calc/bdp/src">
+        <!-- Definition directory list -->
+        <!-- Component file list -->
+        <component_file path="/comptes/E074862X/AB/Calc" name="Calc" suffix="mch" user="E074862X">
+            <component name="Calc" type="specification" />
+        </component_file>
+        <component_file path="/comptes/E074862X/AB/Calc" name="Calc_i" suffix="imp" user="E074862X">
+            <component name="Calc_i" type="implementation" />
+        </component_file>
+    </project>
+</db_xml>

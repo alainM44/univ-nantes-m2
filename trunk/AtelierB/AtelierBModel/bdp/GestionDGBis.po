@@ -1,0 +1,105 @@
+THEORY ProofList IS
+  _f(1) & _f(15) & _f(51) & ajouterModification.7,(_f(19) => _f(58));
+  _f(1) & _f(15) & _f(51) & ajouterModification.6,(_f(47) => _f(57));
+  _f(1) & _f(15) & _f(51) & ajouterModification.5,(_f(47) => _f(56));
+  _f(1) & _f(15) & _f(51) & ajouterModification.4,(_f(44) => _f(55));
+  _f(1) & _f(15) & _f(51) & ajouterModification.3,(_f(44) => _f(54));
+  _f(1) & _f(15) & _f(51) & ajouterModification.2,(_f(31) => _f(53));
+  _f(1) & _f(15) & _f(51) & ajouterModification.1,(_f(31) => _f(52));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.12,(_f(34) & _f(19) => _f(50));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.11,(_f(34) & _f(47) => _f(49));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.10,(_f(34) & _f(47) => _f(48));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.9,(_f(34) & _f(44) => _f(46));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.8,(_f(34) & _f(44) => _f(45));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.7,(_f(34) & _f(31) => _f(43));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.6,(_f(34) & _f(31) => _f(42));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.5,(_f(34) & _f(28) => _f(41));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.4,(_f(34) & _f(28) => _f(40));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.3,(_f(34) & _f(17) => _f(39));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.2,(_f(34) & _f(37) => _f(38));
+  _f(1) & _f(15) & _f(33) & supprimerDossier.1,(_f(34) & _f(35) => _f(36));
+  _f(1) & _f(15) & _f(26) & ajouterDossier.4,(_f(31) => _f(32));
+  _f(1) & _f(15) & _f(26) & ajouterDossier.3,(_f(28) => _f(30));
+  _f(1) & _f(15) & _f(26) & ajouterDossier.2,(_f(28) => _f(29));
+  _f(1) & _f(15) & _f(26) & ajouterDossier.1,(_f(17) => _f(27));
+  _f(1) & _f(15) & _f(21) & supprimerEmploye.3,(_f(19) => _f(25));
+  _f(1) & _f(15) & _f(21) & supprimerEmploye.2,(_f(17) => _f(24));
+  _f(1) & _f(15) & _f(21) & supprimerEmploye.1,(_f(22) => _f(23));
+  _f(1) & _f(15) & _f(16) & ajoutEmploye.2,(_f(19) => _f(20));
+  _f(1) & _f(15) & _f(16) & ajoutEmploye.1,(_f(17) => _f(18));
+  _f(1) & Initialisation.7,(_f(13) => _f(14));
+  _f(1) & Initialisation.6,(_f(10) => _f(12));
+  _f(1) & Initialisation.5,(_f(10) => _f(11));
+  _f(1) & Initialisation.4,(_f(8) => _f(9));
+  _f(1) & Initialisation.3,(_f(6) => _f(7));
+  _f(1) & Initialisation.2,(_f(4) => _f(5));
+  _f(1) & Initialisation.1,(_f(2) => _f(3))
+END
+&
+THEORY Formulas IS
+  ("`Component properties'" & ID_EMPLOYES: FIN(INTEGER) & not(ID_EMPLOYES = {}) & ID_DOSSIERS: FIN(INTEGER) & not(ID_DOSSIERS = {}) & ID_MODIFS: FIN(INTEGER) & not(ID_MODIFS = {}) & LIBELLES_TRAITEMENT: FIN(INTEGER) & not(LIBELLES_TRAITEMENT = {}) & DATES: FIN(INTEGER) & not(DATES = {}));
+  "`Check that the invariant (dossiersEnCours <: ID_DOSSIERS) is established by the initialisation - ref 3.3'";
+  ({}: POW(ID_DOSSIERS));
+  "`Check that the invariant (modifEnCours <: ID_MODIFS) is established by the initialisation - ref 3.3'";
+  ({}: POW(ID_MODIFS));
+  "`Check that the invariant (employesExistants <: ID_EMPLOYES) is established by the initialisation - ref 3.3'";
+  ({}: POW(ID_EMPLOYES));
+  "`Check that the invariant (createur: dossiersEnCours +-> employesExistants) is established by the initialisation - ref 3.3'";
+  ({}: {} +-> {});
+  "`Check that the invariant (date_creation: dossiersEnCours --> DATES) is established by the initialisation - ref 3.3'";
+  ({}: {} +-> DATES);
+  (dom({}) = {});
+  "`Check that the invariant (libelle: modifEnCours --> LIBELLES_TRAITEMENT) is established by the initialisation - ref 3.3'";
+  ({}: {} +-> LIBELLES_TRAITEMENT);
+  ("`Component invariant'" & dossiersEnCours: POW(ID_DOSSIERS) & modifEnCours: POW(ID_MODIFS) & employesExistants: POW(ID_EMPLOYES) & createur: dossiersEnCours +-> employesExistants & date_creation: dossiersEnCours +-> DATES & dom(date_creation) = dossiersEnCours & modification: modifEnCours +-> dossiersEnCours & dom(modification) = modifEnCours & libelle: modifEnCours +-> LIBELLES_TRAITEMENT & dom(libelle) = modifEnCours & date_modif: modifEnCours +-> DATES & dom(date_modif) = modifEnCours & modificateur: modifEnCours +-> employesExistants);
+  ("`ajoutEmploye preconditions in this component'" & ee: ID_EMPLOYES & not(ee: employesExistants));
+  "`Check that the invariant (createur: dossiersEnCours +-> employesExistants) is preserved by the operation - ref 3.4'";
+  (createur: dossiersEnCours +-> employesExistants\/{ee});
+  "`Check that the invariant (modificateur: modifEnCours +-> employesExistants) is preserved by the operation - ref 3.4'";
+  (modificateur: modifEnCours +-> employesExistants\/{ee});
+  ("`supprimerEmploye preconditions in this component'" & ee: ID_EMPLOYES & ee: employesExistants);
+  "`Check that the invariant (employesExistants <: ID_EMPLOYES) is preserved by the operation - ref 3.4'";
+  (employesExistants-{ee}: POW(ID_EMPLOYES));
+  (createur|>>{ee}: dossiersEnCours +-> employesExistants-{ee});
+  (modificateur|>>{ee}: modifEnCours +-> employesExistants-{ee});
+  ("`ajouterDossier preconditions in this component'" & dd: ID_DOSSIERS & not(dd: dossiersEnCours) & ee: ID_EMPLOYES & ee: employesExistants & date: DATES);
+  (createur<+{dd|->ee}: dossiersEnCours\/{dd} +-> employesExistants);
+  "`Check that the invariant (date_creation: dossiersEnCours --> DATES) is preserved by the operation - ref 3.4'";
+  (date_creation<+{dd|->date}: dossiersEnCours\/{dd} +-> DATES);
+  (dom(date_creation<+{dd|->date}) = dossiersEnCours\/{dd});
+  "`Check that the invariant (modification: modifEnCours --> dossiersEnCours) is preserved by the operation - ref 3.4'";
+  (modification: modifEnCours +-> dossiersEnCours\/{dd});
+  ("`supprimerDossier preconditions in this component'" & dd: ID_DOSSIERS & dd: dossiersEnCours);
+  ("`Local hypotheses'" & lesModifs: POW(ID_MODIFS) & lesModifs = modification~[{dd}]);
+  "`Check that the invariant (dossiersEnCours <: ID_DOSSIERS) is preserved by the operation - ref 3.4'";
+  (dossiersEnCours-{dd}: POW(ID_DOSSIERS));
+  "`Check that the invariant (modifEnCours <: ID_MODIFS) is preserved by the operation - ref 3.4'";
+  (modifEnCours-lesModifs: POW(ID_MODIFS));
+  ({dd}<<|createur: dossiersEnCours-{dd} +-> employesExistants);
+  ({dd}<<|date_creation: dossiersEnCours-{dd} +-> DATES);
+  (dom({dd}<<|date_creation) = dossiersEnCours-{dd});
+  (modification|>>{dd}: modifEnCours-lesModifs +-> dossiersEnCours-{dd});
+  (dom(modification|>>{dd}) = modifEnCours-lesModifs);
+  "`Check that the invariant (libelle: modifEnCours --> LIBELLES_TRAITEMENT) is preserved by the operation - ref 3.4'";
+  (lesModifs<<|libelle: modifEnCours-lesModifs +-> LIBELLES_TRAITEMENT);
+  (dom(lesModifs<<|libelle) = modifEnCours-lesModifs);
+  "`Check that the invariant (date_modif: modifEnCours --> DATES) is preserved by the operation - ref 3.4'";
+  (lesModifs<<|date_modif: modifEnCours-lesModifs +-> DATES);
+  (dom(lesModifs<<|date_modif) = modifEnCours-lesModifs);
+  (lesModifs<<|modificateur: modifEnCours-lesModifs +-> employesExistants);
+  ("`ajouterModification preconditions in this component'" & mm: ID_MODIFS & not(mm: modifEnCours) & dd: ID_DOSSIERS & dd: dossiersEnCours & ee: ID_EMPLOYES & ee: employesExistants & ll: LIBELLES_TRAITEMENT & date: DATES);
+  (modification<+{mm|->dd}: modifEnCours\/{mm} +-> dossiersEnCours);
+  (dom(modification<+{mm|->dd}) = modifEnCours\/{mm});
+  (libelle<+{mm|->ll}: modifEnCours\/{mm} +-> LIBELLES_TRAITEMENT);
+  (dom(libelle<+{mm|->ll}) = modifEnCours\/{mm});
+  (date_modif<+{mm|->date}: modifEnCours\/{mm} +-> DATES);
+  (dom(date_modif<+{mm|->date}) = modifEnCours\/{mm});
+  (modificateur<+{mm|->ee}: modifEnCours\/{mm} +-> employesExistants)
+END
+&
+THEORY EnumerateX 
+END
+&
+THEORY Version IS
+  POVersion(V3.8.3)(CLT == "V3.7.6")(genOPO == KO, genDivergencePO == KO, event_b_project == OK, local_op == OK)
+END
