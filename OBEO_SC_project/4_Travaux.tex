@@ -10,7 +10,7 @@ Comme la plupart des générateurs de code, \kwacceleo{} propose un système bas
 
 \subsubsection{Les Modules}
 
-Dans \kwacceleo{}, un Module est une unité de génération amenée a être utilisée par le générateur. Un générateur est donc une agrégation de Modules. Un Module est paramétré par un ou plusieurs \textit{DSL}\footnote{Domain Specific Language} définis par des méta-modèles, a vérifier) afin de pouvoir proposer les fonctionnalités associées, qui permettent notamment de parcourir chaque élément du Modèle. Chaque Module est composée d'un ou plusieurs templates. Un template a pour rôle de générer du code d'après un ou plusieurs paramètres (éléments du Modèle).
+Dans \kwacceleo{}, un Module est une unité de génération amenée a être utilisée par le générateur. Un générateur est donc une agrégation de Modules. Un Module est paramétré par un ou plusieurs \textit{DSL}\footnote{Domain Specific Language} (M2) afin de pouvoir proposer les fonctionnalités associées, qui permettent notamment de parcourir chaque élément du Modèle. Chaque Module est composé d'un ou plusieurs templates. Un template a pour rôle de générer du code d'après un ou plusieurs paramètres.
 
 \begin{figure}[htb]
   \centering
@@ -28,10 +28,11 @@ Par convention, chaque Module concerne un ou plusieurs aspects de la génératio
 
 \subsubsection{Les Queries}
 
-Les Modules permettent de décomposer la génération du code en plusieurs sous-parties réutilisables. Ils sont donc utiles pour générer un même type de contenu texte à partir de différents éléments du même type.\\
-Cependant, dans certains cas, il est nécessaire d'exécuter une opération sur un élément du Modèle, comme la modification d'une chaine, ou l'accès à l'élément parent d'un élément, par exemple.\\
-Les Queries interviennent alors comme un moyen de déporter ces opérations non-triviales dans une base commune. Les spécificité des Queries par rapport aux templates est que ces dernières mettent en cache leur résultat. Ainsi, si une Query est appelée deux fois avec les mêmes paramètres, celle-ci ne sera pas re-calculée et se contentera de retourner le résultat obtenu précédement. Cette fonctionnalité est donc très utile pour l'appel répétitif d'opérations (même basiques), ou le stockage de variables globales.\\
-Les Queries permettent plus généralement de structure le générateur. Par convention, les générations de texte sont traitées dans des templates, tandis que les opérations plus complexes (modification de chaine, parcours d'éléments) ou répétitive sont déportées dans des Queries.
+Les Modules permettent de décomposer la génération du code en plusieurs sous-parties réutilisables. Ils utilisent donc les templates pour générer un même type de contenu texte à partir de différents éléments du même type.\\
+Cependant, dans certains cas, il est nécessaire d'exécuter d'autres types d'opération que la simple génération de texte.\\
+Les Queries interviennent alors comme un moyen de factorer ces opérations non-triviales dans une base commune, différente des templates.
+Une des spécificités des Queries par rapport aux templates est que ces dernières mettent en cache leur résultat. Ainsi, si une Query est appelée deux fois avec les mêmes paramètres, celle-ci ne sera pas re-calculée et se contentera de retourner le résultat obtenu précédement. Cette fonctionnalité est donc très utile pour l'appel répétitif d'opérations (même basiques), ou le stockage de variables globales.\\
+Les Queries permettent donc de structurer le générateur, en séparant la génération de texte et les autres traitements et calculs. Par convention, les générations de texte sont traitées dans des templates, tandis que les opérations plus complexes (modification de chaine, parcours d'éléments, stockage de variable statique) ou répétitives sont déportées dans des Queries.
 
 \begin{figure}[htb]
   \centering
@@ -42,11 +43,15 @@ Les Queries permettent plus généralement de structure le générateur. Par con
 
 \subsubsection{Les Services}
 
-Les Services peuvent être vus comme une extension des Queries. Là où les opérations exécutables des Query se limitent à actions basiques (définies par \textit{Ocl}\footnote{Ocl : Object Constraint Language}). Le principe des Services consiste à appeler du code Java depuis une Query via des invocations de méthodes. Cela permet d'effectuer des opérations complexes ou bien de stocker un certain nombre d'informations via du code Java. Ces informations restent récupérables depuis les templates pendant toute la durée de la génération de code.
+Les Services peuvent être vus comme une extension des Queries. Là où les opérations exécutables des Query se limitent à actions basiques (définies avec \textit{Ocl}\footnote{Ocl : Object Constraint Language}). Les Services reposent sur le principe qu'il est possible d'appeler du code Java depuis une Query via des invocations de méthodes. Cela permet d'effectuer des opérations complexes ou bien de stocker un certain nombre d'informations via du code Java. Ces informations restent récupérables depuis les templates pendant toute la durée de la génération de code.
 
 \subsubsection{Les balises \guim{Code Utilisateur}}
 
-Si un Générateur de Code permet aisément de transcrire la structure et la logique de fonctionnement d'un système, il est en revanche impossible d'en saisir automatiquement tous les aspects ou particularités. En d'autres termes, un code généré sera rarement complet. \kwacceleo fournit donc un système très simple permettant de définir des zones de \guim{Code Utilisateur} au sein d'un Template. Ainsi, l'utilisateur peut apporter des modifications ou ajouts dans les fichiers générés. Si ces modifications ont été effectuées à l'intérieur d'une zone \guim{Code Utilisateur}, ces dernières ne seront pas affectées si les fichiers sont générés à nouveau. De telles zones peuvent être insérées au sein d'un Template en utilisant de simples balises \guim{\textit{\textbf{[protected]}}}
+L'expérience d'\kwobeo a montré qu'un objectif de 100\% de code généré n'est, dans la majorité des cas, ni atteignable, ni souhaitable.
+En d'autres termes, un code généré sera rarement complet. C'est pourquoi \kwacceleo fournit un système très simple permettant de définir des zones de \guim{Code Utilisateur} au sein d'un Template. Ainsi, l'utilisateur peut apporter des modifications ou ajouts dans les fichiers générés. Si ces modifications ont été effectuées à l'intérieur d'une zone \guim{Code Utilisateur}, ces dernières ne seront pas affectées si les fichiers sont générés à nouveau.
+De telles zones peuvent être insérées au sein d'un Template en utilisant de simples balises \guim{\textit{\textbf{[protected]}}}.
+\\
+Des solutions ont déjà été étudiées afin d'assurer l'efficacité et la maintenabilité d'un code généré, notamment le design pattern \textit{Generation Gap}\cite{gen_gap}.
 
 % Ici un schema ?
 \begin{figure}[htb]

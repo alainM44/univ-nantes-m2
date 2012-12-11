@@ -11,8 +11,8 @@
 
 \subsection{La notion de \kwsoa{} dans \kwplay{}}
 
-\kwplay{}, de part son achitecture en MVC, ne propose pas d'implémentation concrête de la notion de Services. 
-Nous avons donc fait le choix de déporter ces derniers dans des classes externes de type Singleton, ce qui permet de faire appel aux différents Services depuis n'importe quel Controleur de \kwplay{} (ex : \textit{Services.getAKindOfService().do\_service()}). 
+\kwplay{} et son achitecture en MVC ne proposent pas d'implémentation concrête de la notion de Services. 
+Nous avons donc fait le choix de déporter ces derniers dans des classes externes de type Singleton, ce qui permet de faire appel aux différents Services depuis n'importe quel Controleur de \kwplay{} (ex : \textit{Services.getAKindOfService().do\_service()}).
 Cela permet de séparer les différents concepts sans pour autant remettre en cause l'architecture originelle de \kwplay{}.
 
 \subsection{Conception du modèle}
