@@ -25,12 +25,12 @@ Pour la gestion de ses pages web, \kwplay{} propose une approche basée sur les 
 % Parler de l'ORM ebean
 La gestion des données dans \kwplay{} est laissée au choix de l'utilisateur - le développeur. Cependant, \kwplay{} embarque nativement l'ORM \kwebean{}. Le principe d'un ORM (Object-Relational Mapping) est de fournir une couche d'abstraction au dessus d'une Base de Données relationnelle. Cette couche d'abstraction doit être suffisante pour que les différents éléments de la base soient manipulables directement en tant qu'Objets. Cela permet aux développeurs de s'affranchir des contraintes techniques que peuvent présenter les Bases de Données relationnelles.
 
-Dans \kwplay{}, avec \kwebean{}, une classe \kwjava{} pourra être gérée comme étant une entité/table, et ses attributs et références seront traités comme des colonnes de cette table. (TODO : Expliquer le concept de Bean/POJO)
+Dans \kwplay{}, grâce à \kwebean{}, une classe \kwjava{} (\textit{POJO}\footnote{\textit{POJO (Plain Old Java Object)} : \guim{Bon vieil object Java} possédant un certain nombre d'attributs modifiables}) pourra donc être gérée comme étant une entité/table, et ses attributs et références seront traités comme des colonnes de cette table.
 %(!!! Hésitez pas à annoter les points où c'est pas clair, car c'est un peu capilotracté des fois !!!)
 
 \subsection{Les Contrôleurs et les Routes}
 %Expliquer leur role
-Dans \kwplay{} les contrôleurs jouent un rôle central au sein l'application. Ce sont les contrôleurs qui se chargent de récupérer les requêtes des visiteurs (de type HTTP), d'effectuer les traitements (ajout d'un cookie, traitement dans la Base de Données, \dots) et d'effectuer le rendu des pages web retournées au visiteur.
+Dans \kwplay{} les contrôleurs jouent un rôle central au sein l'application. Ce sont les contrôleurs qui se chargent de récupérer les requêtes des visiteurs (de type HTTP), d'effectuer les traitements (ajout d'un cookie, traitement dans la Base de Données, \dots) et d'effectuer le rendu des pages Web retournées au visiteur.
 
 Dans le monde du Web, les requêtes se présentent la plupart du temps sous forme d'adresse dite URL (Uniform Resource Locator) appelée par le visiteur. Comme beaucoup d'autres frameworks web, \kwplay{} propose un fichier de Routes dans sa configuration. Le rôle d'un fichier de Routes est de convertir/résoudre les adresses/URL afin de les faire correspondre à une méthode du Contrôleur de l'application.
 
@@ -38,7 +38,7 @@ Ainsi, lorsqu'une requête arrive à l'application, \kwplay{} regarde d'abord da
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[scale=.8]{img/play_scheme.eps}
+  \includegraphics[scale=.75]{img/play_scheme.eps}
   \caption{Fonctionnement de Play!}
   \label{fig:play_sch}
 \end{figure}
