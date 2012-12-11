@@ -14,13 +14,15 @@ Les générateurs devront être complétés pour faire face à de nouveaux besoi
 
 Nous n'avons pas mis en place les tests des générateurs. L'objectif aurait été d'avoir des modèles de \emph{non-regression} avec les différents codes sources générés. Ainsi, à chaque modification du générateur, on régénère à partir de ces modèles de \emph{non-regression} afin de comparer le code généré avec celui expecté.
 
+\section{}
+
 \section{Bilan}
 
 Ce Projet de fin d'études nous a permis de découvrir en profondeur les méthodologies du MDA au travers de la solution puissante que représente \kwacceleo. Nous avons également pu expérimenter le Framework \kwplay qui constitue une solution encore jeune mais efficace pour la conception de sites et services Web en Java. La solution que nous avons développée gagnerait à être enrichie et améliorée, mais elle nous a permis de passer par toutes les étapes d'un développement MDA, de la conception des Modèles au système de déploiement de l'application, en passant par la création des générateurs et l'élaboration d'un prototype.
 
-Les méta-modèles mis à disposition par \kwobeo{} on été dans l'ensemble adéquats. Le concept d'annotation présents au sein du méta-modèle \kwentity{} a été particulièrement utiles. Grâce à celui-ci, nous avons évité certains problèmes qui auraient requis la modification du méta-modèle en lui même.
+Les méta-modèles mis à disposition par \kwobeo{} on été dans l'ensemble adéquats. Le concept d'annotation présents au sein du méta-modèle \kwentity{} a été particulièrement utile pour les cas particuliers. Grâce à celui-ci, nous avons évité certains problèmes qui auraient requis la modification du méta-modèle en lui même. On peut cependant imaginer une possible évolution du Métamodèle \kwcinematic qui pourrait inclure une gestion native des éléments de vue redondants, comme la notion d'en-tête ou de pied de page (\ref{par:cinematic_header}).
 
-L'utilisation de Git et Github, nous a permis un travail collaboratif efficace. Ce projet fut pour certains membres du groupe l'occasion d'une initation à Git et Github pour d'autres la confirmation de la nécéssité d'un tel outil pour un projet de cette ampleur.
+L'utilisation de \textit{Git} et \textit{Github}, nous a permis un travail collaboratif efficace. Ce projet fut pour certains membres du groupe l'occasion d'une initation à Git et Github pour d'autres la confirmation de la nécéssité d'un tel outil pour un projet de cette ampleur.
 
 \kwacceleo{}, et plus généralement les logiciels MDE, constituent des technologies d'avenir, qui permettent à l'utilisateur (ou développeur) final de s'approprier son application et de l'adapter en fonction de ses nouveaux besoins. En effet, une simple modification du Modèle de l'application permet à l'utilisateur de modifier le comportement de son application sans modifier directement le code source, ce qui permet de gagner du temps et de l'argent.
 % +++

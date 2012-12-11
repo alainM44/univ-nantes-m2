@@ -30,7 +30,7 @@ Par convention, chaque Module concerne un ou plusieurs aspects de la génératio
 
 Les Modules permettent de décomposer la génération du code en plusieurs sous-parties réutilisables. Ils utilisent donc les templates pour générer un même type de contenu texte à partir de différents éléments du même type.\\
 Cependant, dans certains cas, il est nécessaire d'exécuter d'autres types d'opération que la simple génération de texte.\\
-Les Queries interviennent alors comme un moyen de factorer ces opérations non-triviales dans une base commune, différente des templates.
+Les Queries interviennent alors comme un moyen de factoriser ces opérations non-triviales dans une base commune, différente des templates.
 Une des spécificités des Queries par rapport aux templates est que ces dernières mettent en cache leur résultat. Ainsi, si une Query est appelée deux fois avec les mêmes paramètres, celle-ci ne sera pas re-calculée et se contentera de retourner le résultat obtenu précédement. Cette fonctionnalité est donc très utile pour l'appel répétitif d'opérations (même basiques), ou le stockage de variables globales.\\
 Les Queries permettent donc de structurer le générateur, en séparant la génération de texte et les autres traitements et calculs. Par convention, les générations de texte sont traitées dans des templates, tandis que les opérations plus complexes (modification de chaine, parcours d'éléments, stockage de variable statique) ou répétitives sont déportées dans des Queries.
 
