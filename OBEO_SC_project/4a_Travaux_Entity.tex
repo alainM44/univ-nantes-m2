@@ -10,12 +10,15 @@ Le méta-modèle \kwentity{} représente une couche \guim{métier}. Il permet no
   \label{fig:ent}
 \end{figure}
 
-Chaque block se compose de plusieurs Entity. Chacune d'elles possède un ou plusieurs attributs, et peut référencer d'autres Entity. Un attribut est caractérisé par un type, une multiplicité et une valeur. Chaque élément du modèle peut également inclure un ensemble de méta-données.
+Tout élément est de type \verb+ObeoDSMObject+. Chaque block se compose de plusieurs \verb+Entity+. Chacune d'elles possède un ou plusieurs attributs, et peut référencer d'autres \verb+Entity+. Un attribut est caractérisé par un type, une multiplicité et une valeur. Chaque élément du modèle peut également inclure un ensemble de méta-données.
+
+\paragraph{Méta-données et annotations}
+Tout \verb+ObeoDSMObject+ peut être associé à un \verb+MetaDataContainer+. Ces méta-datas (classe \verb+MetaData+) nous ont été particulièrement utiles pour combler des manques du méta-modèle.
+
 
 \subsection{Conception du modèle}
 
-Nous avons employé la simple démarche suivante : pour chaque type de donnée susceptible d'être utilisée par notre application, on modélise une entité ainsi que l'ensemble de ses attributs. 
-\kwplay{} utilise des mécanismes d'annotation au sein de ses modèles. Ces annotations permettent notamment de donner des contraintes à des attributs. Nous avons facilement pris en compte ce concept en utilisant les méta-données qu'il est possible d'intégrer au modèle d'un \verb+Attribut+.
+Nous avons employé la simple démarche suivante : pour chaque type de donnée susceptible d'être utilisée par notre application, on modélise une entité ainsi que l'ensemble de ses attributs. \kwplay{} utilise des mécanismes d'annotation au sein de ses modèles. Ces annotations permettent notamment de donner des contraintes à des attributs. Nous avons facilement pris en compte ce concept en utilisant les méta-données qu'il est possible d'intégrer au modèle d'un \verb+Attribut+.
 
 Nous avons élaboré un modèle d'\kwentity de notre application conformément au Méta-Modèle que nous avons décris précédement. Ce modèle est illustré par la figure \ref{fig:entMod} ci-dessous.
 
@@ -29,7 +32,7 @@ Nous avons élaboré un modèle d'\kwentity de notre application conformément a
 Nous avons représenté un seul block dans notre modèle d'\kwentity{} qui va regrouper les \kwentity{} suivantes :  
 
 \begin{itemize}
-  \item[\textbullet] \textbf{Customer} :  client qui va faire l'achat sur la plate-forme.
+  \item[\textbullet] \textbf{Customer} : client qui va faire l'achat sur la plate-forme.
   \item[\textbullet] \textbf{ProductSale} : les produits mis en vente.
   \item[\textbullet] \textbf{ProductPurchased} : les produits achetés par un client.
   \item[\textbullet] \textbf{ProductInfo} : contient les informations d'un produit.
