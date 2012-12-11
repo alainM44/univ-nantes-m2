@@ -85,24 +85,27 @@
   \begin{slide}{Contexte}
   
     \begin{itemstep}
-    \itemg Concepteur de solutions logicielles
-    \itemg A l'origine du projet \textit{Acceleo} 
-    \itemg Membre stratégique de la \textit{fondation Eclipse} 
+    \itemg Des générateurs de code pour le web existent ...
+    \itemg ... mais ces générateurs génèrent du code bas niveau, difficilement maintenable
+    \itemg De nombreux framework web existent
     \end{itemstep}
   
   \end{slide}
 }
 
 % OBJECTIFS (liste aussi (conception modèle, générateur) ?)
-\overlays{3}{%
+\overlays{5}{%
   \begin{slide}{Objectifs}
 
     \begin{itemstep}
-    \itemg Concepteur de solutions logicielles
-    \itemg A l'origine du projet \textit{Acceleo} 
-    \itemg Membre stratégique de la \textit{fondation Eclipse} 
+    \itemg Analyser les framework Web existants
+    \itemg Étudier leur compatibilité avec la démarche de génération de code
+    \itemg Choisir un framework adapté, et courament utilisé
+    \itemg Réaliser un générateur de code pour la technologie choisie
     \end{itemstep}
-  
+    \bc{}
+    \fromSlide{5}{\includegraphics[scale=.4]{img/logoPlay.eps} }
+    \ec{}
   \end{slide}
 }
 
@@ -112,10 +115,8 @@
   \begin{slide}{Organisation}
   \bc{} 
   \centering
-    \includegraphics[scale=.22]{../img/demarche.eps} 
+    \includegraphics[scale=.22]{img/demarche.eps} 
   \ec{}
-  
-  
   \end{slide}
 }
 
@@ -230,13 +231,25 @@
 \end{slide}
 
 % B
-\begin{slide}{Travaux > Cinematic > B}
+\begin{slide}{Travaux > Cinematic > Générateur de code}
+    \includegraphics[scale=.3]{img/cinematic_gen.eps} 
+\end{slide}
 
+% B
+\begin{slide}{Travaux > Cinematic > Générateur de code}
+    \includegraphics[scale=.3]{img/cinematic_exp1.eps} 
+\end{slide}
+
+% B
+\begin{slide}{Travaux > Cinematic > Générateur de code}
+    \includegraphics[scale=.3]{img/cinematic_exp2.eps} 
 \end{slide}
 
 % Deploiement
-\begin{slide}{Deploiement}
-% MAXIME
+\begin{slide}[Box]{Deploiement}
+  \bc{}
+    \includegraphics[scale=.4]{img/screen_menu.eps}\includegraphics[scale=.35]{img/screen_ui.eps} 
+  \ec{}
 \end{slide}
 
 
@@ -246,8 +259,8 @@
     \bi
     \fromSlide{1}{\item[{\includegraphics[width=.4cm]{red-bullet-on-white}}]Contribution}
     \bi
-    \fromSlide{2}{\item Génération de à partir de modèles}
-    \fromSlide{3}{\item Maquette d'exemple}
+    \fromSlide{2}{\item Génération d'application \textit{Play!} à partir de modèles Entity, SOA et Cinematic}
+    \fromSlide{3}{\item Génération de Webservices}
     \ei
     \ei
     \vspace{.5cm}
