@@ -1,22 +1,27 @@
 \chapter{Conclusion}\label{chap:COnc}
 
 
-\section{Travaux effectués (terme pour \guim{travaux terminés} ?)}
+\section{Travaux effectués}
 
-Au terme de ce projet, nous proposons un générateur de code déployé sous forme de Plugin Eclipse. À partir des trois modèles (\verb+Shop.entity+, \verb+Shop.soa+, \verb+Shop.cinematique+) l'utilisateur peut, par le biais d'une simple IHM (menu contextuel), lancer la génération d'une application \kwplay prête à l'emploi. Il sera toutefois nécessaire d'ajuster manuellement certaines portions de code, afin d'effectuer le \guim{branchement} des Services entre-eux, ou d'ajouter des niveaux de détail aux différentes opérations.
+Au terme de ce projet, nous proposons un générateur de code déployé sous forme de Plugin Eclipse. À partir de trois modèles correspondant à une application, l'utilisateur peut, par le biais d'une simple IHM (menu contextuel), lancer la génération d'une application \kwplay prête à l'emploi. Il sera toutefois nécessaire d'ajuster manuellement certaines portions de code, afin d'effectuer le \guim{branchement} des Services entre-eux, ou d'ajouter des niveaux de détail aux différentes opérations.
 
+Les trois modèles que nous proposons (\verb+Shop.entity+, \verb+Shop.soa+, \verb+Shop.cinematique+), permettent la génération du code correspondant à la maquette d'exemple (\cf{} \ref{sec:pro}).
 
 \section{Problèmes persistants}
 
-En raison d'une mauvaise gestion du temps, tous les aspects n'ont pas pu être abordés, et les générateurs devront être complétés pour faire face à de nouveaux besoins. Nous avons néanmoins structuré les générateurs de façon à garantir leur maintenabilité, en structurant correctement les Templates et Queries et en établissant des conventions de nommage.\\
-Il est également à noter que nous avons fait l'impasse sur les tests unitaires, qui peuvent pourtant être considérés comme primordiaux lorsque l'utilisateur/développeur final souhaite modifier le code tout en s'assurant que l'application fonctionne toujours.
+Les générateurs devront être complétés pour faire face à de nouveaux besoins. Nous avons néanmoins structuré les générateurs de façon à garantir leur maintenabilité, en structurant correctement les Templates et Queries et en établissant des conventions de nommage.
+
+
+Il est également à noter que nous avons fait l'impasse sur les tests des générateurs. L'objectif étant d'avoir des modèles de \emph{non-regression} avec les différents codes sources générés. Ainsi, à chaque modification du générateur, on régénère à partir de ces modèles de \emph{non-regression} afin de comparer le code généré avec celui expecté.
 
 \section{Bilan}
 
 Ce Projet de fin d'études nous a permis de découvrir en profondeur les méthodologies du MDA au travers de la solution puissante que représente \kwacceleo. Nous avons également pu expérimenter le Framework \kwplay qui constitue une solution encore jeune mais efficace pour la conception de sites et services Web en Java. La solution que nous avons développée gagnerait à être enrichie et améliorée, mais elle nous a permis de passer par toutes les étapes d'un développement MDA, de la conception des Modèles au système de déploiement de l'application, en passant par la création des générateurs et l'élaboration d'un prototype.
-% +++
-\\
-\\
+
+Les méta-modèles mis à disposition par \kwobeo{} on été dans l'ensemble adéquats. Le concept d'annotation présents au sein du méta-modèle \kwentity{} a été particulièrement utiles. Grâce à celui-ci, nous avons évité certains problèmes qui auraient requis la modification du méta-modèle en lui même.
+
+L'utilisation de Git et Github, nous a permis un travail collaboratif efficace. Ce projet fut pour certains membres du groupe l'occasion d'une initation à Git et Github pour d'autres la confirmation de la nécéssité d'un tel outil pour un projet de cette ampleur.
+
 \kwacceleo{}, et plus généralement les logiciels MDE, constituent des technologies d'avenir, qui permettent à l'utilisateur (ou développeur) final de s'approprier son application et de l'adapter en fonction de ses nouveaux besoins. En effet, une simple modification du Modèle de l'application permet à l'utilisateur de modifier le comportement de son application sans modifier directement le code source, ce qui permet de gagner du temps et de l'argent.
 % +++
 
@@ -25,5 +30,7 @@ Ce Projet de fin d'études nous a permis de découvrir en profondeur les méthod
 % Aspect "ouverture sur l'intérêt et l'avenir du M2T"
 
 
-% LocalWords:  méta-modèle Clients-Serveur l'instanciation
-% LocalWords:  l'implémentation
+% LocalWords:  méta-modèle Clients-Serveur l'instanciation Plugin IHM
+% LocalWords:  l'implémentation Eclipse Shop.entity Shop.soa Queries
+% LocalWords:  Shop.cinematique maintenabilité Templates nommage
+% LocalWords:  non-regression
