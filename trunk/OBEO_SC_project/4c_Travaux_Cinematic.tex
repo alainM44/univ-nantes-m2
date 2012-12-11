@@ -1,4 +1,11 @@
 \section{Le Méta-Modèle \kwcinematic{}}
+
+L'objectif de \kwcinematic{} est utilisé pour décrire deux aspects du système :
+\begin{itemize}
+\item[IHM :] Description d'interfaces utilisateur, de leur éléments et widgets.
+\item[Scenarios :] Représentation d'états (vues, actions) et de transitions constituant des scénarios pour décrire la dynamique du système.
+\end{itemize}
+
 Le Méta-Modèle \kwcinematic{} est organisé autour de trois principaux packages:
 \begin{itemize}
   \item \textbf{Toolkit}: représente les concepts liés à la définition des widgets\footnote{Élément visuel d'une interface graphique (bouton, ascenseur, liste déroulante, etc\dots)} \textsc{ihm}.
@@ -35,11 +42,11 @@ Le package Flow est illustré sur la figure \ref{fig:flow} :
 
 
 \subsection{Le concept cinématique dans \kwplay{}}
-Nous retrouvons dans un projet \kwplay{} un répertoire dans lequel sont regroupés les différents fichiers Web (HTML, XML,\dots) liés aux vues (principe MVC). Les fichiers relatifs à la création des \textsc{IHM} sont donc indépendants du reste de l'application.   
+Dans toute structure de projet \kwplay{}, il existe un répertoire dans lequel sont regroupés les différents fichiers Web (HTML, XML,\dots) liés aux vues (principe MVC). Les fichiers relatifs à la création des \textsc{IHM} sont donc indépendants du reste de l'application.   
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Conception du modèle}
-La modélisation \textsc{IHM} de l'application prototype \kwplay{} a été mise en place à l'aide de l'outil Acceleo. Le modèle est construit autour des trois principes du Méta-Modèle défini précédemment :
+Le modèle que nous avons conçu pour l'exemple de notre magasin en ligne est construit autour des trois principes du Méta-Modèle défini précédemment :
 \begin{enumerate}
 \item \textbf{Toolkit}: Représente une palette contenant des widgets. Nous avons utilisé le modèle Toolkit (par défaut) car il couvre tous les éléments de type \guim{widget web}  actuellement existants (bouton, liste déroulante, champ de saisie, tableau, etc\dots). Chaque élément \guim{widget} peut lever des événements de type \textit{WidgetEventType} (\verb+onClick()+, \verb+onFocus()+ \dots). 
 
@@ -105,7 +112,10 @@ Certains éléments, tels que les formulaires et les boutons, requièrent des d�
 De l'élément du ViewContainer analysé, il peut se trouver un ViewEvent (évènement tel qu'un clic sur un Bouton). Cet évènement est unique, spécifique à cet élément. On peut alors parcourir le Flow principal, afin de vérifier si une des Transitions prend sa source de cet Évènement. Si une telle transition existent et que sa cible est un ActionState, il est alors possible de récupérer l'Operation associée (définie dans le Modèle \kwsoa). Il est ainsi possible de lier un Évènement à une Action, et il suffit alors de générer l'appel de l'Opération correspondante (en utilisant le système de Routes).
 
 \paragraph{Le cas du \guim{Header}}
-Si l'utilisateur veut créer un \guim{Header} (en-tête de page) visible sur toutes les pages, et présentant des liens vers différentes pages de son application, il n'est pas concevable que ce dernier soit forcé d'ajouter la description de ce \guim{Header} dans toutes les Pages du Modèle. Le système que nous avons mis en place propose plusieurs solutions à ce problème : l'utilisateur peut modifier son Modèle de telle sorte que les pages à référencer soient mises en valeur, avec un attribut spécial par exemple.
+Dans la plupart des sites Web, il existe des éléments présents sur toutes les pages/vue. C'est souvent le cas des \guim{headers} (en-tête de page) et \guim{footers} (pieds de page).\\
+Le méta-modèle \kwcinematic ne propose pas de solution pour représenter de tels éléments. Il n'était cependant pas concevable de forcer l'utilisateur (celui qui construit le Modèle) à intégrer explicitement les éléments d'un \guim{Header} dans toutes les vues existantes.
+Nous avons donc choisi d'utiliser le mécanisme de Métadonnées (existant pour tout type d'élément d'un Modèle) : Nous définissons un ViewElement du Modèle n'étant pas lié à un Flow, et nous l'Annotons manuellement pour le designer explicitement comme étant le header.\\
+Il suffit alors de configurer le générateur de telle sorte qu'il recherche ce ViewElement annoté et génère son contenu au dessus de toutes les autres vues. L'avantage d'une telle approche (et plus généralement, de l'utiliation des Méta-données) est qu'elle permet d'ajouter des informations spécifiques au modèle ou de contourner certains manques liés aux Métamodèles. Il est en revanche nécessaire d'adapter le générateur spécialement pour traiter ce cas d'utilisation, et recherchant cette Annotation en particulier, ce qui réduit fortement son aspect générique.
 
 %%  LocalWords:  Méta-Modèle packages Toolkit widgets ihm package Web
 %%  LocalWords:  toolkit View view Flow flow XML MVC Acceleo widget
