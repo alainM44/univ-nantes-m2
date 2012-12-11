@@ -1,9 +1,10 @@
 \section{Le Méta-Modèle \kwcinematic{}}
 
-L'objectif de \kwcinematic{} est utilisé pour décrire deux aspects du système :
+\kwcinematic{} est utilisé pour décrire deux aspects du système :
 \begin{itemize}
-\item[IHM :] Description d'interfaces utilisateur, de leur éléments et widgets.
-\item[Scenarios :] Représentation d'états (vues, actions) et de transitions constituant des scénarios pour décrire la dynamique du système.
+\item \textbf{IHM :} Description d'interfaces utilisateur, de leurs éléments visuels et widgets.
+\item \textbf{Scénarios :} Représentation d'états (vues, actions) et de transitions constituant des scénarios pour décrire la dynamique du système.
+\\
 \end{itemize}
 
 Le Méta-Modèle \kwcinematic{} est organisé autour de trois principaux packages:
@@ -18,7 +19,7 @@ Le package Toolkit est construit de la manière suivante:
   \caption{Méta-Modèle toolkit}
   \label{fig:toolkit}
 \end{figure}
-  \item \textbf{View}: représente les concepts liés à la définition des \guim{écrans} \textsc{IHM}.
+  \item \textbf{View}: représente les concepts liés aux \guim{écrans} \textsc{IHM}.
 
 La construction du package View est illustrée sur la figure \ref{fig:view}.
 \begin{figure}[h]
@@ -46,13 +47,13 @@ Dans toute structure de projet \kwplay{}, il existe un répertoire dans lequel s
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Conception du modèle}
-Le modèle que nous avons conçu pour l'exemple de notre magasin en ligne est construit autour des trois principes du Méta-Modèle défini précédemment :
+Le modèle de \kwcinematic que nous avons conçu pour l'exemple de notre magasin en ligne est construit autour des trois principes du Méta-Modèle défini précédemment :
 \begin{enumerate}
 \item \textbf{Toolkit}: Représente une palette contenant des widgets. Nous avons utilisé le modèle Toolkit (par défaut) car il couvre tous les éléments de type \guim{widget web}  actuellement existants (bouton, liste déroulante, champ de saisie, tableau, etc\dots). Chaque élément \guim{widget} peut lever des événements de type \textit{WidgetEventType} (\verb+onClick()+, \verb+onFocus()+ \dots). 
 
 \item \textbf{View} : Permet de représenter tous les éléments graphiques d'une interface utilisateur. Au plus haut niveau, nous définissons les éléments de type \textit{View Container}. Un \textit{View Container} peut être de type \textit{Page}, \textit{Panel} (ou \guim{Formulaire}) ou \textit{Table}. 
 
-Nous choisissons le type \textit{Page} pour représenter un écran \textsc{IHM}. Pour chaque \textit{ViewContainer} sont ensuite définis les éléments qu'il contient. Un élément peut être un formulaires, un tableau, ou encore un widget simples. Nos écrans sont alors construits de manière progressive jusqu'à obtenir toutes les fenêtres \textsc{IHM} qui composent l'application.
+Nous choisissons le type \textit{Page} pour représenter un écran \textsc{IHM}. Pour chaque \textit{ViewContainer} sont ensuite définis les éléments qu'il contient. Un élément peut être un formulaire, un tableau, ou encore un widget simple. Nos écrans sont alors construits de manière progressive jusqu'à obtenir tous les \guim{écrans} \textsc{IHM} qui composent l'application.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=.4]{img/views.eps}
@@ -60,10 +61,10 @@ Nous choisissons le type \textit{Page} pour représenter un écran \textsc{IHM}.
   \label{fig:view}
 \end{figure}
 
-\item \textbf{Flow} : Représente la manière dont les écrans et les actions de l'application peuvent s'enchaîner. Il décrit le comportement dynamique de l'\textsc{IHM} sous la forme d'enchaînements entre des états. Nous définissons ici, un état initial \textit{Initial State Start}, des états \textit{View State}, des états d'action \textit{Action State} et des transitions :
+\item \textbf{Flow} : Représente la manière dont les \textit{écrans} et les \textit{actions} de l'application peuvent s'enchaîner. Il décrit le comportement dynamique de l'\textsc{IHM} sous la forme d'enchaînements entre états. Nous définissons ici, un état initial \textit{Initial State Start}, des états \guim{écrans} \textit{View State}, des états d'action \textit{Action State} ainsi que des transitions entre ces états :
 \begin{itemize}
 \item Les états \textit{View State} correspondent aux écrans \textsc{IHM} et contiennent les \textit{View Container} décrit précédemment.
-\item Les états d'action \textit{Action State} définissent les actions à réaliser sur chaque écran de l'application. Ils sont liés aux fonctions offertes par la partie \kwsoa{}.
+\item Les états d'action \textit{Action State} définissent les actions à réaliser sur chaque écran de l'application. Ils sont liés aux fonctions offertes par la partie \kwsoa{} (\textit{cf. \ref{sub:soa}}).
 \item Les transitions \guim{(\textit{Transition})} font passer l'\textsc{IHM} d'un état à un autre (et d'un écran à un autre). Ils font également le lien entre les ActionStates et les ViewStates. Les transitions peuvent également avoir des conditions de garde, déterminées par des View Events (elles n'occurrent ainsi que si les conditions d'activation sont remplies).
 
 \end{itemize}
@@ -75,16 +76,11 @@ Nous choisissons le type \textit{Page} pour représenter un écran \textsc{IHM}.
 Dans le cas de \kwplay, le concept de \kwcinematic passera par les fichiers de \guim{routes}, \guim{controllers} et \guim{views}. Rappelons les caractéristiques de chaque type de fichier :
 \begin{itemize}
 \item \textbf{Controller}: Nous avons une classe \guim{MainController} dans laquelle sont déclarées des méthodes de chacune de nos Actions.
-\item \textbf{Route}: Fichier de configuration des routes au sein de l'application. Les \guim{routes} sont toutes associées au même contrôleur : \guim{MainController}. 
+\item \textbf{Route}: Fichier de configuration des routes au sein de l'application. Afin de rendre plus simple les modifications et la maintenance, les \guim{routes} sont toutes associées au même contrôleur : \guim{MainController}. 
 \item \textbf{View}: Ensemble de fichiers décrivant la forme des pages web (champs texte, formulaires, boutons, \dots) avec du code HTML.
+\\
 \end{itemize}
 Le Générateur \guim{\kwcinematic{}} se compose ainsi d'un module de génération principal, \verb+GenerateCinematic+, lié aux modules de génération majeurs (un pour chaque type de fichiers - Controller, Route, View), eux-mêmes appelant des sous-modules et queries nécessaires à l'élaboration des fichiers finaux en HTML.
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=.35]{img/hierarchie.eps}
-  \caption{Hiérarchie des fichiers générateurs}
-  \label{fig:gen}
-\end{figure}
 
 \begin{description}
 
@@ -95,6 +91,15 @@ Le Générateur \guim{\kwcinematic{}} se compose ainsi d'un module de générati
 \item[Le générateur de Views :] permet la création des différentes pages de l'application. Le modèle entier est analysé afin de permettre la création de chacun des éléments nécessaires à l'\textsc{IHM}. Une application Scala est composée d'une page principale, dite \guim{main} ou \guim{index}, qui fait appel à d'autres pages qui correspondent aux différents écrans de l'application. Ainsi, la page \guim{index}, indépendante des autres écrans, n'est pas représentée dans le modèle - elle est cependant générée automatiquement avant la génération des écrans.
 
 \end{description}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=.35]{img/hierarchie.eps}
+  \caption{Hiérarchie des fichiers générateurs}
+  \label{fig:gen}
+\end{figure}
+
+
 Chaque page est décrite au sein d'un ViewState (écran) par l'intermédiaire d'un ViewContainer de type \guim{Page}. Dans notre modèle actuel, il est supposé qu'un ViewState ne contient qu'un seul ViewContainer de type \guim{Page} (un écran = une page). De cette manière, un seul fichier de vue HTML est créé par ViewState, et donc par écran. Le ViewContainer \guim{Page} peut contenir à son tour soit d'autres ViewContainers, soit des ViewElements (qui représentent des Widgets). Par exemple, les \guim{Tables} et les \guim{Formulaires} sont des conteneurs. Le rôle du générateur de Views est de traduire chacun de ces éléments en code HTML pour chaque écran.
 
 %% Plutôt que de créer un template par type d'élément, nous avons créé des templates \guim{conditionnels}. Ainsi, par exemple, pour la génération de ViewElements, un seul Template est appelé - cependant, selon la nature du ViewElement (déterminée par une Query), une seule des spécifications du Template sera mise en oeuvre. Il en est de même pour les ViewContainers secondaires. De cette façon, un code \guim{personnalisé} pour chaque élément est généré, prenant en compte le type de l'élément, son environnement (conteneur) et ses propriétés (label\dots).
@@ -106,17 +111,17 @@ Chaque page est décrite au sein d'un ViewState (écran) par l'intermédiaire d'
   \label{fig:ex_view}
 \end{figure}
 
-\paragraph{Actions}
+\subsubsection{Actions}
 Certains éléments, tels que les formulaires et les boutons, requièrent des déclencheurs d'Actions (envoi de données par exemple). La nature de ces Actions ne peuvent être récupérées directement à partir d'un élément d'un ViewContainer : Il faut utiliser les Transitions afin de savoir si un évènement ou une vue est reliée à une Action.
 
-De l'élément du ViewContainer analysé, il peut se trouver un ViewEvent (évènement tel qu'un clic sur un Bouton). Cet évènement est unique, spécifique à cet élément. On peut alors parcourir le Flow principal, afin de vérifier si une des Transitions prend sa source de cet Évènement. Si une telle transition existent et que sa cible est un ActionState, il est alors possible de récupérer l'Operation associée (définie dans le Modèle \kwsoa). Il est ainsi possible de lier un Évènement à une Action, et il suffit alors de générer l'appel de l'Opération correspondante (en utilisant le système de Routes).
+De l'élément du ViewContainer analysé, il peut se trouver un ViewEvent (évènement tel qu'un clic sur un Bouton). Cet évènement est unique, spécifique à cet élément. On peut alors parcourir le Flow principal, afin de vérifier si une des Transitions prend sa source de cet Évènement. Si une telle transition existe et que sa cible est un ActionState, il est alors possible de récupérer l'Operation associée (définie dans le Modèle \kwsoa). Il est ainsi possible de lier un Évènement à une Action, et il suffit alors de générer l'appel de l'Opération correspondante.
 
-\paragraph{Le cas du \guim{Header}}\label{par:cinematic_header}
+\subsubsection{Le cas du \guim{Header} et la complexité de \kwcinematic}\label{par:cinematic_header}
 Dans la plupart des sites Web, il existe des éléments présents sur toutes les pages/vue. C'est souvent le cas des \guim{headers} (en-tête de page) et \guim{footers} (pieds de page).\\
 Le méta-modèle \kwcinematic ne propose pas de solution pour représenter de tels éléments. Il n'était cependant pas concevable de forcer l'utilisateur (celui qui construit le Modèle) à intégrer explicitement les éléments d'un \guim{Header} dans toutes les vues existantes.
 Nous avons donc choisi d'utiliser le mécanisme de Métadonnées (existant pour tout type d'élément d'un Modèle) : Nous définissons un ViewElement du Modèle n'étant pas lié à un Flow, et nous l'Annotons manuellement pour le designer explicitement comme étant le header.\\
-Il suffit alors de configurer le générateur de telle sorte qu'il recherche ce ViewElement annoté et génère son contenu au dessus de toutes les autres vues. L'avantage d'une telle approche (et plus généralement, de l'utiliation des Méta-données) est qu'elle permet d'ajouter des informations spécifiques au modèle ou de contourner certains manques liés aux Métamodèles. Il est en revanche nécessaire d'adapter le générateur spécialement pour traiter ce cas d'utilisation, et recherchant cette Annotation en particulier, ce qui réduit fortement son aspect générique.
-
+Il suffit alors de configurer le générateur de telle sorte qu'il recherche ce ViewElement annoté et génère son contenu au dessus de toutes les autres vues. L'avantage d'une telle approche (et plus généralement, de l'utiliation des Méta-données) est qu'elle permet d'ajouter des informations spécifiques au modèle ou de contourner certains manques liés aux Métamodèles. Il est en revanche nécessaire d'adapter le générateur spécialement pour traiter ce cas d'utilisation, et recherchant cette Annotation en particulier, ce qui réduit fortement son aspect générique.\\
+L'adoption de conventions est néanmoins nécessaire pour l'ensemble des générateurs liés à \kwcinematic, car ce dernier reste très générique, et son interprêtation peut être différente d'un générateur à un autre, contrairement aux deux autres méta-modèles présentés précédement (\kwentity, \kwsoa) pour lesquels on pouvait aisément associer un élément du modèle à une portion de code à générer.
 %%  LocalWords:  Méta-Modèle packages Toolkit widgets ihm package Web
 %%  LocalWords:  toolkit View view Flow flow XML MVC Acceleo widget
 %%  LocalWords:  web WidgetEventType onClick onFocus ViewContainer
