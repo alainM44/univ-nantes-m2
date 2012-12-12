@@ -8,7 +8,7 @@
 \usepackage{amsbsy}
 \usepackage{epsfig}
 \usepackage{natbib}
-%\usepackage[a6paper,centering]{geometry} % Utilise pour centrer
+\usepackage[a6paper,centering]{geometry} % Utilise pour centrer
 
 \usepackage[francais]{babel}
 
@@ -122,14 +122,22 @@
 
 
 % Presentation Play
-\begin{slide}[Box]{Le Framework \textit{Play!}}
-\bigskip
-  \begin{center}
-  \centering
-    \includegraphics[scale=.6]{img/play_scheme.eps} 
-  \end{center}
-\end{slide}
-
+\overlays{4}{
+  \begin{slide}[Box]{Le Framework \textit{Play!}}
+  \bigskip
+    \begin{itemstep}
+      \item Écrit en \textit{Java} et \textit{Scala}
+      \item Technologie Open Source
+      \item Facilite la conception de sites et services Web (pattern MVC)
+    \end{itemstep}
+    \fromSlide{4}{
+      \begin{center}
+      \centering
+        \includegraphics[scale=.6]{img/play_scheme.eps} 
+      \end{center}
+    }
+  \end{slide}
+}
 % Prototype d'application avec screen
 \begin{slide}[Box]{Prototype d'application}
   %\vspace{-1cm}
@@ -144,27 +152,27 @@
     \begin{itemstep}
     \itemg Conception de 3 Modèles.
     \itemg Conception de 3 générateurs.
-    \itemg Application principale
+    \itemg Création d'une Application principale pour le déploiement.
     \end{itemstep}
   \end{slide}
 }
 
 \begin{slide}{Travaux > Entity}
   \bc{}
-    \includegraphics[scale=.3]{img/Entity.eps} 
+    \includegraphics[scale=.4]{img/Entity.eps} 
   \ec{}
 \end{slide}
 
 \begin{slide}{Travaux > Entity > Modèle}
   \bc{}
-    %\includegraphics[scale=.3]{img/Entity.eps} 
+    \includegraphics[scale=.33]{img/entity_model.eps} 
   \ec{}
 \end{slide}
 
 
 \begin{slide}{Travaux > Entity > Génération}
   \bc{}
-    \includegraphics[scale=.3]{img/entity_gen.eps} 
+    \includegraphics[scale=.4]{img/entity_gen.eps} 
   \ec{}
 \end{slide}
 
@@ -264,7 +272,7 @@
 \overlays{9}{%
 \begin{slide}{Bilan}
     \bi
-    \fromSlide{1}{\item[{\includegraphics[width=.4cm]{red-bullet-on-white}}]Contribution}
+    \fromSlide{1}{\item[{\includegraphics[width=.4cm]{red-bullet-on-white}}]Contributions}
     \bi
     \fromSlide{2}{\item Génération d'application \textit{Play!} à partir de modèles Entity, SOA et Cinematic}
     \fromSlide{3}{\item Génération de Webservices}
