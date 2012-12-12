@@ -8,7 +8,7 @@
 \usepackage{amsbsy}
 \usepackage{epsfig}
 \usepackage{natbib}
-\usepackage[a6paper,centering]{geometry} % Utilise pour centrer
+%\usepackage[a6paper,centering]{geometry} % Utilise pour centrer
 
 \usepackage[francais]{babel}
 
@@ -22,14 +22,14 @@
 
 
 
-\title{\vspace{-0,5cm}Senior capstone project, MSc Alma}
+\title{\vspace{-0,5cm}Senior capstone project, MSc \textsc{Alma}}
 \subtitle{Soutenance de projet}
 \author{N.\textsc{Boukra}, L.\textsc{Duringer}\\
   A.\textsc{Marguerite},  M.\textsc{Ouairy}\\
   \& N.\textsc{Sebari}}
 \institution{\vspace{0.5cm} {\hspace{1cm}\includegraphics[scale=0.13]{img/logouniv} \hspace{.5cm}\includegraphics[scale=0.2]{img/logoobeo} }  \vspace{0.3cm}\\  University of Nantes }
 %\email{}
-\slideCaption{Université de Nantes, FR \includegraphics[scale=0.05]{img/logouniv}}
+%\slideCaption{Université de Nantes, FR \includegraphics[scale=0.05]{img/logouniv}}
 %\Logo{\includegraphics[scale=0.05]{img/logouniv}}
 \DefaultTransition{Dissolve}
 
@@ -54,7 +54,7 @@
 \begin{slide}{Sommaire}
   \begin{enumerate}
     {\bf
-    \item L'entreprise Obeo
+    \item Introduction
       \vspace{.5cm}
     \item Objectifs \& démarches
       \vspace{.5cm}
@@ -68,43 +68,35 @@
 
 
 \overlays{3}{%
-  \begin{slide}{L'Entreprise Obeo}
+  \begin{slide}{Introduction > L'Entreprise Obeo}
     \vspace{-1cm}
     \begin{itemstep}
       \fromSlide{1}{\itemg Concepteur de solutions logicielles}
       \vspace{1cm}
-      \fromSlide{2}{\itemg À l'origine du projet \textit{Acceleo}\\ \hspace{4cm} \includegraphics[scale=.20]{img/logoacceleo.eps}}
+      \fromSlide{2}{\itemg Membre stratégique de la \textit{fondation Eclipse} \\ \hspace{4cm}  \includegraphics[scale=.45]{img/logoeclipse.eps}
+      }    
       \vspace{1cm}
-      \fromSlide{3}{\itemg Membre stratégique de la \textit{fondation Eclipse} \\ \hspace{4cm}  \includegraphics[scale=.45]{img/logoeclipse.eps}}
+      \fromSlide{2}{\itemg À l'origine du projet \textit{Acceleo}\\ \hspace{4cm} \includegraphics[scale=.20]{img/logoacceleo.eps}}
+      
     \end{itemstep}
   \end{slide}
 }
 
-% CONTEXTE (liste relatant les notions abordées ?)
-\overlays{3}{%
-  \begin{slide}{Contexte}
-  
-    \begin{itemstep}
-    \itemg Des générateurs de code pour le web existent ...
-    \itemg ... mais ces générateurs génèrent du code bas niveau, difficilement maintenable
-    \itemg De nombreux framework web existent
-    \end{itemstep}
-  
-  \end{slide}
-}
 
 % OBJECTIFS (liste aussi (conception modèle, générateur) ?)
-\overlays{5}{%
-  \begin{slide}{Objectifs}
-
+\overlays{6}{%
+  \begin{slide}{Démarche et objectifs > Contexte \& objectifs}
+    \vspace{-.5cm}
+    \fromSlide{1}{    {\large \bf  Développement d’outils de modélisations dédiés aux applications web}}
+    \vspace{1.5cm}
     \begin{itemstep}
-    \itemg Analyser les framework Web existants
-    \itemg Étudier leur compatibilité avec la démarche de génération de code
-    \itemg Choisir un framework adapté, et courament utilisé
-    \itemg Réaliser un générateur de code pour la technologie choisie
+      \fromSlide{2}{\itemg Analyser les frameworks Web existants}
+      \fromSlide{3}{\itemg Étudier leur compatibilité avec la démarche de génération de code}
+      \fromSlide{4}{\itemg Choisir un framework adapté, et courament utilisé}
+      \fromSlide{5}{\itemg Réaliser un générateur de code pour la technologie choisie}
     \end{itemstep}
     \bc{}
-    \fromSlide{5}{\includegraphics[scale=.4]{img/logoPlay.eps} }
+    \fromSlide{6}{\includegraphics[scale=.4]{img/logoPlay.eps} }
     \ec{}
   \end{slide}
 }
@@ -112,8 +104,8 @@
 % ORGANISATION (dur d'en faire une diapo, mais neamoins tres important)
 % (je laisse en liste/overlays en attendant)
 \overlays{2}{%
-  \begin{slide}{Organisation}
-  \bc{} 
+  \begin{slide}{Démarche et objectifs > Organisation}
+    \bc{} 
   \centering
     \includegraphics[scale=.22]{img/demarche.eps} 
   \ec{}
@@ -125,12 +117,10 @@
   }
   \end{slide}
 }
-
-
 % Presentation Play
 \overlays{4}{
-  \begin{slide}[Box]{Le Framework \textit{Play!}}
-  \bigskip
+  \begin{slide}[Box]{Technologie cible > Le Framework \textit{Play!}}
+    \vspace{-.3cm}
     \begin{itemstep}
       \item Écrit en \textit{Java} et \textit{Scala}
       \item Technologie Open Source
@@ -145,7 +135,7 @@
   \end{slide}
 }
 % Prototype d'application avec screen
-\begin{slide}[Box]{Prototype d'application}
+\begin{slide}[Box]{Technologie cible > Prototype d'application}
   %\vspace{-1cm}
   \bc{} 
     \includegraphics[scale=.3]{img/screen_prototype.eps} 
@@ -156,7 +146,7 @@
 \overlays{3}{%
   \begin{slide}{Travaux}
     \begin{itemstep}
-    \itemg Conception de 3 Modèles.
+    \itemg Conception de 3 Modèles à partir de  : Entity, SOA et Cinematic  
     \vspace{1cm}
     \itemg Conception de 3 générateurs.
     \vspace{1cm}
@@ -165,13 +155,23 @@
   \end{slide}
 }
 
+\overlays{2}{
 \begin{slide}{Travaux > Entity}
-  \bc{}
+  \fromSlide{1}{
+\bi
+\item Données
+\ei}
+
+  \fromSlide{2}{
+    \bc{}
     \includegraphics[scale=.4]{img/Entity.eps} 
-  \ec{}
+    \ec{}
+  }
 \end{slide}
+} 
 
 \begin{slide}{Travaux > Entity > Modèle}
+  \vspace{-1cm}
   \bc{}
     \includegraphics[scale=.33]{img/entity_model.eps} 
   \ec{}
@@ -186,14 +186,19 @@
 
 
 % SOA : M2 simple
+\overlays{2}{
 \begin{slide}{Travaux > SOA}
-
-  \bc{} 
+  \fromSlide{1}{    \bi
+    \fromSlide{1}{\item Services}
+    \ei
+  }
+  \fromSlide{2}{
+    \bc{} 
     \includegraphics[scale=.45]{img/SOA_simple.eps}
-  \ec{}
-
+    \ec{}
+  }
 \end{slide}
-
+}
 % SOA : Implementation
 \begin{slide}{Travaux > SOA > Mise en place}
 
@@ -213,18 +218,20 @@
 \end{slide}
 
 % Cinematic : Le M2
+\overlays{2}{
 \begin{slide}{Travaux > Cinematic > Méta-Modèle}
-
-  \bc{}
+    \bi
+    \fromSlide{1}{\item IHM}
+    \ei
+   \fromSlide{2}{\bc{}
     \includegraphics[scale=.24]{img/cinematic_m2.eps} 
-  \ec{}
-
+  \ec{}}
 \end{slide}
-
+}
 % Le concept de Cinematic dans Play
 \overlays{3}{%
   \begin{slide}{Travaux > Cinematic > Dans \textit{Play!}}
-
+\vspace{.5cm}
     \begin{itemstep}
     \itemg \textbf{View :} Forme des pages web
     \itemg \textbf{Controller :} Gestion de l'affichage des vues
@@ -259,22 +266,29 @@
 \end{slide}
 
 % B
-\begin{slide}{Travaux > Cinematic > Générateur de code}
-    \includegraphics[scale=.3]{img/cinematic_exp1.eps} 
-\end{slide}
+%% \begin{slide}{Travaux > Cinematic > Générateur de code}
+%%     \includegraphics[scale=.3]{img/cinematic_exp1.eps} 
+%% \end{slide}
 
 % B
 \begin{slide}{Travaux > Cinematic > Générateur de code}
+    \bi
+    \fromSlide{2}{\item Pouvoir analyser tout modèle :}
+    \ei
     \includegraphics[scale=.3]{img/cinematic_exp2.eps} 
 \end{slide}
 
 % Deploiement
+\overlays{2}{
 \begin{slide}[Box]{Deploiement}
-  \bc{}
+ \fromSlide{1}{ \bc{}
     \includegraphics[scale=.4]{img/screen_menu.eps}\includegraphics[scale=.35]{img/screen_ui.eps} 
-  \ec{}
+  \ec{}}
+    \bi
+    \fromSlide{2}{\item Démonstration}
+    \ei
 \end{slide}
-
+}
 
 % Bilan
 \overlays{9}{%
