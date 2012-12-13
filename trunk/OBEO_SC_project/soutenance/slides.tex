@@ -8,7 +8,7 @@
 \usepackage{amsbsy}
 \usepackage{epsfig}
 \usepackage{natbib}
-%\usepackage[a6paper,centering]{geometry} % Utilise pour centrer
+\usepackage[a6paper,centering]{geometry} % Utilise pour centrer
 
 \usepackage[francais]{babel}
 
@@ -84,22 +84,23 @@
 
 
 % OBJECTIFS (liste aussi (conception modèle, générateur) ?)
-\overlays{6}{%
+\overlays{5}{%
   \begin{slide}{Démarche et objectifs > Contexte \& objectifs}
     \vspace{-.5cm}
     \fromSlide{1}{    {\large \bf  Développement d’outils de modélisations dédiés aux applications web}}
     \vspace{1.5cm}
-    \begin{itemstep}
+    \begin{Itemize}
       \fromSlide{2}{\itemg Analyser les frameworks Web existants}
-      \fromSlide{3}{\itemg Étudier leur compatibilité avec la démarche de génération de code}
-      \fromSlide{4}{\itemg Choisir un framework adapté, et courament utilisé}
+        \bc{}
+          \fromSlide{3}{\includegraphics[scale=.4]{img/logoPlay.eps} }
+        \ec{}
+      \fromSlide{4}{\itemg Étudier leur compatibilité avec la démarche de génération de code}
       \fromSlide{5}{\itemg Réaliser un générateur de code pour la technologie choisie}
-    \end{itemstep}
-    \bc{}
-    \fromSlide{6}{\includegraphics[scale=.4]{img/logoPlay.eps} }
-    \ec{}
+    \end{Itemize}
+
   \end{slide}
 }
+
 
 % ORGANISATION (dur d'en faire une diapo, mais neamoins tres important)
 % (je laisse en liste/overlays en attendant)
@@ -218,31 +219,31 @@
 \end{slide}
 
 % Cinematic : Le M2
-\overlays{2}{
+\overlays{3}{
 \begin{slide}{Travaux > Cinematic > Méta-Modèle}
     \bi
     \fromSlide{1}{\item IHM}
+    \fromSlide{2}{\item Dynamique du système}
     \ei
-   \fromSlide{2}{\bc{}
+   \fromSlide{3}{\bc{}
     \includegraphics[scale=.24]{img/cinematic_m2.eps} 
   \ec{}}
 \end{slide}
 }
 % Le concept de Cinematic dans Play
-\overlays{3}{%
-  \begin{slide}{Travaux > Cinematic > Dans \textit{Play!}}
+\begin{slide}{Travaux > Cinematic > Dans \textit{Play!}}
 \vspace{.5cm}
-    \begin{itemstep}
+    \begin{Itemize}
     \itemg \textbf{View :} Forme des pages web
     \itemg \textbf{Controller :} Gestion de l'affichage des vues
     \itemg \textbf{Route :} Configuration des routes
-    \end{itemstep}
+    \end{Itemize}
     \bc{} 
       \includegraphics[scale=.3]{img/cinematic_play.eps} 
     \ec{}
 
-  \end{slide}
-}
+\end{slide}
+
 
 % Concepts de Cinematic utilisés
 \begin{slide}{Travaux > Cinematic > Concepts utilisés}
@@ -279,16 +280,16 @@
 \end{slide}
 
 % Deploiement
-\overlays{2}{
 \begin{slide}[Box]{Deploiement}
  \fromSlide{1}{ \bc{}
     \includegraphics[scale=.4]{img/screen_menu.eps}\includegraphics[scale=.35]{img/screen_ui.eps} 
   \ec{}}
-    \bi
-    \fromSlide{2}{\item Démonstration}
-    \ei
 \end{slide}
-}
+
+
+\begin{slide}{Déploiement > Démonstration}
+  \centering {\bf \large Démonstration}
+\end{slide}
 
 % Bilan
 \overlays{9}{%
