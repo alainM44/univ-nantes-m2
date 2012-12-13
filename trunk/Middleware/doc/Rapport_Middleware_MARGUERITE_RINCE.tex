@@ -20,7 +20,7 @@
 \usepackage {multicol}
 %Pour faire plusieurs lignes
 \usepackage{multirow}
-\usepackage{slashbox}
+% \usepackage{slashbox}
 % Pour mettre du code source
 \usepackage {listings}
 % Pour pouvoir passer en paysage
@@ -133,10 +133,10 @@
 
 \section{Introduction}\label{sec:intro}
 Dans le cadre du module Middleware, il nous est proposé de concevoir une application répartie dans le langage JAVA. En effet, la classe UnicastRemoteObject propose les objets Remote Method Invocation (RMI ). Il s’agit d’objets \og distants \fg{} auxquels des appels de méthodes peuvent être effectués comme si l’objet était local. De plus l’implémentation des objets RMI utilise les moniteurs. Ce mécanisme, garantissant l’emploi de canaux de type FIFO,
-est donc approprié pour le protocole de ce projet. Dans ce rapport nous détaillerons dans la section \ref{sec:trav} l'application qui a été réalisée. Par la suite nous aborderons dans la section \ref{sec:pblm} les points inachevés, ainsi que des idées pour les résoudre. 
+est donc approprié pour le protocole de ce projet. Dans ce rapport nous détaillerons dans la section \ref{sec:trav} l'application qui a été réalisée. Par la suite, nous aborderons dans la section \ref{sec:pblm} les points inachevés, ainsi que des idées pour les résoudre. 
 
 \section{Travail réalisé}\label{sec:trav}
-L'application proposée est un forum de discussion permettant à différents utilisateurs d'échanger sur différents thèmes. Une illustration de son architecture est proposée sur la figure \ref{fig:dia}. Au lancement de l'application, l'utilisateur à la possibilité de renseigner un pseudonyme. Si il ne renseigne pas ce champs ou si il n'appuie pas  sur le bouton \verb+SAVE+, l'utilisateur aura pour identifiant \textsc{Anonyme}. Par la suite l'utilisateur peut rejoindre l'un des différents \og salons \fg listés dans la liste centrale de la fenêtre en cliquant sur son nom puis sur le bouton \verb+JoinServer+. Une nouvelle fenêtre de discussion apparaît et l'utilisateur peut dialoguer avec les autres utilisateurs connectés à ce salon. 
+L'application proposée est un forum de discussion permettant à différents utilisateurs d'échanger sur différents thèmes. Une illustration de son architecture est proposée sur la figure \ref{fig:dia}. Au lancement de l'application, l'utilisateur à la possibilité de renseigner un pseudonyme. S'il ne renseigne pas ce champ ou s'il n'appuie pas  sur le bouton \verb+SAVE+, l'utilisateur aura pour identifiant \textsc{Anonyme}. Par la suite l'utilisateur peut rejoindre l'un des différents \og salons \fg listés dans la liste centrale de la fenêtre en cliquant sur son nom puis sur le bouton \verb+JoinServer+. Une nouvelle fenêtre de discussion apparaît et l'utilisateur peut dialoguer avec les autres utilisateurs connectés à ce salon. 
 
 \begin{figure}[htb]
   \includegraphics[scale=.3]{img/dia.eps}
@@ -146,16 +146,16 @@ L'application proposée est un forum de discussion permettant à différents uti
 
 Un client ne peut pas rejoindre deux fois un même salon, l'application bloque cette initiative en informant l'utilisateur qu'il est déjà connecté au sujet de discussion.
 
-Il possible pour utilisateur de créer dynamiquement des sujets de discussion au thème de son choix. Pour cela il suffit d'entrer le nom du sujet de discussion dans la barre de saisie située en bas de l'application, puis de cliquer sur le bouton \verb+CreateServer+. Le nouveau sujet de discussion apparaît dans la liste et l'utilisateur peur le rejoindre comme un sujet de discussion classique. 
+Il possible pour utilisateur de créer dynamiquement des sujets de discussion au thème de son choix. Pour cela il suffit d'entrer le nom du sujet de discussion dans la barre de saisie située en bas de l'application, puis de cliquer sur le bouton \verb+CreateServer+. Le nouveau sujet de discussion apparaît dans la liste et l'utilisateur peut le rejoindre comme un sujet de discussion classique. 
 \hfill \\
-\hspace{4cm} \danger : Un autre utilisateur devra cliquer sur le bouton \verb+Refresh+ pour voir apparaître les potentiels nouveaux sujets de discussion.
+\hspace{4cm} \danger Un autre utilisateur devra cliquer sur le bouton \verb+Refresh+ pour voir apparaître les potentiels nouveaux sujets de discussion.
 
 \section{Problèmes persistant}\label{sec:pblm}
-Bien que fonctionnelles, Certaines fonctionnalités de l'application n'ont pas été implémantées. Notamment, il n'existe pas de mécanismes en cas de pannes du serveur. Dans cette section nous donnerons plusieurs idées et concepts pouvant répondre aux problématiques posées par une telle panne.
+Bien que l'application soit fonctionnelle, certaines fonctionnalités n'ont pas été implémentées. Notamment, il n'existe pas de mécanismes en cas de panne du serveur. Dans cette section nous donnerons plusieurs idées et concepts pouvant répondre aux problématiques posées par une telle panne.
 
 
 \paragraph{Serveur de secours}
-Une première possibilité et de mettre en place un second serveur \og fantôme \fg{} s'exécutant en même temps que le serveur principale. Durant l'exécution de l'application ce second serveur se contentera d'accumuler les informations globales du systèmes suivantes : 
+Une première possibilité et de mettre en place un second serveur \og fantôme \fg{} s'exécutant en même temps que le serveur principal. Durant l'exécution de l'application ce second serveur se contentera d'accumuler les informations globales du système : 
 \begin{itemize}
 \item
   La liste des sujets de discussion.
@@ -164,15 +164,15 @@ Une première possibilité et de mettre en place un second serveur \og fantôme 
 \item
   La correspondance entre les sujets de discussion.
 \end{itemize}
-Lorsqu'un client rencontre une erreur dans une tentative de communication avec le serveur, il considère que le second serveur devient le serveur principale (chaque client récupère l'adresse du second serveur lors de la connexion avec le premier). Lorsque le second serveur reçoit cette sollicitation, il créer un nouveau  \og serveur de secours \fg{}. À chaque nouvelle panne ce cycle peut être itérer à nouveau.
+Lorsqu'un client rencontre une erreur dans une tentative de communication avec le serveur, il considère que le second serveur devient le serveur principale (chaque client récupère l'adresse du second serveur lors de la connexion avec le premier). Lorsque le second serveur reçoit cette sollicitation, il créé un nouveau  \og serveur de secours \fg{}. À chaque nouvelle panne, ce cycle peut être itéré à nouveau.
 
-On peut d'emblée distinguer deux défaut majeur à cette solution : 
+On peut d'emblée distinguer deux défauts majeurs à cette solution : 
 
 \begin{enumerate}
 \item
-  Si une panne touche le serveur de secours, tout le mécanisme devient s'écroule.
+  Si une panne touche le serveur de secours, tout le mécanisme devient inutile.
 \item
-  Il est nécessaire de fournir les ressources pour créer un second serveur et la gestions des fonctionnalités précédemment décrites. Ce qui apport un coups supplémentaire et inutile si aucune panne ne surgit.
+  Il est nécessaire de fournir les ressources pour créer un second serveur et la gestion des fonctionnalités précédemment décrites. Ce qui apporte un coût supplémentaire et inutile si aucune panne ne surgit.
 \end{enumerate}
 
 
