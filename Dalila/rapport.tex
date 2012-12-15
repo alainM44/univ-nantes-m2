@@ -1,0 +1,152 @@
+\documentclass[12pt,a4paper,utf8x]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}  
+\usepackage [frenchb]{babel}
+
+% Pour pouvoir utiliser le verbatim dans les sections utiliser la commande versalitas
+\newcommand{\versalitas}[1]{{\usefont{T1}{cmr}{bx}{sc}#1}}% 
+
+\usepackage{textcomp}
+\usepackage{keystroke}
+\usepackage{amssymb}
+ 
+\usepackage{amsmath}
+\renewcommand{\thesection}{\arabic{section}} % numérotation des sectiosn
+\usepackage[cc]{titlepic} %rajouter le logo dans la page de garde
+\usepackage{url} % Pour avoir de belles url
+\usepackage {geometry}
+\usepackage[linktocpage]{hyperref}
+
+%enlever le numéro de page
+\usepackage{nopageno}
+% Pour mettre du code source
+\usepackage {listings}
+% Pour pouvoir passer en paysage
+\usepackage{lscape}	
+
+% Pour pouvoir faire plusieurs colonnes
+\usepackage {multicol}
+
+% POur crééer un index
+\usepackage{makeidx}
+
+\usepackage[pdftex]{graphicx}
+
+\hypersetup{
+backref=true,
+%permet d'ajouter des liens dans...
+pagebackref=true,%...les bibliographies
+hyperindex=true, %ajoute des liens dans les index.
+colorlinks=true, %colorise les liens
+breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+urlcolor= blue, %couleur des hyperliens
+citecolor=	cyan,
+bookmarks=true, %créé des signets pour Acrobat
+bookmarksopen=true,
+%si les signets Acrobat sont créés,
+%les afficher complètement.
+pdftitle={Initiation à la Recherche}, %informations apparaissant dans
+pdfauthor={MARGUERITE Alain\\ RINCE Romain},
+%dans les informations du document
+pdfsubject={Doc}
+%sous Acrobat.
+}
+\hyphenation{si-tu-a-tion}
+\makeindex
+
+
+%%%% debut macro pour enlever le nom chapitre %%%%
+% \makeatletter
+% \def\@makechapterhead#1{%
+%   \vspace*{50\p@}%
+%   {\parindent \z@ \raggedright \normalfont
+%     \interlinepenalty\@M
+%     \ifnum \c@secnumdepth >\m@ne
+%         \Huge\bfseries \thechapter\quad
+%     \fi
+%     \Huge \bfseries #1\par\nobreak
+%     \vskip 40\p@
+%   }}
+% 
+% \def\@makeschapterhead#1{%
+%   \vspace*{50\p@}%
+%   {\parindent \z@ \raggedright
+%     \normalfont
+%     \interlinepenalty\@M
+%     \Huge \bfseries  #1\par\nobreak
+%     \vskip 40\p@
+%   }}
+% \makeatother
+%%%% fin macro %%%%
+
+%Couverture 
+
+%Couverture 
+\widowpenalty=10000
+\clubpenalty=10000
+ 
+ \title{{\large \textbf{Résumé d'article}\\\emph{Agility and Architecture—Can they coexist?}\\\vspace{1ex}
+ {\scriptsize Philippe \textsc{Kruchten}\\\vspace{0.5ex}University of British Columbia\\\vspace{-4ex}
+Vancouver BC, Canada}}}
+%\titlepic{\includegraphics[scale=0.80]{img/logouniv}}
+		
+
+\author{\small Alain \textsc{Marguerite} et Romain \textsc{Rincé}\\{\small Encadrant : Dalila \textsc{Tamzalit}}}
+\date{}
+ 
+%\title{{\Huge Formal Software Engineering}\\{\small Encadrant : Christian \textsc{Attiogbé}}\\\vspace{3cm} Résumé d'article :\\\vspace{0.3cm}{\Large \emph{Applying Event and Machine Decomposition to a Flash-Based Filestore in Event-B}}\\\vspace{0.3cm}
+%\small K. \textsc{Damchoom} and M. \textsc{Butler}\\University of Southampton\\\vspace{2cm}}
+%\titlepic{\includegraphics[scale=0.80]{img/logouniv}}
+		
+
+%\author{\vspace{2cm}Romain \textsc{Rincé}}
+%\date{\small Université de Nantes \\ 2 rue de la Houssinière, BP92208, F-44322 \textsc{Nantes} cedex 03, \textsc{France}}
+
+\hyphenation{appar-tiennent}
+\hyphenation{pro-blèmes}
+
+\begin{document}
+
+\maketitle
+\renewcommand{\labelitemi}{$\bullet$} 
+
+
+\section{Résumé de l'article}
+L'objectif de l'article \emph{Agility and Architecture—Can they coexist?} est de montrer la dichotomie qui existe entre les méthodes agiles et le développement reposant sur une architecture définie, puis de chercher une possible coexistence de ces deux concepts. 
+
+Dans un premier temps, l'auteur tente de nous monter que les méthodes agiles ne peuvent être la solution à tout, notamment en présentant un cas où l'orientation agile d'un projet s'est conclue par un échec. 
+
+L'auteur met en évidence que le \og niveau\fg{} d'architecture dépend des besoins spécifiques au projet et spécifie huit facteurs qui doivent être pris en compte dans la réalisation d'un projet tel que la taille ou la criticité du projet.
+
+\section{Critique de l'article}
+
+
+\section{Retour sur l'agilité et SOA }
+Les architectures SOA créent naturellement des inter dépendances entre applications. Il n'existent pas, en effet d'applications SOA \og{} indépendantes \fg{}. De plus chaque service d'une pplication SOA doit être considérés comme des composants \og ré-utilisables \of{}. Ces deux dernières contraintes précédement décrites impliquent un nombre de changements potentiellement grands sur des intervalles de temps réguliers. Dans un tel contexte, l'utilisation de l'agilité semble pertinante. 
+
+% \begin{figure}[htbp] %on ouvre l'environnement figure
+%   \center
+%   \includegraphics{img/fractal_component}
+%   \caption{Exemple d'un modèle \fractal{} de composants} %la légende
+%  \label{fig:Comp} %la légende
+% \end{figure}
+
+
+ %on ferme l'environnement figure
+% Pour avoir un interligne de 1,5
+% \input{P0}
+%\input{P01}
+% \input{P1}
+% \input{P2}
+% \input{annexereal}
+
+% Pour finir l'interligne de 1,5
+
+% \printindex
+% 
+% \appendix
+% \bibliographystyle{alpha}
+% \bibliography{biblio.bib}
+
+\end{document}
