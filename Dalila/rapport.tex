@@ -46,7 +46,7 @@ bookmarks=true, %créé des signets pour Acrobat
 bookmarksopen=true,
 %si les signets Acrobat sont créés,
 %les afficher complètement.
-pdftitle={Initiation à la Recherche}, %informations apparaissant dans
+pdftitle={Services M2 ALMA}, %informations apparaissant dans
 pdfauthor={MARGUERITE Alain\\ RINCE Romain},
 %dans les informations du document
 pdfsubject={Doc}
@@ -111,19 +111,23 @@ Vancouver BC, Canada}}}
 \maketitle
 \renewcommand{\labelitemi}{$\bullet$} 
 
+\abstract{Dans le cadre de la 2\up{ème} année Master ALMA, le module \emph{Service}nous donne l'opportunité d'étudier les architectures distribuée telle que SOA (..), ainsi que des techniques de développement comme les méthdes agiles. Le but de ce document est de proposer le point de vue de notre bînome sur les méthodes agiles et l'architecture SOA. Dans la section \ref{sec:res} de ce document, nous proposons une critique d'un artiche de P. \textsc{Krutchen} consacrée à la coexistence entre les architectures logicielles et les méthodes agiles. Par la suite, la section \ref{sec:cri} contient le point de vue de notre bînome de l'article de P. \textsc{Krutchen}. Enfin dans l'ultime section \ref{sec:ret} nous reviendrons sur les notions étudiées proposant un nouveau point de vue.} 
 
-\section{Résumé de l'article}
-L'objectif de l'article \emph{Agility and Architecture—Can they coexist?} est de montrer la dichotomie qui existe entre les méthodes agiles et le développement reposant sur une architecture définie, puis de chercher une possible coexistence de ces deux concepts. 
+\section{Résumé de l'article}\label{sec:res}
+L'objectif de l'article \emph{Agility and Architecture—Can they coexist?}  \cite{krutchen} est de montrer la dichotomie qui existe entre les méthodes agiles et le développement reposant sur une architecture définie, puis de chercher une possible coexistence de ces deux concepts. 
 
 Dans un premier temps, l'auteur tente de nous monter que les méthodes agiles ne peuvent être la solution à tout, notamment en présentant un cas où l'orientation agile d'un projet s'est conclue par un échec. 
 
 L'auteur met en évidence que le \og niveau\fg{} d'architecture dépend des besoins spécifiques au projet et spécifie huit facteurs qui doivent être pris en compte dans la réalisation d'un projet tel que la taille ou la criticité du projet.
 
-\section{Critique de l'article}
+\section{Critique de l'article}\label{sec:cri}
 
 
-\section{Retour sur l'agilité et SOA }
-Les architectures SOA créent naturellement des inter dépendances entre applications. Il n'existent pas, en effet d'applications SOA \og{} indépendantes \fg{}. De plus chaque service d'une pplication SOA doit être considérés comme des composants \og ré-utilisables \of{}. Ces deux dernières contraintes précédement décrites impliquent un nombre de changements potentiellement grands sur des intervalles de temps réguliers. Dans un tel contexte, l'utilisation de l'agilité semble pertinante. 
+\section{Retour sur l'agilité et SOA}\label{sec:ret}
+Les méthodes agiles sont un ensembles de méthodes caractérisitques du développement en informatique et de la conception de logiciel. Avec la volonté d'être le plus pragmatique possible, les méthodes agiles font intervenir au maximum le client (le \og demandeur \fg{}), ce qui permet une grande réactivité à ses exigences. Le but principal étant d'être au plus près de la satisfaction réelle du client.
+
+
+Les architectures SOA créent naturellement des inter dépendances entre applications. Il n'existent pas, en effet d'applications SOA \og{} indépendantes \fg{}. De plus chaque service d'une pplication SOA doit être considérés comme des composants \og ré-utilisables \fg{}. Ces deux dernières contraintes précédement décrites impliquent un nombre de changements potentiellement grands sur des intervalles de temps réguliers. Dans un tel contexte, l'utilisation de l'agilité semble pertinante \cite{ibm}.  
 
 % \begin{figure}[htbp] %on ouvre l'environnement figure
 %   \center
@@ -146,7 +150,7 @@ Les architectures SOA créent naturellement des inter dépendances entre applica
 % \printindex
 % 
 % \appendix
-% \bibliographystyle{alpha}
-% \bibliography{biblio.bib}
+\bibliographystyle{alpha}
+\bibliography{biblio.bib}
 
 \end{document}
