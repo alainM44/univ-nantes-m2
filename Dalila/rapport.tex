@@ -86,13 +86,11 @@ pdfsubject={Doc}
 \widowpenalty=10000
 \clubpenalty=10000
  
- \title{{\large \textbf{Résumé d'article}\\\emph{Agility and Architecture—Can they coexist?}\\\vspace{1ex}
- {\scriptsize Philippe \textsc{Kruchten}\\\vspace{0.5ex}University of British Columbia\\\vspace{-4ex}
-Vancouver BC, Canada}}}
+ \title{\LARGE \textbf{Agilité et \textsc{SOA}}}
 %\titlepic{\includegraphics[scale=0.80]{img/logouniv}}
 		
 
-\author{\small Alain \textsc{Marguerite} et Romain \textsc{Rincé}\\{\small Encadrant : Dalila \textsc{Tamzalit}}}
+\author{\footnotesize Alain \textsc{Marguerite} et Romain \textsc{Rincé}\\{\footnotesize Encadrant : Dalila \textsc{Tamzalit}}}
 \date{}
  
 %\title{{\Huge Formal Software Engineering}\\{\small Encadrant : Christian \textsc{Attiogbé}}\\\vspace{3cm} Résumé d'article :\\\vspace{0.3cm}{\Large \emph{Applying Event and Machine Decomposition to a Flash-Based Filestore in Event-B}}\\\vspace{0.3cm}
@@ -111,33 +109,33 @@ Vancouver BC, Canada}}}
 \maketitle
 \renewcommand{\labelitemi}{$\bullet$} 
 
-\abstract{Dans le cadre de la 2\up{ème} année Master ALMA, le module \emph{Services} nous donne l'opportunité d'étudier les architectures distribuée telle que SOA (..), ainsi que des techniques de développement comme les méthodes agiles. Le but de ce document est de proposer le point de vue de notre bînome sur les méthodes agiles et l'architecture SOA. Dans la section \ref{sec:res} de ce document, nous proposons une critique d'un article de P. \textsc{Kruchten} consacrée à la coexistence entre les architectures logicielles et les méthodes agiles. Par la suite, la section \ref{sec:cri} contient le point de vue de notre bînome de l'article de P. \textsc{Kruchten}. Enfin dans l'ultime section \ref{sec:ret} nous reviendrons sur les notions étudiées proposant un nouveau point de vue.} 
+\abstract{Dans le cadre de la 2\up{nd} année du Master ALMA, le module \emph{Services} nous donne l'opportunité d'étudier les architectures distribuées telle que SOA, ainsi que des techniques de développement comme les méthodes agiles. Le but de ce document est de proposer le point de vue de notre binôme sur la compatibilité des méthodes agiles avec l'architecture orientée service. 
+Dans la section \ref{sec:ret} de ce document, nous ferons un rappel des objectifs et des contraintes relatives au SOA et aux méthodes agiles. Dans la section \ref{sec:avis}, nous présenterons différents avis qui ont pu émerger des divers articles parcourus. Enfin nous ferons, en section \ref{sec:bilan}, un bilan sur nos lectures, complété de notre avis personnel sur le sujet.
+% Dans la section \ref{sec:res} de ce document, nous proposons une critique d'un article de P. \textsc{Kruchten} consacrée à la coexistence entre les architectures logicielles et les méthodes agiles. Par la suite, la section \ref{sec:cri} contient le point de vue de notre binôme de l'article de P. \textsc{Kruchten}. Enfin dans l'ultime section \ref{sec:ret} nous reviendrons sur les notions étudiées proposant un nouveau point de vue.} 
 
-\section{Résumé de l'article}\label{sec:res}
-L'objectif de l'article \emph{Agility and Architecture—Can they coexist?}  \cite{krutchen} est de montrer la dichotomie qui existe entre les méthodes agiles et le développement reposant sur une architecture définie, puis de chercher une possible coexistence de ces deux concepts. 
-
-Dans un premier temps, l'auteur tente de nous monter que les méthodes agiles ne peuvent être la solution à tout, notamment en présentant un cas où l'orientation agile d'un projet s'est conclue par un échec. 
-
-L'auteur met en évidence que le \og niveau\fg{} d'architecture dépend des besoins spécifiques au projet et spécifie huit facteurs qui doivent être pris en compte dans la réalisation d'un projet tel que la taille ou la criticité du projet.
-
-\section{Critique de l'article}\label{sec:cri}
+% \section{Résumé de l'article}\label{sec:res}
+% L'objectif de l'article \emph{Agility and Architecture—Can they coexist?}  \cite{krutchen} est de montrer la dichotomie qui existe entre les méthodes agiles et le développement reposant sur une architecture définie, puis de chercher une possible coexistence de ces deux concepts. 
+% 
+% Dans un premier temps, l'auteur tente de nous monter que les méthodes agiles ne peuvent être la solution à tout, notamment en présentant un cas où l'orientation agile d'un projet s'est conclue par un échec. 
+% 
+% L'auteur met en évidence que le \og niveau\fg{} d'architecture dépend des besoins spécifiques au projet et spécifie huit facteurs qui doivent être pris en compte dans la réalisation d'un projet tel que la taille ou la criticité du projet.
+% 
+% \section{Critique de l'article}\label{sec:cri}
 
 
 \section{Retour sur l'agilité et SOA}\label{sec:ret}
-Les méthodes agiles sont un ensemble de méthodes caractéristiques du développement en informatique et de la conception de logiciels. Avec la volonté d'être le plus pragmatique possible, les méthodes agiles font intervenir au maximum le client (le \og demandeur \fg{}), ce qui permet une grande réactivité à ses exigences. Le but principal étant d'être au plus près de la satisfaction réelle du client.
+Les méthodes agiles sont un ensemble de méthodes caractéristiques du développement en informatique et de la conception de logiciels. Avec la volonté d'être le plus pragmatique possible, les méthodes agiles font intervenir au maximum le client (le \og demandeur \fg{}), ce qui permet une grande réactivité à ses exigences. Le but principal étant d'être au plus près de la satisfaction réelle du client en se focalisant, notamment, sur l'aspect fonctionnel.
 
-Une architecture orientée services (Service Oriented Architecture, SOA) est une formes d'architectures mettant en oeuvre un modèle d'interaction applicatif. Ces interactions sont possibles grâce à un ensemble de fonctionnalités basique appellées services. Ces services sont fournis par des composants (composants logiciels). On retrouve dans la référence \cite{soa} une description des nombreux avantages que propose l'architecture SOA.
+Une architecture orientée services (Service Oriented Architecture, SOA) est une formes d'architectures mettant en oeuvre un modèle d'interaction applicatif. Ces interactions sont possibles grâce à un ensemble de fonctionnalités basique appelées services. Ces services sont fournis par des composants (composants logiciels). On retrouve dans la référence \cite{soa} une description des nombreux avantages que propose l'architecture SOA.
+Parmi eux, la modularité de ce type d'architecture permet de remplacer facilement un composant ou service par un autre. La mise à disposition des solutions au client est donc plus rapide et moins onéreuse. Cette réduction du \emph{Time to Market} donne un avantage non négligeable à l'architecte de l'application qui peut alors trouver les moyens de créer de nouvelles fonctionnalités ou simplement d'investir dans d'autre projet.
 
+Cependant, pour être bénéfique, l'utilisation d'une architecture SOA demande certains pré-requis (\textit{cf.} \cite{soa}). Par exemple, il n'est pas raisonnable d'employer une telle architecture dans le cadre d'une petite application où une architecture plus simple et plus économique à mettre en place serait suffisante. De plus, certaines pré-conditions sont indispensables pour rendre l'utilisation d'une architecture SOA pertinente (qualification des développeurs, réutilisation des services\dots).
 
-Parmi eux, la modularité de ce type d'architecture permet de remplacer facilement un composant ou service par un autre. La mise à disposition des solutions au clients est donc plus rapide et moins onéreuse. Cette réduction du \emph{Time to Market} donne un avantage non négligeable à l'architecte de l'application qui peut alors trouver les moyens de créer de nouvelles fonctionalités ou simplement d'investir dans d'autre projet.
+\section{Avis extraits de la documentation}\label{sec:avis}
+La référence \cite{ibm} met en exergue les conditions dans lesquelles une collaboration entre SOA et méthodes agiles semble pertinente. Les architectures SOA créent naturellement des interdépendances entre applications. Il n'existent pas, en effet d'applications SOA \og indépendantes \fg{}. De plus chaque service d'une application SOA doit être considéré comme un composant \og ré-utilisable \fg{}. Ces deux dernières contraintes précédemment décrites impliquent un nombre de changements potentiellement important sur des intervalles de temps réguliers. Dans un tel contexte, l'utilisation de l'agilité semble raisonnable. Cependant le bref article \cite{cloud} montre qu'il est parfois difficile d'utiliser des méthodes agiles avec des applications SOA et notamment, d'après l'auteur, lorsque l'on désire effectuer des opérations sur les data centers qui hébergent ces services.
 
-
-Cependant, pour être bénéfique, l'utilisation d'une architecture SOA demande certains pré-requis (\textit{cf.} \cite{soa}). Par exemple, il n'est pas raisonable d'employer une telle architecture dans le cadre d'une petite application où une architecture plus simple et plus économique à mettre en place serait suffisante. De plus, certaines pré-conditions sont indispensables pour rendre l'utlisation d'une architecture SOA pertinente (qualification des développeurs, réutilisation des servives\dots).
-
-
-La référence \cite{ibm} met en exergue les conditions dans lequelles une collaboration entre SOA et méthodes agiles semble pertinente. Les architectures SOA créent naturellement des inter dépendances entre applications. Il n'existent pas, en effet d'applications SOA \og indépendantes \fg{}. De plus chaque service d'une pplication SOA doit être considéré comme un composant \og ré-utilisable \fg{}. Ces deux dernières contraintes précédement décrites impliquent un nombre de changements potentiellement important sur des intervalles de temps réguliers. Dans un tel contexte, l'utilisation de l'agilité semble raisonable.  
-
-
+\section{Bilan}\label{sec:bilan}
+Au vu des articles et des avis qui en émergent, ils semblent encore difficile de dire s'il sera possible d'appliquer les méthodes agiles sur le SOA. Bien que les personnes optimistes sur le sujet ne manquent pas, certaines semblent plus réservées. Malheureusement, on sent qu'un certain flou existe sur le sujet, ces deux domaines étant sans doute trop jeunes pour pouvoir être analysés avec justesse. Ce sera donc sûrement le temps et les projets futurs, impliquant l'agilité et le SOA, qui fourniront une réponse à ce sujet.
 
 % \begin{figure}[htbp] %on ouvre l'environnement figure
 %   \center
