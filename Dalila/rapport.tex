@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,utf8x]{article}
+\documentclass[11pt,a4paper,utf8x]{article}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc} 
 \usepackage[utf8]{inputenc}  
@@ -126,8 +126,20 @@ L'auteur met en évidence que le \og niveau\fg{} d'architecture dépend des beso
 \section{Retour sur l'agilité et SOA}\label{sec:ret}
 Les méthodes agiles sont un ensembles de méthodes caractérisitques du développement en informatique et de la conception de logiciel. Avec la volonté d'être le plus pragmatique possible, les méthodes agiles font intervenir au maximum le client (le \og demandeur \fg{}), ce qui permet une grande réactivité à ses exigences. Le but principal étant d'être au plus près de la satisfaction réelle du client.
 
+Une architecture orientée services (Service Oriented Architecture, SOA) est une formes d'architectures mettant en oeuvre un modèle d'interaction applicative. Ces intéractions sont possibles grâce à un ensemble de fonctionalités basique appellé services. Ces services sont fournis par des composants (composants logiciels). On retrouve dans la référence \cite{soa} une description des nombreux avantages que propose l'architecture SOA.
+
+
+Parmis eux, la modularité de ce type d'architecture permet de remplacer facilement un composant ou service par un autre. La mise à disposition des solutions au clients sont donc plus rapides et moins onéreuses. Cette réduction du \emph{Time to Market} donne un avantage non négligeable à l'architecte de l'application qui peut alors trouver les moyens de creer de nouvelles fonctionalités ou simplement d'investir dans d'autre projet.
+
+
+Cependant, pour être bénéfique,  l'utilisation d'une architecture SOA demande certains pré-requis (\cf{} \cite{soa}). Par exemple, il n'est pas raisonable d'employer une telle architecture dans le cadre d'une petite application où une architecture plus simple et plus économique à mettre en place serait suffisante. De plus, certaines pré-conditions sont indispensable pour rendre l'utlisation d'une architecture SOA pertinente (qualification des développeurs, réutilisation des servives\dots).
+Cette architecture propose de nombreux avantage
+
+
 
 Les architectures SOA créent naturellement des inter dépendances entre applications. Il n'existent pas, en effet d'applications SOA \og{} indépendantes \fg{}. De plus chaque service d'une pplication SOA doit être considérés comme des composants \og ré-utilisables \fg{}. Ces deux dernières contraintes précédement décrites impliquent un nombre de changements potentiellement grands sur des intervalles de temps réguliers. Dans un tel contexte, l'utilisation de l'agilité semble pertinante \cite{ibm}.  
+
+
 
 % \begin{figure}[htbp] %on ouvre l'environnement figure
 %   \center
