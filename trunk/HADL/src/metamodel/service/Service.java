@@ -56,31 +56,19 @@ public abstract class Service extends Observable implements Observer {
 	public abstract void action();
 
 	public void execute() {
-		System.out.println(name + " execute");
 		if (bindService == null) {
 
 			action();
 			setChanged();
 			notifyObservers();// TODO
 
-			// try {
-			// wait();
-			// } catch (InterruptedException e) {
-			// // TODO Auto-generated catch block
-			// e.printStackTrace();
-			// }
 		} else {
 			bindService.setPortF(portF);
 			bindService.action();
 			setPortR(bindService.getPortR());
 			setChanged();
 			notifyObservers();
-			// try {
-			// bindService.wait();
-			// } catch (InterruptedException e) {
-			// // TODO Auto-generated catch block
-			// e.printStackTrace();
-			// }
+
 		}
 	}
 
